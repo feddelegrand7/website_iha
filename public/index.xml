@@ -5,7 +5,7 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>Mohamed El Fodil IHADDADEN</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 11 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/logo-via-logohub.png</url>
       <title>Mohamed El Fodil IHADDADEN</title>
@@ -79,6 +79,57 @@
 &lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
 
 &lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AlgeRian R Users: Kamila Benadrouche</title>
+      <link>/post/algerian-users-serie-kamila-benadrouche/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>/post/algerian-users-serie-kamila-benadrouche/</guid>
+      <description>
+
+
+&lt;p&gt;Kamila Benadrouche has a master degree in operational research: optimization and strategic management. She is currently a Lecturer at the University of Boumerdes, Faculty of Mathematics where she’s teaching R programming for undergraduates.&lt;/p&gt;
+&lt;div id=&#34;kamila-how-long-have-you-been-using-r&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Kamila, how long have you been using R ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;About 3 years.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;why-did-you-choose-r-among-other-programming-tools&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Why did you choose R among other programming tools ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;because it is easier than others, free, and it contains wonderful packages that makes it easy for mathematicians.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cool-whats-your-favorite-package-and-why&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Cool, what’s your favorite package and why ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;ggplot2&lt;/strong&gt; because it allows us to visualize our data and makes pretty graphs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;agree-what-about-the-package-that-facilitates-your-life-in-your-field-of-expertise-operational-research&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Agree ! what about the package that facilitates your life in your field of expertise : operational research ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Indeed, my favorite one is the &lt;a href=&#34;https://cran.r-project.org/web/packages/MCDA/index.html&#34;&gt;mcda&lt;/a&gt; package which contains cool functions related to Multicriteria Decision Aiding.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;do-you-experience-some-barriers-when-teaching-r-programming-within-boumerdes-university&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Do you experience some barriers when teaching R programming within Boumerdes university ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Yes ! as R programming is something new for many students, they’re not really motivated. Further, our lectur rooms lack of internet connexion which affects negatively the course’s content, especially when it comes to installing packages.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;last-question-there-is-an-organization-that-promotes-gender-diversity-in-the-r-community-called-r-ladies-global-would-you-consider-joining-this-organisation-and-creating-with-others-a-group-here-in-algeria&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Last question, there is an organization that promotes gender diversity in the R community called R-Ladies Global, would you consider joining this organisation and creating with others a group here in Algeria ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Actually, I’m trying to create the R-Ladies Algiers group, I made the related steps and I’m still waiting for the final answer from R-Ladies Global.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;well-thank-you-very-much-kamila-for-your-time-i-hope-to-see-r-ladies-algiers-operating-very-soon&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Well, thank you very much Kamila for your time, I hope to see R-ladies Algiers operating very soon !!!&lt;/h3&gt;
+&lt;/div&gt;
 </description>
     </item>
     

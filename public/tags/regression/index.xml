@@ -1,63 +1,96 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>regression | Academic</title>
+    <title>Regression | Mohamed El Fodil IHADDADEN</title>
     <link>/tags/regression/</link>
       <atom:link href="/tags/regression/index.xml" rel="self" type="application/rss+xml" />
-    <description>regression</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    <description>Regression</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 04 Dec 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/img/icon-192.png</url>
-      <title>regression</title>
+      <url>/img/logo-via-logohub.png</url>
+      <title>Regression</title>
       <link>/tags/regression/</link>
     </image>
     
     <item>
-      <title>Hello R Markdown</title>
-      <link>/post/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      <guid>/post/2015-07-23-r-rmarkdown/</guid>
+      <title>Simple Linear Regression with R</title>
+      <link>/post/simple-linear-regression-with-r/</link>
+      <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>/post/simple-linear-regression-with-r/</guid>
       <description>
 
 
-&lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;R Markdown&lt;/h1&gt;
-&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cars)
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-fit &amp;lt;- lm(dist ~ speed, data = cars)
-fit
-## 
+&lt;p&gt;In this tutorial, we’ll take a look at a simple linear model. We’ll use the &lt;code&gt;mpg&lt;/code&gt; dataset which is linked to the &lt;code&gt;tidyverse&lt;/code&gt; package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+
+head(mpg)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 11
+##   manufacturer model displ  year   cyl trans  drv     cty   hwy fl    class
+##   &amp;lt;chr&amp;gt;        &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;
+## 1 audi         a4      1.8  1999     4 auto(~ f        18    29 p     comp~
+## 2 audi         a4      1.8  1999     4 manua~ f        21    29 p     comp~
+## 3 audi         a4      2    2008     4 manua~ f        20    31 p     comp~
+## 4 audi         a4      2    2008     4 auto(~ f        21    30 p     comp~
+## 5 audi         a4      2.8  1999     6 auto(~ f        16    26 p     comp~
+## 6 audi         a4      2.8  1999     6 manua~ f        18    26 p     comp~&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;here, we’ll model the impact of &lt;code&gt;displ&lt;/code&gt; (the independent variable : x) on &lt;code&gt;cty&lt;/code&gt; (the dependent variable: y). We want to investigate if the energy efficiency as measured by &lt;code&gt;cty&lt;/code&gt; is impacted by &lt;code&gt;displ&lt;/code&gt;.&lt;/p&gt;
+&lt;div id=&#34;first-hypothesis-linear-relationship&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;First hypothesis: Linear relationship&lt;/h1&gt;
+&lt;p&gt;In order to implement a linear regression, the relationship between &lt;em&gt;y&lt;/em&gt; and &lt;em&gt;x&lt;/em&gt; should be linear. Let’s check it out:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mpg, aes(displ, cty)) + 
+  geom_point(col = &amp;quot;grey28&amp;quot;) +
+  geom_smooth(method = &amp;quot;lm&amp;quot;, se = FALSE, col = &amp;quot;red&amp;quot;) + # plotting the regression line
+  ggthemes::theme_economist()+
+  scale_y_continuous(breaks = seq(min(mpg$cty), max(mpg$cty), 1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-12-04-simple-linear-regression-with-r_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;From above, we can observe that there is a negative linear relationship between &lt;code&gt;disp&lt;/code&gt; and &lt;code&gt;cty&lt;/code&gt; nevertheless, we observe some outliers at the top left of our graph. Let’s remove them:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mpg &amp;lt;- mpg %&amp;gt;% filter(cty &amp;lt; 23)
+
+
+ggplot(mpg, aes(displ, cty)) + 
+  geom_point(col = &amp;quot;grey28&amp;quot;) +
+  geom_smooth(method = &amp;quot;lm&amp;quot;, se = FALSE, col = &amp;quot;red&amp;quot;) + # plotting the regression line
+  ggthemes::theme_economist()+
+  scale_y_continuous(breaks = seq(min(mpg$cty), max(mpg$cty), 1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-12-04-simple-linear-regression-with-r_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;much better !!!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;second-hypothesis-good-level-of-association&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Second hypothesis: good level of association&lt;/h1&gt;
+&lt;p&gt;When running a linear regression, a good level of correlation is preferable. We can measure the pearson correlation using the &lt;code&gt;cor()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(mpg$displ, mpg$cyl)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.9223959&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The correlation is quite importante, we can go on.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fitting-the-model-to-our-data&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Fitting the model to our data&lt;/h1&gt;
+&lt;p&gt;In order to fit our model, we’ll use the &lt;code&gt;lm()&lt;/code&gt; function as follows:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my_model &amp;lt;- lm(cty ~ displ, data = mpg)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;extracting-the-regression-information&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Extracting the regression information&lt;/h1&gt;
+&lt;p&gt;Using the &lt;code&gt;summary()&lt;/code&gt; function, we’ll investigate the results of our regression:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(my_model)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
 ## Call:
-## lm(formula = dist ~ speed, data = cars)
+## lm(formula = cty ~ displ, data = mpg)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.7549 -1.2060 -0.0724  1.4292  6.2598 
 ## 
 ## Coefficients:
-## (Intercept)        speed  
-##     -17.579        3.932&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;including-plots&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Including Plots&lt;/h1&gt;
-&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:pie&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),
-  col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
-  init.angle = -50, border = NA
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 1: A fancy pie chart.
-&lt;/p&gt;
-&lt;/div&gt;
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept)  23.9031     0.3977   60.10   &amp;lt;2e-16 ***
+## displ        -2.1661     0.1042  -20.79   &amp;lt;2e-16 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 1.909 on 214 degrees of freedom
+## Multiple R-squared:  0.6688, Adjusted R-squared:  0.6673 
+## F-statistic: 432.2 on 1 and 214 DF,  p-value: &amp;lt; 2.2e-16&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We remark that our predictor has a p-value &amp;lt; 1%, therefore we can reject the Null hypothesis and say that according to our data the &lt;code&gt;disp&lt;/code&gt; variable has a &lt;strong&gt;significant&lt;/strong&gt; impact on fuel efficiency. The formula of our model can be written as:
+&lt;span class=&#34;math inline&#34;&gt;\(cty = 23.9031 - 2.1661 \times displ\)&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

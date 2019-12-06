@@ -1,0 +1,56 @@
+---
+title: 'AlgeRian R Users: Kamila Benadrouche'
+author: Mohamed El Fodil Ihaddaden
+date: '2019-12-06'
+slug: algerian-users-serie-Kamila-Benadrouche
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-12-06T14:59:28+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+Kamila Benadrouche has a master degree in operational research: optimization and strategic management. She is currently a Lecturer at the University of Boumerdes, Faculty of Mathematics where she's teaching R programming for undergraduates. 
+
+
+### Kamila, how long have you been using R ? 
+
+
+> About 3 years. 
+
+
+### Why did you choose R among other programming tools ?  
+
+> because it is easier than others, free, and it contains wonderful packages that makes it easy for mathematicians.
+
+
+### Cool, what's your favorite package and why ?
+
+> **ggplot2** because it allows us to visualize our data and makes pretty graphs.
+
+
+### Agree ! what about the package that facilitates your life in your field of expertise : operational research ? 
+
+> Indeed, my favorite one is the [mcda](https://cran.r-project.org/web/packages/MCDA/index.html) package which contains cool functions related to Multicriteria Decision Aiding.
+
+
+### Do you experience some barriers when teaching R programming within Boumerdes university ? 
+
+> Yes ! as R programming is something new for many students, they're not really motivated. Further, our lectur rooms lack of internet connexion which affects negatively the course's content, especially when it comes to installing packages. 
+
+
+### Last question, there is an organization that promotes gender diversity in the R community called R-Ladies Global, would you consider joining this organisation and creating with others a group here in Algeria ? 
+
+
+> Actually, I'm trying to create the R-Ladies Algiers group, I made the related steps and I'm still waiting for the final answer from R-Ladies Global. 
+
+
+### Well, thank you very much Kamila for your time, I hope to see R-ladies Algiers operating very soon !!!

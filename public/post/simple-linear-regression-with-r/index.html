@@ -28,10 +28,11 @@
   
     
   
-  <meta name="description" content="Ph.D candidate in Economics.">
+  <meta name="description" content="In this tutorial, we’ll take a look at a simple linear model. We’ll use the mpg dataset which is linked to the tidyverse package.
+library(tidyverse)head(mpg)## # A tibble: 6 x 11## manufacturer model displ year cyl trans drv cty hwy fl class## &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;## 1 audi a4 1.8 1999 4 auto(~ f 18 29 p comp~## 2 audi a4 1.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/tags/regression/">
+  <link rel="alternate" hreflang="en-us" href="/post/simple-linear-regression-with-r/">
 
   
 
@@ -107,14 +108,12 @@
   
 
   
-  <link rel="alternate" href="/tags/regression/index.xml" type="application/rss+xml" title="Mohamed El Fodil IHADDADEN">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/regression/">
+  <link rel="canonical" href="/post/simple-linear-regression-with-r/">
 
   
   
@@ -129,12 +128,16 @@
   <meta property="twitter:creator" content="@@ihaddadenfodil">
   
   <meta property="og:site_name" content="Mohamed El Fodil IHADDADEN">
-  <meta property="og:url" content="/tags/regression/">
-  <meta property="og:title" content="Regression | Mohamed El Fodil IHADDADEN">
-  <meta property="og:description" content="Ph.D candidate in Economics."><meta property="og:image" content="/img/logo-via-logohub.png">
+  <meta property="og:url" content="/post/simple-linear-regression-with-r/">
+  <meta property="og:title" content="Simple Linear Regression with R | Mohamed El Fodil IHADDADEN">
+  <meta property="og:description" content="In this tutorial, we’ll take a look at a simple linear model. We’ll use the mpg dataset which is linked to the tidyverse package.
+library(tidyverse)head(mpg)## # A tibble: 6 x 11## manufacturer model displ year cyl trans drv cty hwy fl class## &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;## 1 audi a4 1.8 1999 4 auto(~ f 18 29 p comp~## 2 audi a4 1."><meta property="og:image" content="/img/logo-via-logohub.png">
   <meta property="twitter:image" content="/img/logo-via-logohub.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-12-04T00:00:00&#43;00:00">
+    
+      <meta property="article:published_time" content="2019-12-04T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2019-12-04T15:55:50&#43;01:00">
   
 
   
@@ -146,7 +149,7 @@
 
 
 
-  <title>Regression | Mohamed El Fodil IHADDADEN</title>
+  <title>Simple Linear Regression with R | Mohamed El Fodil IHADDADEN</title>
 
 </head>
 
@@ -436,55 +439,406 @@
 </nav>
 
 
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Simple Linear Regression with R</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-12-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-12-04 15:55:50 &#43;0100 CET" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    <time>Dec 4, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/simple-linear-regression-with-r/&amp;text=Simple%20Linear%20Regression%20with%20R" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/simple-linear-regression-with-r/&amp;t=Simple%20Linear%20Regression%20with%20R" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Simple%20Linear%20Regression%20with%20R&amp;body=/post/simple-linear-regression-with-r/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/simple-linear-regression-with-r/&amp;title=Simple%20Linear%20Regression%20with%20R" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Simple%20Linear%20Regression%20with%20R%20/post/simple-linear-regression-with-r/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/simple-linear-regression-with-r/&amp;title=Simple%20Linear%20Regression%20with%20R" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<p>In this tutorial, we’ll take a look at a simple linear model. We’ll use the <code>mpg</code> dataset which is linked to the <code>tidyverse</code> package.</p>
+<pre class="r"><code>library(tidyverse)
+
+head(mpg)</code></pre>
+<pre><code>## # A tibble: 6 x 11
+##   manufacturer model displ  year   cyl trans  drv     cty   hwy fl    class
+##   &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 audi         a4      1.8  1999     4 auto(~ f        18    29 p     comp~
+## 2 audi         a4      1.8  1999     4 manua~ f        21    29 p     comp~
+## 3 audi         a4      2    2008     4 manua~ f        20    31 p     comp~
+## 4 audi         a4      2    2008     4 auto(~ f        21    30 p     comp~
+## 5 audi         a4      2.8  1999     6 auto(~ f        16    26 p     comp~
+## 6 audi         a4      2.8  1999     6 manua~ f        18    26 p     comp~</code></pre>
+<p>here, we’ll model the impact of <code>displ</code> (the independent variable : x) on <code>cty</code> (the dependent variable: y). We want to investigate if the energy efficiency as measured by <code>cty</code> is impacted by <code>displ</code>.</p>
+<div id="first-hypothesis-linear-relationship" class="section level1">
+<h1>First hypothesis: Linear relationship</h1>
+<p>In order to implement a linear regression, the relationship between <em>y</em> and <em>x</em> should be linear. Let’s check it out:</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, cty)) + 
+  geom_point(col = &quot;grey28&quot;) +
+  geom_smooth(method = &quot;lm&quot;, se = FALSE, col = &quot;red&quot;) + # plotting the regression line
+  ggthemes::theme_economist()+
+  scale_y_continuous(breaks = seq(min(mpg$cty), max(mpg$cty), 1))</code></pre>
+<p><img src="/post/2019-12-04-simple-linear-regression-with-r_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>From above, we can observe that there is a negative linear relationship between <code>disp</code> and <code>cty</code> nevertheless, we observe some outliers at the top left of our graph. Let’s remove them:</p>
+<pre class="r"><code>mpg &lt;- mpg %&gt;% filter(cty &lt; 23)
+
+
+ggplot(mpg, aes(displ, cty)) + 
+  geom_point(col = &quot;grey28&quot;) +
+  geom_smooth(method = &quot;lm&quot;, se = FALSE, col = &quot;red&quot;) + # plotting the regression line
+  ggthemes::theme_economist()+
+  scale_y_continuous(breaks = seq(min(mpg$cty), max(mpg$cty), 1))</code></pre>
+<p><img src="/post/2019-12-04-simple-linear-regression-with-r_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>much better !!!</p>
+</div>
+<div id="second-hypothesis-good-level-of-association" class="section level1">
+<h1>Second hypothesis: good level of association</h1>
+<p>When running a linear regression, a good level of correlation is preferable. We can measure the pearson correlation using the <code>cor()</code> function:</p>
+<pre class="r"><code>cor(mpg$displ, mpg$cyl)</code></pre>
+<pre><code>## [1] 0.9223959</code></pre>
+<p>The correlation is quite importante, we can go on.</p>
+</div>
+<div id="fitting-the-model-to-our-data" class="section level1">
+<h1>Fitting the model to our data</h1>
+<p>In order to fit our model, we’ll use the <code>lm()</code> function as follows:</p>
+<pre class="r"><code>my_model &lt;- lm(cty ~ displ, data = mpg)</code></pre>
+</div>
+<div id="extracting-the-regression-information" class="section level1">
+<h1>Extracting the regression information</h1>
+<p>Using the <code>summary()</code> function, we’ll investigate the results of our regression:</p>
+<pre class="r"><code>summary(my_model)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = cty ~ displ, data = mpg)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.7549 -1.2060 -0.0724  1.4292  6.2598 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  23.9031     0.3977   60.10   &lt;2e-16 ***
+## displ        -2.1661     0.1042  -20.79   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.909 on 214 degrees of freedom
+## Multiple R-squared:  0.6688, Adjusted R-squared:  0.6673 
+## F-statistic: 432.2 on 1 and 214 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>We remark that our predictor has a p-value &lt; 1%, therefore we can reject the Null hypothesis and say that according to our data the <code>disp</code> variable has a <strong>significant</strong> impact on fuel efficiency. The formula of our model can be written as:
+<span class="math inline">\(cty = 23.9031 - 2.1661 \times displ\)</span></p>
+</div>
+
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/base-r/">base R</a>
+  
+  <a class="badge badge-light" href="/tags/regression/">Regression</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
   
 
 
 
 
-
-
-
-
-
-
-
-
-  
 
   
   
   
     
   
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Regression</h1>
-
   
-
-  
-</div>
-
-
-
-<div class="universal-wrapper">
-  
-
-  
-  
-  <div>
-    <h2><a href="/post/simple-linear-regression-with-r/">Simple Linear Regression with R</a></h2>
-    <div class="article-style">
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
       
-      In this tutorial, we’ll take a look at a simple linear model. We’ll use the mpg dataset which is linked to the tidyverse package.
-library(tidyverse)head(mpg)## # A tibble: 6 x 11## manufacturer model displ year cyl trans drv cty hwy fl class## &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;## 1 audi a4 1.8 1999 4 auto(~ f 18 29 p comp~## 2 audi a4 1.
-      
+      <img class="portrait mr-3" src="/authors/admin/avatar_huc09fd31ce9bb786d1041f70ffa59556f_325161_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/">Mohamed El Fodil Ihaddaden</a></h5>
+      <h6 class="card-subtitle">Ph.D candidate in Economics.</h6>
+      <p class="card-text" itemprop="description">My research interests include Performance Management, Data Envelopment Analysis and Artificial Intelligence applied to Economics.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          <li>
+            <a itemprop="sameAs" href="mailto:ihaddaden.fodeil@gmail.com" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://twitter.com/IhaddadenFodil" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://scholar.google.fr/citations?user=Vl-O5pEAAAAJ&amp;hl=fr" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/feddelegrand7" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-  
 
-  
 
-</div>
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/how_to_split_a_dataframe/how-to-split-a-dataframe-in-r/">How to split a dataframe in R?</a></li>
+          
+          <li><a href="/post/introduction_to_the_subset_function/introduction-to-the-subset-function/">Introduction to the Subset function</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
 
       
 
