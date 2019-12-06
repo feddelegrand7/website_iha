@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Map | Mohamed El Fodil IHADDADEN</title>
+    <link>/tags/map/</link>
+      <atom:link href="/tags/map/index.xml" rel="self" type="application/rss+xml" />
+    <description>Map</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 09 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/logo-via-logohub.png</url>
+      <title>Map</title>
+      <link>/tags/map/</link>
+    </image>
+    
+    <item>
+      <title>Graphical Mapping with R</title>
+      <link>/post/graphical_mapping/graphical-mapping-with-r/</link>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>/post/graphical_mapping/graphical-mapping-with-r/</guid>
+      <description>
+
+
+&lt;p&gt;Mapping with R is a real joy. To see some examples, we’ll rely on the &lt;a href=&#34;https://cran.r-project.org/web/packages/maps/maps.pdf&#34;&gt;maps&lt;/a&gt; package.&lt;/p&gt;
+&lt;div id=&#34;mapping-the-world&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Mapping the World&lt;/h1&gt;
+&lt;div id=&#34;getting-the-longitude-and-latitude&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Getting the longitude and latitude&lt;/h2&gt;
+&lt;p&gt;First of all, we need to get the long and lat data in order to plot with ggplot2 which provides graphs with more aesthetic. (for an introduction to the ggplot2 package, just click &lt;a href=&#34;https://ihaddadenfodil.com/post/an-introduction-to-the-ggplot2-package/&#34;&gt;here&lt;/a&gt;). To do that, we’ll use the &lt;strong&gt;map_data()&lt;/strong&gt; function which belongs to ggplot2 and put as a parameter the &lt;strong&gt;world&lt;/strong&gt; map provided by the &lt;strong&gt;maps&lt;/strong&gt; package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(maps)
+library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;world &amp;lt;- map_data(&amp;quot;world&amp;quot;)
+
+head(world)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        long      lat group order region subregion
+## 1 -69.89912 12.45200     1     1  Aruba      &amp;lt;NA&amp;gt;
+## 2 -69.89571 12.42300     1     2  Aruba      &amp;lt;NA&amp;gt;
+## 3 -69.94219 12.43853     1     3  Aruba      &amp;lt;NA&amp;gt;
+## 4 -70.00415 12.50049     1     4  Aruba      &amp;lt;NA&amp;gt;
+## 5 -70.06612 12.54697     1     5  Aruba      &amp;lt;NA&amp;gt;
+## 6 -70.05088 12.59707     1     6  Aruba      &amp;lt;NA&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To render our world geographical plot, we set &lt;em&gt;long&lt;/em&gt; to the x-axis and &lt;em&gt;lat&lt;/em&gt; to the y-axis. Finally, we set &lt;strong&gt;group = group&lt;/strong&gt; (&lt;em&gt;group&lt;/em&gt; is a variable that groups each observation according to the corresponding polygon).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(world, aes(x=long, y=lat, group=group)) +
+  geom_polygon(fill=&amp;quot;lightgreen&amp;quot;, colour=&amp;quot;black&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/graphical_mapping/2019-08-09-graphical-mapping-with-r_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mapping-regions&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Mapping Regions&lt;/h1&gt;
+&lt;p&gt;Now we’ll use the &lt;strong&gt;region&lt;/strong&gt; parameter which extracts regional data from the world map. Let’us have a look to the region where I belong to, North Africa:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;north_africa &amp;lt;- map_data(&amp;quot;world&amp;quot;, region = c(
+  &amp;quot;Algeria&amp;quot;,
+  &amp;quot;Morocco&amp;quot;,
+  &amp;quot;Tunisia&amp;quot;,
+  &amp;quot;Egypt&amp;quot;,
+  &amp;quot;Western Sahara&amp;quot;,
+  &amp;quot;Libya&amp;quot;))
+
+head(north_africa)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##       long      lat group order  region subregion
+## 1 8.576563 36.93721     1     1 Algeria      &amp;lt;NA&amp;gt;
+## 2 8.597656 36.88388     1     2 Algeria      &amp;lt;NA&amp;gt;
+## 3 8.601269 36.83393     1     3 Algeria      &amp;lt;NA&amp;gt;
+## 4 8.506739 36.78750     1     4 Algeria      &amp;lt;NA&amp;gt;
+## 5 8.444238 36.76074     1     5 Algeria      &amp;lt;NA&amp;gt;
+## 6 8.369629 36.63252     1     6 Algeria      &amp;lt;NA&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In order to differentiate among countries using colors, we set the parameter &lt;strong&gt;fill = region&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(north_africa, aes(x = long, y = lat, group = group, fill = region)) + 
+  geom_polygon(colour = &amp;quot;black&amp;quot;) + # colour = &amp;quot;black&amp;quot; is needed to emphasize borders
+  theme_minimal()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/graphical_mapping/2019-08-09-graphical-mapping-with-r_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;geographical-filling&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Geographical Filling&lt;/h1&gt;
+&lt;p&gt;Let us go deeper in our geographical plotting. Suppose we want to plot the French median revenue according to each borough (in french : “arrondissement”). The french median revenue data for 2015 is freely available at the &lt;a href=&#34;https://www.insee.fr/fr/statistiques/3560121&#34;&gt;INSEE website&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(readxl)
+
+fr_median &amp;lt;- read_excel(&amp;quot;base-cc-filosofi-2015.xls&amp;quot;, skip = 5) # keep only the ARR tab in the Excel File. &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Furthermore, the &lt;a href=&#34;https://whatis.techtarget.com/fileformat/SHP-Shapefile-spatial-data-format-used-by-many-GIS-programs&#34;&gt;SHP&lt;/a&gt; file for France is available in the &lt;a href=&#34;https://www.eea.europa.eu/data-and-maps/data/eea-reference-grids-2/gis-files/france-shapefile&#34;&gt;European Environment Agency Data Base&lt;/a&gt;. In order to read our SHP file, we’ll rely on the &lt;strong&gt;sf&lt;/strong&gt; package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(sf)
+
+fr_map &amp;lt;- sf::st_read(&amp;quot;C:/Users/Administrateur/Desktop/SHP_France/FRA_adm3.shp&amp;quot;, stringsAsFactors = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Reading layer `FRA_adm3&amp;#39; from data source `C:\Users\Administrateur\Desktop\SHP_France\FRA_adm3.shp&amp;#39; using driver `ESRI Shapefile&amp;#39;
+## Simple feature collection with 350 features and 13 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: -5.143751 ymin: 41.33375 xmax: 9.560416 ymax: 51.0894
+## epsg (SRID):    4326
+## proj4string:    +proj=longlat +datum=WGS84 +no_defs&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(fr_map, n = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Simple feature collection with 2 features and 13 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 7.065385 ymin: 48.33202 xmax: 8.107299 ymax: 49.04169
+## epsg (SRID):    4326
+## proj4string:    +proj=longlat +datum=WGS84 +no_defs
+##   ID_0 ISO NAME_0 ID_1 NAME_1 ID_2   NAME_2 ID_3   NAME_3         TYPE_3
+## 1   79 FRA France    1 Alsace    1 Bas-Rhin    1 Haguenau Arrondissement
+## 2   79 FRA France    1 Alsace    1 Bas-Rhin    2 Molsheim Arrondissement
+##   ENGTYPE_3 NL_NAME_3 VARNAME_3                       geometry
+## 1 Districts      &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt; MULTIPOLYGON (((7.70342 48....
+## 2 Districts      &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt; MULTIPOLYGON (((7.317291 48...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we’ll combine the &lt;strong&gt;fr_map&lt;/strong&gt; and the &lt;strong&gt;fr_median&lt;/strong&gt; databases. To do so, we need to provide a common key.The column &lt;strong&gt;NAME_3&lt;/strong&gt; in &lt;strong&gt;fr_map&lt;/strong&gt; and the column &lt;strong&gt;LIBGEO&lt;/strong&gt; in &lt;strong&gt;fr_median&lt;/strong&gt; list our French boroughs. As mentioned previously, we must provide a unique key, therefore we’ll rename the &lt;strong&gt;NAME_3&lt;/strong&gt; as &lt;strong&gt;LIBGEO&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fr_map &amp;lt;- fr_map %&amp;gt;% rename(LIBGEO = NAME_3)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we’re ready to combine our databases and drop all values that do not correspond using the &lt;strong&gt;inner_join&lt;/strong&gt; function provided by the &lt;em&gt;tidyverse&lt;/em&gt; package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;final &amp;lt;- inner_join(fr_map, fr_median, by = &amp;quot;LIBGEO&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It’s possible to use the ggplot2 package however I’d rather suggest the &lt;strong&gt;tmap&lt;/strong&gt; package:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tmap)
+
+tm_shape(final)+
+  tm_polygons(&amp;quot;MED15&amp;quot;, id  = &amp;quot;LIBGEO&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/graphical_mapping/2019-08-09-graphical-mapping-with-r_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

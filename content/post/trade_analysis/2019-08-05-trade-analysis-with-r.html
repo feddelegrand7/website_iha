@@ -1,0 +1,89 @@
+---
+title: Trade Analysis with R
+author: Admin
+date: '2019-08-05'
+slug: trade-analysis-with-r
+categories: []
+tags: 
+  - R
+  - Trade Analysis
+  - Economics
+summary: 'A Quick Intro into the comtradr Package'
+lastmod: '2019-08-05T15:24:38+02:00'
+featured: no
+projects: []
+---
+
+
+
+<p>In order to access trade information, we’ll use the <a href="https://cran.r-project.org/web/packages/comtradr/comtradr.pdf">comtradr</a> package which provides an API access to the <a href="https://comtrade.un.org/">UN Comtrade Database</a>.</p>
+<pre class="r"><code>library(comtradr)</code></pre>
+<p>Suppose we want to analyze the Algerian exports’ evolution (Montary values of goods and services) in relation to the Ouest-European market which represents an important one.
+To that aim, we’ll use the <strong>ct_search</strong> function.</p>
+<pre class="r"><code>export_DZ &lt;- ct_search(reporters = &quot;Algeria&quot;, 
+  partners = c(&quot;France&quot;, &quot;Spain&quot;, &quot;Italy&quot;, &quot;Germany&quot;), 
+  trade_direction = &quot;exports&quot;)
+
+#Note that the API limitS our request to 5 partner. For more information on API limits, refer to the the comtradr documentation.  </code></pre>
+<p>Let us embellish our database and select the relevant information</p>
+<pre class="r"><code>library(tidyverse)
+
+export_DZ &lt;- as_tibble(export_DZ)
+
+export_DZ &lt;- export_DZ %&gt;% select(year, partner, trade_value_usd)
+
+head(export_DZ)</code></pre>
+<pre><code>## # A tibble: 6 x 3
+##    year partner trade_value_usd
+##   &lt;int&gt; &lt;chr&gt;             &lt;dbl&gt;
+## 1  2017 France       4431261656
+## 2  2017 Germany        14045034
+## 3  2017 Italy        5629479666
+## 4  2017 Spain        4103370763
+## 5  2012 France       6124176488
+## 6  2012 Germany       238172929</code></pre>
+<p>Finally, let’s plot our data to have a broader overview</p>
+<pre class="r"><code>options(scipen = 999) # avoiding scientific values (e.g. 10e9)
+
+ggplot(export_DZ, aes(x = year, y= ((trade_value_usd)/1000))) +  
+  facet_grid( ~ as.factor(partner))+                                     
+  geom_line(size = 2, color = &quot;lightgreen&quot;) + 
+  ylab(&quot;trade value in 1000$&quot;)+
+  xlab(&quot;years&quot;)+
+  scale_x_continuous(breaks = c(seq(1992, 2015, by = 2), 2017))+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))</code></pre>
+<p><img src="/post/trade_analysis/2019-08-05-trade-analysis-with-r_files/figure-html/unnamed-chunk-4-1.png" width="960" /></p>
+<p>Interesting to see that the export value towards Germany is relatively low. Let us compare the exports to the imports.</p>
+<pre class="r"><code>import_DZ &lt;- ct_search(reporters = &quot;Algeria&quot;, 
+  partners = c(&quot;France&quot;, &quot;Spain&quot;, &quot;Italy&quot;, &quot;Germany&quot;), 
+  trade_direction = &quot;imports&quot;)</code></pre>
+<p>We’ll use the <a href="https://github.com/thomasp85/patchwork">patchwork</a> package to combine the import and the export plots. It’s as easy as drinking from a bottle of water.</p>
+<pre class="r"><code>library(patchwork)
+
+max &lt;- max(import_DZ$trade_value_usd/1000, export_DZ$trade_value_usd/1000)
+
+min &lt;- min(import_DZ$trade_value_usd/1000, export_DZ$trade_value_usd/1000)
+
+
+p1 &lt;- ggplot(export_DZ, aes(x = year, y= ((trade_value_usd)/1000))) +  
+  facet_grid( ~ as.factor(partner))+                                     
+  geom_line(color = &quot;#FF5E00&quot;) + 
+  ylab(&quot;exports value in 1000$&quot;)+
+  xlab(&quot;years&quot;)+
+  scale_x_continuous(breaks = c(seq(1992, 2015, by = 4), 2017))+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+
+p2 &lt;- ggplot(import_DZ, aes(x = year, y= ((trade_value_usd)/1000))) +  
+  facet_grid( ~ as.factor(partner))+                                     
+  geom_line(color = &quot;#FF00A2&quot;) + 
+  ylab(&quot;imports value in 1000$&quot;)+
+  xlab(&quot;years&quot;)+
+  scale_x_continuous(breaks = c(seq(1992, 2015, by = 4), 2017))+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+
+
+p1 + p2 + patchwork::plot_layout(ncol = 1) + ylim(min, max)</code></pre>
+<p><img src="/post/trade_analysis/2019-08-05-trade-analysis-with-r_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code># ylim(min, max) allows us to have the same dimensiality in our two plots.  </code></pre>

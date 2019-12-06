@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Trade Analysis | Mohamed El Fodil IHADDADEN</title>
+    <link>/tags/trade-analysis/</link>
+      <atom:link href="/tags/trade-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <description>Trade Analysis</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 05 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/logo-via-logohub.png</url>
+      <title>Trade Analysis</title>
+      <link>/tags/trade-analysis/</link>
+    </image>
+    
+    <item>
+      <title>Trade Analysis with R</title>
+      <link>/post/trade_analysis/trade-analysis-with-r/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>/post/trade_analysis/trade-analysis-with-r/</guid>
+      <description>
+
+
+&lt;p&gt;In order to access trade information, we’ll use the &lt;a href=&#34;https://cran.r-project.org/web/packages/comtradr/comtradr.pdf&#34;&gt;comtradr&lt;/a&gt; package which provides an API access to the &lt;a href=&#34;https://comtrade.un.org/&#34;&gt;UN Comtrade Database&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(comtradr)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Suppose we want to analyze the Algerian exports’ evolution (Montary values of goods and services) in relation to the Ouest-European market which represents an important one.
+To that aim, we’ll use the &lt;strong&gt;ct_search&lt;/strong&gt; function.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;export_DZ &amp;lt;- ct_search(reporters = &amp;quot;Algeria&amp;quot;, 
+  partners = c(&amp;quot;France&amp;quot;, &amp;quot;Spain&amp;quot;, &amp;quot;Italy&amp;quot;, &amp;quot;Germany&amp;quot;), 
+  trade_direction = &amp;quot;exports&amp;quot;)
+
+#Note that the API limitS our request to 5 partner. For more information on API limits, refer to the the comtradr documentation.  &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let us embellish our database and select the relevant information&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+
+export_DZ &amp;lt;- as_tibble(export_DZ)
+
+export_DZ &amp;lt;- export_DZ %&amp;gt;% select(year, partner, trade_value_usd)
+
+head(export_DZ)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 3
+##    year partner trade_value_usd
+##   &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;             &amp;lt;dbl&amp;gt;
+## 1  2017 France       4431261656
+## 2  2017 Germany        14045034
+## 3  2017 Italy        5629479666
+## 4  2017 Spain        4103370763
+## 5  2012 France       6124176488
+## 6  2012 Germany       238172929&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, let’s plot our data to have a broader overview&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;options(scipen = 999) # avoiding scientific values (e.g. 10e9)
+
+ggplot(export_DZ, aes(x = year, y= ((trade_value_usd)/1000))) +  
+  facet_grid( ~ as.factor(partner))+                                     
+  geom_line(size = 2, color = &amp;quot;lightgreen&amp;quot;) + 
+  ylab(&amp;quot;trade value in 1000$&amp;quot;)+
+  xlab(&amp;quot;years&amp;quot;)+
+  scale_x_continuous(breaks = c(seq(1992, 2015, by = 2), 2017))+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/trade_analysis/2019-08-05-trade-analysis-with-r_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Interesting to see that the export value towards Germany is relatively low. Let us compare the exports to the imports.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;import_DZ &amp;lt;- ct_search(reporters = &amp;quot;Algeria&amp;quot;, 
+  partners = c(&amp;quot;France&amp;quot;, &amp;quot;Spain&amp;quot;, &amp;quot;Italy&amp;quot;, &amp;quot;Germany&amp;quot;), 
+  trade_direction = &amp;quot;imports&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We’ll use the &lt;a href=&#34;https://github.com/thomasp85/patchwork&#34;&gt;patchwork&lt;/a&gt; package to combine the import and the export plots. It’s as easy as drinking from a bottle of water.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(patchwork)
+
+max &amp;lt;- max(import_DZ$trade_value_usd/1000, export_DZ$trade_value_usd/1000)
+
+min &amp;lt;- min(import_DZ$trade_value_usd/1000, export_DZ$trade_value_usd/1000)
+
+
+p1 &amp;lt;- ggplot(export_DZ, aes(x = year, y= ((trade_value_usd)/1000))) +  
+  facet_grid( ~ as.factor(partner))+                                     
+  geom_line(color = &amp;quot;#FF5E00&amp;quot;) + 
+  ylab(&amp;quot;exports value in 1000$&amp;quot;)+
+  xlab(&amp;quot;years&amp;quot;)+
+  scale_x_continuous(breaks = c(seq(1992, 2015, by = 4), 2017))+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+
+p2 &amp;lt;- ggplot(import_DZ, aes(x = year, y= ((trade_value_usd)/1000))) +  
+  facet_grid( ~ as.factor(partner))+                                     
+  geom_line(color = &amp;quot;#FF00A2&amp;quot;) + 
+  ylab(&amp;quot;imports value in 1000$&amp;quot;)+
+  xlab(&amp;quot;years&amp;quot;)+
+  scale_x_continuous(breaks = c(seq(1992, 2015, by = 4), 2017))+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+
+
+p1 + p2 + patchwork::plot_layout(ncol = 1) + ylim(min, max)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/trade_analysis/2019-08-05-trade-analysis-with-r_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ylim(min, max) allows us to have the same dimensiality in our two plots.  &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

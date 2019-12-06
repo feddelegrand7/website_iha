@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Mohamed El Fodil Ihaddaden">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="In this tutorial, we’ll analyze the French CAC 40 stocks. Listed CAC 40 firms can be found at the Yahoo Finance website.
+Getting the SymbolsFirst, we need to obtain the associated Yahoo symbols for each CAC 40 stock.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/stocks-analysis-with-r/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.dd629241ea9333c62c071f4a25f829ff.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-145265560-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/stocks-analysis-with-r/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@@ihaddadenfodil">
+  <meta property="twitter:creator" content="@@ihaddadenfodil">
+  
+  <meta property="og:site_name" content="MEF IHADDADEN">
+  <meta property="og:url" content="/post/stocks-analysis-with-r/">
+  <meta property="og:title" content="Importing and Visualizing Stock Market Data in R | MEF IHADDADEN">
+  <meta property="og:description" content="In this tutorial, we’ll analyze the French CAC 40 stocks. Listed CAC 40 firms can be found at the Yahoo Finance website.
+Getting the SymbolsFirst, we need to obtain the associated Yahoo symbols for each CAC 40 stock."><meta property="og:image" content="/img/logo-via-logohub.png">
+  <meta property="twitter:image" content="/img/logo-via-logohub.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-08-19T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2019-08-19T16:36:05&#43;02:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Importing and Visualizing Stock Market Data in R | MEF IHADDADEN</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/"><img src="/img/logo-via-logohub.png" alt="MEF IHADDADEN"></a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>About me</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#skills"><span>Skills</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#experience"><span>Experience</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#accomplishments"><span>Accomplishments</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Academic Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>R Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Importing and Visualizing Stock Market Data in R</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-08-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-08-19 16:36:05 &#43;0200 CEST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    <time>Aug 19, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/stocks-analysis-with-r/&amp;text=Importing%20and%20Visualizing%20Stock%20Market%20Data%20in%20R" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/stocks-analysis-with-r/&amp;t=Importing%20and%20Visualizing%20Stock%20Market%20Data%20in%20R" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Importing%20and%20Visualizing%20Stock%20Market%20Data%20in%20R&amp;body=/post/stocks-analysis-with-r/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/stocks-analysis-with-r/&amp;title=Importing%20and%20Visualizing%20Stock%20Market%20Data%20in%20R" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Importing%20and%20Visualizing%20Stock%20Market%20Data%20in%20R%20/post/stocks-analysis-with-r/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/stocks-analysis-with-r/&amp;title=Importing%20and%20Visualizing%20Stock%20Market%20Data%20in%20R" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<script src="/rmarkdown-libs/proj4js/proj4.js"></script>
+<link href="/rmarkdown-libs/highcharts/css/motion.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/highcharts/css/htmlwdgtgrid.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/highcharts/highcharts.js"></script>
+<script src="/rmarkdown-libs/highcharts/highcharts-3d.js"></script>
+<script src="/rmarkdown-libs/highcharts/highcharts-more.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/stock.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/map.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/annotations.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/boost.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/data.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/drag-panes.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/drilldown.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/item-series.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/offline-exporting.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/overlapping-datalabels.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/exporting.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/export-data.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/funnel.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/heatmap.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/treemap.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/sankey.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/solid-gauge.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/streamgraph.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/sunburst.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/vector.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/wordcloud.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/xrange.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/tilemap.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/venn.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/gantt.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/timeline.js"></script>
+<script src="/rmarkdown-libs/highcharts/modules/parallel-coordinates.js"></script>
+<script src="/rmarkdown-libs/highcharts/plugins/grouped-categories.js"></script>
+<script src="/rmarkdown-libs/highcharts/plugins/motion.js"></script>
+<script src="/rmarkdown-libs/highcharts/plugins/multicolor_series.js"></script>
+<script src="/rmarkdown-libs/highcharts/custom/reset.js"></script>
+<script src="/rmarkdown-libs/highcharts/custom/symbols-extra.js"></script>
+<script src="/rmarkdown-libs/highcharts/custom/text-symbols.js"></script>
+<script src="/rmarkdown-libs/highchart-binding/highchart.js"></script>
+
+
+<p>In this tutorial, we’ll analyze the French CAC 40 stocks. Listed CAC 40 firms can be found at the <a href="https://finance.yahoo.com/quote/%5EFCHI/components/">Yahoo Finance website</a>.</p>
+<div id="getting-the-symbols" class="section level2">
+<h2>Getting the Symbols</h2>
+<p>First, we need to obtain the associated Yahoo symbols for each CAC 40 stock. Example: for Danone S.A, we have the correspnding symbol <a href="https://finance.yahoo.com/quote/BN.PA?p=BN.PA">BN.PA</a>. From Yahoo Finance we use the <a href="https://cran.r-project.org/web/packages/datapasta/vignettes/how-to-datapasta.html">DataPasta package</a> to copy and paste the entire data table (We have modified the the column’s name <strong>% Change</strong> to deal with R naming requirement). Then we select the <strong>Symbol</strong> column.</p>
+<pre class="r"><code>library(tidyverse)
+
+
+base_data &lt;- data.frame(stringsAsFactors=FALSE,
+         Symbol = c(&quot;VIE.PA&quot;, &quot;AI.PA&quot;, &quot;BN.PA&quot;, &quot;ACA.PA&quot;, &quot;CA.PA&quot;, &quot;ML.PA&quot;,
+                    &quot;BNP.PA&quot;, &quot;RI.PA&quot;, &quot;SU.PA&quot;, &quot;VIV.PA&quot;, &quot;ENGI.PA&quot;, &quot;CAP.PA&quot;,
+                    &quot;LR.PA&quot;, &quot;ORA.PA&quot;, &quot;AC.PA&quot;, &quot;HO.PA&quot;, &quot;KER.PA&quot;, &quot;GLE.PA&quot;,
+                    &quot;EN.PA&quot;, &quot;SGO.PA&quot;, &quot;SAN.PA&quot;, &quot;DG.PA&quot;, &quot;ATO.PA&quot;, &quot;OR.PA&quot;, &quot;SW.PA&quot;,
+                    &quot;UG.PA&quot;, &quot;AIR.PA&quot;, &quot;MC.PA&quot;, &quot;FP.PA&quot;, &quot;FTI.PA&quot;),
+   Company.Name = c(&quot;Veolia Environnement S.A.&quot;, &quot;L&#39;Air Liquide S.A.&quot;,
+                    &quot;Danone S.A.&quot;, &quot;Crédit Agricole S.A.&quot;, &quot;Carrefour SA&quot;,
+                    &quot;Compagnie Générale des Établissements Michelin&quot;,
+                    &quot;BNP Paribas SA&quot;, &quot;Pernod Ricard SA&quot;, &quot;Schneider Electric S.E.&quot;,
+                    &quot;Vivendi SA&quot;, &quot;ENGIE SA&quot;, &quot;Capgemini SE&quot;, &quot;Legrand SA&quot;, &quot;Orange S.A.&quot;,
+                    &quot;Accor SA&quot;, &quot;Thales S.A.&quot;, &quot;Kering SA&quot;,
+                    &quot;Société Générale Société anonyme&quot;, &quot;Bouygues SA&quot;,
+                    &quot;Compagnie de Saint-Gobain S.A.&quot;, &quot;Sanofi&quot;, &quot;VINCI SA&quot;, &quot;Atos SE&quot;, &quot;L&#39;Oréal S.A.&quot;,
+                    &quot;Sodexo S.A.&quot;, &quot;Peugeot S.A.&quot;, &quot;Airbus SE&quot;,
+                    &quot;LVMH Moët Hennessy - Louis Vuitton, Société Européenne&quot;, &quot;TOTAL S.A.&quot;,
+                    &quot;TechnipFMC plc&quot;),
+     Last.Price = c(21.93, 123.35, 80.24, 10.26, 15.49, 93.32, 40.86, 158.05,
+                    73.12, 25.64, 13.57, 106.35, 61.98, 13.6, 38.3, 102.9,
+                    437.6, 22.35, 32.4, 32.33, 77.04, 96.82, 66.92, 236.7, 101.6,
+                    19.34, 125.32, 355.2, 44.08, 21.73),
+         Change = c(0, 0.15, 0.14, 0.03, 0.06, 0.48, 0.25, -1.05, 0.48, 0.17,
+                    0.11, 1.05, 0.62, 0.14, 0.42, 1.2, 5.3, 0.28, 0.42, 0.43,
+                    1.05, 1.34, 0.94, 3.4, 1.62, 0.34, 2.3, 6.75, 0.85, 0.75),
+        Change_prc = c(&quot;0.00%&quot;, &quot;+0.12%&quot;, &quot;+0.17%&quot;, &quot;+0.24%&quot;, &quot;+0.39%&quot;, &quot;+0.52%&quot;,
+                    &quot;+0.62%&quot;, &quot;-0.66%&quot;, &quot;+0.66%&quot;, &quot;+0.67%&quot;, &quot;+0.82%&quot;, &quot;+1.00%&quot;,
+                    &quot;+1.01%&quot;, &quot;+1.08%&quot;, &quot;+1.11%&quot;, &quot;+1.18%&quot;, &quot;+1.23%&quot;, &quot;+1.29%&quot;,
+                    &quot;+1.31%&quot;, &quot;+1.35%&quot;, &quot;+1.38%&quot;, &quot;+1.40%&quot;, &quot;+1.42%&quot;, &quot;+1.46%&quot;,
+                    &quot;+1.62%&quot;, &quot;+1.79%&quot;, &quot;+1.87%&quot;, &quot;+1.94%&quot;, &quot;+1.97%&quot;, &quot;+3.57%&quot;),
+         Volume = c(818027, 264260, 461968, 3363436, 772440, 275617, 3304556,
+                    167013, 408078, 788907, 2077728, 221310, 258356, 3729428,
+                    202482, 178755, 128660, 2969772, 264297, 640992, 1164010,
+                    708090, 202814, 322746, 88158, 814983, 432166, 306987, 2264031,
+                    777895)
+)
+
+base_data</code></pre>
+<pre><code>##     Symbol                                           Company.Name
+## 1   VIE.PA                              Veolia Environnement S.A.
+## 2    AI.PA                                     L&#39;Air Liquide S.A.
+## 3    BN.PA                                            Danone S.A.
+## 4   ACA.PA                                   Crédit Agricole S.A.
+## 5    CA.PA                                           Carrefour SA
+## 6    ML.PA         Compagnie Générale des Établissements Michelin
+## 7   BNP.PA                                         BNP Paribas SA
+## 8    RI.PA                                       Pernod Ricard SA
+## 9    SU.PA                                Schneider Electric S.E.
+## 10  VIV.PA                                             Vivendi SA
+## 11 ENGI.PA                                               ENGIE SA
+## 12  CAP.PA                                           Capgemini SE
+## 13   LR.PA                                             Legrand SA
+## 14  ORA.PA                                            Orange S.A.
+## 15   AC.PA                                               Accor SA
+## 16   HO.PA                                            Thales S.A.
+## 17  KER.PA                                              Kering SA
+## 18  GLE.PA                       Société Générale Société anonyme
+## 19   EN.PA                                            Bouygues SA
+## 20  SGO.PA                         Compagnie de Saint-Gobain S.A.
+## 21  SAN.PA                                                 Sanofi
+## 22   DG.PA                                               VINCI SA
+## 23  ATO.PA                                                Atos SE
+## 24   OR.PA                                           L&#39;Oréal S.A.
+## 25   SW.PA                                            Sodexo S.A.
+## 26   UG.PA                                           Peugeot S.A.
+## 27  AIR.PA                                              Airbus SE
+## 28   MC.PA LVMH Moët Hennessy - Louis Vuitton, Société Européenne
+## 29   FP.PA                                             TOTAL S.A.
+## 30  FTI.PA                                         TechnipFMC plc
+##    Last.Price Change Change_prc  Volume
+## 1       21.93   0.00      0.00%  818027
+## 2      123.35   0.15     +0.12%  264260
+## 3       80.24   0.14     +0.17%  461968
+## 4       10.26   0.03     +0.24% 3363436
+## 5       15.49   0.06     +0.39%  772440
+## 6       93.32   0.48     +0.52%  275617
+## 7       40.86   0.25     +0.62% 3304556
+## 8      158.05  -1.05     -0.66%  167013
+## 9       73.12   0.48     +0.66%  408078
+## 10      25.64   0.17     +0.67%  788907
+## 11      13.57   0.11     +0.82% 2077728
+## 12     106.35   1.05     +1.00%  221310
+## 13      61.98   0.62     +1.01%  258356
+## 14      13.60   0.14     +1.08% 3729428
+## 15      38.30   0.42     +1.11%  202482
+## 16     102.90   1.20     +1.18%  178755
+## 17     437.60   5.30     +1.23%  128660
+## 18      22.35   0.28     +1.29% 2969772
+## 19      32.40   0.42     +1.31%  264297
+## 20      32.33   0.43     +1.35%  640992
+## 21      77.04   1.05     +1.38% 1164010
+## 22      96.82   1.34     +1.40%  708090
+## 23      66.92   0.94     +1.42%  202814
+## 24     236.70   3.40     +1.46%  322746
+## 25     101.60   1.62     +1.62%   88158
+## 26      19.34   0.34     +1.79%  814983
+## 27     125.32   2.30     +1.87%  432166
+## 28     355.20   6.75     +1.94%  306987
+## 29      44.08   0.85     +1.97% 2264031
+## 30      21.73   0.75     +3.57%  777895</code></pre>
+<pre class="r"><code>Symbols &lt;- base_data %&gt;% select(Symbol)</code></pre>
+</div>
+<div id="loading-stock-prices-data" class="section level1">
+<h1>Loading Stock Prices Data</h1>
+<p>In order to import the stock prices, we use the <strong>getSymbols()</strong> function from the <strong>quantmod</strong> package. Let’s say we are interested in the evolution of CAC 40 Adjusted Prices from the 15/07/2019 to 15/08/2019. The map(~Ad(get(.))) is used to extract the Adjusted Prices from the imported prices.</p>
+<pre class="r"><code>library(quantmod)
+
+cac_prices &lt;- getSymbols(Symbols$Symbol, 
+                     src = &quot;yahoo&quot;,
+                     from = &quot;2019-07-15&quot;,
+                     to = &quot;2019-08-15&quot;,
+                     auto.assign = TRUE,
+                     warnings = FALSE) %&gt;% 
+  map(~Ad(get(.))) %&gt;% 
+  reduce(merge) %&gt;% 
+  &quot;colnames&lt;-&quot;(Symbols$Symbol)
+
+
+head(cac_prices, n = 2) </code></pre>
+<pre><code>##            VIE.PA  AI.PA BN.PA ACA.PA CA.PA  ML.PA BNP.PA  RI.PA SU.PA
+## 2019-07-15  22.58 123.15 75.86  11.01  17.9 111.55 42.840 157.30 77.02
+## 2019-07-16  22.59 123.05 75.68  11.12  18.0 110.00 43.205 157.05 77.98
+##            VIV.PA ENGI.PA CAP.PA LR.PA ORA.PA AC.PA HO.PA KER.PA GLE.PA
+## 2019-07-15  24.89  13.870 113.85 63.28 13.305 39.94 104.4  519.9 22.815
+## 2019-07-16  24.91  13.765 114.60 63.68 13.330 39.85 105.2  530.6 23.100
+##            EN.PA SGO.PA SAN.PA DG.PA ATO.PA OR.PA SW.PA UG.PA AIR.PA
+## 2019-07-15 32.01 33.885  73.79  91.8  78.02 250.5 102.7 22.23 129.20
+## 2019-07-16 32.90 34.670  74.32  94.3  79.24 251.3 102.5 22.32 131.14
+##             MC.PA  FP.PA   FTI.PA
+## 2019-07-15 380.05 50.090 22.41107
+## 2019-07-16 385.30 49.965 22.51045</code></pre>
+<p>Using the getSymbols() function, we’ve obtained an <strong>xts</strong> object. xts or Extensible Time Series are dataframes indexed with dates.</p>
+</div>
+<div id="stock-prices-visualization-with-highcharter" class="section level1">
+<h1>Stock Prices Visualization with highcharter</h1>
+<p><strong>highcharter</strong> offers highly reactive time series visualizations. Suppose we are interested in plotting French banks adjusted prices.</p>
+<pre class="r"><code>library(highcharter)
+
+
+highchart(type = &quot;stock&quot;) %&gt;% 
+  hc_title(text = &quot;Stocks&#39; Evolution of French CAC 40 listed banks&quot;) %&gt;% 
+  hc_add_series(cac_prices$ACA.PA, name=&quot;Crédit Agricole&quot;) %&gt;% 
+  hc_add_series(cac_prices$BNP.PA, name=&quot;BNP Paribas&quot;) %&gt;% 
+  hc_add_series(cac_prices$GLE.PA, name=&quot;Société Générale&quot;)</code></pre>
+<div id="htmlwidget-1" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"hc_opts":{"title":{"text":"Stocks' Evolution of French CAC 40 listed banks"},"yAxis":{"title":{"text":null}},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[[1563148800000,11.01],[1563235200000,11.12],[1563321600000,10.965],[1563408000000,10.79],[1563494400000,10.79],[1563753600000,10.81],[1563840000000,11.02],[1563926400000,11.04],[1564012800000,11.05],[1564099200000,11],[1564358400000,10.955],[1564444800000,10.645],[1564531200000,10.78],[1564617600000,10.87],[1564704000000,10.34],[1564963200000,10.26],[1565049600000,10.215],[1565136000000,10.11],[1565222400000,10.33],[1565308800000,10.175],[1565568000000,9.99],[1565654400000,10.13],[1565740800000,9.932],[1565827200000,9.91]],"name":"Crédit Agricole"},{"data":[[1563148800000,42.84],[1563235200000,43.205002],[1563321600000,42.52],[1563408000000,42.369999],[1563494400000,41.994999],[1563753600000,41.994999],[1563840000000,42.924999],[1563926400000,42.93],[1564012800000,42.990002],[1564099200000,42.935001],[1564358400000,42.654999],[1564444800000,41.52],[1564531200000,42.18],[1564617600000,42.845001],[1564704000000,41.150002],[1564963200000,40.415001],[1565049600000,40.27],[1565136000000,39.955002],[1565222400000,40.744999],[1565308800000,40.205002],[1565568000000,39.665001],[1565654400000,40.369999],[1565740800000,39.32],[1565827200000,39.599998]],"name":"BNP Paribas"},{"data":[[1563148800000,22.815001],[1563235200000,23.1],[1563321600000,22.825001],[1563408000000,22.715],[1563494400000,22.370001],[1563753600000,22.33],[1563840000000,23.030001],[1563926400000,23.165001],[1564012800000,22.99],[1564099200000,23.08],[1564358400000,22.905001],[1564444800000,22.055],[1564531200000,22.205],[1564617600000,23.5],[1564704000000,22.42],[1564963200000,22.4],[1565049600000,22.305],[1565136000000,22.1],[1565222400000,22.764999],[1565308800000,22.275],[1565568000000,21.790001],[1565654400000,22.379999],[1565740800000,21.465],[1565827200000,21.375]],"name":"Société Générale"}]},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"stock","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<p>From the above chart, we observe a very small variation. This is not suprising as the the considered period is short (1 month). Let us consider a longer period (1 years).</p>
+<pre class="r"><code>Symbol_banks &lt;- c(&quot;ACA.PA&quot;, &quot;BNP.PA&quot;, &quot;GLE.PA&quot;)
+
+cac_banks &lt;- getSymbols(Symbol_banks, 
+                     src = &quot;yahoo&quot;,
+                     from = &quot;2018-08-18&quot;,
+                     to = &quot;2019-08-18&quot;,
+                     auto.assign = TRUE,
+                     warnings = FALSE) %&gt;% 
+  map(~Ad(get(.))) %&gt;% 
+  reduce(merge) %&gt;% 
+  &quot;colnames&lt;-&quot;(Symbol_banks)
+
+
+highchart(type = &quot;stock&quot;) %&gt;% 
+  hc_title(text = &quot;Stocks&#39; Evolution of French CAC 40 Listed Banks&quot;) %&gt;% 
+  hc_add_series(cac_banks$ACA.PA, name=&quot;Crédit Agricole&quot;) %&gt;% 
+  hc_add_series(cac_banks$BNP.PA, name=&quot;BNP Paribas&quot;) %&gt;% 
+  hc_add_series(cac_banks$GLE.PA, name=&quot;Société Générale&quot;)</code></pre>
+<div id="htmlwidget-2" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"hc_opts":{"title":{"text":"Stocks' Evolution of French CAC 40 Listed Banks"},"yAxis":{"title":{"text":null}},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[[1534723200000,11.05599],[1534809600000,11.140173],[1534896000000,11.319763],[1534982400000,11.246805],[1535068800000,11.201907],[1535328000000,11.274865],[1535414400000,11.228097],[1535500800000,11.205648],[1535587200000,11.123337],[1535673600000,11.022318],[1535932800000,11.115853],[1536019200000,11.299185],[1536105600000,11.480645],[1536192000000,11.475033],[1536278400000,11.291701],[1536537600000,11.398334],[1536624000000,11.368402],[1536710400000,11.31041],[1536796800000,11.495611],[1536883200000,11.559216],[1537142400000,11.680813],[1537228800000,11.695779],[1537315200000,11.869756],[1537401600000,12.088631],[1537488000000,12.146624],[1537747200000,11.970776],[1537833600000,12.053087],[1537920000000,12.109209],[1538006400000,12.11108],[1538092800000,11.585405],[1538352000000,11.353436],[1538438400000,11.424523],[1538524800000,11.59663],[1538611200000,11.851049],[1538697600000,11.787445],[1538956800000,11.576053],[1539043200000,11.663977],[1539129600000,11.699521],[1539216000000,11.452585],[1539302400000,11.370273],[1539561600000,11.329117],[1539648000000,11.347824],[1539734400000,11.374014],[1539820800000,11.332858],[1539907200000,11.123337],[1540166400000,10.999869],[1540252800000,10.799701],[1540339200000,10.569602],[1540425600000,10.627595],[1540512000000,10.449875],[1540771200000,10.588309],[1540857600000,10.418073],[1540944000000,10.595792],[1541030400000,10.726743],[1541116800000,10.838986],[1541376000000,10.809054],[1541462400000,10.764157],[1541548800000,10.674362],[1541635200000,10.754804],[1541721600000,10.623853],[1541980800000,10.431169],[1542067200000,10.545282],[1542153600000,10.423685],[1542240000000,10.279639],[1542326400000,10.20294],[1542585600000,10.17862],[1542672000000,9.944779],[1542758400000,10.081343],[1542844800000,9.980323],[1542931200000,10.028962],[1543190400000,10.401237],[1543276800000,10.369434],[1543363200000,10.287123],[1543449600000,10.337632],[1543536000000,10.259062],[1543795200000,10.367563],[1543881600000,10.137465],[1543968000000,10.036445],[1544054400000,9.551927],[1544140800000,9.53322],[1544400000000,9.25074],[1544486400000,9.246998],[1544572800000,9.570635],[1544659200000,9.579988],[1544745600000,9.480839],[1545004800000,9.270383],[1545091200000,9.213326],[1545177600000,9.233903],[1545264000000,8.864435],[1545350400000,8.82515],[1545609600000,8.687652],[1545868800000,8.580085],[1545955200000,8.798024],[1546214400000,8.820474],[1546387200000,8.711036],[1546473600000,8.682975],[1546560000000,9.132884],[1546819200000,9.117919],[1546905600000,9.176847],[1546992000000,9.165622],[1547078400000,9.243258],[1547164800000,9.246998],[1547424000000,9.314344],[1547510400000,9.312474],[1547596800000,9.677265],[1547683200000,9.497676],[1547769600000,9.656688],[1548028800000,9.566893],[1548115200000,9.419106],[1548201600000,9.454649],[1548288000000,9.477098],[1548374400000,9.707197],[1548633600000,9.484581],[1548720000000,9.464003],[1548806400000,9.505158],[1548892800000,9.31528],[1548979200000,9.270383],[1549238400000,9.085181],[1549324800000,9.316216],[1549411200000,9.512642],[1549497600000,9.22455],[1549584000000,8.933652],[1549843200000,9.013158],[1549929600000,9.168428],[1550016000000,9.246063],[1550102400000,9.166557],[1550188800000,9.536962],[1550448000000,9.770802],[1550534400000,9.780156],[1550620800000,9.905495],[1550707200000,9.813828],[1550793600000,9.879304],[1551052800000,10.058893],[1551139200000,10.111275],[1551225600000,10.382529],[1551312000000,10.505998],[1551398400000,10.418073],[1551657600000,10.391883],[1551744000000,10.354468],[1551830400000,10.294604],[1551916800000,9.969099],[1552003200000,9.914848],[1552262400000,10.182362],[1552348800000,10.174879],[1552435200000,10.290864],[1552521600000,10.244095],[1552608000000,10.328278],[1552867200000,10.593922],[1552953600000,10.578956],[1553040000000,10.393754],[1553126400000,10.216035],[1553212800000,9.830666],[1553472000000,9.793251],[1553558400000,9.813828],[1553644800000,10.163654],[1553731200000,9.970969],[1553817600000,10.07386],[1554076800000,10.368499],[1554163200000,10.443328],[1554249600000,10.639754],[1554336000000,10.728614],[1554422400000,10.607017],[1554681600000,10.583632],[1554768000000,10.621046],[1554854400000,10.644431],[1554940800000,10.831504],[1555027200000,11.168234],[1555286400000,11.411428],[1555372800000,11.57044],[1555459200000,11.518995],[1555545600000,11.663977],[1555977600000,11.378691],[1556064000000,11.266447],[1556150400000,11.238387],[1556236800000,11.341276],[1556496000000,11.589148],[1556582400000,11.439489],[1556755200000,11.542379],[1556841600000,11.579794],[1557100800000,11.462873],[1557187200000,11.303862],[1557273600000,11.331923],[1557360000000,10.817472],[1557446400000,10.80812],[1557705600000,10.532187],[1557792000000,10.630401],[1557878400000,10.354468],[1557964800000,10.588309],[1558051200000,10.476066],[1558310400000,10.354468],[1558396800000,10.480742],[1558483200000,10.270286],[1558569600000,9.985001],[1558656000000,10.185],[1558915200000,10.35],[1559001600000,10.31],[1559088000000,10.22],[1559174400000,10.32],[1559260800000,10.23],[1559520000000,10.17],[1559606400000,10.52],[1559692800000,10.415],[1559779200000,10.24],[1559865600000,10.29],[1560124800000,10.495],[1560211200000,10.5],[1560297600000,10.375],[1560384000000,10.385],[1560470400000,10.295],[1560729600000,10.37],[1560816000000,10.51],[1560902400000,10.75],[1560988800000,10.435],[1561075200000,10.37],[1561334400000,10.335],[1561420800000,10.22],[1561507200000,10.37],[1561593600000,10.49],[1561680000000,10.545],[1561939200000,10.785],[1562025600000,10.75],[1562112000000,10.925],[1562198400000,11.12],[1562284800000,11.13],[1562544000000,10.975],[1562630400000,10.935],[1562716800000,10.97],[1562803200000,10.97],[1562889600000,10.995],[1563148800000,11.01],[1563235200000,11.12],[1563321600000,10.965],[1563408000000,10.79],[1563494400000,10.79],[1563753600000,10.81],[1563840000000,11.02],[1563926400000,11.04],[1564012800000,11.05],[1564099200000,11],[1564358400000,10.955],[1564444800000,10.645],[1564531200000,10.78],[1564617600000,10.87],[1564704000000,10.34],[1564963200000,10.26],[1565049600000,10.215],[1565136000000,10.11],[1565222400000,10.33],[1565308800000,10.175],[1565568000000,9.99],[1565654400000,10.13],[1565740800000,9.932],[1565827200000,9.91],[1565913600000,10.23]],"name":"Crédit Agricole"},{"data":[[1534723200000,47.6898],[1534809600000,48.248882],[1534896000000,48.519104],[1534982400000,48.45388],[1535068800000,48.425926],[1535328000000,48.882507],[1535414400000,48.444561],[1535500800000,48.45388],[1535587200000,47.801617],[1535673600000,47.158672],[1535932800000,47.205261],[1536019200000,47.410259],[1536105600000,47.624573],[1536192000000,47.512756],[1536278400000,47.009583],[1536537600000,47.158672],[1536624000000,47.177307],[1536710400000,47.149349],[1536796800000,47.792297],[1536883200000,48.025249],[1537142400000,48.295475],[1537228800000,48.351379],[1537315200000,49.348412],[1537401600000,50.60635],[1537488000000,50.811344],[1537747200000,50.857941],[1537833600000,50.951118],[1537920000000,50.90453],[1538006400000,50.75544],[1538092800000,49.115459],[1538352000000,48.444561],[1538438400000,48.435242],[1538524800000,48.584332],[1538611200000,48.733421],[1538697600000,48.314106],[1538956800000,47.661846],[1539043200000,47.736389],[1539129600000,47.960022],[1539216000000,46.767311],[1539302400000,46.511066],[1539561600000,46.124367],[1539648000000,46.329365],[1539734400000,46.217545],[1539820800000,45.868118],[1539907200000,45.402214],[1540166400000,45.01086],[1540252800000,44.316666],[1540339200000,43.291676],[1540425600000,43.939281],[1540512000000,43.683037],[1540771200000,44.237457],[1540857600000,42.998158],[1540944000000,42.984184],[1541030400000,43.100658],[1541116800000,43.426788],[1541376000000,43.300999],[1541462400000,43.263725],[1541548800000,43.55724],[1541635200000,43.60849],[1541721600000,43.203159],[1541980800000,42.485668],[1542067200000,43.072701],[1542153600000,42.904976],[1542240000000,42.392483],[1542326400000,42.112942],[1542585600000,42.196808],[1542672000000,41.283638],[1542758400000,41.735565],[1542844800000,41.264999],[1542931200000,41.334888],[1543190400000,42.248055],[1543276800000,42.010445],[1543363200000,41.70295],[1543449600000,41.721588],[1543536000000,41.348862],[1543795200000,41.786812],[1543881600000,40.868984],[1543968000000,40.458988],[1544054400000,38.935486],[1544140800000,38.758446],[1544400000000,37.644939],[1544486400000,37.905842],[1544572800000,39.047302],[1544659200000,39.312866],[1544745600000,38.758446],[1545004800000,37.812664],[1545091200000,37.789368],[1545177600000,38.092205],[1545264000000,36.713135],[1545350400000,36.806313],[1545609600000,36.14473],[1545868800000,35.916435],[1545955200000,36.689838],[1546214400000,36.783016],[1546387200000,36.419613],[1546473600000,36.205296],[1546560000000,37.961754],[1546819200000,37.905842],[1546905600000,38.096863],[1546992000000,37.994366],[1547078400000,38.404358],[1547164800000,38.548786],[1547424000000,38.781738],[1547510400000,38.851624],[1547596800000,40.142178],[1547683200000,38.595375],[1547769600000,39.573776],[1548028800000,39.415367],[1548115200000,38.683899],[1548201600000,38.739811],[1548288000000,38.558105],[1548374400000,40.058315],[1548633600000,39.559799],[1548720000000,39.489914],[1548806400000,39.434002],[1548892800000,38.171406],[1548979200000,38.096863],[1549238400000,37.374714],[1549324800000,38.329811],[1549411200000,39.010033],[1549497600000,38.008343],[1549584000000,37.132442],[1549843200000,37.742779],[1549929600000,38.19936],[1550016000000,38.567425],[1550102400000,37.658916],[1550188800000,39.238323],[1550448000000,39.531841],[1550534400000,39.359459],[1550620800000,39.662296],[1550707200000,38.758446],[1550793600000,39.065941],[1551052800000,39.93718],[1551139200000,40.212059],[1551225600000,41.185799],[1551312000000,41.982491],[1551398400000,41.833401],[1551657600000,41.875332],[1551744000000,41.479317],[1551830400000,41.64238],[1551916800000,40.235355],[1552003200000,39.457298],[1552262400000,40.37513],[1552348800000,40.109562],[1552435200000,40.584782],[1552521600000,40.850349],[1552608000000,41.264999],[1552867200000,42.024422],[1552953600000,42.033741],[1553040000000,41.176479],[1553126400000,40.104904],[1553212800000,38.7864],[1553472000000,38.693218],[1553558400000,38.600037],[1553644800000,39.438663],[1553731200000,39.121849],[1553817600000,39.704227],[1554076800000,40.514896],[1554163200000,40.910915],[1554249600000,41.479317],[1554336000000,41.814766],[1554422400000,41.469997],[1554681600000,41.418751],[1554768000000,41.539886],[1554854400000,41.185799],[1554940800000,41.749538],[1555027200000,43.156563],[1555286400000,43.655079],[1555372800000,44.409843],[1555459200000,45.13665],[1555545600000,45.644485],[1555977600000,44.829159],[1556064000000,43.934624],[1556150400000,43.575878],[1556236800000,43.701672],[1556496000000,44.414505],[1556582400000,44.214165],[1556755200000,44.726658],[1556841600000,44.964268],[1557100800000,44.619499],[1557187200000,43.678375],[1557273600000,43.627129],[1557360000000,42.322598],[1557446400000,42.387829],[1557705600000,41.726242],[1557792000000,42.37851],[1557878400000,42.168854],[1557964800000,42.816456],[1558051200000,42.28067],[1558310400000,41.581814],[1558396800000,41.926582],[1558483200000,41.474655],[1558569600000,40.673306],[1558656000000,40.910915],[1558915200000,41.185799],[1559001600000,41.264999],[1559088000000,41.325001],[1559174400000,41.349998],[1559260800000,40.875],[1559520000000,40.814999],[1559606400000,41.994999],[1559692800000,41.73],[1559779200000,41.005001],[1559865600000,40.814999],[1560124800000,41.48],[1560211200000,41.555],[1560297600000,41.139999],[1560384000000,41.099998],[1560470400000,40.860001],[1560729600000,40.755001],[1560816000000,41.494999],[1560902400000,42.224998],[1560988800000,41.419998],[1561075200000,41.049999],[1561334400000,40.759998],[1561420800000,40.459999],[1561507200000,41.165001],[1561593600000,41.445],[1561680000000,41.764999],[1561939200000,42.084999],[1562025600000,41.865002],[1562112000000,42.57],[1562198400000,43.044998],[1562284800000,43.404999],[1562544000000,42.970001],[1562630400000,42.575001],[1562716800000,42.695],[1562803200000,42.57],[1562889600000,42.529999],[1563148800000,42.84],[1563235200000,43.205002],[1563321600000,42.52],[1563408000000,42.369999],[1563494400000,41.994999],[1563753600000,41.994999],[1563840000000,42.924999],[1563926400000,42.93],[1564012800000,42.990002],[1564099200000,42.935001],[1564358400000,42.654999],[1564444800000,41.52],[1564531200000,42.18],[1564617600000,42.845001],[1564704000000,41.150002],[1564963200000,40.415001],[1565049600000,40.27],[1565136000000,39.955002],[1565222400000,40.744999],[1565308800000,40.205002],[1565568000000,39.665001],[1565654400000,40.369999],[1565740800000,39.32],[1565827200000,39.599998],[1565913600000,40.610001]],"name":"BNP Paribas"},{"data":[[1534723200000,35.25],[1534809600000,35.705002],[1534896000000,36.040001],[1534982400000,35.939999],[1535068800000,36.080002],[1535328000000,36.285],[1535414400000,35.970001],[1535500800000,36],[1535587200000,35.605],[1535673600000,35.240002],[1535932800000,35.369999],[1536019200000,35.700001],[1536105600000,36.134998],[1536192000000,35.900002],[1536278400000,35.400002],[1536537600000,35.625],[1536624000000,35.560001],[1536710400000,35.165001],[1536796800000,35.514999],[1536883200000,35.810001],[1537142400000,36.305],[1537228800000,36.360001],[1537315200000,37.16],[1537401600000,37.865002],[1537488000000,37.849998],[1537747200000,37.849998],[1537833600000,38.07],[1537920000000,38.16],[1538006400000,38.040001],[1538092800000,36.970001],[1538352000000,36.595001],[1538438400000,36.540001],[1538524800000,36.755001],[1538611200000,37],[1538697600000,36.810001],[1538956800000,36.294998],[1539043200000,36.25],[1539129600000,36.650002],[1539216000000,36.07],[1539302400000,35.66],[1539561600000,35.34],[1539648000000,35.41],[1539734400000,35.145],[1539820800000,34.895],[1539907200000,34.450001],[1540166400000,34.09],[1540252800000,33.599998],[1540339200000,32.705002],[1540425600000,32.884998],[1540512000000,32.369999],[1540771200000,32.630001],[1540857600000,32.110001],[1540944000000,32.48],[1541030400000,32.68],[1541116800000,33.130001],[1541376000000,33.215],[1541462400000,33.064999],[1541548800000,33.16],[1541635200000,33.869999],[1541721600000,33.689999],[1541980800000,33.205002],[1542067200000,33.66],[1542153600000,33.474998],[1542240000000,33.235001],[1542326400000,33.095001],[1542585600000,33.029999],[1542672000000,32.325001],[1542758400000,32.744999],[1542844800000,32.470001],[1542931200000,32.540001],[1543190400000,33.240002],[1543276800000,33.009998],[1543363200000,32.91],[1543449600000,32.830002],[1543536000000,32.459999],[1543795200000,32.849998],[1543881600000,32.165001],[1543968000000,31.775],[1544054400000,30.555],[1544140800000,30.455],[1544400000000,29.525],[1544486400000,29.59],[1544572800000,30.41],[1544659200000,30.485001],[1544745600000,29.85],[1545004800000,29.025],[1545091200000,28.805],[1545177600000,28.9],[1545264000000,27.93],[1545350400000,28.09],[1545609600000,27.610001],[1545868800000,27.215],[1545955200000,27.795],[1546214400000,27.82],[1546387200000,27.424999],[1546473600000,27.440001],[1546560000000,28.370001],[1546819200000,28.415001],[1546905600000,28.615],[1546992000000,28.504999],[1547078400000,28.780001],[1547164800000,28.855],[1547424000000,29.030001],[1547510400000,29.004999],[1547596800000,30.209999],[1547683200000,28.5],[1547769600000,28.605],[1548028800000,28.275],[1548115200000,27.82],[1548201600000,27.565001],[1548288000000,27.719999],[1548374400000,28.620001],[1548633600000,28.145],[1548720000000,28.135],[1548806400000,28.190001],[1548892800000,27.139999],[1548979200000,26.485001],[1549238400000,25.75],[1549324800000,26.059999],[1549411200000,26.5],[1549497600000,24.705],[1549584000000,24.02],[1549843200000,24.15],[1549929600000,24.51],[1550016000000,24.280001],[1550102400000,23.785],[1550188800000,24.545],[1550448000000,25.174999],[1550534400000,25.040001],[1550620800000,25.32],[1550707200000,24.98],[1550793600000,25.334999],[1551052800000,26.049999],[1551139200000,25.764999],[1551225600000,26.559999],[1551312000000,27],[1551398400000,27.040001],[1551657600000,27.215],[1551744000000,27.025],[1551830400000,27.110001],[1551916800000,25.940001],[1552003200000,25.299999],[1552262400000,26.355],[1552348800000,26.299999],[1552435200000,26.73],[1552521600000,27],[1552608000000,27.295],[1552867200000,27.969999],[1552953600000,27.975],[1553040000000,27.24],[1553126400000,26.575001],[1553212800000,25.525],[1553472000000,25.4],[1553558400000,25.475],[1553644800000,25.969999],[1553731200000,25.469999],[1553817600000,25.775],[1554076800000,26.525],[1554163200000,26.615],[1554249600000,26.844999],[1554336000000,26.98],[1554422400000,26.65],[1554681600000,26.52],[1554768000000,26.594999],[1554854400000,26.26],[1554940800000,26.93],[1555027200000,28],[1555286400000,27.985001],[1555372800000,28.540001],[1555459200000,29],[1555545600000,29.014999],[1555977600000,28.275],[1556064000000,27.52],[1556150400000,27.540001],[1556236800000,27.700001],[1556496000000,28.43],[1556582400000,28.219999],[1556755200000,28.379999],[1556841600000,28.700001],[1557100800000,28.18],[1557187200000,27.084999],[1557273600000,26.9],[1557360000000,26.285],[1557446400000,26.09],[1557705600000,25.51],[1557792000000,25.795],[1557878400000,25.629999],[1557964800000,25.995001],[1558051200000,25.715],[1558310400000,25.084999],[1558396800000,25.24],[1558483200000,25.025],[1558569600000,24.6],[1558656000000,24.655001],[1558915200000,23.045],[1559001600000,22.594999],[1559088000000,22.549999],[1559174400000,22.565001],[1559260800000,22.459999],[1559520000000,22.395],[1559606400000,22.719999],[1559692800000,22.42],[1559779200000,22.305],[1559865600000,22.105],[1560124800000,22.27],[1560211200000,22.299999],[1560297600000,21.844999],[1560384000000,21.48],[1560470400000,21.235001],[1560729600000,21.129999],[1560816000000,21.57],[1560902400000,22.049999],[1560988800000,21.725],[1561075200000,22.049999],[1561334400000,21.565001],[1561420800000,21.424999],[1561507200000,21.764999],[1561593600000,21.99],[1561680000000,22.219999],[1561939200000,22.23],[1562025600000,22.139999],[1562112000000,22.334999],[1562198400000,22.415001],[1562284800000,22.809999],[1562544000000,22.555],[1562630400000,22.25],[1562716800000,22.475],[1562803200000,22.485001],[1562889600000,22.73],[1563148800000,22.815001],[1563235200000,23.1],[1563321600000,22.825001],[1563408000000,22.715],[1563494400000,22.370001],[1563753600000,22.33],[1563840000000,23.030001],[1563926400000,23.165001],[1564012800000,22.99],[1564099200000,23.08],[1564358400000,22.905001],[1564444800000,22.055],[1564531200000,22.205],[1564617600000,23.5],[1564704000000,22.42],[1564963200000,22.4],[1565049600000,22.305],[1565136000000,22.1],[1565222400000,22.764999],[1565308800000,22.275],[1565568000000,21.790001],[1565654400000,22.379999],[1565740800000,21.465],[1565827200000,21.375],[1565913600000,22.07]],"name":"Société Générale"}]},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"stock","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<p>We remark that by default highcharter considers only the adjusted</p>
+</div>
+
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/finance/">Finance</a>
+  
+  <a class="badge badge-light" href="/tags/economics/">Economics</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+      
+      <img class="portrait mr-3" src="/authors/admin/avatar_huc09fd31ce9bb786d1041f70ffa59556f_325161_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/">Mohamed El Fodil Ihaddaden</a></h5>
+      <h6 class="card-subtitle">Ph.D candidate in Economics.</h6>
+      <p class="card-text" itemprop="description">My research interests include Performance Management, Data Envelopment Analysis and Artificial Intelligence applied to Economics.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          <li>
+            <a itemprop="sameAs" href="mailto:ihaddaden.fodeil@gmail.com" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://twitter.com/IhaddadenFodil" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://scholar.google.fr/citations?user=Vl-O5pEAAAAJ&amp;hl=fr" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/feddelegrand7" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/trade_analysis/trade-analysis-with-r/">Trade Analysis with R</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

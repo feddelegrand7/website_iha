@@ -1,0 +1,74 @@
+---
+title: 'Three ways to get a summary of your data '
+author: Mohamed El Fodil Ihaddaden
+date: '2019-11-11'
+slug: three-ways-to-get-a-summary-of-your-data
+categories: []
+tags:
+  - R
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-11-11T19:02:15+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+## Summary 
+
+To get a first idea about a certain dataframe's statistical metrics, there is of course the well known `summary()` function : 
+
+```{r}
+
+summary(mtcars)
+
+
+```
+
+
+However, there are other interesting functions that provide more structured and exhaustive information. 
+
+## describe
+
+The **psych** package has a function called `describe()` that provides several statistics that are not available within the `summary()` function. 
+
+
+```{r}
+library(psych)
+
+describe(mtcars)
+
+```
+
+
+You can see that there is a star next to the *am* variable. This way, the `describe()` function is telling us that the *am* variable is a factor and it doesn't make sense to measure for example its mean or its standard deviation. 
+
+In this context, there is an argument that allows us to omit non-numeric variables. 
+
+```{r}
+
+describe(mtcars, omit = TRUE)
+
+
+```
+
+
+## skim 
+
+
+Finally, we present the `skim()` function from the **skimr** package which provides some statistics and a tiny nice histogram for the numerical variables (the histograms cannot be rendered in the website, but just try it out) !!! 
+
+```{r}
+library(skimr)
+
+skim(mtcars)
+
+
+```
+
+
+I'm sure there may be many other super cool functions, please DM me at **@IhaddadenFodil** if I've missed something. 

@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Mohamed El Fodil Ihaddaden">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="The ggplot2 package integrates the tidy philosophy of programming introduced mainly by Hadley Wickham. It is part of the tidyverse package which includes several other packages related to the tidy world. Through this is tutorial, we’ll present some basic ggplot functionalities using the mtcars data base.
+First of of all, you need to install the ggplot2 package which can be done either by">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/an-introduction-to-the-ggplot2-package/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.dd629241ea9333c62c071f4a25f829ff.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-145265560-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/an-introduction-to-the-ggplot2-package/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@@ihaddadenfodil">
+  <meta property="twitter:creator" content="@@ihaddadenfodil">
+  
+  <meta property="og:site_name" content="MEF IHADDADEN">
+  <meta property="og:url" content="/post/an-introduction-to-the-ggplot2-package/">
+  <meta property="og:title" content="An Introduction to the ggplot2 package.  | MEF IHADDADEN">
+  <meta property="og:description" content="The ggplot2 package integrates the tidy philosophy of programming introduced mainly by Hadley Wickham. It is part of the tidyverse package which includes several other packages related to the tidy world. Through this is tutorial, we’ll present some basic ggplot functionalities using the mtcars data base.
+First of of all, you need to install the ggplot2 package which can be done either by"><meta property="og:image" content="/img/logo-via-logohub.png">
+  <meta property="twitter:image" content="/img/logo-via-logohub.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-08-08T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2019-08-08T01:12:03&#43;02:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>An Introduction to the ggplot2 package.  | MEF IHADDADEN</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/"><img src="/img/logo-via-logohub.png" alt="MEF IHADDADEN"></a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>About me</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#skills"><span>Skills</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#experience"><span>Experience</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#accomplishments"><span>Accomplishments</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Academic Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>R Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">An Introduction to the ggplot2 package. </h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-08-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-08-08 01:12:03 &#43;0200 CEST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    <time>Aug 8, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/an-introduction-to-the-ggplot2-package/&amp;text=An%20Introduction%20to%20the%20ggplot2%20package.%20" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/an-introduction-to-the-ggplot2-package/&amp;t=An%20Introduction%20to%20the%20ggplot2%20package.%20" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=An%20Introduction%20to%20the%20ggplot2%20package.%20&amp;body=/post/an-introduction-to-the-ggplot2-package/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/an-introduction-to-the-ggplot2-package/&amp;title=An%20Introduction%20to%20the%20ggplot2%20package.%20" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=An%20Introduction%20to%20the%20ggplot2%20package.%20%20/post/an-introduction-to-the-ggplot2-package/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/an-introduction-to-the-ggplot2-package/&amp;title=An%20Introduction%20to%20the%20ggplot2%20package.%20" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+
+
+<p>The <a href="https://ggplot2.tidyverse.org/">ggplot2</a> package integrates the <strong>tidy</strong> philosophy of programming introduced mainly by <a href="https://twitter.com/hadleywickham">Hadley Wickham</a>. It is part of the <strong>tidyverse</strong> package which includes several other packages related to the tidy world. Through this is tutorial, we’ll present some basic ggplot functionalities using the <strong>mtcars</strong> data base.</p>
+<p>First of of all, you need to install the ggplot2 package which can be done either by</p>
+<pre class="r"><code>install.packages(&quot;tidyverse&quot;)</code></pre>
+<p>or</p>
+<pre class="r"><code>install.packages(&quot;ggplot2&quot;)</code></pre>
+<div id="plotting-with-ggplot" class="section level1">
+<h1>Plotting with ggplot</h1>
+<p>The mtcars object is a dataframe included in R that displays 10 aspects of automobile design and performance for 32 automobiles (1973–74 models). Let us have a quick overview of the mtcars dataset.</p>
+<pre class="r"><code>head(mtcars)</code></pre>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<p>We want to plot the relation between the miles per galon <em>(mpg)</em> and the weights <em>(wt)</em> of our cars’ models. To do that in ggplot2 one need to identify three principal elements (or two depending on your desired graph): The <em>database</em> from which the information will be extracted, the <em>x-axis variable</em> and the <em>y-axis variable</em>.</p>
+<pre class="r"><code>library(ggplot2) # or library(tidyverse)
+
+ggplot(data = mtcars, mapping = aes(x = mpg, y = wt))</code></pre>
+<p><img src="/post/2019-08-08-an-introduction-to-the-ggplot2-package_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>In the exemple above, we used the function <strong>ggplot</strong> and two parameters <em>data </em> and <em>mapping</em> to structure our graph. The <em>mapping</em> parameters determine which variable should be considered in which axis. To plot our volue we need to add another argument to our code. Suppose we want to plot a scatterplot :</p>
+<pre class="r"><code>ggplot(data = mtcars, mapping = aes(x = mpg, y = wt)) +
+  geom_point()   # geom_point() refers to scatterplot</code></pre>
+<p><img src="/post/2019-08-08-an-introduction-to-the-ggplot2-package_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>To modify the size of the color of the displayed points, we just introduce the following parameters in the geom_point() function :</p>
+<pre class="r"><code>ggplot(data = mtcars, mapping = aes(x = mpg, y = wt)) +
+  geom_point(size = 3, color = &quot;red&quot;)   # geom_point() refers to scatterplot</code></pre>
+<p><img src="/post/2019-08-08-an-introduction-to-the-ggplot2-package_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>For an exhaustive list of R colours, just check this <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">website</a>.
+Now, if we want to modify the theme of our plot, proceed as follow :</p>
+<pre class="r"><code>ggplot(data = mtcars, mapping = aes(x = mpg, y = wt)) +
+  geom_point(size = 3, color = &quot;red&quot;) + 
+  theme_bw()  #just tape theme and wait to see several choices</code></pre>
+<p><img src="/post/2019-08-08-an-introduction-to-the-ggplot2-package_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>finally, it is possible to assign a plot to a defined variable :</p>
+<pre class="r"><code>plot1 &lt;- ggplot(data = mtcars, mapping = aes(x = mpg, y = wt)) +
+  geom_point(size = 3, color = &quot;red&quot;) + 
+  theme_bw()  </code></pre>
+</div>
+<div id="plotting-interactively-with-plotly" class="section level1">
+<h1>Plotting Interactively with Plotly</h1>
+<p>Plotly is an interesting package that allows us to create interactive web graphics from ggplot2. Just convert our above scatterplot into an interactive one, just use the function <strong>ggplotly</strong> :</p>
+<pre class="r"><code>library(plotly)  # Load the package after installing it
+
+ggplotly(plot1)</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"data":[{"x":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"y":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"text":["mpg: 21.0<br />wt: 2.620","mpg: 21.0<br />wt: 2.875","mpg: 22.8<br />wt: 2.320","mpg: 21.4<br />wt: 3.215","mpg: 18.7<br />wt: 3.440","mpg: 18.1<br />wt: 3.460","mpg: 14.3<br />wt: 3.570","mpg: 24.4<br />wt: 3.190","mpg: 22.8<br />wt: 3.150","mpg: 19.2<br />wt: 3.440","mpg: 17.8<br />wt: 3.440","mpg: 16.4<br />wt: 4.070","mpg: 17.3<br />wt: 3.730","mpg: 15.2<br />wt: 3.780","mpg: 10.4<br />wt: 5.250","mpg: 10.4<br />wt: 5.424","mpg: 14.7<br />wt: 5.345","mpg: 32.4<br />wt: 2.200","mpg: 30.4<br />wt: 1.615","mpg: 33.9<br />wt: 1.835","mpg: 21.5<br />wt: 2.465","mpg: 15.5<br />wt: 3.520","mpg: 15.2<br />wt: 3.435","mpg: 13.3<br />wt: 3.840","mpg: 19.2<br />wt: 3.845","mpg: 27.3<br />wt: 1.935","mpg: 26.0<br />wt: 2.140","mpg: 30.4<br />wt: 1.513","mpg: 15.8<br />wt: 3.170","mpg: 19.7<br />wt: 2.770","mpg: 15.0<br />wt: 3.570","mpg: 21.4<br />wt: 2.780"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":1,"size":11.3385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":31.4155251141553},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[9.225,35.075],"tickmode":"array","ticktext":["10","15","20","25","30","35"],"tickvals":[10,15,20,25,30,35],"categoryorder":"array","categoryarray":["10","15","20","25","30","35"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"mpg","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1.31745,5.61955],"tickmode":"array","ticktext":["2","3","4","5"],"tickvals":[2,3,4,5],"categoryorder":"array","categoryarray":["2","3","4","5"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"wt","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"1c202040781f":{"x":{},"y":{},"type":"scatter"}},"cur_data":"1c202040781f","visdat":{"1c202040781f":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>Several functionalities appear in the top-right of the plot.</p>
+<div id="plotting-distributions-with-histograms" class="section level2">
+<h2>Plotting Distributions with Histograms</h2>
+<p>Histogram are suitable for plotting a continous variable. If you want to make a histogram use <strong>geom_histogram</strong>:</p>
+<pre class="r"><code>ggplot(data = mtcars, mapping = aes(x = mpg)) +
+  geom_histogram()</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/post/2019-08-08-an-introduction-to-the-ggplot2-package_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>We can change the size of the bins using the <em>binwidth</em> parameter :</p>
+<pre class="r"><code>ggplot(data = mtcars, mapping = aes(x = mpg)) +
+  geom_histogram(binwidth = 3)</code></pre>
+<p><img src="/post/2019-08-08-an-introduction-to-the-ggplot2-package_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>By default, the data is grouped into 30 bins. To can change the number of bins, we use the parameter <strong>bins</strong>:</p>
+<pre class="r"><code>ggplot(data = mtcars, mapping = aes(x = mpg)) +
+  geom_histogram(bins = 6)</code></pre>
+<p><img src="/post/2019-08-08-an-introduction-to-the-ggplot2-package_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>To modify the color of the histogram, just proceed as follows:</p>
+<pre class="r"><code>ggplot(data = mtcars, mapping = aes(x = mpg)) +
+  geom_histogram(fill = &quot;pink&quot;, color = &quot;yellow&quot;) # Mind the difference</code></pre>
+<p><img src="/post/2019-08-08-an-introduction-to-the-ggplot2-package_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>We can also use the plotly package to plot an interactive histogram.</p>
+<pre class="r"><code>histogram &lt;- ggplot(data = mtcars, mapping = aes(x = mpg)) +
+  geom_histogram(fill = &quot;pink&quot;, color = &quot;yellow&quot;) 
+
+ggplotly(histogram)</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"data":[{"orientation":"v","width":[0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586206,0.810344827586221,0.810344827586206,0.810344827586206],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[10.5344827586207,11.3448275862069,12.1551724137931,12.9655172413793,13.7758620689655,14.5862068965517,15.3965517241379,16.2068965517241,17.0172413793103,17.8275862068965,18.6379310344828,19.448275862069,20.2586206896552,21.0689655172414,21.8793103448276,22.6896551724138,23.5,24.3103448275862,25.1206896551724,25.9310344827586,26.7413793103448,27.551724137931,28.3620689655172,29.1724137931034,29.9827586206897,30.7931034482759,31.6034482758621,32.4137931034483,33.2241379310345,34.0344827586207],"y":[2,0,0,1,0,2,5,1,1,2,1,3,0,4,1,2,0,1,0,1,0,1,0,0,0,2,0,1,0,1],"text":["count: 2<br />mpg: 10.53448","count: 0<br />mpg: 11.34483","count: 0<br />mpg: 12.15517","count: 1<br />mpg: 12.96552","count: 0<br />mpg: 13.77586","count: 2<br />mpg: 14.58621","count: 5<br />mpg: 15.39655","count: 1<br />mpg: 16.20690","count: 1<br />mpg: 17.01724","count: 2<br />mpg: 17.82759","count: 1<br />mpg: 18.63793","count: 3<br />mpg: 19.44828","count: 0<br />mpg: 20.25862","count: 4<br />mpg: 21.06897","count: 1<br />mpg: 21.87931","count: 2<br />mpg: 22.68966","count: 0<br />mpg: 23.50000","count: 1<br />mpg: 24.31034","count: 0<br />mpg: 25.12069","count: 1<br />mpg: 25.93103","count: 0<br />mpg: 26.74138","count: 1<br />mpg: 27.55172","count: 0<br />mpg: 28.36207","count: 0<br />mpg: 29.17241","count: 0<br />mpg: 29.98276","count: 2<br />mpg: 30.79310","count: 0<br />mpg: 31.60345","count: 1<br />mpg: 32.41379","count: 0<br />mpg: 33.22414","count: 1<br />mpg: 34.03448"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(255,192,203,1)","line":{"width":1.88976377952756,"color":"rgba(255,255,0,1)"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":31.4155251141553},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[8.91379310344827,35.6551724137931],"tickmode":"array","ticktext":["10","15","20","25","30","35"],"tickvals":[10,15,20,25,30,35],"categoryorder":"array","categoryarray":["10","15","20","25","30","35"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"mpg","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.25,5.25],"tickmode":"array","ticktext":["0","1","2","3","4","5"],"tickvals":[0,1,2,3,4,5],"categoryorder":"array","categoryarray":["0","1","2","3","4","5"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"count","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"1c206516552f":{"x":{},"type":"bar"}},"cur_data":"1c206516552f","visdat":{"1c206516552f":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="filling-histograms-with-categories" class="section level1">
+<h1>Filling Histograms with Categories</h1>
+<p>Suppose we are interested in ploting the distribution of the miles per gallon (mpg) variable but this time we want to differentiate between automatic and manuel cars (am : 0 = automatic, 1 = manual). First of all, we must convert the <em>am</em> column into a factor variable:</p>
+<pre class="r"><code>mtcars$am &lt;- factor(mtcars$am, labels = c(&quot;Automatic&quot;, &quot;Manual&quot;)) # We provide labels 
+
+ggplot(data = mtcars, mapping = aes(x = mpg, fill = am)) +
+  geom_histogram() </code></pre>
+<p><img src="/post/2019-08-08-an-introduction-to-the-ggplot2-package_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>From the above histogram, we observe that manual vehicules have a higher <em>mpg</em> performance.</p>
+</div>
+<div id="splitting-plots-with-facets" class="section level1">
+<h1>Splitting Plots with Facets</h1>
+<p>We show above how to plot a distribution according to a specific category. One may proceed otherwise and generate two distinc plots using <strong>Face_grid()</strong> :</p>
+<pre class="r"><code>ggplot(data = mtcars, mapping = aes(x = mpg)) +
+  geom_histogram(fill = &quot;yellow&quot;, color = &quot;pink&quot;) +
+  facet_grid(~am) +
+  theme_light()</code></pre>
+<p><img src="/post/2019-08-08-an-introduction-to-the-ggplot2-package_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+</div>
+
+    </div>
+
+    
+
+
+    
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+      
+      <img class="portrait mr-3" src="/authors/admin/avatar_huc09fd31ce9bb786d1041f70ffa59556f_325161_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/">Mohamed El Fodil Ihaddaden</a></h5>
+      <h6 class="card-subtitle">Ph.D candidate in Economics.</h6>
+      <p class="card-text" itemprop="description">My research interests include Performance Management, Data Envelopment Analysis and Artificial Intelligence applied to Economics.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          <li>
+            <a itemprop="sameAs" href="mailto:ihaddaden.fodeil@gmail.com" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://twitter.com/IhaddadenFodil" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://scholar.google.fr/citations?user=Vl-O5pEAAAAJ&amp;hl=fr" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/feddelegrand7" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

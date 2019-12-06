@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mohamed El Fodil IHADDADEN</title>
+    <link>/authors/admin/</link>
+      <atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+    <description>Mohamed El Fodil IHADDADEN</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <image>
+      <url>/img/logo-via-logohub.png</url>
+      <title>Mohamed El Fodil IHADDADEN</title>
+      <link>/authors/admin/</link>
+    </image>
+    
+    <item>
+      <title></title>
+      <link>/authors/admin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/admin/</guid>
+      <description>&lt;p&gt;Hi, I&amp;rsquo;m an enthusiast Ph.D candidate in Economics. Throughout my thesis, I&amp;rsquo;ve been working mainly on the application of a non-parametric technique called Data Enveloppement Analysis in order to improve Algerian public banks&amp;rsquo; performance. Furthermore, I&amp;rsquo;m also interested in implementing machine and deep learning algorithms to solve complex real world issues. I&amp;rsquo;m able to handle several data analytics programs: R, Python, SQL, Excel and Power BI, although I&amp;rsquo;m more fluent using R and Rstudio. In my free time I like to watch Mangas and code some basic shiny app like this one (not updated): &lt;a href=&#34;https://ihaddaden-fodil.shinyapps.io/Pharmacie_de_Garde_Alger/&#34; target=&#34;_blank&#34;&gt;https://ihaddaden-fodil.shinyapps.io/Pharmacie_de_Garde_Alger/&lt;/a&gt; or this one : &lt;a href=&#34;https://ihaddaden-fodil.shinyapps.io/shiny_reverse_histogram/&#34; target=&#34;_blank&#34;&gt;https://ihaddaden-fodil.shinyapps.io/shiny_reverse_histogram/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve also developed an R package called &lt;strong&gt;ralger&lt;/strong&gt; that facilitates web scraping in R. The package is currently not available at CRAN but you can use it from Github : &lt;a href=&#34;https://github.com/feddelegrand7/ralger&#34; target=&#34;_blank&#34;&gt;https://github.com/feddelegrand7/ralger&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

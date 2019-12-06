@@ -1,0 +1,58 @@
+---
+title: Intro to the case_when function
+author: 'Mohamed El Fodil Ihaddaden '
+date: '2019-08-31'
+tags:
+  - tidyverse
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+lastmod: '2019-08-31T02:52:43+02:00'
+slug: case-when-function
+---
+
+`case_when()` is a **dplyr** function that returns a value according to predifined conditions. It's a very powerful function though not very famous. In our example, we'll use the mtcars dataset (just as usual). 
+
+
+```{r}
+head(mtcars)
+```
+
+Suppose in the context of a study we want to categorize the cars into two factors : **Climate_Friendly** and **Climate_Unfriendly** according to the *horsepower (hp)* median. We can create a new column that incoporates this information using the `case_when()` and `mutate` functions:
+
+
+```{r message=FALSE, warning=FALSE}
+library(dplyr)
+library(magrittr) # required for the %>% 
+
+median <- median(mtcars$hp) # first, we calculate our median 
+
+new_df <- mtcars %>% mutate(climat_categ = case_when(
+    hp < median ~ "friendly",
+    hp >= median ~ "unfriendly"
+    ))
+
+
+new_df$climat_categ <- as.factor(new_df$climat_categ)
+
+new_df %>% select(hp, climat_categ)  # A quick check ! 
+```
+
+
+Let'us plot the count of the cars according to the 'climat_categ' variable. 
+
+```{r}
+library(ggplot2)
+
+ggplot(new_df, aes(x =climat_categ))+ 
+  geom_bar(stat = "count", fill = "darkolivegreen1", color = "blue") +
+  theme_classic()+
+  labs(title ="Count distribution of eco and non-eco friendly cars", x = "" )
+  
+
+
+```
+
+

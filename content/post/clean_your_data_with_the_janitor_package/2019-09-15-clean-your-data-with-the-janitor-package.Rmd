@@ -1,0 +1,141 @@
+---
+title: "Clean your Data with the janitor package"
+author: "Mohamed El Fodil Ihaddaden"
+date: '2019-09-15'
+categories: []
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+lastmod: '2019-09-15T14:45:21+02:00'
+projects: []
+slug: clean-your-data-with-the-janitor-package
+subtitle: ''
+summary: ''
+tags: []
+authors: []
+---
+
+The janitor package in an excellent tool for cleaning a messy database and summarize information. We've all heard that data analysts allocate about 70% of their time to data cleaning and wrangling. With janitor, this is straightforward. In this tutorial, we'll present some (not all !!!) janitor cool functions. Of course, we use the mtcars R base dataset to provide for reproducible examples. Let's have a look to the variables. 
+
+
+```{r}
+
+head(mtcars)
+
+
+```
+
+Now, just for the fun, we rename our columns in a messy way : 
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+
+
+mtcars_messy <- mtcars %>% rename(
+  "MILES PER! Galon" = mpg, 
+  "NUMBER OF cylinders" = cyl, 
+  "WEIGHT !!!!???" = wt
+)
+
+names(mtcars_messy)
+
+```
+
+One must admit that we usually have to deal with this kind of variables' names. Tired of renaming them one by one ? one answer : **janitor::clean_names()**
+
+```{r message=FALSE, warning=FALSE}
+library(janitor)
+
+mtcars_cleaned <- mtcars_messy %>% clean_names()
+
+names(mtcars_cleaned)
+```
+
+Pretty cool isn't ? There is another interesting tool in janitor. The **get_dupes** function allows us to detect duplicates within a dataframe. Just to check how it works, we create duplicated rows: 
+
+```{r}
+
+mtcars <- rownames_to_column(mtcars, var = "car_name") # Transforming our rows' names to a column entitled "car_name"
+
+mtcars_dupli <- mtcars %>% rbind(mtcars[5:7, ])    # We're  duplicating the 5, 6 and 7th rows
+
+nrow(mtcars_dupli) # We have indeed 35 rows (3 more than the classic mtcars)
+
+```
+
+How can we find duplicates ? easy ! 
+
+```{r}
+
+mtcars_dupli %>% get_dupes(car_name) 
+
+```
+
+
+As you see, the function even indicates the duplication counts (in our case 2 as we've added one duplicate to each observation)
+
+## I adorn_() tabyl()
+
+With janitor, one can also get valuable information in a tabular form. The **tabyl()** function works approximately like the table base R but offers a much better aesthetic. Let's check the differences: 
+
+```{r}
+mtcars_dupli$car_name %>% table()
+```
+
+not so georgous, I agree. Now, let's see what **tabyl()** function does : 
+
+```{r message=FALSE, warning=FALSE}
+
+mtcars_dupli$car_name %>% tabyl()
+
+```
+
+We're not done yet ! This function can also be applied to generate contingency tables. Suppose, we want to get the number of cylinders according to the type of transmission (0 = automatic, 1 = manuel) : 
+
+```{r message=FALSE, warning=FALSE}
+mtcars_dupli %>% tabyl(am, cyl)
+
+```
+
+
+We get the information but it's not very pretty right ? don't panic, the janitor package provides the **adorn_** functions which generate a variety of summary information : 
+
+```{r message=FALSE, warning=FALSE}
+
+mtcars_dupli %>% tabyl(am, cyl) %>% 
+  adorn_totals(where = c("row", "col"))  # get the rows and columns sum
+
+```
+
+```{r message=FALSE}
+mtcars_dupli %>% tabyl(am, cyl) %>% 
+  adorn_totals(where = c("row", "col")) %>% 
+  adorn_percentages("all") %>%            # getting the proportions
+  adorn_pct_formatting() %>%              # formatting values in %
+  adorn_ns(position = "rear") %>%         # diplaying counts "behind" the previously calculated percentages
+  adorn_title(placement = "combined")     # display a "combined" title (am/cyl) (checkout "top" for another view)
+
+```
+
+
+Finally, it's possible to convert our results into great looking HTML tables using the **kable** function from the [knitr](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) package : 
+
+
+```{r message=FALSE, warning=FALSE}
+library(knitr)
+mtcars_dupli %>% tabyl(am, cyl) %>% 
+  adorn_totals(where = c("row", "col")) %>% 
+  adorn_percentages("all") %>%            
+  adorn_pct_formatting() %>%              
+  adorn_ns(position = "rear") %>%         
+  adorn_title(placement = "combined") %>% 
+  kable() 
+
+
+```
+
+That's it for this tutorial nevertheless I highly recommend taking a look to the official package's [vignette](https://github.com/sfirke/janitor).
+
+

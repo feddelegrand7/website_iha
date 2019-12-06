@@ -1,0 +1,101 @@
+---
+title: Working with R Built-in Data Sets
+author: Mohamed El Fodil Ihaddaden
+date: '2019-09-18'
+slug: working-with-r-built-in-data-sets
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-09-18T01:17:01+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>In my tutorials, I prefer to work with the mtcars data set (DST) because I find it pretty straightforward. Nonetheless, one may be attempted to play and try some functions on a specific kind of DST. What is great in R is that it cames with a variety of pre-built DST. Yes, you just have to choose!</p>
+<div id="r-base-data-sets" class="section level1">
+<h1>R Base Data Sets</h1>
+<p>Base DSTs are the data bases available within the base R. They are not related to any installed package. If you want to display the title of the full list of R base DSTs, you can write the following very simple command:</p>
+<pre class="r"><code>data &lt;- data() 
+
+R_base &lt;- data$results[,3] # All base R data sets
+
+head(R_base)</code></pre>
+<pre><code>## [1] &quot;AirPassengers&quot;          &quot;BJsales&quot;               
+## [3] &quot;BJsales.lead (BJsales)&quot; &quot;BOD&quot;                   
+## [5] &quot;CO2&quot;                    &quot;ChickWeight&quot;</code></pre>
+<p>We can also print the description of each DST.</p>
+<pre class="r"><code>R_base_description &lt;- data$results[,4]
+
+head(R_base_description)</code></pre>
+<pre><code>## [1] &quot;Monthly Airline Passenger Numbers 1949-1960&quot;   
+## [2] &quot;Sales Data with Leading Indicator&quot;             
+## [3] &quot;Sales Data with Leading Indicator&quot;             
+## [4] &quot;Biochemical Oxygen Demand&quot;                     
+## [5] &quot;Carbon Dioxide Uptake in Grass Plants&quot;         
+## [6] &quot;Weight versus age of chicks on different diets&quot;</code></pre>
+<p>We can have both …</p>
+<pre class="r"><code>base_base &lt;- cbind(R_base,R_base_description )
+
+base_base &lt;- as.data.frame(base_base)
+
+head(base_base)</code></pre>
+<pre><code>##                   R_base                             R_base_description
+## 1          AirPassengers    Monthly Airline Passenger Numbers 1949-1960
+## 2                BJsales              Sales Data with Leading Indicator
+## 3 BJsales.lead (BJsales)              Sales Data with Leading Indicator
+## 4                    BOD                      Biochemical Oxygen Demand
+## 5                    CO2          Carbon Dioxide Uptake in Grass Plants
+## 6            ChickWeight Weight versus age of chicks on different diets</code></pre>
+</div>
+<div id="getting-all-the-available-dsts" class="section level1">
+<h1>Getting All the Available DSTs</h1>
+<p>Some packages, available on CRAN or Github come with one or many data sets. For example, if you install the famous <strong>dplyr</strong>, you’ll get for free the cool <a href="https://rdrr.io/cran/dplyr/man/starwars.html">starwars</a> DST. In order to list all your DSTs according to the packages that you’ve installed, execute the following command:</p>
+<pre class="r"><code>data(package = .packages(all.available = TRUE))</code></pre>
+<p>Imagine you’re a big fan of carbon (why not) and you’re too lazy (like me) to open your browser. The following command lists ALL (base and installed) packages that contains the word “carbon” in their DSTs’ description.</p>
+<pre class="r"><code>ALL_packages &lt;- data(package = .packages(all.available = TRUE))
+
+ALL_packages &lt;- ALL_packages[[3]]
+
+ALL_packages[grep(&quot;carbon&quot;, ALL_packages[, 4], ignore.case = TRUE), ]</code></pre>
+<pre><code>##      Package    LibPath                              Item          
+## [1,] &quot;datasets&quot; &quot;C:/Program Files/R/R-3.6.1/library&quot; &quot;CO2&quot;         
+## [2,] &quot;abd&quot;      &quot;C:/Program Files/R/R-3.6.1/library&quot; &quot;AlgaeCO2&quot;    
+## [3,] &quot;agridat&quot;  &quot;C:/Program Files/R/R-3.6.1/library&quot; &quot;waynick.soil&quot;
+## [4,] &quot;boot&quot;     &quot;C:/Program Files/R/R-3.6.1/library&quot; &quot;co.transfer&quot; 
+## [5,] &quot;fields&quot;   &quot;C:/Program Files/R/R-3.6.1/library&quot; &quot;WorldBankCO2&quot;
+##      Title                                                              
+## [1,] &quot;Carbon Dioxide Uptake in Grass Plants&quot;                            
+## [2,] &quot;Carbon Dioxide and Growth Rate in Algae&quot;                          
+## [3,] &quot;Soil nitrogen and carbon in two fields&quot;                           
+## [4,] &quot;Carbon Monoxide Transfer&quot;                                         
+## [5,] &quot;Carbon emissions and demographic covariables by country for 1999.&quot;</code></pre>
+<p>Finally, let’s say you have found your <em>âme sœur</em> and it’s the <em>Carbon Dioxide and Growth Rate in Algae</em> DST. To load it into your environment, use:</p>
+<pre class="r"><code>library(abd) # First load the corresponding package
+
+data(&quot;AlgaeCO2&quot;) # load the AlgaeCO2
+
+AlgaeCO2 </code></pre>
+<pre><code>##     treatment growthrate
+## 1  normal CO2       2.31
+## 2  normal CO2       1.95
+## 3  normal CO2       1.86
+## 4  normal CO2       1.59
+## 5  normal CO2       1.55
+## 6  normal CO2       1.30
+## 7  normal CO2       1.07
+## 8    high CO2       2.37
+## 9    high CO2       1.89
+## 10   high CO2       1.55
+## 11   high CO2       1.49
+## 12   high CO2       1.26
+## 13   high CO2       1.20
+## 14   high CO2       0.98</code></pre>
+</div>

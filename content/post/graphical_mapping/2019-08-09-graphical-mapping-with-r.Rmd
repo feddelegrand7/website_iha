@@ -1,0 +1,154 @@
+---
+title: Graphical Mapping with R
+author: admin
+date: '2019-08-09'
+slug: graphical-mapping-with-r
+categories: []
+tags:
+  - Map
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-08-09T02:14:40+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+Mapping with R is a real joy. To see some examples, we'll rely on the [maps](https://cran.r-project.org/web/packages/maps/maps.pdf) package. 
+
+# Mapping the World 
+
+## Getting the longitude and latitude
+
+First of all, we need to get the long and lat data in order to plot with ggplot2 which provides graphs with more aesthetic. (for an introduction to the ggplot2 package, just click [here](https://ihaddadenfodil.com/post/an-introduction-to-the-ggplot2-package/)). To do that, we'll use the **map_data()** function which belongs to ggplot2 and put as a parameter the **world** map provided by the **maps** package. 
+
+
+```{r eval= TRUE  , message=FALSE, warning=FALSE}
+
+library(maps)
+library(tidyverse)
+
+```
+
+```{r}
+
+world <- map_data("world")
+
+head(world)
+```
+
+
+To render our world geographical plot, we set *long* to the x-axis and *lat* to the y-axis. Finally, we set **group = group** (*group* is a variable that groups each observation according to the corresponding polygon).
+
+
+```{r}
+
+ggplot(world, aes(x=long, y=lat, group=group)) +
+  geom_polygon(fill="lightgreen", colour="black")
+
+
+```
+
+
+
+# Mapping Regions 
+
+Now we'll use the **region** parameter which extracts regional data from the world map. Let'us have a look to the region where I belong to, North Africa:
+
+```{r}
+
+north_africa <- map_data("world", region = c(
+  "Algeria",
+  "Morocco",
+  "Tunisia",
+  "Egypt",
+  "Western Sahara",
+  "Libya"))
+
+head(north_africa)
+```
+
+
+In order to differentiate among countries using colors, we set the parameter **fill = region**.
+
+```{r}
+ggplot(north_africa, aes(x = long, y = lat, group = group, fill = region)) + 
+  geom_polygon(colour = "black") + # colour = "black" is needed to emphasize borders
+  theme_minimal()
+  
+```
+
+# Geographical Filling
+
+Let us go deeper in our geographical plotting. Suppose we want to plot the French median revenue according to each borough (in french : "arrondissement"). The french median revenue data for 2015 is freely available at the [INSEE website](https://www.insee.fr/fr/statistiques/3560121).
+
+
+```{r message=FALSE, warning=FALSE}
+library(readxl)
+
+fr_median <- read_excel("base-cc-filosofi-2015.xls", skip = 5) # keep only the ARR tab in the Excel File. 
+
+```
+
+Furthermore, the [SHP](https://whatis.techtarget.com/fileformat/SHP-Shapefile-spatial-data-format-used-by-many-GIS-programs) file for France is available in the [European Environment Agency Data Base](https://www.eea.europa.eu/data-and-maps/data/eea-reference-grids-2/gis-files/france-shapefile). In order to read our SHP file, we'll rely on the **sf** package.
+
+```{r message=FALSE, warning=FALSE}
+
+library(sf)
+
+fr_map <- sf::st_read("C:/Users/Administrateur/Desktop/SHP_France/FRA_adm3.shp", stringsAsFactors = FALSE)
+
+head(fr_map, n = 2)
+
+```
+
+
+Now we'll combine the **fr_map** and the **fr_median** databases. To do so, we need to provide a common key.The column **NAME_3** in **fr_map** and the column **LIBGEO** in **fr_median** list our French boroughs. As mentioned previously, we must provide a unique key, therefore we'll rename the **NAME_3** as **LIBGEO**: 
+
+
+
+
+```{r}
+
+fr_map <- fr_map %>% rename(LIBGEO = NAME_3)
+
+
+```
+
+Now we're ready to combine our databases and drop all values that do not correspond using the **inner_join** function provided by the *tidyverse* package. 
+```{r}
+
+final <- inner_join(fr_map, fr_median, by = "LIBGEO")
+
+```
+
+It's possible to use the ggplot2 package however I'd rather suggest the **tmap** package:
+
+
+```{r message=FALSE, warning=FALSE}
+
+library(tmap)
+
+tm_shape(final)+
+  tm_polygons("MED15", id  = "LIBGEO")
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+

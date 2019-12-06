@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Mohamed El Fodil Ihaddaden">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="SummaryTo get a first idea about a certain dataframe’s statistical metrics, there is of course the well known summary() function :
+summary(mtcars)## mpg cyl disp hp ## Min. :10.40 Min. :4.000 Min. : 71.1 Min. : 52.0 ## 1st Qu.:15.43 1st Qu.:4.000 1st Qu.:120.8 1st Qu.: 96.5 ## Median :19.20 Median :6.000 Median :196.3 Median :123.0 ## Mean :20.09 Mean :6.188 Mean :230.7 Mean :146.7 ## 3rd Qu.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/three-ways-to-get-a-summary-of-your-data/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.dd629241ea9333c62c071f4a25f829ff.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-145265560-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/three-ways-to-get-a-summary-of-your-data/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@@ihaddadenfodil">
+  <meta property="twitter:creator" content="@@ihaddadenfodil">
+  
+  <meta property="og:site_name" content="Mohamed El Fodil IHADDADEN">
+  <meta property="og:url" content="/post/three-ways-to-get-a-summary-of-your-data/">
+  <meta property="og:title" content="Three ways to get a summary of your data  | Mohamed El Fodil IHADDADEN">
+  <meta property="og:description" content="SummaryTo get a first idea about a certain dataframe’s statistical metrics, there is of course the well known summary() function :
+summary(mtcars)## mpg cyl disp hp ## Min. :10.40 Min. :4.000 Min. : 71.1 Min. : 52.0 ## 1st Qu.:15.43 1st Qu.:4.000 1st Qu.:120.8 1st Qu.: 96.5 ## Median :19.20 Median :6.000 Median :196.3 Median :123.0 ## Mean :20.09 Mean :6.188 Mean :230.7 Mean :146.7 ## 3rd Qu."><meta property="og:image" content="/img/logo-via-logohub.png">
+  <meta property="twitter:image" content="/img/logo-via-logohub.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-11-11T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2019-11-11T19:02:15&#43;01:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Three ways to get a summary of your data  | Mohamed El Fodil IHADDADEN</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/"><img src="/img/logo-via-logohub.png" alt="Mohamed El Fodil IHADDADEN"></a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>About me</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#skills"><span>Skills</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#experience"><span>Experience</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#accomplishments"><span>Accomplishments</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Academic Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>R Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Three ways to get a summary of your data </h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-11-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-11-11 19:02:15 &#43;0100 CET" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    <time>Nov 11, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/three-ways-to-get-a-summary-of-your-data/&amp;text=Three%20ways%20to%20get%20a%20summary%20of%20your%20data%20" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/three-ways-to-get-a-summary-of-your-data/&amp;t=Three%20ways%20to%20get%20a%20summary%20of%20your%20data%20" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Three%20ways%20to%20get%20a%20summary%20of%20your%20data%20&amp;body=/post/three-ways-to-get-a-summary-of-your-data/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/three-ways-to-get-a-summary-of-your-data/&amp;title=Three%20ways%20to%20get%20a%20summary%20of%20your%20data%20" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Three%20ways%20to%20get%20a%20summary%20of%20your%20data%20%20/post/three-ways-to-get-a-summary-of-your-data/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/three-ways-to-get-a-summary-of-your-data/&amp;title=Three%20ways%20to%20get%20a%20summary%20of%20your%20data%20" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>To get a first idea about a certain dataframe’s statistical metrics, there is of course the well known <code>summary()</code> function :</p>
+<pre class="r"><code>summary(mtcars)</code></pre>
+<pre><code>##       mpg             cyl             disp             hp       
+##  Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  
+##  1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  
+##  Median :19.20   Median :6.000   Median :196.3   Median :123.0  
+##  Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  
+##  3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  
+##  Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  
+##       drat             wt             qsec             vs        
+##  Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  
+##  1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  
+##  Median :3.695   Median :3.325   Median :17.71   Median :0.0000  
+##  Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  
+##  3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  
+##  Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  
+##        am              gear            carb      
+##  Min.   :0.0000   Min.   :3.000   Min.   :1.000  
+##  1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  
+##  Median :0.0000   Median :4.000   Median :2.000  
+##  Mean   :0.4062   Mean   :3.688   Mean   :2.812  
+##  3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  
+##  Max.   :1.0000   Max.   :5.000   Max.   :8.000</code></pre>
+<p>However, there are other interesting functions that provide more structured and exhaustive information.</p>
+</div>
+<div id="describe" class="section level2">
+<h2>describe</h2>
+<p>The <strong>psych</strong> package has a function called <code>describe()</code> that provides several statistics that are not available within the <code>summary()</code> function.</p>
+<pre class="r"><code>library(psych)
+
+describe(mtcars)</code></pre>
+<pre><code>##      vars  n   mean     sd median trimmed    mad   min    max  range  skew
+## mpg     1 32  20.09   6.03  19.20   19.70   5.41 10.40  33.90  23.50  0.61
+## cyl     2 32   6.19   1.79   6.00    6.23   2.97  4.00   8.00   4.00 -0.17
+## disp    3 32 230.72 123.94 196.30  222.52 140.48 71.10 472.00 400.90  0.38
+## hp      4 32 146.69  68.56 123.00  141.19  77.10 52.00 335.00 283.00  0.73
+## drat    5 32   3.60   0.53   3.70    3.58   0.70  2.76   4.93   2.17  0.27
+## wt      6 32   3.22   0.98   3.33    3.15   0.77  1.51   5.42   3.91  0.42
+## qsec    7 32  17.85   1.79  17.71   17.83   1.42 14.50  22.90   8.40  0.37
+## vs      8 32   0.44   0.50   0.00    0.42   0.00  0.00   1.00   1.00  0.24
+## am      9 32   0.41   0.50   0.00    0.38   0.00  0.00   1.00   1.00  0.36
+## gear   10 32   3.69   0.74   4.00    3.62   1.48  3.00   5.00   2.00  0.53
+## carb   11 32   2.81   1.62   2.00    2.65   1.48  1.00   8.00   7.00  1.05
+##      kurtosis    se
+## mpg     -0.37  1.07
+## cyl     -1.76  0.32
+## disp    -1.21 21.91
+## hp      -0.14 12.12
+## drat    -0.71  0.09
+## wt      -0.02  0.17
+## qsec     0.34  0.32
+## vs      -2.00  0.09
+## am      -1.92  0.09
+## gear    -1.07  0.13
+## carb     1.26  0.29</code></pre>
+<p>You can see that there is a star next to the <em>am</em> variable. This way, the <code>describe()</code> function is telling us that the <em>am</em> variable is a factor and it doesn’t make sense to measure for example its mean or its standard deviation.</p>
+<p>In this context, there is an argument that allows us to omit non-numeric variables.</p>
+<pre class="r"><code>describe(mtcars, omit = TRUE)</code></pre>
+<pre><code>##      vars  n   mean     sd median trimmed    mad   min    max  range  skew
+## mpg     1 32  20.09   6.03  19.20   19.70   5.41 10.40  33.90  23.50  0.61
+## cyl     2 32   6.19   1.79   6.00    6.23   2.97  4.00   8.00   4.00 -0.17
+## disp    3 32 230.72 123.94 196.30  222.52 140.48 71.10 472.00 400.90  0.38
+## hp      4 32 146.69  68.56 123.00  141.19  77.10 52.00 335.00 283.00  0.73
+## drat    5 32   3.60   0.53   3.70    3.58   0.70  2.76   4.93   2.17  0.27
+## wt      6 32   3.22   0.98   3.33    3.15   0.77  1.51   5.42   3.91  0.42
+## qsec    7 32  17.85   1.79  17.71   17.83   1.42 14.50  22.90   8.40  0.37
+## vs      8 32   0.44   0.50   0.00    0.42   0.00  0.00   1.00   1.00  0.24
+## am      9 32   0.41   0.50   0.00    0.38   0.00  0.00   1.00   1.00  0.36
+## gear   10 32   3.69   0.74   4.00    3.62   1.48  3.00   5.00   2.00  0.53
+## carb   11 32   2.81   1.62   2.00    2.65   1.48  1.00   8.00   7.00  1.05
+##      kurtosis    se
+## mpg     -0.37  1.07
+## cyl     -1.76  0.32
+## disp    -1.21 21.91
+## hp      -0.14 12.12
+## drat    -0.71  0.09
+## wt      -0.02  0.17
+## qsec     0.34  0.32
+## vs      -2.00  0.09
+## am      -1.92  0.09
+## gear    -1.07  0.13
+## carb     1.26  0.29</code></pre>
+</div>
+<div id="skim" class="section level2">
+<h2>skim</h2>
+<p>Finally, we present the <code>skim()</code> function from the <strong>skimr</strong> package which provides some statistics and a tiny nice histogram for the numerical variables !!!</p>
+<pre class="r"><code>library(skimr)</code></pre>
+<pre><code>## 
+## Attachement du package : &#39;skimr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre class="r"><code>skim(mtcars)</code></pre>
+<pre><code>## Skim summary statistics
+##  n obs: 32 
+##  n variables: 11 
+## 
+## -- Variable type:numeric --------------------------
+##  variable missing complete  n   mean     sd    p0    p25    p50    p75
+##        am       0       32 32   0.41   0.5   0      0      0      1   
+##      carb       0       32 32   2.81   1.62  1      2      2      4   
+##       cyl       0       32 32   6.19   1.79  4      4      6      8   
+##      disp       0       32 32 230.72 123.94 71.1  120.83 196.3  326   
+##      drat       0       32 32   3.6    0.53  2.76   3.08   3.7    3.92
+##      gear       0       32 32   3.69   0.74  3      3      4      4   
+##        hp       0       32 32 146.69  68.56 52     96.5  123    180   
+##       mpg       0       32 32  20.09   6.03 10.4   15.43  19.2   22.8 
+##      qsec       0       32 32  17.85   1.79 14.5   16.89  17.71  18.9 
+##        vs       0       32 32   0.44   0.5   0      0      0      1   
+##        wt       0       32 32   3.22   0.98  1.51   2.58   3.33   3.61
+##    p100     hist
+##    1    &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
+##    8    &lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##    8    &lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##  472    &lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##    4.93 &lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##    5    &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##  335    &lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##   33.9  &lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2582&gt;
+##   22.9  &lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##    1    &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
+##    5.42 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;</code></pre>
+<p>I’m sure there may be many other super cool functions, please DM me at <strong><span class="citation">@IhaddadenFodil</span></strong> if I’ve missed something.</p>
+</div>
+
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+      
+      <img class="portrait mr-3" src="/authors/admin/avatar_huc09fd31ce9bb786d1041f70ffa59556f_325161_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/">Mohamed El Fodil Ihaddaden</a></h5>
+      <h6 class="card-subtitle">Ph.D candidate in Economics.</h6>
+      <p class="card-text" itemprop="description">My research interests include Performance Management, Data Envelopment Analysis and Artificial Intelligence applied to Economics.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          <li>
+            <a itemprop="sameAs" href="mailto:ihaddaden.fodeil@gmail.com" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://twitter.com/IhaddadenFodil" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://scholar.google.fr/citations?user=Vl-O5pEAAAAJ&amp;hl=fr" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/feddelegrand7" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/introduction_to_the_subset_function/introduction-to-the-subset-function/">Introduction to the Subset function</a></li>
+          
+          <li><a href="/post/introduction_to_deep_learning_what_is_a_tensor/introduction-to-deep-learning-what-is-a-tensor/">Introduction to Deep Learning, What is a Tensor ? </a></li>
+          
+          <li><a href="/post/trade_analysis/trade-analysis-with-r/">Trade Analysis with R</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

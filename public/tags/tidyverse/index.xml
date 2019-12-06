@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tidyverse | Mohamed El Fodil IHADDADEN</title>
+    <link>/tags/tidyverse/</link>
+      <atom:link href="/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
+    <description>tidyverse</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 31 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/logo-via-logohub.png</url>
+      <title>tidyverse</title>
+      <link>/tags/tidyverse/</link>
+    </image>
+    
+    <item>
+      <title>Intro to the case_when function</title>
+      <link>/post/case_when/case-when-function/</link>
+      <pubDate>Sat, 31 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>/post/case_when/case-when-function/</guid>
+      <description>
+
+
+&lt;p&gt;&lt;code&gt;case_when()&lt;/code&gt; is a &lt;strong&gt;dplyr&lt;/strong&gt; function that returns a value according to predifined conditions. It’s a very powerful function though not very famous. In our example, we’ll use the mtcars dataset (just as usual).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(mtcars)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Suppose in the context of a study we want to categorize the cars into two factors : &lt;strong&gt;Climate_Friendly&lt;/strong&gt; and &lt;strong&gt;Climate_Unfriendly&lt;/strong&gt; according to the &lt;em&gt;horsepower (hp)&lt;/em&gt; median. We can create a new column that incoporates this information using the &lt;code&gt;case_when()&lt;/code&gt; and &lt;code&gt;mutate&lt;/code&gt; functions:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)
+library(magrittr) # required for the %&amp;gt;% 
+
+median &amp;lt;- median(mtcars$hp) # first, we calculate our median 
+
+new_df &amp;lt;- mtcars %&amp;gt;% mutate(climat_categ = case_when(
+    hp &amp;lt; median ~ &amp;quot;friendly&amp;quot;,
+    hp &amp;gt;= median ~ &amp;quot;unfriendly&amp;quot;
+    ))
+
+
+new_df$climat_categ &amp;lt;- as.factor(new_df$climat_categ)
+
+new_df %&amp;gt;% select(hp, climat_categ)  # A quick check ! &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     hp climat_categ
+## 1  110     friendly
+## 2  110     friendly
+## 3   93     friendly
+## 4  110     friendly
+## 5  175   unfriendly
+## 6  105     friendly
+## 7  245   unfriendly
+## 8   62     friendly
+## 9   95     friendly
+## 10 123   unfriendly
+## 11 123   unfriendly
+## 12 180   unfriendly
+## 13 180   unfriendly
+## 14 180   unfriendly
+## 15 205   unfriendly
+## 16 215   unfriendly
+## 17 230   unfriendly
+## 18  66     friendly
+## 19  52     friendly
+## 20  65     friendly
+## 21  97     friendly
+## 22 150   unfriendly
+## 23 150   unfriendly
+## 24 245   unfriendly
+## 25 175   unfriendly
+## 26  66     friendly
+## 27  91     friendly
+## 28 113     friendly
+## 29 264   unfriendly
+## 30 175   unfriendly
+## 31 335   unfriendly
+## 32 109     friendly&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’us plot the count of the cars according to the ‘climat_categ’ variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+
+ggplot(new_df, aes(x =climat_categ))+ 
+  geom_bar(stat = &amp;quot;count&amp;quot;, fill = &amp;quot;darkolivegreen1&amp;quot;, color = &amp;quot;blue&amp;quot;) +
+  theme_classic()+
+  labs(title =&amp;quot;Count distribution of eco and non-eco friendly cars&amp;quot;, x = &amp;quot;&amp;quot; )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/case_when/2019-08-31-case-when-function_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

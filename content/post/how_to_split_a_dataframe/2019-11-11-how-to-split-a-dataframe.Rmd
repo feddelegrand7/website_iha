@@ -1,0 +1,82 @@
+---
+title: How to split a dataframe in R?
+author: Mohamed El Fodil Ihaddaden
+date: '2019-11-11'
+slug: how-to-split-a-dataframe-in-R
+categories: []
+tags:
+  - base R
+  - R
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-11-11T22:18:06+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+In this tutorial we'll work with the **ChickWeight** data. This database exhibits information on chickens' weights according to 4 different diets. 
+
+
+```{r}
+
+head(ChickWeight)
+
+```
+
+Suppose, we want to split our overal dataframe according to each type of diet. There is a simple function called `split()` that allows us to do that. **Note that the splitting argument must be a factor object.** Let's check this condition. 
+
+```{r}
+
+class(ChickWeight$Diet)
+
+```
+
+
+Indeed, the Diet variable is a factor. Now, we split our dataframe : 
+
+```{r}
+
+splitted_data <- split(ChickWeight, ChickWeight$Diet)
+
+```
+
+In this context, we can assign a name to each splitted data:
+
+```{r}
+
+Diet1 <- splitted_data$`1`  # The 1, 2, 3, 4 represent the diet factor levels
+
+Diet2 <- splitted_data$`2`
+
+Diet3 <- splitted_data$`3`
+
+Diet4 <- splitted_data$`4`
+
+
+```
+
+Finally, let's check our result by printig the first values of Diet 3 and Diet 4: 
+
+```{r}
+
+head(Diet3)
+
+
+```
+
+```{r}
+
+head(Diet4)
+
+
+```
+
+
+Great, it's perfectly working. 
+

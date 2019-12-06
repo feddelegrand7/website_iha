@@ -1,0 +1,174 @@
+---
+title: 'Importing and Visualizing Stock Market Data in R'
+author: Mohamed El Fodil Ihaddaden
+date: '2019-08-19'
+slug: Importing-and-Visualizing-Stock-Market-Data-in-R
+categories: []
+tags:
+  - Finance
+  - Economics
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-08-19T16:36:05+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+```{r include=FALSE}
+library(widgetframe)
+
+```
+
+In this tutorial, we'll analyze the French CAC 40 stocks. Listed CAC 40 firms can be found at the [Yahoo Finance website](https://finance.yahoo.com/quote/%5EFCHI/components/). 
+
+
+## Getting the Symbols
+
+First, we need to obtain the associated Yahoo symbols for each CAC 40 stock. Example: for Danone S.A, we have the correspnding symbol [BN.PA](https://finance.yahoo.com/quote/BN.PA?p=BN.PA). From Yahoo Finance we use the [DataPasta package](https://cran.r-project.org/web/packages/datapasta/vignettes/how-to-datapasta.html) to copy and paste the entire data table (We have modified the the column's name **% Change** to deal with R naming requirement). Then we select the **Symbol** column. 
+
+```{r message=FALSE, warning=FALSE}
+
+library(tidyverse)
+
+
+base_data <- data.frame(stringsAsFactors=FALSE,
+         Symbol = c("VIE.PA", "AI.PA", "BN.PA", "ACA.PA", "CA.PA", "ML.PA",
+                    "BNP.PA", "RI.PA", "SU.PA", "VIV.PA", "ENGI.PA", "CAP.PA",
+                    "LR.PA", "ORA.PA", "AC.PA", "HO.PA", "KER.PA", "GLE.PA",
+                    "EN.PA", "SGO.PA", "SAN.PA", "DG.PA", "ATO.PA", "OR.PA", "SW.PA",
+                    "UG.PA", "AIR.PA", "MC.PA", "FP.PA", "FTI.PA"),
+   Company.Name = c("Veolia Environnement S.A.", "L'Air Liquide S.A.",
+                    "Danone S.A.", "Crédit Agricole S.A.", "Carrefour SA",
+                    "Compagnie Générale des Établissements Michelin",
+                    "BNP Paribas SA", "Pernod Ricard SA", "Schneider Electric S.E.",
+                    "Vivendi SA", "ENGIE SA", "Capgemini SE", "Legrand SA", "Orange S.A.",
+                    "Accor SA", "Thales S.A.", "Kering SA",
+                    "Société Générale Société anonyme", "Bouygues SA",
+                    "Compagnie de Saint-Gobain S.A.", "Sanofi", "VINCI SA", "Atos SE", "L'Oréal S.A.",
+                    "Sodexo S.A.", "Peugeot S.A.", "Airbus SE",
+                    "LVMH Moët Hennessy - Louis Vuitton, Société Européenne", "TOTAL S.A.",
+                    "TechnipFMC plc"),
+     Last.Price = c(21.93, 123.35, 80.24, 10.26, 15.49, 93.32, 40.86, 158.05,
+                    73.12, 25.64, 13.57, 106.35, 61.98, 13.6, 38.3, 102.9,
+                    437.6, 22.35, 32.4, 32.33, 77.04, 96.82, 66.92, 236.7, 101.6,
+                    19.34, 125.32, 355.2, 44.08, 21.73),
+         Change = c(0, 0.15, 0.14, 0.03, 0.06, 0.48, 0.25, -1.05, 0.48, 0.17,
+                    0.11, 1.05, 0.62, 0.14, 0.42, 1.2, 5.3, 0.28, 0.42, 0.43,
+                    1.05, 1.34, 0.94, 3.4, 1.62, 0.34, 2.3, 6.75, 0.85, 0.75),
+        Change_prc = c("0.00%", "+0.12%", "+0.17%", "+0.24%", "+0.39%", "+0.52%",
+                    "+0.62%", "-0.66%", "+0.66%", "+0.67%", "+0.82%", "+1.00%",
+                    "+1.01%", "+1.08%", "+1.11%", "+1.18%", "+1.23%", "+1.29%",
+                    "+1.31%", "+1.35%", "+1.38%", "+1.40%", "+1.42%", "+1.46%",
+                    "+1.62%", "+1.79%", "+1.87%", "+1.94%", "+1.97%", "+3.57%"),
+         Volume = c(818027, 264260, 461968, 3363436, 772440, 275617, 3304556,
+                    167013, 408078, 788907, 2077728, 221310, 258356, 3729428,
+                    202482, 178755, 128660, 2969772, 264297, 640992, 1164010,
+                    708090, 202814, 322746, 88158, 814983, 432166, 306987, 2264031,
+                    777895)
+)
+
+
+Symbols <- base_data %>% select(Symbol)
+
+
+
+```
+
+# Loading Stock Prices Data
+
+In order to import the stock prices, we use the **getSymbols()** function from the **quantmod** package. Let's say we are interested in the evolution of CAC 40 Adjusted Prices from the 15/07/2019 to 15/08/2019. The map(~Ad(get(.))) is used to extract the Adjusted Prices from the imported prices. 
+
+
+
+```{r message=FALSE, warning=FALSE}
+
+library(quantmod)
+
+cac_prices <- getSymbols(Symbols$Symbol, 
+                     src = "yahoo",
+                     from = "2019-07-15",
+                     to = "2019-08-15",
+                     auto.assign = TRUE,
+                     warnings = FALSE) %>% 
+  map(~Ad(get(.))) %>% 
+  reduce(merge) %>% 
+  "colnames<-"(Symbols$Symbol)
+
+
+head(cac_prices, n = 2) 
+
+```
+
+
+Using the getSymbols() function, we've obtained an **xts** object. xts or Extensible Time Series are dataframes indexed with dates. 
+
+
+
+# Stock Prices Visualization with highcharter
+
+**highcharter** offers highly reactive time series visualizations. Suppose we are interested in plotting French banks adjusted prices. 
+
+```{r message=FALSE, warning=FALSE}
+library(highcharter)
+
+
+plot1 <- highchart(type = "stock") %>% 
+  hc_title(text = "Stocks' Evolution of French CAC 40 listed banks") %>% 
+  hc_add_series(cac_prices$ACA.PA, name="Crédit Agricole") %>% 
+  hc_add_series(cac_prices$BNP.PA, name="BNP Paribas") %>% 
+  hc_add_series(cac_prices$GLE.PA, name="Société Générale")
+  
+
+```
+
+```{r echo=FALSE}
+frameWidget(plot1)  
+```
+
+
+
+From the above chart, we observe a very small variation. This is not suprising as the the considered period is short (1 month). Let us consider a longer period (1 year). 
+s
+
+```{r}
+
+Symbol_banks <- c("ACA.PA", "BNP.PA", "GLE.PA")
+
+cac_banks <- getSymbols(Symbol_banks, 
+                     src = "yahoo",
+                     from = "2018-08-18",
+                     to = "2019-08-18",
+                     auto.assign = TRUE,
+                     warnings = FALSE) %>% 
+  map(~Ad(get(.))) %>% 
+  reduce(merge) %>% 
+  "colnames<-"(Symbol_banks)
+
+
+plot2 <- highchart(type = "stock") %>% 
+  hc_title(text = "Stocks' Evolution of French CAC 40 Listed Banks") %>% 
+  hc_add_series(cac_banks$ACA.PA, name="Crédit Agricole") %>% 
+  hc_add_series(cac_banks$BNP.PA, name="BNP Paribas") %>% 
+  hc_add_series(cac_banks$GLE.PA, name="Société Générale")
+
+```
+
+
+```{r echo = FALSE}
+frameWidget(plot2) 
+
+```
+
+
+
+
+
+
+
+
+

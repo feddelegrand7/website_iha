@@ -1,0 +1,225 @@
+---
+title: 'An Introduction to the ggplot2 package. '
+author: admin
+date: '2019-08-08'
+slug: an-introduction-to-the-ggplot2-package
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-08-08T01:12:03+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+The [ggplot2](https://ggplot2.tidyverse.org/) package integrates the **tidy** philosophy of programming introduced mainly by [Hadley Wickham](https://twitter.com/hadleywickham). It is part of the **tidyverse** package which includes several other packages related to the tidy world. Through this is tutorial, we'll present some basic ggplot functionalities using the **mtcars** data base. 
+
+First of of all, you need to install the ggplot2 package which can be done either by 
+
+```{r eval = FALSE}
+install.packages("tidyverse")
+```
+
+or 
+
+```{r eval = FALSE}
+install.packages("ggplot2")
+```
+
+# Plotting with ggplot
+
+The mtcars object is a dataframe included in R that displays 10 aspects of automobile design and performance for 32 automobiles (1973–74 models). Let us have a quick overview of the mtcars dataset. 
+
+
+```{r}
+
+head(mtcars)
+
+```
+
+
+We want to plot the relation between the miles per galon *(mpg)* and the weights *(wt)* of our cars' models. To do that in ggplot2 one need to identify three principal elements (or two depending on your desired graph): The *database* from which the information will be extracted, the *x-axis variable* and the *y-axis variable*. 
+
+```{r}
+library(ggplot2) # or library(tidyverse)
+
+ggplot(data = mtcars, mapping = aes(x = mpg, y = wt))
+
+```
+
+In the exemple above, we used the function **ggplot** and two parameters *data * and *mapping* to structure our graph. The *mapping* parameters determine which variable should be considered in which axis. To plot our volue we need to add another argument to our code. Suppose we want to plot a scatterplot : 
+
+```{r}
+
+ggplot(data = mtcars, mapping = aes(x = mpg, y = wt)) +
+  geom_point()   # geom_point() refers to scatterplot
+
+```
+
+To modify the size of the color of the displayed points, we just introduce the following parameters in the geom_point() function :  
+
+
+```{r}
+
+ggplot(data = mtcars, mapping = aes(x = mpg, y = wt)) +
+  geom_point(size = 3, color = "red")   # geom_point() refers to scatterplot
+
+```
+
+
+For an exhaustive list of R colours, just check this [website](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).\n
+Now, if we want to modify the theme of our plot, proceed as follow : 
+
+```{r}
+
+ggplot(data = mtcars, mapping = aes(x = mpg, y = wt)) +
+  geom_point(size = 3, color = "red") + 
+  theme_bw()  #just tape theme and wait to see several choices
+
+```
+
+
+
+finally, it is possible to assign a plot to a defined variable : 
+
+
+```{r}
+
+plot1 <- ggplot(data = mtcars, mapping = aes(x = mpg, y = wt)) +
+  geom_point(size = 3, color = "red") + 
+  theme_bw()  
+
+```
+
+
+
+# Plotting Interactively with Plotly
+
+
+Plotly is an interesting package that allows us to create interactive web graphics from ggplot2. Just convert our above scatterplot into an interactive one, just use the function **ggplotly** : 
+
+```{r message=FALSE}
+
+library(plotly)  # Load the package after installing it
+
+ggplotly(plot1)
+```
+
+
+Several functionalities appear in the top-right of the plot.
+
+## Plotting Distributions with Histograms
+
+Histogram are suitable for plotting a continous variable. If you want to make a histogram use **geom_histogram**:
+
+```{r}
+
+ggplot(data = mtcars, mapping = aes(x = mpg)) +
+  geom_histogram()
+
+
+```
+
+
+
+We can change the size of the bins using the *binwidth* parameter : 
+
+
+```{r}
+
+ggplot(data = mtcars, mapping = aes(x = mpg)) +
+  geom_histogram(binwidth = 3)
+
+
+```
+
+
+By default, the data is grouped into 30 bins. To can change the number of bins, we use the parameter **bins**:
+
+
+```{r}
+
+ggplot(data = mtcars, mapping = aes(x = mpg)) +
+  geom_histogram(bins = 6)
+
+
+```
+
+
+To modify the color of the histogram, just proceed as follows: 
+
+
+```{r message=FALSE, warning=FALSE}
+
+ggplot(data = mtcars, mapping = aes(x = mpg)) +
+  geom_histogram(fill = "pink", color = "yellow") # Mind the difference
+
+
+```
+
+
+
+We can also use the plotly package to plot an interactive histogram. 
+
+
+```{r message=FALSE, warning=FALSE}
+
+histogram <- ggplot(data = mtcars, mapping = aes(x = mpg)) +
+  geom_histogram(fill = "pink", color = "yellow") 
+
+ggplotly(histogram)
+
+```
+
+# Filling Histograms with Categories 
+
+Suppose we are interested in ploting the distribution of the miles per gallon (mpg) variable but this time we want to differentiate between automatic and manuel cars (am : 0 = automatic, 1 = manual). First of all, we must convert the *am* column into a factor variable:
+
+
+```{r message=FALSE, warning=FALSE}
+
+
+mtcars$am <- factor(mtcars$am, labels = c("Automatic", "Manual")) # We provide labels 
+
+ggplot(data = mtcars, mapping = aes(x = mpg, fill = am)) +
+  geom_histogram() 
+
+```
+
+
+From the above histogram, we observe that manual vehicules have a higher *mpg* performance. 
+
+
+
+# Splitting Plots with Facets
+
+
+We show above how to plot a distribution according to a specific category. One may proceed otherwise and generate two distinc plots using **Face_grid()** : 
+
+
+```{r message=FALSE, warning=FALSE}
+
+ggplot(data = mtcars, mapping = aes(x = mpg)) +
+  geom_histogram(fill = "yellow", color = "pink") +
+  facet_grid(~am) +
+  theme_light()
+
+
+```
+
+
+
+
+
+
+
+
+
+
+

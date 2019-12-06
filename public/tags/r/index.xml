@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R | Mohamed El Fodil IHADDADEN</title>
+    <link>/tags/r/</link>
+      <atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <description>R</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 11 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/logo-via-logohub.png</url>
+      <title>R</title>
+      <link>/tags/r/</link>
+    </image>
+    
+    <item>
+      <title>How to split a dataframe in R?</title>
+      <link>/post/how_to_split_a_dataframe/how-to-split-a-dataframe-in-r/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/post/how_to_split_a_dataframe/how-to-split-a-dataframe-in-r/</guid>
+      <description>
+
+
+&lt;p&gt;In this tutorial we’ll work with the &lt;strong&gt;ChickWeight&lt;/strong&gt; data. This database exhibits information on chickens’ weights according to 4 different diets.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(ChickWeight)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   weight Time Chick Diet
+## 1     42    0     1    1
+## 2     51    2     1    1
+## 3     59    4     1    1
+## 4     64    6     1    1
+## 5     76    8     1    1
+## 6     93   10     1    1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Suppose, we want to split our overal dataframe according to each type of diet. There is a simple function called &lt;code&gt;split()&lt;/code&gt; that allows us to do that. &lt;strong&gt;Note that the splitting argument must be a factor object.&lt;/strong&gt; Let’s check this condition.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(ChickWeight$Diet)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;factor&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Indeed, the Diet variable is a factor. Now, we split our dataframe :&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;splitted_data &amp;lt;- split(ChickWeight, ChickWeight$Diet)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In this context, we can assign a name to each splitted data:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Diet1 &amp;lt;- splitted_data$`1`  # The 1, 2, 3, 4 represent the diet factor levels
+
+Diet2 &amp;lt;- splitted_data$`2`
+
+Diet3 &amp;lt;- splitted_data$`3`
+
+Diet4 &amp;lt;- splitted_data$`4`&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, let’s check our result by printig the first values of Diet 3 and Diet 4:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(Diet3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     weight Time Chick Diet
+## 341     42    0    31    3
+## 342     53    2    31    3
+## 343     62    4    31    3
+## 344     73    6    31    3
+## 345     85    8    31    3
+## 346    102   10    31    3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(Diet4)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     weight Time Chick Diet
+## 461     42    0    41    4
+## 462     51    2    41    4
+## 463     66    4    41    4
+## 464     85    6    41    4
+## 465    103    8    41    4
+## 466    124   10    41    4&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Great, it’s perfectly working.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction to the Subset function</title>
+      <link>/post/introduction_to_the_subset_function/introduction-to-the-subset-function/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/post/introduction_to_the_subset_function/introduction-to-the-subset-function/</guid>
+      <description>
+
+
+&lt;p&gt;Although I’m a big fan of the tidyverse philosophy of handling and wrangling data, one must admit that there are quit powerful functions in base R. One of theses functions is &lt;code&gt;subset()&lt;/code&gt; which returns a dataframe according to some defined subsetting properties. Let’s dive into one example using the simple &lt;strong&gt;mtcars&lt;/strong&gt; data:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(mtcars)  # A quick look at the mtcars data&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Suppose, we want to extract all the vehicules that have an &lt;em&gt;mpg&lt;/em&gt; greater than 20:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;subset(mtcars, mpg &amp;gt; 20)  # the first argument is the dataframe&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4      21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can observe that the &lt;em&gt;subset&lt;/em&gt; function is flexible. We don’t have to specify the column name with the dollar sign (&lt;em&gt;mtcars$mpg&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Let’s take another more complex example. We will extract all vehicules that have an &lt;em&gt;mpg&lt;/em&gt; superior to 30 and a &lt;em&gt;cyl&lt;/em&gt; equal to 4:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;subset(mtcars, mpg &amp;gt; 30 &amp;amp; cyl == 4) # &amp;amp; &amp;lt;=&amp;gt; AND&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                 mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Fiat 128       32.4   4 78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic    30.4   4 75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla 33.9   4 71.1  65 4.22 1.835 19.90  1  1    4    1
+## Lotus Europa   30.4   4 95.1 113 3.77 1.513 16.90  1  1    5    2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you can see, the &lt;em&gt;subset&lt;/em&gt; function works smoothly with the R logical expressions.&lt;/p&gt;
+&lt;p&gt;Finally, there is another important argument that we must see. Suppose, we want to extract a specified column, let’s say that we’re solely interested in the &lt;em&gt;wt&lt;/em&gt; variable. We can extract this column depending using the &lt;code&gt;select&lt;/code&gt; argument:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;subset(mtcars, mpg &amp;gt; 30 &amp;amp; cyl == 4, select = wt)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                   wt
+## Fiat 128       2.200
+## Honda Civic    1.615
+## Toyota Corolla 1.835
+## Lotus Europa   1.513&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the same way, we can extract several columns :&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;subset(mtcars, mpg &amp;gt; 30 &amp;amp; cyl == 4, select = c(wt, disp, am))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                   wt disp am
+## Fiat 128       2.200 78.7  1
+## Honda Civic    1.615 75.7  1
+## Toyota Corolla 1.835 71.1  1
+## Lotus Europa   1.513 95.1  1&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Three ways to get a summary of your data </title>
+      <link>/post/three_warys_to_get_a_summary_of_your_data/three-ways-to-get-a-summary-of-your-data/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/post/three_warys_to_get_a_summary_of_your_data/three-ways-to-get-a-summary-of-your-data/</guid>
+      <description>
+
+
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;To get a first idea about a certain dataframe’s statistical metrics, there is of course the well known &lt;code&gt;summary()&lt;/code&gt; function :&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(mtcars)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##       mpg             cyl             disp             hp       
+##  Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  
+##  1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  
+##  Median :19.20   Median :6.000   Median :196.3   Median :123.0  
+##  Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  
+##  3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  
+##  Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  
+##       drat             wt             qsec             vs        
+##  Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  
+##  1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  
+##  Median :3.695   Median :3.325   Median :17.71   Median :0.0000  
+##  Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  
+##  3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  
+##  Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  
+##        am              gear            carb      
+##  Min.   :0.0000   Min.   :3.000   Min.   :1.000  
+##  1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  
+##  Median :0.0000   Median :4.000   Median :2.000  
+##  Mean   :0.4062   Mean   :3.688   Mean   :2.812  
+##  3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  
+##  Max.   :1.0000   Max.   :5.000   Max.   :8.000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, there are other interesting functions that provide more structured and exhaustive information.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;describe&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;describe&lt;/h2&gt;
+&lt;p&gt;The &lt;strong&gt;psych&lt;/strong&gt; package has a function called &lt;code&gt;describe()&lt;/code&gt; that provides several statistics that are not available within the &lt;code&gt;summary()&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(psych)
+
+describe(mtcars)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      vars  n   mean     sd median trimmed    mad   min    max  range  skew
+## mpg     1 32  20.09   6.03  19.20   19.70   5.41 10.40  33.90  23.50  0.61
+## cyl     2 32   6.19   1.79   6.00    6.23   2.97  4.00   8.00   4.00 -0.17
+## disp    3 32 230.72 123.94 196.30  222.52 140.48 71.10 472.00 400.90  0.38
+## hp      4 32 146.69  68.56 123.00  141.19  77.10 52.00 335.00 283.00  0.73
+## drat    5 32   3.60   0.53   3.70    3.58   0.70  2.76   4.93   2.17  0.27
+## wt      6 32   3.22   0.98   3.33    3.15   0.77  1.51   5.42   3.91  0.42
+## qsec    7 32  17.85   1.79  17.71   17.83   1.42 14.50  22.90   8.40  0.37
+## vs      8 32   0.44   0.50   0.00    0.42   0.00  0.00   1.00   1.00  0.24
+## am      9 32   0.41   0.50   0.00    0.38   0.00  0.00   1.00   1.00  0.36
+## gear   10 32   3.69   0.74   4.00    3.62   1.48  3.00   5.00   2.00  0.53
+## carb   11 32   2.81   1.62   2.00    2.65   1.48  1.00   8.00   7.00  1.05
+##      kurtosis    se
+## mpg     -0.37  1.07
+## cyl     -1.76  0.32
+## disp    -1.21 21.91
+## hp      -0.14 12.12
+## drat    -0.71  0.09
+## wt      -0.02  0.17
+## qsec     0.34  0.32
+## vs      -2.00  0.09
+## am      -1.92  0.09
+## gear    -1.07  0.13
+## carb     1.26  0.29&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can see that there is a star next to the &lt;em&gt;am&lt;/em&gt; variable. This way, the &lt;code&gt;describe()&lt;/code&gt; function is telling us that the &lt;em&gt;am&lt;/em&gt; variable is a factor and it doesn’t make sense to measure for example its mean or its standard deviation.&lt;/p&gt;
+&lt;p&gt;In this context, there is an argument that allows us to omit non-numeric variables.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;describe(mtcars, omit = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      vars  n   mean     sd median trimmed    mad   min    max  range  skew
+## mpg     1 32  20.09   6.03  19.20   19.70   5.41 10.40  33.90  23.50  0.61
+## cyl     2 32   6.19   1.79   6.00    6.23   2.97  4.00   8.00   4.00 -0.17
+## disp    3 32 230.72 123.94 196.30  222.52 140.48 71.10 472.00 400.90  0.38
+## hp      4 32 146.69  68.56 123.00  141.19  77.10 52.00 335.00 283.00  0.73
+## drat    5 32   3.60   0.53   3.70    3.58   0.70  2.76   4.93   2.17  0.27
+## wt      6 32   3.22   0.98   3.33    3.15   0.77  1.51   5.42   3.91  0.42
+## qsec    7 32  17.85   1.79  17.71   17.83   1.42 14.50  22.90   8.40  0.37
+## vs      8 32   0.44   0.50   0.00    0.42   0.00  0.00   1.00   1.00  0.24
+## am      9 32   0.41   0.50   0.00    0.38   0.00  0.00   1.00   1.00  0.36
+## gear   10 32   3.69   0.74   4.00    3.62   1.48  3.00   5.00   2.00  0.53
+## carb   11 32   2.81   1.62   2.00    2.65   1.48  1.00   8.00   7.00  1.05
+##      kurtosis    se
+## mpg     -0.37  1.07
+## cyl     -1.76  0.32
+## disp    -1.21 21.91
+## hp      -0.14 12.12
+## drat    -0.71  0.09
+## wt      -0.02  0.17
+## qsec     0.34  0.32
+## vs      -2.00  0.09
+## am      -1.92  0.09
+## gear    -1.07  0.13
+## carb     1.26  0.29&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;skim&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;skim&lt;/h2&gt;
+&lt;p&gt;Finally, we present the &lt;code&gt;skim()&lt;/code&gt; function from the &lt;strong&gt;skimr&lt;/strong&gt; package which provides some statistics and a tiny nice histogram for the numerical variables (the histograms cannot be rendered in the website, but just try it out) !!!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(skimr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attachement du package : &amp;#39;skimr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;skim(mtcars)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Skim summary statistics
+##  n obs: 32 
+##  n variables: 11 
+## 
+## -- Variable type:numeric --------------------------
+##  variable missing complete  n   mean     sd    p0    p25    p50    p75
+##        am       0       32 32   0.41   0.5   0      0      0      1   
+##      carb       0       32 32   2.81   1.62  1      2      2      4   
+##       cyl       0       32 32   6.19   1.79  4      4      6      8   
+##      disp       0       32 32 230.72 123.94 71.1  120.83 196.3  326   
+##      drat       0       32 32   3.6    0.53  2.76   3.08   3.7    3.92
+##      gear       0       32 32   3.69   0.74  3      3      4      4   
+##        hp       0       32 32 146.69  68.56 52     96.5  123    180   
+##       mpg       0       32 32  20.09   6.03 10.4   15.43  19.2   22.8 
+##      qsec       0       32 32  17.85   1.79 14.5   16.89  17.71  18.9 
+##        vs       0       32 32   0.44   0.5   0      0      0      1   
+##        wt       0       32 32   3.22   0.98  1.51   2.58   3.33   3.61
+##    p100     hist
+##    1    &amp;lt;U+2587&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2586&amp;gt;
+##    8    &amp;lt;U+2586&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2582&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;
+##    8    &amp;lt;U+2586&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2587&amp;gt;
+##  472    &amp;lt;U+2587&amp;gt;&amp;lt;U+2586&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2582&amp;gt;&amp;lt;U+2585&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2582&amp;gt;
+##    4.93 &amp;lt;U+2583&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2585&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2582&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;
+##    5    &amp;lt;U+2587&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2586&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2582&amp;gt;
+##  335    &amp;lt;U+2583&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2585&amp;gt;&amp;lt;U+2582&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;
+##   33.9  &amp;lt;U+2583&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2582&amp;gt;&amp;lt;U+2582&amp;gt;&amp;lt;U+2582&amp;gt;
+##   22.9  &amp;lt;U+2583&amp;gt;&amp;lt;U+2582&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2586&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;
+##    1    &amp;lt;U+2587&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2586&amp;gt;
+##    5.42 &amp;lt;U+2583&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2586&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2582&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I’m sure there may be many other super cool functions, please DM me at &lt;strong&gt;&lt;span class=&#34;citation&#34;&gt;@IhaddadenFodil&lt;/span&gt;&lt;/strong&gt; if I’ve missed something.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction to Deep Learning, What is a Tensor ? </title>
+      <link>/post/introduction_to_deep_learning_what_is_a_tensor/introduction-to-deep-learning-what-is-a-tensor/</link>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>/post/introduction_to_deep_learning_what_is_a_tensor/introduction-to-deep-learning-what-is-a-tensor/</guid>
+      <description>
+
+
+&lt;div id=&#34;tensors-definition&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Tensors Definition&lt;/h1&gt;
+&lt;p&gt;Ever wandered why one of the most used Deep Learning library, &lt;strong&gt;Tenserflow&lt;/strong&gt; is called that way ? the name came from the fundamentals &lt;strong&gt;Tensors&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;According to Chollet F and Allaire JJ (Deep Learning with R und Keras, 2018), Tensors are a generalization of vectors and matrices to an arbitrary number of dimensions.&lt;/p&gt;
+&lt;div id=&#34;dimension-tensors&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;0-Dimension Tensors&lt;/h2&gt;
+&lt;p&gt;Scalars are considered to be the simplest form of Tensors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;zero_Dim_Tens &amp;lt;- 6
+zero_Dim_Tens&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 6&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dimension-tensors-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;1-Dimension Tensors&lt;/h2&gt;
+&lt;p&gt;Vectors are 1-Dimension Tensors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;one_Dim_Tens &amp;lt;- c(12, 3, 6, 14, 10)
+one_Dim_Tens&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 12  3  6 14 10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(one_Dim_Tens)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  num [1:5] 12 3 6 14 10&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dimensions-tensors&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2-Dimensions Tensors&lt;/h2&gt;
+&lt;p&gt;Matrices are 2-Dimensions Tensors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;two_Dim_Tens &amp;lt;- matrix(rep(1, 3*3), nrow = 3, ncol = 3)
+two_Dim_Tens&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1] [,2] [,3]
+## [1,]    1    1    1
+## [2,]    1    1    1
+## [3,]    1    1    1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(two_Dim_Tens)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  num [1:3, 1:3] 1 1 1 1 1 1 1 1 1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;and-higher-dimensional-tensors&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;3 and higher-dimensional Tensors&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;array&lt;/em&gt; objects are Tensors which can have more than 2 dimensions. For example, if we include the above matrice into a new array:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;two_Dim_Tens &amp;lt;- array(rep(1, 3*3), dim = c(2, 3, 2))
+two_Dim_Tens&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## , , 1
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    1    1
+## [2,]    1    1    1
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    1    1
+## [2,]    1    1    1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(two_Dim_Tens)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  num [1:2, 1:3, 1:2] 1 1 1 1 1 1 1 1 1 1 ...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A Tensor whith the propoerty &lt;em&gt;num [1:2, 1:3, 1:2]&lt;/em&gt; can be read as an Integer Tensor with three &lt;em&gt;axes&lt;/em&gt; (Dimensions) and a shape of &lt;em&gt;2 3 2&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Trade Analysis with R</title>
+      <link>/post/trade_analysis/trade-analysis-with-r/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>/post/trade_analysis/trade-analysis-with-r/</guid>
+      <description>
+
+
+&lt;p&gt;In order to access trade information, we’ll use the &lt;a href=&#34;https://cran.r-project.org/web/packages/comtradr/comtradr.pdf&#34;&gt;comtradr&lt;/a&gt; package which provides an API access to the &lt;a href=&#34;https://comtrade.un.org/&#34;&gt;UN Comtrade Database&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(comtradr)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Suppose we want to analyze the Algerian exports’ evolution (Montary values of goods and services) in relation to the Ouest-European market which represents an important one.
+To that aim, we’ll use the &lt;strong&gt;ct_search&lt;/strong&gt; function.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;export_DZ &amp;lt;- ct_search(reporters = &amp;quot;Algeria&amp;quot;, 
+  partners = c(&amp;quot;France&amp;quot;, &amp;quot;Spain&amp;quot;, &amp;quot;Italy&amp;quot;, &amp;quot;Germany&amp;quot;), 
+  trade_direction = &amp;quot;exports&amp;quot;)
+
+#Note that the API limitS our request to 5 partner. For more information on API limits, refer to the the comtradr documentation.  &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let us embellish our database and select the relevant information&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+
+export_DZ &amp;lt;- as_tibble(export_DZ)
+
+export_DZ &amp;lt;- export_DZ %&amp;gt;% select(year, partner, trade_value_usd)
+
+head(export_DZ)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 3
+##    year partner trade_value_usd
+##   &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;             &amp;lt;dbl&amp;gt;
+## 1  2017 France       4431261656
+## 2  2017 Germany        14045034
+## 3  2017 Italy        5629479666
+## 4  2017 Spain        4103370763
+## 5  2012 France       6124176488
+## 6  2012 Germany       238172929&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, let’s plot our data to have a broader overview&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;options(scipen = 999) # avoiding scientific values (e.g. 10e9)
+
+ggplot(export_DZ, aes(x = year, y= ((trade_value_usd)/1000))) +  
+  facet_grid( ~ as.factor(partner))+                                     
+  geom_line(size = 2, color = &amp;quot;lightgreen&amp;quot;) + 
+  ylab(&amp;quot;trade value in 1000$&amp;quot;)+
+  xlab(&amp;quot;years&amp;quot;)+
+  scale_x_continuous(breaks = c(seq(1992, 2015, by = 2), 2017))+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/trade_analysis/2019-08-05-trade-analysis-with-r_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Interesting to see that the export value towards Germany is relatively low. Let us compare the exports to the imports.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;import_DZ &amp;lt;- ct_search(reporters = &amp;quot;Algeria&amp;quot;, 
+  partners = c(&amp;quot;France&amp;quot;, &amp;quot;Spain&amp;quot;, &amp;quot;Italy&amp;quot;, &amp;quot;Germany&amp;quot;), 
+  trade_direction = &amp;quot;imports&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We’ll use the &lt;a href=&#34;https://github.com/thomasp85/patchwork&#34;&gt;patchwork&lt;/a&gt; package to combine the import and the export plots. It’s as easy as drinking from a bottle of water.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(patchwork)
+
+max &amp;lt;- max(import_DZ$trade_value_usd/1000, export_DZ$trade_value_usd/1000)
+
+min &amp;lt;- min(import_DZ$trade_value_usd/1000, export_DZ$trade_value_usd/1000)
+
+
+p1 &amp;lt;- ggplot(export_DZ, aes(x = year, y= ((trade_value_usd)/1000))) +  
+  facet_grid( ~ as.factor(partner))+                                     
+  geom_line(color = &amp;quot;#FF5E00&amp;quot;) + 
+  ylab(&amp;quot;exports value in 1000$&amp;quot;)+
+  xlab(&amp;quot;years&amp;quot;)+
+  scale_x_continuous(breaks = c(seq(1992, 2015, by = 4), 2017))+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+
+p2 &amp;lt;- ggplot(import_DZ, aes(x = year, y= ((trade_value_usd)/1000))) +  
+  facet_grid( ~ as.factor(partner))+                                     
+  geom_line(color = &amp;quot;#FF00A2&amp;quot;) + 
+  ylab(&amp;quot;imports value in 1000$&amp;quot;)+
+  xlab(&amp;quot;years&amp;quot;)+
+  scale_x_continuous(breaks = c(seq(1992, 2015, by = 4), 2017))+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+
+
+p1 + p2 + patchwork::plot_layout(ncol = 1) + ylim(min, max)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/trade_analysis/2019-08-05-trade-analysis-with-r_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ylim(min, max) allows us to have the same dimensiality in our two plots.  &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

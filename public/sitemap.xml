@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/courses/example/example1/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/courses/example/</loc>
+    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/courses/example/example2/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/how_to_split_a_dataframe/how-to-split-a-dataframe-in-r/</loc>
+    <lastmod>2019-11-11T22:18:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/introduction_to_the_subset_function/introduction-to-the-subset-function/</loc>
+    <lastmod>2019-11-11T14:02:12+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2019-11-11T22:18:06+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-11-11T22:18:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
+    <lastmod>2019-11-11T22:18:06+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-11-11T22:18:06+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/three_warys_to_get_a_summary_of_your_data/three-ways-to-get-a-summary-of-your-data/</loc>
+    <lastmod>2019-11-11T19:02:15+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/base-r/</loc>
+    <lastmod>2019-11-11T22:18:06+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/working_with_r_built_in_data_sets/working-with-r-built-in-data-sets/</loc>
+    <lastmod>2019-09-18T01:17:01+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/clean_your_data_with_the_janitor_package/clean-your-data-with-the-janitor-package/</loc>
+    <lastmod>2019-09-15T14:45:21+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/case_when/case-when-function/</loc>
+    <lastmod>2019-08-31T02:52:43+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tidyverse/</loc>
+    <lastmod>2019-08-31T02:52:43+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/economics/</loc>
+    <lastmod>2019-08-19T16:36:05+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/finance/</loc>
+    <lastmod>2019-08-19T16:36:05+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/stocks-analysis-with-r/importing-and-visualizing-stock-market-data-in-r/</loc>
+    <lastmod>2019-08-19T16:36:05+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/deep-learning/</loc>
+    <lastmod>2019-08-09T22:07:19+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/graphical_mapping/graphical-mapping-with-r/</loc>
+    <lastmod>2019-08-09T02:14:40+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/introduction_to_deep_learning_what_is_a_tensor/introduction-to-deep-learning-what-is-a-tensor/</loc>
+    <lastmod>2019-08-09T22:07:19+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/map/</loc>
+    <lastmod>2019-08-09T02:14:40+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/tensorflow/</loc>
+    <lastmod>2019-08-09T22:07:19+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/tensors/</loc>
+    <lastmod>2019-08-09T22:07:19+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/an_introduction_to_ggplot2/an-introduction-to-the-ggplot2-package/</loc>
+    <lastmod>2019-08-08T01:12:03+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/trade-analysis/</loc>
+    <lastmod>2019-08-05T15:24:38+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/trade_analysis/trade-analysis-with-r/</loc>
+    <lastmod>2019-08-05T15:24:38+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication/listofpub/list-of-publications/</loc>
+    <lastmod>2019-08-04T23:35:30+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication/</loc>
+    <lastmod>2019-08-04T23:35:30+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/slides/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/slides/example/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/privacy/</loc>
+    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/terms/</loc>
+    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/admin/</loc>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/courses/</loc>
+  </url>
+  
+  <url>
+    <loc>/publication_types/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

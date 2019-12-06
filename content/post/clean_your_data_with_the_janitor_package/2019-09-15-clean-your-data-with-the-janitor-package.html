@@ -1,0 +1,204 @@
+---
+title: "Clean your Data with the janitor package"
+author: "Mohamed El Fodil Ihaddaden"
+date: '2019-09-15'
+categories: []
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+lastmod: '2019-09-15T14:45:21+02:00'
+projects: []
+slug: clean-your-data-with-the-janitor-package
+subtitle: ''
+summary: ''
+tags: []
+authors: []
+---
+
+
+
+<p>The janitor package in an excellent tool for cleaning a messy database and summarize information. We’ve all heard that data analysts allocate about 70% of their time to data cleaning and wrangling. With janitor, this is straightforward. In this tutorial, we’ll present some (not all !!!) janitor cool functions. Of course, we use the mtcars R base dataset to provide for reproducible examples. Let’s have a look to the variables.</p>
+<pre class="r"><code>head(mtcars)</code></pre>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<p>Now, just for the fun, we rename our columns in a messy way :</p>
+<pre class="r"><code>library(tidyverse)
+
+
+mtcars_messy &lt;- mtcars %&gt;% rename(
+  &quot;MILES PER! Galon&quot; = mpg, 
+  &quot;NUMBER OF cylinders&quot; = cyl, 
+  &quot;WEIGHT !!!!???&quot; = wt
+)
+
+names(mtcars_messy)</code></pre>
+<pre><code>##  [1] &quot;MILES PER! Galon&quot;    &quot;NUMBER OF cylinders&quot; &quot;disp&quot;               
+##  [4] &quot;hp&quot;                  &quot;drat&quot;                &quot;WEIGHT !!!!???&quot;     
+##  [7] &quot;qsec&quot;                &quot;vs&quot;                  &quot;am&quot;                 
+## [10] &quot;gear&quot;                &quot;carb&quot;</code></pre>
+<p>One must admit that we usually have to deal with this kind of variables’ names. Tired of renaming them one by one ? one answer : <strong>janitor::clean_names()</strong></p>
+<pre class="r"><code>library(janitor)
+
+mtcars_cleaned &lt;- mtcars_messy %&gt;% clean_names()
+
+names(mtcars_cleaned)</code></pre>
+<pre><code>##  [1] &quot;miles_per_galon&quot;     &quot;number_of_cylinders&quot; &quot;disp&quot;               
+##  [4] &quot;hp&quot;                  &quot;drat&quot;                &quot;weight&quot;             
+##  [7] &quot;qsec&quot;                &quot;vs&quot;                  &quot;am&quot;                 
+## [10] &quot;gear&quot;                &quot;carb&quot;</code></pre>
+<p>Pretty cool isn’t ? There is another interesting tool in janitor. The <strong>get_dupes</strong> function allows us to detect duplicates within a dataframe. Just to check how it works, we create duplicated rows:</p>
+<pre class="r"><code>mtcars &lt;- rownames_to_column(mtcars, var = &quot;car_name&quot;) # Transforming our rows&#39; names to a column entitled &quot;car_name&quot;
+
+mtcars_dupli &lt;- mtcars %&gt;% rbind(mtcars[5:7, ])    # We&#39;re  duplicating the 5, 6 and 7th rows
+
+nrow(mtcars_dupli) # We have indeed 35 rows (3 more than the classic mtcars)</code></pre>
+<pre><code>## [1] 35</code></pre>
+<p>How can we find duplicates ? easy !</p>
+<pre class="r"><code>mtcars_dupli %&gt;% get_dupes(car_name) </code></pre>
+<pre><code>## # A tibble: 6 x 13
+##   car_name dupe_count   mpg   cyl  disp    hp  drat    wt  qsec    vs    am
+##   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 Duster ~          2  14.3     8   360   245  3.21  3.57  15.8     0     0
+## 2 Duster ~          2  14.3     8   360   245  3.21  3.57  15.8     0     0
+## 3 Hornet ~          2  18.7     8   360   175  3.15  3.44  17.0     0     0
+## 4 Hornet ~          2  18.7     8   360   175  3.15  3.44  17.0     0     0
+## 5 Valiant           2  18.1     6   225   105  2.76  3.46  20.2     1     0
+## 6 Valiant           2  18.1     6   225   105  2.76  3.46  20.2     1     0
+## # ... with 2 more variables: gear &lt;dbl&gt;, carb &lt;dbl&gt;</code></pre>
+<p>As you see, the function even indicates the duplication counts (in our case 2 as we’ve added one duplicate to each observation)</p>
+<div id="i-adorn_-tabyl" class="section level2">
+<h2>I adorn_() tabyl()</h2>
+<p>With janitor, one can also get valuable information in a tabular form. The <strong>tabyl()</strong> function works approximately like the table base R but offers a much better aesthetic. Let’s check the differences:</p>
+<pre class="r"><code>mtcars_dupli$car_name %&gt;% table()</code></pre>
+<pre><code>## .
+##         AMC Javelin  Cadillac Fleetwood          Camaro Z28 
+##                   1                   1                   1 
+##   Chrysler Imperial          Datsun 710    Dodge Challenger 
+##                   1                   1                   1 
+##          Duster 360        Ferrari Dino            Fiat 128 
+##                   2                   1                   1 
+##           Fiat X1-9      Ford Pantera L         Honda Civic 
+##                   1                   1                   1 
+##      Hornet 4 Drive   Hornet Sportabout Lincoln Continental 
+##                   1                   2                   1 
+##        Lotus Europa       Maserati Bora           Mazda RX4 
+##                   1                   1                   1 
+##       Mazda RX4 Wag            Merc 230           Merc 240D 
+##                   1                   1                   1 
+##            Merc 280           Merc 280C          Merc 450SE 
+##                   1                   1                   1 
+##          Merc 450SL         Merc 450SLC    Pontiac Firebird 
+##                   1                   1                   1 
+##       Porsche 914-2      Toyota Corolla       Toyota Corona 
+##                   1                   1                   1 
+##             Valiant          Volvo 142E 
+##                   2                   1</code></pre>
+<p>not so georgous, I agree. Now, let’s see what <strong>tabyl()</strong> function does :</p>
+<pre class="r"><code>mtcars_dupli$car_name %&gt;% tabyl()</code></pre>
+<pre><code>##                    . n    percent
+##          AMC Javelin 1 0.02857143
+##   Cadillac Fleetwood 1 0.02857143
+##           Camaro Z28 1 0.02857143
+##    Chrysler Imperial 1 0.02857143
+##           Datsun 710 1 0.02857143
+##     Dodge Challenger 1 0.02857143
+##           Duster 360 2 0.05714286
+##         Ferrari Dino 1 0.02857143
+##             Fiat 128 1 0.02857143
+##            Fiat X1-9 1 0.02857143
+##       Ford Pantera L 1 0.02857143
+##          Honda Civic 1 0.02857143
+##       Hornet 4 Drive 1 0.02857143
+##    Hornet Sportabout 2 0.05714286
+##  Lincoln Continental 1 0.02857143
+##         Lotus Europa 1 0.02857143
+##        Maserati Bora 1 0.02857143
+##            Mazda RX4 1 0.02857143
+##        Mazda RX4 Wag 1 0.02857143
+##             Merc 230 1 0.02857143
+##            Merc 240D 1 0.02857143
+##             Merc 280 1 0.02857143
+##            Merc 280C 1 0.02857143
+##           Merc 450SE 1 0.02857143
+##           Merc 450SL 1 0.02857143
+##          Merc 450SLC 1 0.02857143
+##     Pontiac Firebird 1 0.02857143
+##        Porsche 914-2 1 0.02857143
+##       Toyota Corolla 1 0.02857143
+##        Toyota Corona 1 0.02857143
+##              Valiant 2 0.05714286
+##           Volvo 142E 1 0.02857143</code></pre>
+<p>We’re not done yet ! This function can also be applied to generate contingency tables. Suppose, we want to get the number of cylinders according to the type of transmission (0 = automatic, 1 = manuel) :</p>
+<pre class="r"><code>mtcars_dupli %&gt;% tabyl(am, cyl)</code></pre>
+<pre><code>##  am 4 6  8
+##   0 3 5 14
+##   1 8 3  2</code></pre>
+<p>We get the information but it’s not very pretty right ? don’t panic, the janitor package provides the <strong>adorn_</strong> functions which generate a variety of summary information :</p>
+<pre class="r"><code>mtcars_dupli %&gt;% tabyl(am, cyl) %&gt;% 
+  adorn_totals(where = c(&quot;row&quot;, &quot;col&quot;))  # get the rows and columns sum</code></pre>
+<pre><code>##     am  4 6  8 Total
+##      0  3 5 14    22
+##      1  8 3  2    13
+##  Total 11 8 16    35</code></pre>
+<pre class="r"><code>mtcars_dupli %&gt;% tabyl(am, cyl) %&gt;% 
+  adorn_totals(where = c(&quot;row&quot;, &quot;col&quot;)) %&gt;% 
+  adorn_percentages(&quot;all&quot;) %&gt;%            # getting the proportions
+  adorn_pct_formatting() %&gt;%              # formatting values in %
+  adorn_ns(position = &quot;rear&quot;) %&gt;%         # diplaying counts &quot;behind&quot; the previously calculated percentages
+  adorn_title(placement = &quot;combined&quot;)     # display a &quot;combined&quot; title (am/cyl) (checkout &quot;top&quot; for another view)</code></pre>
+<pre><code>##  am/cyl          4         6          8       Total
+##       0  8.6%  (3) 14.3% (5) 40.0% (14)  62.9% (22)
+##       1 22.9%  (8)  8.6% (3)  5.7%  (2)  37.1% (13)
+##   Total 31.4% (11) 22.9% (8) 45.7% (16) 100.0% (35)</code></pre>
+<p>Finally, it’s possible to convert our results into great looking HTML tables using the <strong>kable</strong> function from the <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">knitr</a> package :</p>
+<pre class="r"><code>library(knitr)
+mtcars_dupli %&gt;% tabyl(am, cyl) %&gt;% 
+  adorn_totals(where = c(&quot;row&quot;, &quot;col&quot;)) %&gt;% 
+  adorn_percentages(&quot;all&quot;) %&gt;%            
+  adorn_pct_formatting() %&gt;%              
+  adorn_ns(position = &quot;rear&quot;) %&gt;%         
+  adorn_title(placement = &quot;combined&quot;) %&gt;% 
+  kable() </code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">am/cyl</th>
+<th align="left">4</th>
+<th align="left">6</th>
+<th align="left">8</th>
+<th align="left">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="left">8.6% (3)</td>
+<td align="left">14.3% (5)</td>
+<td align="left">40.0% (14)</td>
+<td align="left">62.9% (22)</td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="left">22.9% (8)</td>
+<td align="left">8.6% (3)</td>
+<td align="left">5.7% (2)</td>
+<td align="left">37.1% (13)</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="left">31.4% (11)</td>
+<td align="left">22.9% (8)</td>
+<td align="left">45.7% (16)</td>
+<td align="left">100.0% (35)</td>
+</tr>
+</tbody>
+</table>
+<p>That’s it for this tutorial nevertheless I highly recommend taking a look to the official package’s <a href="https://github.com/sfirke/janitor">vignette</a>.</p>
+</div>

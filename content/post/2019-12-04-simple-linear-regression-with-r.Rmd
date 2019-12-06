@@ -1,0 +1,110 @@
+---
+title: Simple Linear Regression with R
+author: Mohamed El Fodil Ihaddaden
+date: '2019-12-04'
+slug: simple-linear-regression-with-r
+categories: []
+tags:
+  - base R
+  - Regression
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-12-04T15:55:50+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+In this tutorial, we'll take a look at a simple linear model. We'll use the `mpg` dataset which is linked to the `tidyverse` package. 
+
+```{r, message=FALSE}
+library(tidyverse)
+
+head(mpg)
+
+```
+
+here, we'll model the impact of `displ`  (the independent variable : x) on `cty` (the dependent variable: y). We want to investigate if the energy efficiency as measured by `cty` is impacted by `displ`. 
+
+# First hypothesis: Linear relationship
+
+In order to implement a linear regression, the relationship between *y* and *x* should be linear. Let's check it out: 
+
+```{r}
+
+ggplot(mpg, aes(displ, cty)) + 
+  geom_point(col = "grey28") +
+  geom_smooth(method = "lm", se = FALSE, col = "red") + # plotting the regression line
+  ggthemes::theme_economist()+
+  scale_y_continuous(breaks = seq(min(mpg$cty), max(mpg$cty), 1))
+
+
+```
+
+
+From above, we can observe that there is a negative linear relationship between `disp` and `cty` nevertheless, we observe some outliers at the top left of our graph. Let's remove them: 
+
+
+
+```{r}
+
+mpg <- mpg %>% filter(cty < 23)
+
+
+ggplot(mpg, aes(displ, cty)) + 
+  geom_point(col = "grey28") +
+  geom_smooth(method = "lm", se = FALSE, col = "red") + # plotting the regression line
+  ggthemes::theme_economist()+
+  scale_y_continuous(breaks = seq(min(mpg$cty), max(mpg$cty), 1))
+
+```
+
+much better !!!
+
+
+# Second hypothesis: good level of association
+
+
+When running a linear regression, a good level of correlation is preferable. We can measure the pearson correlation using the `cor()` function: 
+
+
+```{r}
+cor(mpg$displ, mpg$cyl)
+```
+The correlation is quite  importante, we can go on. 
+
+
+# Fitting the model to our data
+
+In order to fit our model, we'll use the `lm()` function as follows: 
+
+```{r}
+
+my_model <- lm(cty ~ displ, data = mpg)
+
+```
+
+# Extracting the regression information 
+
+Using the `summary()` function, we'll investigate the results of our regression:
+
+```{r}
+
+summary(my_model)
+
+
+```
+
+
+We remark that our predictor has a p-value < 1%, therefore we can reject the Null hypothesis and say that according to our data the `disp` variable has a **significant** impact on fuel efficiency. The formula of our model can be written as: 
+$cty = 23.9031 - 2.1661 \times displ$    
+
+
+
+
+
+

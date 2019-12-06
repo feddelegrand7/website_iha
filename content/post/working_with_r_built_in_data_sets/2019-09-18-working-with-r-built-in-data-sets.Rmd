@@ -1,0 +1,105 @@
+---
+title: Working with R Built-in Data Sets
+author: Mohamed El Fodil Ihaddaden
+date: '2019-09-18'
+slug: working-with-r-built-in-data-sets
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-09-18T01:17:01+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+In my tutorials, I prefer to work with the mtcars data set (DST) because I find it pretty straightforward. Nonetheless, one may be attempted to play and try some functions on a specific kind of DST. What is great in R is that it cames with a variety of pre-built DST. Yes, you just have to choose! 
+
+# R Base Data Sets 
+
+Base DSTs are the data bases available within the base R. They are not related to any installed package. If you want to display the title of the full list of R base DSTs, you can write the following very simple command: 
+
+```{r message=FALSE, warning=FALSE}
+data <- data() 
+
+R_base <- data$results[,3] # All base R data sets
+
+head(R_base)
+
+```
+
+
+We can also print the description of each DST. 
+
+
+```{r message=FALSE, warning=FALSE}
+R_base_description <- data$results[,4]
+
+head(R_base_description)
+
+```
+
+We can have both ...
+
+```{r message=FALSE, warning=FALSE}
+base_base <- cbind(R_base,R_base_description )
+
+base_base <- as.data.frame(base_base)
+
+head(base_base)
+
+```
+
+
+
+# Getting All the Available DSTs 
+
+Some packages, available on  CRAN or Github come with one or many data sets. For example, if you install the famous **dplyr**, you'll get for free the cool [starwars](https://rdrr.io/cran/dplyr/man/starwars.html) DST. In order to list all your DSTs according to the packages that you've installed, execute the following command: 
+
+```{r message=FALSE, warning=FALSE}
+data(package = .packages(all.available = TRUE))
+
+```
+
+
+Imagine you're a big fan of carbon (why not) and you're too lazy (like me) to open your browser. The following command lists ALL (base and installed) packages that contains the word "carbon" in their DSTs' description. 
+
+
+
+```{r message=FALSE, warning=FALSE}
+ALL_packages <- data(package = .packages(all.available = TRUE))
+
+ALL_packages <- ALL_packages[[3]]
+
+ALL_packages[grep("carbon", ALL_packages[, 4], ignore.case = TRUE), ]
+
+
+```
+
+
+
+
+Finally, let's say you have found your *âme sœur* and it's the *Carbon Dioxide and Growth Rate in Algae* DST. To load it into your environment, use: 
+
+```{r message=FALSE, warning=FALSE}
+library(abd) # First load the corresponding package
+
+data("AlgaeCO2") # load the AlgaeCO2
+
+AlgaeCO2 
+
+
+```
+
+
+
+
+
+
+
+
+

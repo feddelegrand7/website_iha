@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="highchart_libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="highchart_libs/jquery/jquery.min.js"></script>
+<script src="highchart_libs/proj4js/proj4.js"></script>
+<link href="highchart_libs/highcharts/css/motion.css" rel="stylesheet" />
+<link href="highchart_libs/highcharts/css/htmlwdgtgrid.css" rel="stylesheet" />
+<script src="highchart_libs/highcharts/highcharts.js"></script>
+<script src="highchart_libs/highcharts/highcharts-3d.js"></script>
+<script src="highchart_libs/highcharts/highcharts-more.js"></script>
+<script src="highchart_libs/highcharts/modules/stock.js"></script>
+<script src="highchart_libs/highcharts/modules/map.js"></script>
+<script src="highchart_libs/highcharts/modules/annotations.js"></script>
+<script src="highchart_libs/highcharts/modules/boost.js"></script>
+<script src="highchart_libs/highcharts/modules/data.js"></script>
+<script src="highchart_libs/highcharts/modules/drag-panes.js"></script>
+<script src="highchart_libs/highcharts/modules/drilldown.js"></script>
+<script src="highchart_libs/highcharts/modules/item-series.js"></script>
+<script src="highchart_libs/highcharts/modules/offline-exporting.js"></script>
+<script src="highchart_libs/highcharts/modules/overlapping-datalabels.js"></script>
+<script src="highchart_libs/highcharts/modules/exporting.js"></script>
+<script src="highchart_libs/highcharts/modules/export-data.js"></script>
+<script src="highchart_libs/highcharts/modules/funnel.js"></script>
+<script src="highchart_libs/highcharts/modules/heatmap.js"></script>
+<script src="highchart_libs/highcharts/modules/treemap.js"></script>
+<script src="highchart_libs/highcharts/modules/sankey.js"></script>
+<script src="highchart_libs/highcharts/modules/solid-gauge.js"></script>
+<script src="highchart_libs/highcharts/modules/streamgraph.js"></script>
+<script src="highchart_libs/highcharts/modules/sunburst.js"></script>
+<script src="highchart_libs/highcharts/modules/vector.js"></script>
+<script src="highchart_libs/highcharts/modules/wordcloud.js"></script>
+<script src="highchart_libs/highcharts/modules/xrange.js"></script>
+<script src="highchart_libs/highcharts/modules/tilemap.js"></script>
+<script src="highchart_libs/highcharts/modules/venn.js"></script>
+<script src="highchart_libs/highcharts/modules/gantt.js"></script>
+<script src="highchart_libs/highcharts/modules/timeline.js"></script>
+<script src="highchart_libs/highcharts/modules/parallel-coordinates.js"></script>
+<script src="highchart_libs/highcharts/plugins/grouped-categories.js"></script>
+<script src="highchart_libs/highcharts/plugins/motion.js"></script>
+<script src="highchart_libs/highcharts/plugins/multicolor_series.js"></script>
+<script src="highchart_libs/highcharts/custom/reset.js"></script>
+<script src="highchart_libs/highcharts/custom/symbols-extra.js"></script>
+<script src="highchart_libs/highcharts/custom/text-symbols.js"></script>
+<script src="highchart_libs/highchart-binding/highchart.js"></script>
+<script src="highchart_libs/pymjs/pym.v1.min.js"></script>
+  <title>highchart</title>
+</head>
+<body style="background-color:white;">
+<div id="htmlwidget_container">
+  <div id="htmlwidget-85c7fa89b4661a9dc608" style="width:100%;height:500px;" class="highchart html-widget"></div>
+  <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
+</div>
+<script type="application/json" data-for="htmlwidget-85c7fa89b4661a9dc608">{"x":{"hc_opts":{"title":{"text":"Stocks' Evolution of French CAC 40 listed banks"},"yAxis":{"title":{"text":null}},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[[1563148800000,11.01],[1563235200000,11.12],[1563321600000,10.965],[1563408000000,10.79],[1563494400000,10.79],[1563753600000,10.81],[1563840000000,11.02],[1563926400000,11.04],[1564012800000,11.05],[1564099200000,11],[1564358400000,10.955],[1564444800000,10.645],[1564531200000,10.78],[1564617600000,10.87],[1564704000000,10.34],[1564963200000,10.26],[1565049600000,10.215],[1565136000000,10.11],[1565222400000,10.33],[1565308800000,10.175],[1565568000000,9.99],[1565654400000,10.13],[1565740800000,9.932],[1565827200000,9.91]],"name":"Crédit Agricole"},{"data":[[1563148800000,42.84],[1563235200000,43.205002],[1563321600000,42.52],[1563408000000,42.369999],[1563494400000,41.994999],[1563753600000,41.994999],[1563840000000,42.924999],[1563926400000,42.93],[1564012800000,42.990002],[1564099200000,42.935001],[1564358400000,42.654999],[1564444800000,41.52],[1564531200000,42.18],[1564617600000,42.845001],[1564704000000,41.150002],[1564963200000,40.415001],[1565049600000,40.27],[1565136000000,39.955002],[1565222400000,40.744999],[1565308800000,40.205002],[1565568000000,39.665001],[1565654400000,40.369999],[1565740800000,39.32],[1565827200000,39.599998]],"name":"BNP Paribas"},{"data":[[1563148800000,22.815001],[1563235200000,23.1],[1563321600000,22.825001],[1563408000000,22.715],[1563494400000,22.370001],[1563753600000,22.33],[1563840000000,23.030001],[1563926400000,23.165001],[1564012800000,22.99],[1564099200000,23.08],[1564358400000,22.905001],[1564444800000,22.055],[1564531200000,22.205],[1564617600000,23.5],[1564704000000,22.42],[1564963200000,22.4],[1565049600000,22.305],[1565136000000,22.1],[1565222400000,22.764999],[1565308800000,22.275],[1565568000000,21.790001],[1565654400000,22.379999],[1565740800000,21.465],[1565827200000,21.375]],"name":"Société Générale"}]},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"stock","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<script type="application/htmlwidget-sizing" data-for="htmlwidget-85c7fa89b4661a9dc608">{"viewer":{"width":"100%","height":350,"padding":0,"fill":false},"browser":{"width":"100%","height":500,"padding":0,"fill":false}}</script>
+</body>
+</html>

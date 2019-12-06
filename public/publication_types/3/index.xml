@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3 | Academic</title>
+    <link>/publication_types/3/</link>
+      <atom:link href="/publication_types/3/index.xml" rel="self" type="application/rss+xml" />
+    <description>3</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>3</title>
+      <link>/publication_types/3/</link>
+    </image>
+    
+    <item>
+      <title>Impact of Political Uncertainty on Banking Performance, Investigating the Jasmin Revolution Effect on the Tunisian Banking System.</title>
+      <link>/publication/tn/</link>
+      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>/publication/tn/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;PDF&lt;/em&gt; button to download the working paper in PDF format.
+  &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Investigating Eurosystem Central Banking Efficiency, a Data Envelopment Analysis Approach.</title>
+      <link>/publication/cbe/</link>
+      <pubDate>Thu, 31 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>/publication/cbe/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;PDF&lt;/em&gt; button to download the working paper in PDF format.
+  &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

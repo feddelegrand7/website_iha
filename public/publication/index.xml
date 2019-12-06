@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications | Mohamed El Fodil IHADDADEN</title>
+    <link>/publication/</link>
+      <atom:link href="/publication/index.xml" rel="self" type="application/rss+xml" />
+    <description>Publications</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 04 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/logo-via-logohub.png</url>
+      <title>Publications</title>
+      <link>/publication/</link>
+    </image>
+    
+    <item>
+      <title>List of Publications</title>
+      <link>/publication/listofpub/list-of-publications/</link>
+      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>/publication/listofpub/list-of-publications/</guid>
+      <description>
+
+
+&lt;div id=&#34;published-papers&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Published papers&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://revue.cread.dz/index.php/les-cahiers-du-cread/article/view/1189&#34;&gt;IHADDADEN, M., &amp;amp; BOUHABA, M. (2019). A PERFORMANCE COMPARISON BETWEEN STATE-OWNED, MIXED AND PRIVATE BANKS IN ALGERIA. Les Cahiers Du CREAD, 35(1), 5-20.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;submitted-papers&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Submitted Papers&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Mohamed El Fodil Ihaddaden, Investigating Eurosystem Central Banking Efficiency: A Data Envelopment Analysis Approach.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Mohamed El Fodil Ihaddaden, Impact of Political Uncertainty on Banking Performance: Investigating the Jasmin Revolution Effect on the Tunisian Banking System.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Mohamed El Fodil Ihaddaden, Being State-Owned is not a Fatality: Improving Public Bank’s Performance Using the Data Envelopment Analysis Radial and Super-Efficiency Models: An Algerian Case Study.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;working-papers&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Working Papers&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Mohamed El Fodil Ihaddaden, Is there a Relationship between Credit Information Exchange and Entrepreneurship? A Cross Country Evidence.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

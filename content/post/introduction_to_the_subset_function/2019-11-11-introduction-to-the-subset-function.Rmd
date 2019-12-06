@@ -1,0 +1,76 @@
+---
+title: Introduction to the Subset function
+author: Mohamed El Fodil Ihaddaden
+date: '2019-11-11'
+slug: introduction-to-the-subset-function
+categories: []
+tags:
+  - base R
+  - R
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-11-11T14:02:12+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+Although I'm a big fan of the tidyverse philosophy of handling and wrangling data, one must admit that there are quit powerful functions in base R. One of theses functions is `subset()` which returns a dataframe according to some defined subsetting properties. Let's dive into one example using the simple **mtcars** data:
+
+```{r}
+
+head(mtcars)  # A quick look at the mtcars data
+
+```
+
+Suppose, we want to extract all the vehicules that have an *mpg* greater than 20:
+
+```{r}
+
+subset(mtcars, mpg > 20)  # the first argument is the dataframe
+
+
+```
+
+
+You can observe that the *subset* function is flexible. We don't have to specify the column name with the dollar sign (*mtcars$mpg*).  
+
+Let's take another more complex example. We will extract all vehicules that have an *mpg* superior to 30 and a *cyl* equal to 4:
+
+
+```{r}
+
+subset(mtcars, mpg > 30 & cyl == 4) # & <=> AND
+
+```
+
+As you can see, the *subset* function works smoothly with the R logical expressions. 
+
+Finally, there is another important argument that we must see. Suppose, we want to extract a specified column, let's say that we're solely interested in the *wt* variable. We can extract this column depending using the `select` argument: 
+
+```{r}
+
+
+subset(mtcars, mpg > 30 & cyl == 4, select = wt)
+
+
+```
+
+In the same way, we can extract several columns : 
+
+
+```{r}
+
+
+subset(mtcars, mpg > 30 & cyl == 4, select = c(wt, disp, am))
+
+
+```
+
+
+

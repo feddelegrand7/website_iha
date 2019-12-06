@@ -1,0 +1,139 @@
+---
+title: 'Importing and Visualizing Stock Market Data in R'
+author: Mohamed El Fodil Ihaddaden
+date: '2019-08-19'
+slug: Importing-and-Visualizing-Stock-Market-Data-in-R
+categories: []
+tags:
+  - Finance
+  - Economics
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-08-19T16:36:05+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/pymjs/pym.v1.js"></script>
+<script src="/rmarkdown-libs/widgetframe-binding/widgetframe.js"></script>
+
+
+<p>In this tutorial, we’ll analyze the French CAC 40 stocks. Listed CAC 40 firms can be found at the <a href="https://finance.yahoo.com/quote/%5EFCHI/components/">Yahoo Finance website</a>.</p>
+<div id="getting-the-symbols" class="section level2">
+<h2>Getting the Symbols</h2>
+<p>First, we need to obtain the associated Yahoo symbols for each CAC 40 stock. Example: for Danone S.A, we have the correspnding symbol <a href="https://finance.yahoo.com/quote/BN.PA?p=BN.PA">BN.PA</a>. From Yahoo Finance we use the <a href="https://cran.r-project.org/web/packages/datapasta/vignettes/how-to-datapasta.html">DataPasta package</a> to copy and paste the entire data table (We have modified the the column’s name <strong>% Change</strong> to deal with R naming requirement). Then we select the <strong>Symbol</strong> column.</p>
+<pre class="r"><code>library(tidyverse)
+
+
+base_data &lt;- data.frame(stringsAsFactors=FALSE,
+         Symbol = c(&quot;VIE.PA&quot;, &quot;AI.PA&quot;, &quot;BN.PA&quot;, &quot;ACA.PA&quot;, &quot;CA.PA&quot;, &quot;ML.PA&quot;,
+                    &quot;BNP.PA&quot;, &quot;RI.PA&quot;, &quot;SU.PA&quot;, &quot;VIV.PA&quot;, &quot;ENGI.PA&quot;, &quot;CAP.PA&quot;,
+                    &quot;LR.PA&quot;, &quot;ORA.PA&quot;, &quot;AC.PA&quot;, &quot;HO.PA&quot;, &quot;KER.PA&quot;, &quot;GLE.PA&quot;,
+                    &quot;EN.PA&quot;, &quot;SGO.PA&quot;, &quot;SAN.PA&quot;, &quot;DG.PA&quot;, &quot;ATO.PA&quot;, &quot;OR.PA&quot;, &quot;SW.PA&quot;,
+                    &quot;UG.PA&quot;, &quot;AIR.PA&quot;, &quot;MC.PA&quot;, &quot;FP.PA&quot;, &quot;FTI.PA&quot;),
+   Company.Name = c(&quot;Veolia Environnement S.A.&quot;, &quot;L&#39;Air Liquide S.A.&quot;,
+                    &quot;Danone S.A.&quot;, &quot;Crédit Agricole S.A.&quot;, &quot;Carrefour SA&quot;,
+                    &quot;Compagnie Générale des Établissements Michelin&quot;,
+                    &quot;BNP Paribas SA&quot;, &quot;Pernod Ricard SA&quot;, &quot;Schneider Electric S.E.&quot;,
+                    &quot;Vivendi SA&quot;, &quot;ENGIE SA&quot;, &quot;Capgemini SE&quot;, &quot;Legrand SA&quot;, &quot;Orange S.A.&quot;,
+                    &quot;Accor SA&quot;, &quot;Thales S.A.&quot;, &quot;Kering SA&quot;,
+                    &quot;Société Générale Société anonyme&quot;, &quot;Bouygues SA&quot;,
+                    &quot;Compagnie de Saint-Gobain S.A.&quot;, &quot;Sanofi&quot;, &quot;VINCI SA&quot;, &quot;Atos SE&quot;, &quot;L&#39;Oréal S.A.&quot;,
+                    &quot;Sodexo S.A.&quot;, &quot;Peugeot S.A.&quot;, &quot;Airbus SE&quot;,
+                    &quot;LVMH Moët Hennessy - Louis Vuitton, Société Européenne&quot;, &quot;TOTAL S.A.&quot;,
+                    &quot;TechnipFMC plc&quot;),
+     Last.Price = c(21.93, 123.35, 80.24, 10.26, 15.49, 93.32, 40.86, 158.05,
+                    73.12, 25.64, 13.57, 106.35, 61.98, 13.6, 38.3, 102.9,
+                    437.6, 22.35, 32.4, 32.33, 77.04, 96.82, 66.92, 236.7, 101.6,
+                    19.34, 125.32, 355.2, 44.08, 21.73),
+         Change = c(0, 0.15, 0.14, 0.03, 0.06, 0.48, 0.25, -1.05, 0.48, 0.17,
+                    0.11, 1.05, 0.62, 0.14, 0.42, 1.2, 5.3, 0.28, 0.42, 0.43,
+                    1.05, 1.34, 0.94, 3.4, 1.62, 0.34, 2.3, 6.75, 0.85, 0.75),
+        Change_prc = c(&quot;0.00%&quot;, &quot;+0.12%&quot;, &quot;+0.17%&quot;, &quot;+0.24%&quot;, &quot;+0.39%&quot;, &quot;+0.52%&quot;,
+                    &quot;+0.62%&quot;, &quot;-0.66%&quot;, &quot;+0.66%&quot;, &quot;+0.67%&quot;, &quot;+0.82%&quot;, &quot;+1.00%&quot;,
+                    &quot;+1.01%&quot;, &quot;+1.08%&quot;, &quot;+1.11%&quot;, &quot;+1.18%&quot;, &quot;+1.23%&quot;, &quot;+1.29%&quot;,
+                    &quot;+1.31%&quot;, &quot;+1.35%&quot;, &quot;+1.38%&quot;, &quot;+1.40%&quot;, &quot;+1.42%&quot;, &quot;+1.46%&quot;,
+                    &quot;+1.62%&quot;, &quot;+1.79%&quot;, &quot;+1.87%&quot;, &quot;+1.94%&quot;, &quot;+1.97%&quot;, &quot;+3.57%&quot;),
+         Volume = c(818027, 264260, 461968, 3363436, 772440, 275617, 3304556,
+                    167013, 408078, 788907, 2077728, 221310, 258356, 3729428,
+                    202482, 178755, 128660, 2969772, 264297, 640992, 1164010,
+                    708090, 202814, 322746, 88158, 814983, 432166, 306987, 2264031,
+                    777895)
+)
+
+
+Symbols &lt;- base_data %&gt;% select(Symbol)</code></pre>
+</div>
+<div id="loading-stock-prices-data" class="section level1">
+<h1>Loading Stock Prices Data</h1>
+<p>In order to import the stock prices, we use the <strong>getSymbols()</strong> function from the <strong>quantmod</strong> package. Let’s say we are interested in the evolution of CAC 40 Adjusted Prices from the 15/07/2019 to 15/08/2019. The map(~Ad(get(.))) is used to extract the Adjusted Prices from the imported prices.</p>
+<pre class="r"><code>library(quantmod)
+
+cac_prices &lt;- getSymbols(Symbols$Symbol, 
+                     src = &quot;yahoo&quot;,
+                     from = &quot;2019-07-15&quot;,
+                     to = &quot;2019-08-15&quot;,
+                     auto.assign = TRUE,
+                     warnings = FALSE) %&gt;% 
+  map(~Ad(get(.))) %&gt;% 
+  reduce(merge) %&gt;% 
+  &quot;colnames&lt;-&quot;(Symbols$Symbol)
+
+
+head(cac_prices, n = 2) </code></pre>
+<pre><code>##            VIE.PA  AI.PA BN.PA ACA.PA CA.PA  ML.PA BNP.PA  RI.PA SU.PA
+## 2019-07-15  22.58 123.15 75.86  11.01  17.9 111.55 42.840 157.30 77.02
+## 2019-07-16  22.59 123.05 75.68  11.12  18.0 110.00 43.205 157.05 77.98
+##            VIV.PA ENGI.PA CAP.PA LR.PA ORA.PA AC.PA HO.PA KER.PA GLE.PA
+## 2019-07-15  24.89  13.870 113.85 63.28 13.305 39.94 104.4  519.9 22.815
+## 2019-07-16  24.91  13.765 114.60 63.68 13.330 39.85 105.2  530.6 23.100
+##            EN.PA SGO.PA SAN.PA DG.PA ATO.PA OR.PA SW.PA UG.PA AIR.PA
+## 2019-07-15 32.01 33.885  73.79  91.8  78.02 250.5 102.7 22.23 129.20
+## 2019-07-16 32.90 34.670  74.32  94.3  79.24 251.3 102.5 22.32 131.14
+##             MC.PA  FP.PA   FTI.PA
+## 2019-07-15 380.05 50.090 22.41107
+## 2019-07-16 385.30 49.965 22.51045</code></pre>
+<p>Using the getSymbols() function, we’ve obtained an <strong>xts</strong> object. xts or Extensible Time Series are dataframes indexed with dates.</p>
+</div>
+<div id="stock-prices-visualization-with-highcharter" class="section level1">
+<h1>Stock Prices Visualization with highcharter</h1>
+<p><strong>highcharter</strong> offers highly reactive time series visualizations. Suppose we are interested in plotting French banks adjusted prices.</p>
+<pre class="r"><code>library(highcharter)
+
+
+plot1 &lt;- highchart(type = &quot;stock&quot;) %&gt;% 
+  hc_title(text = &quot;Stocks&#39; Evolution of French CAC 40 listed banks&quot;) %&gt;% 
+  hc_add_series(cac_prices$ACA.PA, name=&quot;Crédit Agricole&quot;) %&gt;% 
+  hc_add_series(cac_prices$BNP.PA, name=&quot;BNP Paribas&quot;) %&gt;% 
+  hc_add_series(cac_prices$GLE.PA, name=&quot;Société Générale&quot;)</code></pre>
+<div id="htmlwidget-1" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"url":"/post/stocks-analysis-with-r/2019-08-19-stocks-analysis-with-r_files/figure-html//widgets/widget_unnamed-chunk-5.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<p>From the above chart, we observe a very small variation. This is not suprising as the the considered period is short (1 month). Let us consider a longer period (1 year).
+s</p>
+<pre class="r"><code>Symbol_banks &lt;- c(&quot;ACA.PA&quot;, &quot;BNP.PA&quot;, &quot;GLE.PA&quot;)
+
+cac_banks &lt;- getSymbols(Symbol_banks, 
+                     src = &quot;yahoo&quot;,
+                     from = &quot;2018-08-18&quot;,
+                     to = &quot;2019-08-18&quot;,
+                     auto.assign = TRUE,
+                     warnings = FALSE) %&gt;% 
+  map(~Ad(get(.))) %&gt;% 
+  reduce(merge) %&gt;% 
+  &quot;colnames&lt;-&quot;(Symbol_banks)
+
+
+plot2 &lt;- highchart(type = &quot;stock&quot;) %&gt;% 
+  hc_title(text = &quot;Stocks&#39; Evolution of French CAC 40 Listed Banks&quot;) %&gt;% 
+  hc_add_series(cac_banks$ACA.PA, name=&quot;Crédit Agricole&quot;) %&gt;% 
+  hc_add_series(cac_banks$BNP.PA, name=&quot;BNP Paribas&quot;) %&gt;% 
+  hc_add_series(cac_banks$GLE.PA, name=&quot;Société Générale&quot;)</code></pre>
+<div id="htmlwidget-2" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"url":"/post/stocks-analysis-with-r/2019-08-19-stocks-analysis-with-r_files/figure-html//widgets/widget_unnamed-chunk-7.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+</div>

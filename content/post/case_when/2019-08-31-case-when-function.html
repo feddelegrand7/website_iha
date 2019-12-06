@@ -1,0 +1,82 @@
+---
+title: Intro to the case_when function
+author: 'Mohamed El Fodil Ihaddaden '
+date: '2019-08-31'
+tags:
+  - tidyverse
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+lastmod: '2019-08-31T02:52:43+02:00'
+slug: case-when-function
+---
+
+
+
+<p><code>case_when()</code> is a <strong>dplyr</strong> function that returns a value according to predifined conditions. It’s a very powerful function though not very famous. In our example, we’ll use the mtcars dataset (just as usual).</p>
+<pre class="r"><code>head(mtcars)</code></pre>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<p>Suppose in the context of a study we want to categorize the cars into two factors : <strong>Climate_Friendly</strong> and <strong>Climate_Unfriendly</strong> according to the <em>horsepower (hp)</em> median. We can create a new column that incoporates this information using the <code>case_when()</code> and <code>mutate</code> functions:</p>
+<pre class="r"><code>library(dplyr)
+library(magrittr) # required for the %&gt;% 
+
+median &lt;- median(mtcars$hp) # first, we calculate our median 
+
+new_df &lt;- mtcars %&gt;% mutate(climat_categ = case_when(
+    hp &lt; median ~ &quot;friendly&quot;,
+    hp &gt;= median ~ &quot;unfriendly&quot;
+    ))
+
+
+new_df$climat_categ &lt;- as.factor(new_df$climat_categ)
+
+new_df %&gt;% select(hp, climat_categ)  # A quick check ! </code></pre>
+<pre><code>##     hp climat_categ
+## 1  110     friendly
+## 2  110     friendly
+## 3   93     friendly
+## 4  110     friendly
+## 5  175   unfriendly
+## 6  105     friendly
+## 7  245   unfriendly
+## 8   62     friendly
+## 9   95     friendly
+## 10 123   unfriendly
+## 11 123   unfriendly
+## 12 180   unfriendly
+## 13 180   unfriendly
+## 14 180   unfriendly
+## 15 205   unfriendly
+## 16 215   unfriendly
+## 17 230   unfriendly
+## 18  66     friendly
+## 19  52     friendly
+## 20  65     friendly
+## 21  97     friendly
+## 22 150   unfriendly
+## 23 150   unfriendly
+## 24 245   unfriendly
+## 25 175   unfriendly
+## 26  66     friendly
+## 27  91     friendly
+## 28 113     friendly
+## 29 264   unfriendly
+## 30 175   unfriendly
+## 31 335   unfriendly
+## 32 109     friendly</code></pre>
+<p>Let’us plot the count of the cars according to the ‘climat_categ’ variable.</p>
+<pre class="r"><code>library(ggplot2)
+
+ggplot(new_df, aes(x =climat_categ))+ 
+  geom_bar(stat = &quot;count&quot;, fill = &quot;darkolivegreen1&quot;, color = &quot;blue&quot;) +
+  theme_classic()+
+  labs(title =&quot;Count distribution of eco and non-eco friendly cars&quot;, x = &quot;&quot; )</code></pre>
+<p><img src="/post/case_when/2019-08-31-case-when-function_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>

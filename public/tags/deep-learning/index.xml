@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deep Learning | Mohamed El Fodil IHADDADEN</title>
+    <link>/tags/deep-learning/</link>
+      <atom:link href="/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <description>Deep Learning</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 09 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/logo-via-logohub.png</url>
+      <title>Deep Learning</title>
+      <link>/tags/deep-learning/</link>
+    </image>
+    
+    <item>
+      <title>Introduction to Deep Learning, What is a Tensor ? </title>
+      <link>/post/introduction_to_deep_learning_what_is_a_tensor/introduction-to-deep-learning-what-is-a-tensor/</link>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>/post/introduction_to_deep_learning_what_is_a_tensor/introduction-to-deep-learning-what-is-a-tensor/</guid>
+      <description>
+
+
+&lt;div id=&#34;tensors-definition&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Tensors Definition&lt;/h1&gt;
+&lt;p&gt;Ever wandered why one of the most used Deep Learning library, &lt;strong&gt;Tenserflow&lt;/strong&gt; is called that way ? the name came from the fundamentals &lt;strong&gt;Tensors&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;According to Chollet F and Allaire JJ (Deep Learning with R und Keras, 2018), Tensors are a generalization of vectors and matrices to an arbitrary number of dimensions.&lt;/p&gt;
+&lt;div id=&#34;dimension-tensors&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;0-Dimension Tensors&lt;/h2&gt;
+&lt;p&gt;Scalars are considered to be the simplest form of Tensors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;zero_Dim_Tens &amp;lt;- 6
+zero_Dim_Tens&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 6&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dimension-tensors-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;1-Dimension Tensors&lt;/h2&gt;
+&lt;p&gt;Vectors are 1-Dimension Tensors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;one_Dim_Tens &amp;lt;- c(12, 3, 6, 14, 10)
+one_Dim_Tens&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 12  3  6 14 10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(one_Dim_Tens)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  num [1:5] 12 3 6 14 10&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dimensions-tensors&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2-Dimensions Tensors&lt;/h2&gt;
+&lt;p&gt;Matrices are 2-Dimensions Tensors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;two_Dim_Tens &amp;lt;- matrix(rep(1, 3*3), nrow = 3, ncol = 3)
+two_Dim_Tens&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1] [,2] [,3]
+## [1,]    1    1    1
+## [2,]    1    1    1
+## [3,]    1    1    1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(two_Dim_Tens)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  num [1:3, 1:3] 1 1 1 1 1 1 1 1 1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;and-higher-dimensional-tensors&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;3 and higher-dimensional Tensors&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;array&lt;/em&gt; objects are Tensors which can have more than 2 dimensions. For example, if we include the above matrice into a new array:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;two_Dim_Tens &amp;lt;- array(rep(1, 3*3), dim = c(2, 3, 2))
+two_Dim_Tens&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## , , 1
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    1    1
+## [2,]    1    1    1
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    1    1
+## [2,]    1    1    1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(two_Dim_Tens)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  num [1:2, 1:3, 1:2] 1 1 1 1 1 1 1 1 1 1 ...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A Tensor whith the propoerty &lt;em&gt;num [1:2, 1:3, 1:2]&lt;/em&gt; can be read as an Integer Tensor with three &lt;em&gt;axes&lt;/em&gt; (Dimensions) and a shape of &lt;em&gt;2 3 2&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
