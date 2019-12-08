@@ -5,12 +5,67 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 07 Dec 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/logo-via-logohub.png</url>
       <title>Posts</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>AlgeRian R users: Fatma Zohra Samiha </title>
+      <link>/post/algerian-r-users-fatma-zohra-samiha/</link>
+      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>/post/algerian-r-users-fatma-zohra-samiha/</guid>
+      <description>
+
+
+&lt;p&gt;Fatma Zohra Samiha has recently graduated from the Ecole Nationale Supérieure de Statistique et d’Economie Appliquée ENSSEA. She has a master degree in applied economics. Currently, she’s looking for her first challenge.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/samiha.jpg&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;div id=&#34;i-know-that-at-enssea-we-teach-mostly-eviews-and-spss-how-did-you-come-to-use-r&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use R ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I was introduced to the R world thanks to our time series professor, madam &lt;strong&gt;Chaouech Saloua&lt;/strong&gt; who asked us to use to make a forecast using R and another software of our choice. I suddenly felt in love with R, getting the required results with few lines of code was magical.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;nice-did-you-use-base-r-or-a-specific-package-to-make-your-forecast&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Nice ! did you use base R or a specific package to make your forecast ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I used the &lt;a href=&#34;https://cran.r-project.org/web/packages/forecast/forecast.pdf&#34;&gt;forecast&lt;/a&gt; package which provides the great &lt;code&gt;auto.arima()&lt;/code&gt; function.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;what-was-your-master-research-topic&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;What was your master research topic ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;My master thesis treated the Application of supervised machine learning models in order to predict customer chern at Djezzy company.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;so-a-machine-learning-subject-quite-ambitious-which-model-did-you-implement&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;So, a machine learning subject, quite ambitious, which model did you implement ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I benchmarked three algorithms: logistic regression, Linear Support Vector Machine and random forest. The best performance was reached by the linear SVM model.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interesting-you-should-have-a-strong-knoweledge-in-machine-learning-which-is-a-great-asset-nowadays.-as-such-i-assume-youre-looking-for-a-job-related-to-data-right&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Interesting, you should have a strong knoweledge in Machine Learning which is a great asset nowadays. As such I assume you’re looking for a job related to data, right ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Indeed, I’m looking for a data analyst position, preferably within the medical or telecommunication sector.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;i-hope-youll-find-your-dream-job-very-soon-where-youll-apply-your-expertise-in-data-analysis-and-machine-learning.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;I hope you’ll find your dream job very soon where you’ll apply your expertise in data analysis and machine learning.&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;finally-do-you-have-a-message-to-the-current-enssea-students-who-might-read-this-article&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Finally, do you have a message to the current ENSSEA students who might read this article ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I would like to invite all the ENSSEA students to use R instead of the classical commercial softwares because according to me R reperesents the future of data analysis.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;well-thank-you-very-much-miss-samiha-for-sharing-your-r-experience-with-us.-i-hope-youll-contribute-with-miss-kamila-benadrouche-to-establish-the-first-algerian-r-ladies-group.-of-course-people-can-contact-you-at-khenaka-samiha_ensseahotmail.com&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Well thank you very much Miss Samiha for sharing your R experience with us. I hope you’ll contribute with Miss Kamila Benadrouche to establish the first Algerian R-ladies group. Of course, people can contact you at &lt;a href=&#34;mailto:Khenaka-samiha_enssea@hotmail.com&#34; class=&#34;email&#34;&gt;Khenaka-samiha_enssea@hotmail.com&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>AlgeRian R Users: Kamila Benadrouche</title>
@@ -20,7 +75,7 @@
       <description>
 
 
-&lt;p&gt;Kamila Benadrouche has a master degree in operational research: optimization and strategic management. She is currently a Lecturer at the University of Boumerdes, Faculty of Mathematics where she’s teaching R programming for undergraduates.&lt;/p&gt;
+&lt;p&gt;Kamila Benadrouche has a master degree in operational research: optimization and strategic management. She is currently a Lecturer at the University of Boumerdes, Faculty of Science where she’s teaching R programming for undergraduates.&lt;/p&gt;
 &lt;div id=&#34;kamila-how-long-have-you-been-using-r&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Kamila, how long have you been using R ?&lt;/h3&gt;
 &lt;blockquote&gt;
@@ -57,8 +112,54 @@
 &lt;p&gt;Actually, I’m trying to create the R-Ladies Algiers group, I made the related steps and I’m still waiting for the final answer from R-Ladies Global.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/div&gt;
-&lt;div id=&#34;well-thank-you-very-much-kamila-for-your-time-i-hope-to-see-r-ladies-algiers-operating-very-soon&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Well, thank you very much Kamila for your time, I hope to see R-ladies Algiers operating very soon !!!&lt;/h3&gt;
+&lt;div id=&#34;well-thank-you-very-much-kamila-for-your-time-i-hope-to-see-r-ladies-algiers-operating-very-soon-by-the-way-people-can-contact-you-at-benadrouche.kamilagmail.com&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Well, thank you very much Kamila for your time, I hope to see R-ladies Algiers operating very soon !!! By the way people can contact you at &lt;strong&gt;&lt;a href=&#34;mailto:benadrouche.kamila@gmail.com&#34; class=&#34;email&#34;&gt;benadrouche.kamila@gmail.com&lt;/a&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AlgeRian R Users: Mohamed Yacine Smail</title>
+      <link>/post/algerian-r-users-mohamed-yacine-smail/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>/post/algerian-r-users-mohamed-yacine-smail/</guid>
+      <description>
+
+
+&lt;p&gt;Mohamed Yacine Smail has a master degree in applied statistics from the Ecole Nationale Supérieure de Statistique et d’Economie Appliquée ENSSEA. Currently he works as data scientist at &lt;a href=&#34;https://yassir.io/&#34;&gt;Yassir&lt;/a&gt; where he helps the company solve business problems by analyzing data. He is also a PhD candidate in Quantitative Finance at ENSSEA.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/mohamed.jpg&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;div id=&#34;whats-the-three-r-functions-that-you-use-most-often-at-work&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;What’s the three R functions that you use most often at work&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;For a typical task, I start with &lt;code&gt;dbGetQuery()&lt;/code&gt; from &lt;a href=&#34;https://cran.r-project.org/web/packages/DBI/index.html&#34;&gt;DBI&lt;/a&gt; package to extract data from our internal database. Then I use mostly the dplyr &lt;code&gt;mutate()&lt;/code&gt; to create new features and &lt;code&gt;ggplot()&lt;/code&gt; to visualize the relationships between them, that’s three.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;except-ggplot2-whats-your-favorite-dataviz-r-package&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Except &lt;strong&gt;ggplot2&lt;/strong&gt;, what’s your favorite dataviz R package ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Except ggplot2 I use both &lt;strong&gt;highcharter&lt;/strong&gt; and &lt;strong&gt;plotly&lt;/strong&gt; package for interactive exploration and as we have geospatial data, &lt;strong&gt;leaflet&lt;/strong&gt; is a must!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;imagine-you-see-someone-in-a-cafe-working-with-spss-what-would-you-tell-him&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Imagine you see someone in a café working with SPSS, what would you tell him ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hum that’s a tricky question, I had experience working with SPSS Modeler in my previous work at Ooredoo, it’s quite powerful GUI tool for data analysis for those who don’t want to program and you can get insights faster. On the other hand, R has a steep learning curve but it is much powerful when it comes to each phase of data science workflow so it’s much rewarding at the end&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;inspiring-now-if-someone-asks-you-about-the-best-book-to-start-learning-r-what-would-you-recommend&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Inspiring, now if someone asks you about the best book to start learning R, what would you recommend ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I think I would recommend &lt;a href=&#34;https://r4ds.had.co.nz/&#34;&gt;R for data science&lt;/a&gt; by Hadley Wickham, even though the lion’s share of its content treats exploratory data analysis.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;i-know-that-youre-a-machine-learning-adept-according-to-you-whats-the-r-equivalent-of-scikit-learn&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;I know that you’re a Machine Learning adept, according to you what’s the R equivalent of scikit-learn ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I think many would agree that it is the &lt;strong&gt;caret&lt;/strong&gt; package by &lt;a href=&#34;https://twitter.com/topepos&#34;&gt;Max Kuhn&lt;/a&gt; and his new packages &lt;strong&gt;parsnip&lt;/strong&gt; and &lt;strong&gt;recipes&lt;/strong&gt; which follows the tidyverse ecosystem. There are also other powerful packages like &lt;strong&gt;mlr&lt;/strong&gt; and &lt;strong&gt;h2o&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;well-thank-you-very-much-mohamed-for-responding-my-questions.-people-can-contact-you-at-smailmyassinegmail.com-or-through-linkedin&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Well, thank you very much Mohamed for responding my questions. People can contact you at &lt;a href=&#34;mailto:smailmyassine@gmail.com&#34; class=&#34;email&#34;&gt;smailmyassine@gmail.com&lt;/a&gt; or through &lt;a href=&#34;https://www.linkedin.com/in/mohamed-yacine-smail-238915103/?fbclid=IwAR2wD_w7Rg9wYrdDPcHRy6IqKE9l5SRNWi9LALSXtMRwM5CCPOx6-wXQKZM&#34;&gt;Linkedin&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 </description>
     </item>

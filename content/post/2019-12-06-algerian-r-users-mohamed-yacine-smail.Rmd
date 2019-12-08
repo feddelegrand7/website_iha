@@ -1,0 +1,55 @@
+---
+title: 'AlgeRian R Users: Mohamed Yacine Smail'
+author: Mohamed El Fodil Ihaddaden
+date: '2019-12-06'
+slug: algerian-r-users-mohamed-yacine-smail
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-12-06T20:53:08+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+Mohamed Yacine Smail has a master degree in applied statistics from the Ecole Nationale Supérieure de Statistique et d'Economie Appliquée ENSSEA. Currently he works as data scientist at [Yassir](https://yassir.io/) where he helps the company solve business problems by analyzing data. He is also a PhD candidate in Quantitative Finance at ENSSEA. 
+
+
+
+```{r echo=FALSE}
+knitr::include_graphics("/img/mohamed.jpg")
+
+```
+
+
+### What's the three R functions that you use most often at work
+
+> For a typical task, I start with `dbGetQuery()` from [DBI](https://cran.r-project.org/web/packages/DBI/index.html) package to extract data from our internal database. Then I use mostly the dplyr `mutate()` to create new features and `ggplot()` to visualize the relationships between them, that's three.
+
+### Except **ggplot2**, what's your favorite dataviz R package ? 
+
+> Except ggplot2 I use both **highcharter** and **plotly** package for interactive exploration and as we have geospatial data, **leaflet** is a must!
+
+
+### Imagine you see someone in a café working with SPSS, what would you tell him ? 
+
+> Hum that's a tricky question, I had experience working with SPSS Modeler in my previous work at Ooredoo, it's quite powerful GUI tool for data analysis for those who don't want to program and you can get insights faster. On the other hand, R has a steep learning curve but it is much powerful when it comes to each phase of data science workflow so it's much rewarding at the end
+
+
+### Inspiring, now if someone asks you about the best book to start learning R, what would you recommend ? 
+
+> I think I would recommend [R for data science](https://r4ds.had.co.nz/) by Hadley Wickham, even though the lion's share of its content treats exploratory data analysis.
+
+
+### I know that you're a Machine Learning adept, according to you what's the R equivalent of scikit-learn ? 
+
+> I think many would agree that it is the **caret** package by [Max Kuhn](https://twitter.com/topepos) and his new packages **parsnip** and **recipes**  which  follows the tidyverse ecosystem. There are also other powerful packages like **mlr** and **h2o**
+
+
+### Well, thank you very much Mohamed for responding my questions. People can contact you at smailmyassine@gmail.com or through [Linkedin](https://www.linkedin.com/in/mohamed-yacine-smail-238915103/?fbclid=IwAR2wD_w7Rg9wYrdDPcHRy6IqKE9l5SRNWi9LALSXtMRwM5CCPOx6-wXQKZM)

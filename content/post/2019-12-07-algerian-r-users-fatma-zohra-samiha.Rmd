@@ -1,0 +1,65 @@
+---
+title: 'AlgeRian R users: Fatma Zohra Samiha '
+author: Mohamed El Fodil Ihaddaden
+date: '2019-12-07'
+slug: algerian-r-users-fatma-zohra-samiha
+categories: []
+tags:
+  - AlgeRian R Users
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-12-07T20:38:30+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+Fatma Zohra Samiha has recently graduated from the Ecole Nationale Supérieure de Statistique et d'Economie Appliquée ENSSEA. She has a master degree in applied economics. Currently, she's looking for her first challenge. 
+
+
+
+```{r echo=FALSE}
+knitr::include_graphics("/img/samiha.jpg")
+```
+
+### I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use R ? 
+
+
+> I was introduced to the R world thanks to our time series professor, madam **Chaouech Saloua** who asked us to use to make a forecast using R and another software of our choice. I suddenly felt in love with R, getting the required results with few lines of code was magical. 
+
+
+### Nice ! did you use base R or a specific package to make your forecast ? 
+
+> I used the [forecast](https://cran.r-project.org/web/packages/forecast/forecast.pdf) package which provides the great `auto.arima()` function. 
+
+### What was your master research topic ? 
+
+> My master thesis treated the Application of supervised machine learning models in order to predict customer chern at Djezzy company. 
+
+### So, a machine learning subject, quite ambitious, which model did you implement ? 
+
+
+> I benchmarked three algorithms: logistic regression, Linear Support Vector Machine and random forest. The best performance was reached by the linear SVM model. 
+
+
+### Interesting, you should have a strong knoweledge in Machine Learning which is a great asset nowadays. As such I assume you're looking for a job related to data, right ? 
+
+> Indeed, I'm looking for a data analyst position, preferably within the medical or telecommunication sector.  
+
+
+### I hope you'll find your dream job very soon where you'll apply your expertise in data analysis and machine learning. 
+
+### Finally, do you have a message to the current ENSSEA students who might read this article ? 
+
+
+> I would like to invite all the ENSSEA students to use R instead of the classical commercial softwares because according to me R reperesents the future of data analysis. 
+
+
+### Well thank you very much Miss Samiha for sharing your R experience with us. I hope you'll contribute with Miss Kamila Benadrouche to establish the first Algerian R-ladies group. Of course, people can contact you at Khenaka-samiha_enssea@hotmail.com
+
+
+

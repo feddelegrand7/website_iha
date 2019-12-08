@@ -18,7 +18,7 @@ projects: []
 ---
 
 
-Kamila Benadrouche has a master degree in operational research: optimization and strategic management. She is currently a Lecturer at the University of Boumerdes, Faculty of Mathematics where she's teaching R programming for undergraduates. 
+Kamila Benadrouche has a master degree in operational research: optimization and strategic management. She is currently a Lecturer at the University of Boumerdes, Faculty of Science where she's teaching R programming for undergraduates. 
 
 
 ### Kamila, how long have you been using R ? 
@@ -53,4 +53,4 @@ Kamila Benadrouche has a master degree in operational research: optimization and
 > Actually, I'm trying to create the R-Ladies Algiers group, I made the related steps and I'm still waiting for the final answer from R-Ladies Global. 
 
 
-### Well, thank you very much Kamila for your time, I hope to see R-ladies Algiers operating very soon !!!
+### Well, thank you very much Kamila for your time, I hope to see R-ladies Algiers operating very soon !!! By the way people can contact you at **benadrouche.kamila@gmail.com**

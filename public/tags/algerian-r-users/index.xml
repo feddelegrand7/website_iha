@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AlgeRian R Users | Mohamed El Fodil IHADDADEN</title>
+    <link>/tags/algerian-r-users/</link>
+      <atom:link href="/tags/algerian-r-users/index.xml" rel="self" type="application/rss+xml" />
+    <description>AlgeRian R Users</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 07 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/logo-via-logohub.png</url>
+      <title>AlgeRian R Users</title>
+      <link>/tags/algerian-r-users/</link>
+    </image>
+    
+    <item>
+      <title>AlgeRian R users: Fatma Zohra Samiha </title>
+      <link>/post/algerian-r-users-fatma-zohra-samiha/</link>
+      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>/post/algerian-r-users-fatma-zohra-samiha/</guid>
+      <description>
+
+
+&lt;p&gt;Fatma Zohra Samiha has recently graduated from the Ecole Nationale Supérieure de Statistique et d’Economie Appliquée ENSSEA. She has a master degree in applied economics. Currently, she’s looking for her first challenge.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/samiha.jpg&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;div id=&#34;i-know-that-at-enssea-we-teach-mostly-eviews-and-spss-how-did-you-come-to-use-r&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use R ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I was introduced to the R world thanks to our time series professor, madam &lt;strong&gt;Chaouech Saloua&lt;/strong&gt; who asked us to use to make a forecast using R and another software of our choice. I suddenly felt in love with R, getting the required results with few lines of code was magical.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;nice-did-you-use-base-r-or-a-specific-package-to-make-your-forecast&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Nice ! did you use base R or a specific package to make your forecast ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I used the &lt;a href=&#34;https://cran.r-project.org/web/packages/forecast/forecast.pdf&#34;&gt;forecast&lt;/a&gt; package which provides the great &lt;code&gt;auto.arima()&lt;/code&gt; function.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;what-was-your-master-research-topic&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;What was your master research topic ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;My master thesis treated the Application of supervised machine learning models in order to predict customer chern at Djezzy company.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;so-a-machine-learning-subject-quite-ambitious-which-model-did-you-implement&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;So, a machine learning subject, quite ambitious, which model did you implement ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I benchmarked three algorithms: logistic regression, Linear Support Vector Machine and random forest. The best performance was reached by the linear SVM model.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interesting-you-should-have-a-strong-knoweledge-in-machine-learning-which-is-a-great-asset-nowadays.-as-such-i-assume-youre-looking-for-a-job-related-to-data-right&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Interesting, you should have a strong knoweledge in Machine Learning which is a great asset nowadays. As such I assume you’re looking for a job related to data, right ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Indeed, I’m looking for a data analyst position, preferably within the medical or telecommunication sector.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;i-hope-youll-find-your-dream-job-very-soon-where-youll-apply-your-expertise-in-data-analysis-and-machine-learning.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;I hope you’ll find your dream job very soon where you’ll apply your expertise in data analysis and machine learning.&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;finally-do-you-have-a-message-to-the-current-enssea-students-who-might-read-this-article&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Finally, do you have a message to the current ENSSEA students who might read this article ?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I would like to invite all the ENSSEA students to use R instead of the classical commercial softwares because according to me R reperesents the future of data analysis.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;well-thank-you-very-much-miss-samiha-for-sharing-your-r-experience-with-us.-i-hope-youll-contribute-with-miss-kamila-benadrouche-to-establish-the-first-algerian-r-ladies-group.-of-course-people-can-contact-you-at-khenaka-samiha_ensseahotmail.com&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Well thank you very much Miss Samiha for sharing your R experience with us. I hope you’ll contribute with Miss Kamila Benadrouche to establish the first Algerian R-ladies group. Of course, people can contact you at &lt;a href=&#34;mailto:Khenaka-samiha_enssea@hotmail.com&#34; class=&#34;email&#34;&gt;Khenaka-samiha_enssea@hotmail.com&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
