@@ -7,15 +7,15 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 90  # Order that this section will appear.
 
-title = "R Tutorials"
-subtitle = "Discover R programming and packages with a variety of step by step tutorials"
+title = "Miscellaneous"
+subtitle = "Discover R  tutorials  along with some other articles and thoughts "
 
 [content]
   # Page type to display. E.g. post, talk, or publication.
   page_type = "post"
   
   # Choose how much pages you would like to display (0 = all pages)
-  count = 5
+  count = 10
   
   # Choose how many pages you would like to offset by
   offset = 0

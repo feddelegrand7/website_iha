@@ -30,7 +30,7 @@
   weight = 100
 
 [[main]]
-  name = "R Tutorials"
+  name = "Miscellaneous"
   url = "#posts"
   weight = 120
 
