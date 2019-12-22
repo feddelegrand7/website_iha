@@ -20,6 +20,15 @@ date_format = "Jan 2006"
 
 
 [[experience]]
+  title = "Corporate Financial Analyst"
+  company = "Banque Nationale d'Algerie BNA"
+  company_url = "https://www.bna.dz/fr/"
+  location = "Alger Centre"
+  date_start = "2016-02-01"
+  date_end = ""
+  description = """Main main tasks include : Firms financial analysis, project feasability and profitability evaluation, sectorial benchmarking establishment and statistical report production"""
+
+[[experience]]
   title = "Lecturer"
   company = "Higher National School of Statistics and Applied Economics ENSSEA"
   company_url = "http://enssea.dz/"
