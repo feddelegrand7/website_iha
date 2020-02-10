@@ -1,0 +1,204 @@
+---
+title: (Very) Easy Web Scraping with ralger
+author: Mohamed El Fodil Ihaddaden
+date: '2020-02-04'
+slug: very-easy-web-scraping-with-ralger
+categories: []
+tags:
+  - Web Scraping
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-02-04T15:23:55+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>ralger is a package that aims to facilitate to the maximum web scraping in R. For scraping some data, you only need two elements, the <strong>link</strong> of the web page and the <strong>html</strong> or <strong>css</strong> node that references the needed information. Don’t panic, you don’t have to spend hours learning html and css. You can just use the SelectorGadget chrome extension. You can check out this <a href="https://www.youtube.com/watch?v=oqNTfWrGdbk">tutorial</a> for more information.</p>
+<div id="scrap" class="section level1">
+<h1>scrap()</h1>
+<p>Let’s dive into an example ! Suppose we want to extract all Golden Globes Best Actress Nominees (including the winner). In ralger you need only two elements:</p>
+<p><img src="https://media.giphy.com/media/KRMrrhE0BDXmE/giphy.gif" /></p>
+<p>The link: <a href="https://www.goldenglobes.com/winners-nominees/best-performance-actress-motion-picture-drama" class="uri">https://www.goldenglobes.com/winners-nominees/best-performance-actress-motion-picture-drama</a></p>
+<p>The node: .primary-nominee a</p>
+<p>And that’s it, we’re ready to scrap !</p>
+<pre class="r"><code>library(ralger)
+
+data &lt;- scrap(
+  &quot;https://www.goldenglobes.com/winners-nominees/best-performance-actress-motion-picture-drama&quot;, 
+  &quot;.primary-nominee a&quot;
+)
+
+data</code></pre>
+<pre><code>##  [1] &quot;Renée Zellweger&quot;    &quot;Cynthia Erivo&quot;      &quot;Scarlett Johansson&quot;
+##  [4] &quot;Saoirse Ronan&quot;      &quot;Charlize Theron&quot;    &quot;Glenn Close&quot;       
+##  [7] &quot;Lady Gaga&quot;          &quot;Nicole Kidman&quot;      &quot;Melissa McCarthy&quot;  
+## [10] &quot;Rosamund Pike&quot;      &quot;Frances McDormand&quot;  &quot;Jessica Chastain&quot;  
+## [13] &quot;Sally Hawkins&quot;      &quot;Meryl Streep&quot;       &quot;Michelle Williams&quot; 
+## [16] &quot;Isabelle Huppert&quot;   &quot;Amy Adams&quot;          &quot;Jessica Chastain&quot;  
+## [19] &quot;Ruth Negga&quot;         &quot;Natalie Portman&quot;</code></pre>
+<p>Pretty simple right ? I hope so. Anyway, the problem here is that the main page displays only 20 nominees, from 2017 to 2020. What if we wanted to extract all nominees in history ? Indeed, you’re right, we’d have to scroll multiple pages (20 to be exact) across the website. In this context, we need to use paste() in conjunction with scrap() as follows:</p>
+<pre class="r"><code>link &lt;- &quot;https://www.goldenglobes.com/winners-nominees/best-performance-actress-motion-picture-drama?page=&quot; # Mind the change in the link structure &quot;page=&quot; 
+
+node &lt;- &quot;.primary-nominee a&quot; # we use the same node as previously
+
+data_all &lt;- scrap(paste(link, 0:20, sep = &quot;&quot;), node)
+
+data_all</code></pre>
+<pre><code>##   [1] &quot;Renée Zellweger&quot;      &quot;Cynthia Erivo&quot;        &quot;Scarlett Johansson&quot;  
+##   [4] &quot;Saoirse Ronan&quot;        &quot;Charlize Theron&quot;      &quot;Glenn Close&quot;         
+##   [7] &quot;Lady Gaga&quot;            &quot;Nicole Kidman&quot;        &quot;Melissa McCarthy&quot;    
+##  [10] &quot;Rosamund Pike&quot;        &quot;Frances McDormand&quot;    &quot;Meryl Streep&quot;        
+##  [13] &quot;Michelle Williams&quot;    &quot;Jessica Chastain&quot;     &quot;Sally Hawkins&quot;       
+##  [16] &quot;Isabelle Huppert&quot;     &quot;Amy Adams&quot;            &quot;Jessica Chastain&quot;    
+##  [19] &quot;Ruth Negga&quot;           &quot;Natalie Portman&quot;      &quot;Brie Larson&quot;         
+##  [22] &quot;Alicia Vikander&quot;      &quot;Saoirse Ronan&quot;        &quot;Cate Blanchett&quot;      
+##  [25] &quot;Rooney Mara&quot;          &quot;Julianne Moore&quot;       &quot;Jennifer Aniston&quot;    
+##  [28] &quot;Felicity Jones&quot;       &quot;Rosamund Pike&quot;        &quot;Reese Witherspoon&quot;   
+##  [31] &quot;Cate Blanchett&quot;       &quot;Kate Winslet&quot;         &quot;Emma Thompson&quot;       
+##  [34] &quot;Sandra Bullock&quot;       &quot;Judi Dench&quot;           &quot;Jessica Chastain&quot;    
+##  [37] &quot;Marion Cotillard&quot;     &quot;Helen Mirren&quot;         &quot;Naomi Watts&quot;         
+##  [40] &quot;Rachel Weisz&quot;         &quot;Meryl Streep&quot;         &quot;Tilda Swinton&quot;       
+##  [43] &quot;Glenn Close&quot;          &quot;Viola Davis&quot;          &quot;Rooney Mara&quot;         
+##  [46] &quot;Natalie Portman&quot;      &quot;Halle Berry&quot;          &quot;Nicole Kidman&quot;       
+##  [49] &quot;Jennifer Lawrence&quot;    &quot;Michelle Williams&quot;    &quot;Sandra Bullock&quot;      
+##  [52] &quot;Carey Mulligan&quot;       &quot;Gabourey Sidibe&quot;      &quot;Emily Blunt&quot;         
+##  [55] &quot;Helen Mirren&quot;         &quot;Kate Winslet&quot;         &quot;Meryl Streep&quot;        
+##  [58] &quot;Anne Hathaway&quot;        &quot;Angelina Jolie&quot;       &quot;Kristin Scott Thomas&quot;
+##  [61] &quot;Julie Christie&quot;       &quot;Jodie Foster&quot;         &quot;Angelina Jolie&quot;      
+##  [64] &quot;Keira Knightley&quot;      &quot;Cate Blanchett&quot;       &quot;Helen Mirren&quot;        
+##  [67] &quot;Judi Dench&quot;           &quot;Maggie Gyllenhaal&quot;    &quot;Kate Winslet&quot;        
+##  [70] &quot;Penélope Cruz&quot;        &quot;Felicity Huffman&quot;     &quot;Maria Bello&quot;         
+##  [73] &quot;Gwyneth Paltrow&quot;      &quot;Charlize Theron&quot;      &quot;Ziyi Zhang&quot;          
+##  [76] &quot;Hilary Swank&quot;         &quot;Uma Thurman&quot;          &quot;Scarlett Johansson&quot;  
+##  [79] &quot;Nicole Kidman&quot;        &quot;Imelda Staunton&quot;      &quot;Charlize Theron&quot;     
+##  [82] &quot;Cate Blanchett&quot;       &quot;Scarlett Johansson&quot;   &quot;Nicole Kidman&quot;       
+##  [85] &quot;Uma Thurman&quot;          &quot;Evan Rachel Wood&quot;     &quot;Nicole Kidman&quot;       
+##  [88] &quot;Salma Hayek&quot;          &quot;Diane Lane&quot;           &quot;Julianne Moore&quot;      
+##  [91] &quot;Meryl Streep&quot;         &quot;Sissy Spacek&quot;         &quot;Halle Berry&quot;         
+##  [94] &quot;Judi Dench&quot;           &quot;Nicole Kidman&quot;        &quot;Deep End, The&quot;       
+##  [97] &quot;Julia Roberts&quot;        &quot;Joan Allen&quot;           &quot;Björk&quot;               
+## [100] &quot;Ellen Burstyn&quot;        &quot;Laura Linney&quot;         &quot;Hilary Swank&quot;        
+## [103] &quot;Annette Bening&quot;       &quot;Julianne Moore&quot;       &quot;Meryl Streep&quot;        
+## [106] &quot;Sigourney Weaver&quot;     &quot;Cate Blanchett&quot;       &quot;Fernanda Montenegro&quot; 
+## [109] &quot;Susan Sarandon&quot;       &quot;Meryl Streep&quot;         &quot;Emily Watson&quot;        
+## [112] &quot;Judi Dench&quot;           &quot;Helena Bonham Carter&quot; &quot;Jodie Foster&quot;        
+## [115] &quot;Jessica Lange&quot;        &quot;Kate Winslet&quot;         &quot;Brenda Blethyn&quot;      
+## [118] &quot;Courtney Love&quot;        &quot;Kristin Scott Thomas&quot; &quot;Meryl Streep&quot;        
+## [121] &quot;Emily Watson&quot;         &quot;Sharon Stone&quot;         &quot;Meryl Streep&quot;        
+## [124] &quot;Emma Thompson&quot;        &quot;Susan Sarandon&quot;       &quot;Elisabeth Shue&quot;      
+## [127] &quot;Jessica Lange&quot;        &quot;Jodie Foster&quot;         &quot;Jennifer Jason Leigh&quot;
+## [130] &quot;Miranda Richardson&quot;   &quot;Meryl Streep&quot;         &quot;Holly Hunter&quot;        
+## [133] &quot;Juliette Binoche&quot;     &quot;Michelle Pfeiffer&quot;    &quot;Emma Thompson&quot;       
+## [136] &quot;Debra Winger&quot;         &quot;Emma Thompson&quot;        &quot;Sharon Stone&quot;        
+## [139] &quot;Mary McDonnell&quot;       &quot;Michelle Pfeiffer&quot;    &quot;Susan Sarandon&quot;      
+## [142] &quot;Jodie Foster&quot;         &quot;Annette Bening&quot;       &quot;Geena Davis&quot;         
+## [145] &quot;Laura Dern&quot;           &quot;Susan Sarandon&quot;       &quot;Kathy Bates&quot;         
+## [148] &quot;Anjelica Huston&quot;      &quot;Michelle Pfeiffer&quot;    &quot;Susan Sarandon&quot;      
+## [151] &quot;Joanne Woodward&quot;      &quot;Michelle Pfeiffer&quot;    &quot;Sally Field&quot;         
+## [154] &quot;Jessica Lange&quot;        &quot;Andie MacDowell&quot;      &quot;Liv Ullmann&quot;         
+## [157] &quot;Sigourney Weaver&quot;     &quot;Jodie Foster&quot;         &quot;Shirley MacLaine&quot;    
+## [160] &quot;Christine Lahti&quot;      &quot;Meryl Streep&quot;         &quot;Sally Kirkland&quot;      
+## [163] &quot;Glenn Close&quot;          &quot;Faye Dunaway&quot;         &quot;Rachel Levin&quot;        
+## [166] &quot;Barbra Streisand&quot;     &quot;Marlee Matlin&quot;        &quot;Sigourney Weaver&quot;    
+## [169] &quot;Julie Andrews&quot;        &quot;Anne Bancroft&quot;        &quot;Farrah Fawcett&quot;      
+## [172] &quot;Whoopi Goldberg&quot;      &quot;Anne Bancroft&quot;        &quot;Cher&quot;                
+## [175] &quot;Geraldine Page&quot;       &quot;Meryl Streep&quot;         &quot;Sally Field&quot;         
+## [178] &quot;Diane Keaton&quot;         &quot;Jessica Lange&quot;        &quot;Vanessa Redgrave&quot;    
+## [181] &quot;Sissy Spacek&quot;         &quot;Shirley MacLaine&quot;     &quot;Jane Alexander&quot;      
+## [184] &quot;Bonnie Bedelia&quot;       &quot;Meryl Streep&quot;         &quot;Debra Winger&quot;        
+## [187] &quot;Meryl Streep&quot;         &quot;Diane Keaton&quot;         &quot;Jessica Lange&quot;       
+## [190] &quot;Sissy Spacek&quot;         &quot;Debra Winger&quot;         &quot;Meryl Streep&quot;        
+## [193] &quot;Sally Field&quot;          &quot;Katharine Hepburn&quot;    &quot;Diane Keaton&quot;        
+## [196] &quot;Sissy Spacek&quot;         &quot;Mary Tyler Moore&quot;     &quot;Ellen Burstyn&quot;       
+## [199] &quot;Nastassja Kinski&quot;     &quot;Deborah Raffin&quot;       &quot;Gena Rowlands&quot;       
+## [202] &quot;Sally Field&quot;          &quot;Jill Clayburgh&quot;       &quot;Lisa Eichhorn&quot;       
+## [205] &quot;Jane Fonda&quot;           &quot;Marsha Mason&quot;         &quot;Jane Fonda&quot;          
+## [208] &quot;Ingrid Bergman&quot;       &quot;Jill Clayburgh&quot;       &quot;Glenda Jackson&quot;      
+## [211] &quot;Geraldine Page&quot;       &quot;Jane Fonda&quot;           &quot;Kathleen Quinlan&quot;    
+## [214] &quot;Gena Rowlands&quot;        &quot;Anne Bancroft&quot;        &quot;Diane Keaton&quot;        
+## [217] &quot;Faye Dunaway&quot;         &quot;Glenda Jackson&quot;       &quot;Sarah Miles&quot;         
+## [220] &quot;Talia Shire&quot;          &quot;Liv Ullmann&quot;          &quot;Louise Fletcher&quot;     
+## [223] &quot;Glenda Jackson&quot;       &quot;Karen Black&quot;          &quot;Faye Dunaway&quot;        
+## [226] &quot;Marilyn Hassett&quot;      &quot;Gena Rowlands&quot;        &quot;Ellen Burstyn&quot;       
+## [229] &quot;Faye Dunaway&quot;         &quot;Valerie Perrine&quot;      &quot;Liv Ullmann&quot;         
+## [232] &quot;Marsha Mason&quot;         &quot;Barbra Streisand&quot;     &quot;Elizabeth Taylor&quot;    
+## [235] &quot;Joanne Woodward&quot;      &quot;Ellen Burstyn&quot;        &quot;Liv Ullmann&quot;         
+## [238] &quot;Diana Ross&quot;           &quot;Cicely Tyson&quot;         &quot;Trish Van Devere&quot;    
+## [241] &quot;Tuesday Weld&quot;         &quot;Joanne Woodward&quot;      &quot;Jane Fonda&quot;          
+## [244] &quot;Dyan Cannon&quot;          &quot;Glenda Jackson&quot;       &quot;Vanessa Redgrave&quot;    
+## [247] &quot;Jessica Walter&quot;       &quot;Ali MacGraw&quot;          &quot;Sarah Miles&quot;         
+## [250] &quot;Faye Dunaway&quot;         &quot;Glenda Jackson&quot;       &quot;Melina Mercouri&quot;     
+## [253] &quot;Geneviève Bujold&quot;     &quot;Jane Fonda&quot;           &quot;Liza Minnelli&quot;       
+## [256] &quot;Jean Simmons&quot;         &quot;Maggie Smith&quot;         &quot;Joanne Woodward&quot;     
+## [259] &quot;Mia Farrow&quot;           &quot;Katharine Hepburn&quot;    &quot;Vanessa Redgrave&quot;    
+## [262] &quot;Beryl Reid&quot;           &quot;Edith Evans&quot;          &quot;Faye Dunaway&quot;        
+## [265] &quot;Audrey Hepburn&quot;       &quot;Katharine Hepburn&quot;    &quot;Anne Heywood&quot;        
+## [268] &quot;Anouk Aimée&quot;          &quot;Natalie Wood&quot;         &quot;Ida Kaminska&quot;        
+## [271] &quot;Virginia McKenna&quot;     &quot;Elizabeth Taylor&quot;     &quot;Samantha Eggar&quot;      
+## [274] &quot;Julie Christie&quot;       &quot;Elizabeth Hartman&quot;    &quot;Simone Signoret&quot;     
+## [277] &quot;Maggie Smith&quot;         &quot;Anne Bancroft&quot;        &quot;Ava Gardner&quot;         
+## [280] &quot;Rita Hayworth&quot;        &quot;Geraldine Page&quot;       &quot;Jean Seberg&quot;         
+## [283] &quot;Leslie Caron&quot;         &quot;Polly Bergen&quot;         &quot;Geraldine Page&quot;      
+## [286] &quot;Rachel Roberts&quot;       &quot;Romy Schneider&quot;       &quot;Alida Valli&quot;         
+## [289] &quot;Marina Vlady&quot;         &quot;Natalie Wood&quot;         &quot;Geraldine Page&quot;      
+## [292] &quot;Susannah York&quot;        &quot;Anne Bancroft&quot;        &quot;Bette Davis&quot;         
+## [295] &quot;Katharine Hepburn&quot;    &quot;Glynis Johns&quot;         &quot;Melina Mercouri&quot;     
+## [298] &quot;Lee Remick&quot;           &quot;Susan Strasberg&quot;      &quot;Shelley Winters&quot;     
+## [301] &quot;Geraldine Page&quot;       &quot;Claudia McNeil&quot;       &quot;Natalie Wood&quot;        
+## [304] &quot;Leslie Caron&quot;         &quot;Shirley MacLaine&quot;     &quot;Greer Garson&quot;        
+## [307] &quot;Doris Day&quot;            &quot;Nancy Kwan&quot;           &quot;Jean Simmons&quot;        
+## [310] &quot;Elizabeth Taylor&quot;     &quot;Elizabeth Taylor&quot;     &quot;Audrey Hepburn&quot;      
+## [313] &quot;Lee Remick&quot;           &quot;Simone Signoret&quot;      &quot;Katharine Hepburn&quot;   
+## [316] &quot;Susan Hayward&quot;        &quot;Ingrid Bergman&quot;       &quot;Deborah Kerr&quot;        
+## [319] &quot;Shirley MacLaine&quot;     &quot;Jean Simmons&quot;         &quot;Joanne Woodward&quot;     
+## [322] &quot;Eva Marie Saint&quot;      &quot;Marlene Dietrich&quot;     &quot;Deborah Kerr&quot;        
+## [325] &quot;Anna Magnani&quot;         &quot;Carroll Baker&quot;        &quot;Ingrid Bergman&quot;      
+## [328] &quot;Helen Hayes&quot;          &quot;Audrey Hepburn&quot;       &quot;Katharine Hepburn&quot;   
+## [331] &quot;Anna Magnani&quot;         &quot;Grace Kelly&quot;          &quot;Audrey Hepburn&quot;      
+## [334] &quot;Shirley Booth&quot;        &quot;Joan Crawford&quot;        &quot;Olivia de Havilland&quot; 
+## [337] &quot;Jane Wyman&quot;           &quot;Vivien Leigh&quot;         &quot;Shelley Winters&quot;     
+## [340] &quot;Gloria Swanson&quot;       &quot;Bette Davis&quot;          &quot;Olivia de Havilland&quot; 
+## [343] &quot;Deborah Kerr&quot;         &quot;Jane Wyman&quot;           &quot;Rosalind Russell&quot;    
+## [346] &quot;Rosalind Russell&quot;     &quot;Ingrid Bergman&quot;       &quot;Ingrid Bergman&quot;      
+## [349] &quot;Jennifer Jones&quot;</code></pre>
+</div>
+<div id="tidy_scrap" class="section level1">
+<h1>tidy_scrap()</h1>
+<p>Now, imagine that we need a data frame composed of two columns :</p>
+<ul>
+<li>Actress: The names of Golden Globe Best Actress Nominees,</li>
+<li>Movie: The movie title for which they were nominated.</li>
+</ul>
+<p>To construct our data frame we’ll use the tidy_scrap() function as follows:</p>
+<pre class="r"><code>links &lt;- paste(link, 0:20, sep = &quot;&quot;) # The links required to extract the 350 observations
+
+nodes &lt;- c(&quot;.primary-nominee a&quot;, &quot;.secondary-nominee&quot;)
+
+column_names &lt;- c(&quot;Actress&quot;, &quot;Movie&quot;)
+
+
+global_df &lt;- tidy_scrap(links, nodes, column_names)</code></pre>
+<pre><code>## Warning in (function (..., deparse.level = 1) : number of rows of result is
+## not a multiple of vector length (arg 2)</code></pre>
+<pre class="r"><code>head(global_df, n = 10)</code></pre>
+<pre><code>## # A tibble: 10 x 2
+##    Actress            Movie                   
+##    &lt;chr&gt;              &lt;chr&gt;                   
+##  1 Renée Zellweger    Judy                    
+##  2 Cynthia Erivo      Harriet                 
+##  3 Scarlett Johansson Marriage Story          
+##  4 Saoirse Ronan      Little Women            
+##  5 Charlize Theron    Bombshell               
+##  6 Glenn Close        Wife, The               
+##  7 Lady Gaga          Star Is Born, A (2018)  
+##  8 Nicole Kidman      Destroyer               
+##  9 Melissa McCarthy   Can You Ever Forgive Me?
+## 10 Rosamund Pike      Private War, A</code></pre>
+</div>

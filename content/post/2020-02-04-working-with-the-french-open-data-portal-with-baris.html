@@ -1,0 +1,89 @@
+---
+title: 'Working with the French Open Data Portal using BARIS '
+author: Mohamed El Fodil Ihaddaden
+date: '2020-02-04'
+slug: working-with-the-french-open-data-portal-with-baris
+categories: []
+tags:
+  - BARIS
+  - API
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-02-04T21:21:19+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>The French official open data portal offers a huge quantity of information. They also provide a well structured <a href="https://doc.data.gouv.fr/api/reference/">API</a>. The <a href="https://github.com/feddelegrand7/BARIS">BARIS</a> package allows you to exploit this API in order to get the required data from the portal.</p>
+<blockquote>
+<p>Within the portal there is the concept of a dataset which contains one or several dataframes or resources. So, if I use the resource term, you need to apprehend it as the dataframe inside a dataset.</p>
+</blockquote>
+<p>Currently, the package in not available on CRAN but you can install it from Github:</p>
+<pre class="r"><code>devtools::install_github(&quot;feddelegrand7/BARIS&quot;)</code></pre>
+<p>Too much talking, let’s dive into a reproducible example.</p>
+<p><img src="https://media.giphy.com/media/mEsS6qLxSDahBScxlO/giphy.gif" /></p>
+<div id="baris_search" class="section level1">
+<h1>BARIS_search()</h1>
+<p>The <code>BARIS_search()</code> function allows you to search for a specified dataset. <strong>A quick tip: within your query, use plain Nouns and avoid prepositions and determintants: le, la, de, des, en, à … and so on</strong> :</p>
+<pre class="r"><code>library(BARIS)
+
+BARIS_search(query = &quot;Monuments Historiques Marseille&quot;)</code></pre>
+<pre><code>## # A tibble: 1 x 11
+##   id    title organization page  views frequency created_at last_modified
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;        
+## 1 5ceb~ Mars~ Ville de Ma~ http~ 0     unknown   2013-10-2~ 2019-05-09T0~
+## # ... with 3 more variables: last_update &lt;chr&gt;, archived &lt;chr&gt;,
+## #   deleted &lt;chr&gt;</code></pre>
+<p>Cool we have our dataset … but wait it would be better to get some explanation about it.</p>
+</div>
+<div id="baris_explain" class="section level1">
+<h1>BARIS_explain()</h1>
+<p>The <code>BARIS_explain()</code> function provides a description of a dataset. The function takes one argument which is the ID of the dataset:</p>
+<pre class="r"><code>BARIS_explain(datasetId = &quot;5cebfa8306e3e77ffdb31ef5&quot;)</code></pre>
+<pre><code>## [1] &quot;Monuments historiques situés sur le territoire de Marseille, avec adresse, numéro de base Mérimée (base de données du Ministère de la Culture recensant les monuments historiques de toute la France) et points de géolocalisation&quot;</code></pre>
+<p><img src="https://media.giphy.com/media/8P1oO2JbrZK2uSYnL6/giphy.gif" /></p>
+<p>Don’t panic if you’re not a french speaker. You can always use the great <a href="https://cran.r-project.org/web/packages/googleLanguageR/index.html">googleLanguageR</a>.</p>
+<p>Now, it’s time to list the resources contained within this dataset !!!</p>
+</div>
+<div id="baris_resources" class="section level1">
+<h1>BARIS_resources()</h1>
+<p>The <code>BARIS_resources</code> function displays the available resources or dataframes within a dataset. The function takes as argument the ID of the dataset:</p>
+<pre class="r"><code>BARIS_resources(datasetId = &quot;5cebfa8306e3e77ffdb31ef5&quot;)</code></pre>
+<pre><code>## # A tibble: 2 x 6
+##   id        title      format published    url           description       
+##   &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;             
+## 1 59ea7bba~ MARSEILLE~ csv    2019-05-27T~ https://trou~ Monuments histori~
+## 2 6328f8b3~ Plan des ~ pdf    2019-05-27T~ https://trou~ Edition Janvier 2~</code></pre>
+<p>You can see from above that the dataset has two resources, a <em>csv</em> and a <em>pdf</em>. Now, we’ve reached the interesting part: extracting the dataframe that you’ll work on !</p>
+</div>
+<div id="baris_extract" class="section level1">
+<h1>BARIS_extract()</h1>
+<p>Using <code>BARIS_extract()</code> you can extract directly into your R session the needed dataset. Currently, “only” theses formats are supported: json, csv, xls, xlsx, xml, geojson and shp, nevertheless you can always rely on the url of the resource to download it manually.</p>
+<p>In order to use the function you’ll have to specify two arguments: The ID of the resource and its format.</p>
+<blockquote>
+<p>You can visually catch the structure difference between the ID of a dataset and the ID of a resource.</p>
+</blockquote>
+<pre class="r"><code>data &lt;- BARIS_extract(resourceId = &quot;59ea7bba-f38a-4d75-b85f-2d1955050e53&quot;, format = &quot;csv&quot;)
+
+head(data)</code></pre>
+<pre><code>## # A tibble: 6 x 10
+##   n_base_merimee date_de_protect~ denomination adresse code_postal
+##   &lt;chr&gt;          &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;         &lt;int&gt;
+## 1 PA00081336     Classement : li~ Ancienne ég~ /             13002
+## 2 PA00081340     Classement: 13/~ Eglise Sain~ Esplan~       13002
+## 3 PA00081331     Classement: 29/~ Chapelle et~ 2, Rue~       13002
+## 4 PA00081344     Classement: 16/~ Fort Saint-~ &quot;&quot;            13002
+## 5 PA00081325     Inscription : 2~ Les deux bâ~ Quai d~       13002
+## 6 PA00081334     Inscription : 0~ Clocher des~ Montée~       13002
+## # ... with 5 more variables: proprietaire_du_monument &lt;chr&gt;,
+## #   epoque_de_construction &lt;chr&gt;, date_de_construction &lt;chr&gt;,
+## #   longitude &lt;dbl&gt;, latitude &lt;dbl&gt;</code></pre>
+<p><img src="https://media.giphy.com/media/Zb0R1WObsaMQKdsOjQ/giphy.gif" /></p>
+</div>

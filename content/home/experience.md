@@ -26,7 +26,7 @@ date_format = "Jan 2006"
   location = "Alger Centre"
   date_start = "2016-02-01"
   date_end = ""
-  description = """Main main tasks include : Firms financial analysis, project feasability and profitability evaluation, sectorial benchmarking establishment and statistical report production"""
+  description = """My main tasks include  : Firms' Financial Analysis, Project Feasability and Profitability Evaluation, Sectorial Benchmarking Establishment, Syndicated Loans Management and Statistical Report Production."""
 
 [[experience]]
   title = "Lecturer"

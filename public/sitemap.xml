@@ -18,6 +18,74 @@
   </url>
   
   <url>
+    <loc>/post/introducing-the-tidyr-pivot-longer/</loc>
+    <lastmod>2020-02-10T10:11:22+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-02-10T10:11:22+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-02-10T10:11:22+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-02-10T10:11:22+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/pivot/</loc>
+    <lastmod>2020-02-10T10:11:22+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/tidyr/</loc>
+    <lastmod>2020-02-10T10:11:22+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/tidyverse/</loc>
+    <lastmod>2020-02-10T10:11:22+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/very-easy-web-scraping-with-ralger/</loc>
+    <lastmod>2020-02-04T15:23:55+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/api/</loc>
+    <lastmod>2020-02-04T21:21:19+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/baris/</loc>
+    <lastmod>2020-02-04T21:21:19+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/web-scraping/</loc>
+    <lastmod>2020-02-04T15:23:55+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/working-with-the-french-open-data-portal-with-baris/</loc>
+    <lastmod>2020-02-04T21:21:19+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/algerian-r-users/</loc>
     <lastmod>2019-12-07T20:38:30+01:00</lastmod>
     <priority>0</priority>
@@ -26,23 +94,6 @@
   <url>
     <loc>/post/algerian-r-users-fatma-zohra-samiha/</loc>
     <lastmod>2019-12-07T20:38:30+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2019-12-07T20:38:30+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-12-07T20:38:30+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-12-07T20:38:30+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -95,12 +146,6 @@
   <url>
     <loc>/post/case_when/case-when-function/</loc>
     <lastmod>2019-08-31T02:52:43+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/tidyverse/</loc>
-    <lastmod>2019-08-31T02:52:43+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

@@ -1,0 +1,79 @@
+---
+title: Introducing the tidyr pivot_longer()
+author: Mohamed El Fodil Ihaddaden
+date: '2020-02-10'
+slug: introducing-the-tidyr-pivot-longer
+categories: []
+tags:
+  - tidyverse
+  - tidyr
+  - pivot
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-02-10T10:11:22+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+When working with a dataframe, it's usually preferable that you respect the philosophy introduced by [Hadley Wickham](https://vita.had.co.nz/papers/tidy-data.pdf) about the **Tidy** data where each variable has its own column and each observation its own row. 
+
+So, what would you do when you encounter a "non-tidy" dataframe ? 
+
+
+![](https://media.giphy.com/media/jDwbjzWljPUK4/giphy.gif)
+
+
+You would surely consider using the [tidyr package](https://github.com/tidyverse/tidyr) which provides two important functions: `pivot_longer()` and `pivot_wider()`. In this short tutorial, we'll introduce the `pivot_longer()`. This function transforms several columns into a **column name** and a **column value**, thus making the dataframe longer.
+
+
+Let's dive into one example. We use the recent [wpp2017 package](https://cran.r-project.org/web/packages/wpp2017/wpp2017.pdf) which provides several interesting datasets to work with. In our case, we'll work with the **migration** data:
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(wpp2017)
+
+data("migration")
+head(migration)
+
+```
+
+We can check the structure of our data using `glimpse()`:
+
+```{r}
+
+migration %>% glimpse()
+
+```
+
+
+You see that the **dates** column should preferably be structured into two columns: A column that we may call **time_period** and a calumn that we call **net_migration_value**. With `pivot_longer()` its extremely easy to do that: 
+
+```{r}
+
+migration %>% pivot_longer(
+  
+  cols = 3:32,  # The columns that we want to pivot
+  
+  names_to = "time_period", # the name of the new column name
+  
+  values_to = "net_migration_value", # the name of the new column value
+  
+  
+)
+
+
+
+```
+And that's it `r emo::ji("smile")` !
+
+
+
+
+
+
