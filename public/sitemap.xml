@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -25,7 +25,11 @@
   <url>
     <loc>/</loc>
     <lastmod>2020-02-10T10:11:22+01:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/pivot/</loc>
+    <lastmod>2020-02-10T10:11:22+01:00</lastmod>
   </url>
   
   <url>
@@ -36,25 +40,16 @@
   <url>
     <loc>/tags/</loc>
     <lastmod>2020-02-10T10:11:22+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/pivot/</loc>
-    <lastmod>2020-02-10T10:11:22+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/tidyr/</loc>
     <lastmod>2020-02-10T10:11:22+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/tidyverse/</loc>
     <lastmod>2020-02-10T10:11:22+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -65,19 +60,16 @@
   <url>
     <loc>/tags/api/</loc>
     <lastmod>2020-02-04T21:21:19+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/baris/</loc>
     <lastmod>2020-02-04T21:21:19+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/web-scraping/</loc>
     <lastmod>2020-02-04T15:23:55+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -88,7 +80,6 @@
   <url>
     <loc>/tags/algerian-r-users/</loc>
     <lastmod>2019-12-07T20:38:30+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -107,6 +98,11 @@
   </url>
   
   <url>
+    <loc>/tags/base-r/</loc>
+    <lastmod>2019-11-11T22:18:06+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/how_to_split_a_dataframe/how-to-split-a-dataframe-in-r/</loc>
     <lastmod>2019-11-11T22:18:06+01:00</lastmod>
   </url>
@@ -119,18 +115,11 @@
   <url>
     <loc>/tags/r/</loc>
     <lastmod>2019-11-11T22:18:06+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/three_warys_to_get_a_summary_of_your_data/three-ways-to-get-a-summary-of-your-data/</loc>
     <lastmod>2019-11-11T19:02:15+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/base-r/</loc>
-    <lastmod>2019-11-11T22:18:06+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -151,13 +140,11 @@
   <url>
     <loc>/tags/economics/</loc>
     <lastmod>2019-08-19T16:36:05+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/finance/</loc>
     <lastmod>2019-08-19T16:36:05+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -168,7 +155,6 @@
   <url>
     <loc>/tags/deep-learning/</loc>
     <lastmod>2019-08-09T22:07:19+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -184,19 +170,16 @@
   <url>
     <loc>/tags/map/</loc>
     <lastmod>2019-08-09T02:14:40+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/tensorflow/</loc>
     <lastmod>2019-08-09T22:07:19+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/tensors/</loc>
     <lastmod>2019-08-09T22:07:19+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -207,7 +190,6 @@
   <url>
     <loc>/tags/trade-analysis/</loc>
     <lastmod>2019-08-05T15:24:38+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -228,7 +210,6 @@
   <url>
     <loc>/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -252,12 +233,10 @@
   
   <url>
     <loc>/authors/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -266,7 +245,6 @@
   
   <url>
     <loc>/publication_types/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>
