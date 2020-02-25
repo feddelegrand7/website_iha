@@ -342,8 +342,8 @@ global_df &amp;lt;- tidy_scrap(links, nodes, column_names)&lt;/code&gt;&lt;/pre&
 &lt;blockquote&gt;
 &lt;p&gt;Within the portal there is the concept of a dataset which contains one or several dataframes or resources. So, if I use the resource term, you need to apprehend it as the dataframe inside a dataset.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Currently, the package in not available on CRAN but you can install it from Github:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;feddelegrand7/BARIS&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can install the package from CRAN:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;BARIS&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Too much talking, let’s dive into a reproducible example.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://media.giphy.com/media/mEsS6qLxSDahBScxlO/giphy.gif&#34; /&gt;&lt;/p&gt;
 &lt;div id=&#34;baris_search&#34; class=&#34;section level1&#34;&gt;

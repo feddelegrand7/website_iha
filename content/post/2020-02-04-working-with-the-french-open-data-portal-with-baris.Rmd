@@ -23,13 +23,11 @@ The French official open data portal offers a huge quantity of information. They
 
 > Within the portal there is the concept of a dataset which contains one or several dataframes or resources. So, if I use the resource term, you need to apprehend it as the dataframe inside a dataset. 
 
-
-Currently, the package in not available on CRAN but you can install it from Github: 
-
+You can install the package from CRAN: 
 
 ```{r, eval=FALSE}
 
-devtools::install_github("feddelegrand7/BARIS")
+install.packages("BARIS")
 
 ```
 
