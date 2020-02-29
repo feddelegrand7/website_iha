@@ -147,15 +147,5 @@ wordcloud2(data=df, size = 0.7, shape = 'pentagon')
 ```
 
 
-### Darky Word Cloud
 
-
-
-
-```{r message=FALSE, warning=FALSE}
-library(wordcloud2)
-
-wordcloud2(data=df, size = 0.7, shape = 'pentagon', backgroundColor = "black")
-
-```
 
