@@ -1,0 +1,161 @@
+---
+title: Data Analysis with BARIS and Word Cloud rendering
+author: Mohamed El Fodil Ihaddaden
+date: '2020-02-29'
+tags:
+  - BARIS
+  - text mining
+slug: data-analysis-with-baris
+lastmod: '2020-02-29T11:22:06+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+---
+
+
+[BARIS](https://cran.r-project.org/web/packages/BARIS/index.html) is finally on CRAN !!! To celebrate, let's make another tutorial. We'll randomly pick up a dataframe and work on it.
+
+> First of all, we list the datasets displayed within the home page of data.gouv.fr : 
+
+> We use the knitr package to print out the data into an markdown format instead of R code :
+
+```{r message=FALSE, warning=FALSE}
+library(BARIS)
+library(tidyverse)
+library(knitr)
+
+BARIS_home() %>% 
+  kable(format = "markdown")
+
+```
+
+Let us have a look at the *Consultation citoyenne en ligne sur les retraites*. We can read the description of this dataset using `BARIS_explain()`: 
+
+```{r}
+BARIS_explain(datasetId = "5e00c0766f444173066f7e48")
+```
+
+Now, let's list all the resources contained within this dataset: 
+
+```{r}
+
+BARIS_resources(datasetId = "5e00c0766f444173066f7e48") %>% 
+  kable(format = "markdown")
+
+
+```
+
+
+Let's choose the *Questions posées à M. Jean-Paul Delevoye* dataframe. I'm not French so I'm not really aware of what's hapenning in terms of reforms but the file contains a set of questions related the universal pension system that the government intended to implement recently. 
+
+
+```{r message=FALSE, warning=FALSE}
+
+library(BARIS)
+Questions_Delevoye <- BARIS_extract(resourceId = "93aed7ce-db2f-4982-8127-340562061e4b", format = "csv")
+
+
+```
+
+> Important: When you encounter txt files, just put "csv" whithin the format argument. 
+
+
+```{r}
+
+Questions_Delevoye %>% glimpse()
+
+```
+
+From above, we can see that the most interesting variable is *body*. It contains the questions/suggestions of many French citizens. Great, we make a wordcloud: 
+
+
+## Making a Word Cloud with R 
+
+
+first we isolate our variable in a single object. 
+
+```{r}
+
+text_data <- Questions_Delevoye$body
+
+
+head(text_data)
+```
+
+
+Second, we remove all the html tags with regex and some superfluous words.  
+
+```{r}
+
+text_data <- gsub("<.*?>", "", text_data) # removing html tags
+
+
+text_data <- gsub("retraites", "", text_data)
+text_data <- gsub("retraite", "", text_data)
+text_data <- gsub("système", "", text_data)
+text_data <- gsub("c'est", "", text_data)
+text_data <- gsub("cest", "", text_data)
+text_data <- gsub("’", "", text_data)
+text_data <- gsub("tous", "", text_data)
+text_data <- gsub("tout", "", text_data)
+text_data <- gsub("comme", "", text_data)
+text_data <- gsub("€", "", text_data)
+
+
+```
+
+Next, we use the **tm** package to transform our text in order to generate the Word Cloud: 
+
+```{r message=FALSE, warning=FALSE}
+library(tm)
+
+docs <- Corpus(VectorSource(text_data))  # mandatory: transforming our raw text data into a corpus
+
+docs <- docs %>%
+  tm_map(removeNumbers) %>% 
+  tm_map(removePunctuation) %>% 
+  tm_map(stripWhitespace)
+
+docs <- tm_map(docs, content_transformer(tolower)) # all the words into lower case
+docs <- tm_map(docs, removeWords, stopwords("french")) # removing French Stopwords
+
+
+dtm <- TermDocumentMatrix(docs) # transforming our corpus into a matrix
+
+matrix <- as.matrix(dtm) 
+
+words <- sort(rowSums(matrix),decreasing=TRUE) 
+
+df <- data.frame(word = names(words),freq=words)
+
+head(df)
+```
+
+
+
+## Generating the Word Cloud
+
+Now we're ready to generate our Word Cloud: 
+
+```{r message=FALSE, warning=FALSE}
+library(wordcloud2)
+
+wordcloud2(data=df, size = 0.7, shape = 'pentagon')
+
+```
+
+
+### Darky Word Cloud
+
+
+
+
+```{r message=FALSE, warning=FALSE}
+library(wordcloud2)
+
+wordcloud2(data=df, size = 0.7, shape = 'pentagon', backgroundColor = "black")
+
+```
+

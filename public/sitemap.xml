@@ -18,27 +18,42 @@
   </url>
   
   <url>
+    <loc>/tags/baris/</loc>
+    <lastmod>2020-02-29T11:22:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/data-analysis-with-baris/</loc>
+    <lastmod>2020-02-29T11:22:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-02-29T11:22:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-02-29T11:22:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-02-29T11:22:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/text-mining/</loc>
+    <lastmod>2020-02-29T11:22:06+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/introducing-the-tidyr-pivot-longer/</loc>
     <lastmod>2020-02-10T10:11:22+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2020-02-10T10:11:22+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/pivot/</loc>
-    <lastmod>2020-02-10T10:11:22+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-02-10T10:11:22+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-02-10T10:11:22+01:00</lastmod>
   </url>
   
@@ -59,11 +74,6 @@
   
   <url>
     <loc>/tags/api/</loc>
-    <lastmod>2020-02-04T21:21:19+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/baris/</loc>
     <lastmod>2020-02-04T21:21:19+01:00</lastmod>
   </url>
   

@@ -5,12 +5,28 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 10 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 29 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/logo-via-logohub.png</url>
       <title>Tags</title>
       <link>/tags/</link>
     </image>
+    
+    <item>
+      <title>BARIS</title>
+      <link>/tags/baris/</link>
+      <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/baris/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>text mining</title>
+      <link>/tags/text-mining/</link>
+      <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/text-mining/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>pivot</title>
@@ -41,14 +57,6 @@
       <link>/tags/api/</link>
       <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/tags/api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>BARIS</title>
-      <link>/tags/baris/</link>
-      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/baris/</guid>
       <description></description>
     </item>
     
