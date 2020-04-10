@@ -70,4 +70,15 @@ date_format = "Jan 2006"
   date_end = ""
   description = "The course covers advanced topics in R programming that are necessary for developing powerful, robust, and reusable data science tools."
 
+
+[[item]]
+  organization = "RStudio"
+  organization_url = "https://rstudio.com/"
+  title = "Tidyverse Instructor Certification"
+  url = "https://education.rstudio.com/trainers/"
+  certificate_url = ""
+  date_start = "2020-04-10"
+  date_end = ""
+  description = "RStudio’s instructor training and certification program helps people apply modern evidence-based teaching practices to teach data science using R and RStudio’s products, and helps people who need such training find the trainers they need."
+
 +++

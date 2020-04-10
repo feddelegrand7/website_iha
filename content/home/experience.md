@@ -34,7 +34,7 @@ date_format = "Jan 2006"
   company_url = "http://enssea.dz/"
   location = "Koléa"
   date_start = "2019-01-06"
-  date_end = ""
+  date_end = "2019-07-01"
   description = """Teaching Linear Programming with practical applications using Rstudio and the [lpSolve](https://cran.r-project.org/web/packages/lpSolve/index.html) package."""
   
 [[experience]]
@@ -43,7 +43,7 @@ date_format = "Jan 2006"
   company_url = "http://www.esss.dz/?q=fr"
   location = "Algiers"
   date_start = "2019-10-16"
-  date_end = ""
+  date_end = "2020-01-02"
   description = """Teaching R programming for Actuarial Science."""
 
 +++

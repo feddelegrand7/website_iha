@@ -39,6 +39,11 @@ superuser: true
 
 ---
 
-Hi, I'm an enthusiast Ph.D candidate in Economics. Throughout my thesis, I've been working mainly on the application of a non-parametric technique called Data Enveloppement Analysis in order to improve Algerian public banks' performance. Furthermore, I'm also interested in implementing machine and deep learning algorithms to solve complex real world issues. I'm able to handle several data analytics programs: R, Python, SQL, Excel and Power BI, although I'm more fluent using R and Rstudio. In my free time I like to watch Mangas and code some basic shiny app like this one (not updated): https://ihaddaden-fodil.shinyapps.io/Pharmacie_de_Garde_Alger/ or this one : https://ihaddaden-fodil.shinyapps.io/shiny_reverse_histogram/
+Hi, I'm an enthusiast Ph.D candidate in Economics. Throughout my thesis, I've been working mainly on the application of a non-parametric technique called Data Enveloppement Analysis in order to improve Algerian public banks' performance. Furthermore, I'm also interested in implementing machine and deep learning algorithms to solve complex real world issues. I'm able to handle several data analytics programs: R, Python, SQL, Excel and Power BI, although I'm more fluent using R and Rstudio. 
 
-I've also developed an R package called [ralger](https://github.com/feddelegrand7/ralger) that facilitates to the maximum web scraping in R. 
+I'm the author of two R packages available on CRAN: 
+- [ralger](https://CRAN.R-project.org/package=ralger) that facilitates to the maximum web scraping in R. 
+- [BARIS](https://CRAN.R-project.org/package=BARIS) for working with French Open Data Portal API. 
+
+Finally, I'm an RStudio certified instructor in tidyverse. 
+
