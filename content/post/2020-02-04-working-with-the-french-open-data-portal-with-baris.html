@@ -39,8 +39,7 @@ BARIS_search(query = &quot;Monuments Historiques Marseille&quot;)</code></pre>
 ##   id    title organization page  views frequency created_at last_modified
 ##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;        
 ## 1 5ceb~ Mars~ Ville de Ma~ http~ 0     unknown   2013-10-2~ 2019-05-09T0~
-## # ... with 3 more variables: last_update &lt;chr&gt;, archived &lt;chr&gt;,
-## #   deleted &lt;chr&gt;</code></pre>
+## # ... with 3 more variables: last_update &lt;chr&gt;, archived &lt;chr&gt;, deleted &lt;chr&gt;</code></pre>
 <p>Cool we have our dataset … but wait it would be better to get some explanation about it.</p>
 </div>
 <div id="baris_explain" class="section level1">
@@ -57,10 +56,10 @@ BARIS_search(query = &quot;Monuments Historiques Marseille&quot;)</code></pre>
 <p>The <code>BARIS_resources</code> function displays the available resources or dataframes within a dataset. The function takes as argument the ID of the dataset:</p>
 <pre class="r"><code>BARIS_resources(datasetId = &quot;5cebfa8306e3e77ffdb31ef5&quot;)</code></pre>
 <pre><code>## # A tibble: 2 x 6
-##   id        title      format published    url           description       
-##   &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;             
-## 1 59ea7bba~ MARSEILLE~ csv    2019-05-27T~ https://trou~ Monuments histori~
-## 2 6328f8b3~ Plan des ~ pdf    2019-05-27T~ https://trou~ Edition Janvier 2~</code></pre>
+##   id         title       format published   url             description         
+##   &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;           &lt;chr&gt;               
+## 1 59ea7bba-~ MARSEILLE_~ csv    2019-05-27~ https://trouve~ Monuments historiqu~
+## 2 6328f8b3-~ Plan des M~ pdf    2019-05-27~ https://trouve~ Edition Janvier 2013</code></pre>
 <p>You can see from above that the dataset has two resources, a <em>csv</em> and a <em>pdf</em>. Now, we’ve reached the interesting part: extracting the dataframe that you’ll work on !</p>
 </div>
 <div id="baris_extract" class="section level1">
@@ -76,14 +75,14 @@ head(data)</code></pre>
 <pre><code>## # A tibble: 6 x 10
 ##   n_base_merimee date_de_protect~ denomination adresse code_postal
 ##   &lt;chr&gt;          &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;         &lt;int&gt;
-## 1 PA00081336     Classement : li~ Ancienne ég~ /             13002
-## 2 PA00081340     Classement: 13/~ Eglise Sain~ Esplan~       13002
-## 3 PA00081331     Classement: 29/~ Chapelle et~ 2, Rue~       13002
+## 1 PA00081336     Classement : li~ Ancienne ég~ &quot;/&quot;           13002
+## 2 PA00081340     Classement: 13/~ Eglise Sain~ &quot;Espla~       13002
+## 3 PA00081331     Classement: 29/~ Chapelle et~ &quot;2, Ru~       13002
 ## 4 PA00081344     Classement: 16/~ Fort Saint-~ &quot;&quot;            13002
-## 5 PA00081325     Inscription : 2~ Les deux bâ~ Quai d~       13002
-## 6 PA00081334     Inscription : 0~ Clocher des~ Montée~       13002
+## 5 PA00081325     Inscription : 2~ Les deux bâ~ &quot;Quai ~       13002
+## 6 PA00081334     Inscription : 0~ Clocher des~ &quot;Monté~       13002
 ## # ... with 5 more variables: proprietaire_du_monument &lt;chr&gt;,
-## #   epoque_de_construction &lt;chr&gt;, date_de_construction &lt;chr&gt;,
-## #   longitude &lt;dbl&gt;, latitude &lt;dbl&gt;</code></pre>
+## #   epoque_de_construction &lt;chr&gt;, date_de_construction &lt;chr&gt;, longitude &lt;dbl&gt;,
+## #   latitude &lt;dbl&gt;</code></pre>
 <p><img src="https://media.giphy.com/media/Zb0R1WObsaMQKdsOjQ/giphy.gif" /></p>
 </div>

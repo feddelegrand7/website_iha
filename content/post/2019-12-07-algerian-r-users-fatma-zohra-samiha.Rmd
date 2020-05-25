@@ -21,10 +21,7 @@ projects: []
 Fatma Zohra Samiha has recently graduated from the Ecole Nationale Supérieure de Statistique et d'Economie Appliquée ENSSEA. She has a master degree in applied economics. Currently, she's looking for her first challenge. 
 
 
-
-```{r echo=FALSE}
-knitr::include_graphics("/img/samiha.jpg")
-```
+![](samiha.jpg)
 
 ### I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use R ? 
 

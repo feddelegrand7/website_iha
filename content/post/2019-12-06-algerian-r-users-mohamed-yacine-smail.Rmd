@@ -20,13 +20,7 @@ projects: []
 
 Mohamed Yacine Smail has a master degree in applied statistics from the Ecole Nationale Supérieure de Statistique et d'Economie Appliquée ENSSEA. Currently he works as data scientist at [Yassir](https://yassir.io/) where he helps the company solve business problems by analyzing data. He is also a PhD candidate in Quantitative Finance at ENSSEA. 
 
-
-
-```{r echo=FALSE}
-knitr::include_graphics("/img/mohamed.jpg")
-
-```
-
+![](mohamed.jpg)
 
 ### What's the three R functions that you use most often at work
 

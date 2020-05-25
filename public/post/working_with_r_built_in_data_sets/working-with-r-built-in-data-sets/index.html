@@ -85,7 +85,7 @@ R Base Data SetsBase DSTs are the data bases available within the base R.">
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.278b1f54b80222f4eeaf53cb606416ce.css">
+  <link rel="stylesheet" href="/css/academic.min.7c75abe867d1ac4b26fbe501f37ef260.css">
 
   
 
@@ -398,7 +398,7 @@ R Base Data SetsBase DSTs are the data bases available within the base R."><met
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#posts"><span>Miscellaneous</span></a>
+          <a class="nav-link " href="/#posts"><span>R Tutorials</span></a>
         </li>
 
         
@@ -492,7 +492,7 @@ R Base Data SetsBase DSTs are the data bases available within the base R."><met
 
 
 <meta content="2019-09-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2019-09-18 01:17:01 &#43;0200 &#43;0200" itemprop="dateModified">
+<meta content="2019-09-18 01:17:01 &#43;0200 CEST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -653,9 +653,8 @@ R Base Data SetsBase DSTs are the data bases available within the base R."><met
 R_base &lt;- data$results[,3] # All base R data sets
 
 head(R_base)</code></pre>
-<pre><code>## [1] &quot;AirPassengers&quot;          &quot;BJsales&quot;               
-## [3] &quot;BJsales.lead (BJsales)&quot; &quot;BOD&quot;                   
-## [5] &quot;CO2&quot;                    &quot;ChickWeight&quot;</code></pre>
+<pre><code>## [1] &quot;AirPassengers&quot;          &quot;BJsales&quot;                &quot;BJsales.lead (BJsales)&quot;
+## [4] &quot;BOD&quot;                    &quot;CO2&quot;                    &quot;ChickWeight&quot;</code></pre>
 <p>We can also print the description of each DST.</p>
 <pre class="r"><code>R_base_description &lt;- data$results[,4]
 
@@ -690,18 +689,14 @@ head(base_base)</code></pre>
 ALL_packages &lt;- ALL_packages[[3]]
 
 ALL_packages[grep(&quot;carbon&quot;, ALL_packages[, 4], ignore.case = TRUE), ]</code></pre>
-<pre><code>##      Package    LibPath                              Item          
-## [1,] &quot;datasets&quot; &quot;C:/Program Files/R/R-3.6.1/library&quot; &quot;CO2&quot;         
-## [2,] &quot;abd&quot;      &quot;C:/Program Files/R/R-3.6.1/library&quot; &quot;AlgaeCO2&quot;    
-## [3,] &quot;agridat&quot;  &quot;C:/Program Files/R/R-3.6.1/library&quot; &quot;waynick.soil&quot;
-## [4,] &quot;boot&quot;     &quot;C:/Program Files/R/R-3.6.1/library&quot; &quot;co.transfer&quot; 
-## [5,] &quot;fields&quot;   &quot;C:/Program Files/R/R-3.6.1/library&quot; &quot;WorldBankCO2&quot;
-##      Title                                                              
-## [1,] &quot;Carbon Dioxide Uptake in Grass Plants&quot;                            
-## [2,] &quot;Carbon Dioxide and Growth Rate in Algae&quot;                          
-## [3,] &quot;Soil nitrogen and carbon in two fields&quot;                           
-## [4,] &quot;Carbon Monoxide Transfer&quot;                                         
-## [5,] &quot;Carbon emissions and demographic covariables by country for 1999.&quot;</code></pre>
+<pre><code>##      Package    LibPath                                             
+## [1,] &quot;datasets&quot; &quot;C:/Program Files/R/R-4.0.0/library&quot;                
+## [2,] &quot;abd&quot;      &quot;C:/Users/THINKPAD L390/Documents/R/win-library/4.0&quot;
+## [3,] &quot;boot&quot;     &quot;C:/Program Files/R/R-4.0.0/library&quot;                
+##      Item          Title                                    
+## [1,] &quot;CO2&quot;         &quot;Carbon Dioxide Uptake in Grass Plants&quot;  
+## [2,] &quot;AlgaeCO2&quot;    &quot;Carbon Dioxide and Growth Rate in Algae&quot;
+## [3,] &quot;co.transfer&quot; &quot;Carbon Monoxide Transfer&quot;</code></pre>
 <p>Finally, let’s say you have found your <em>âme sœur</em> and it’s the <em>Carbon Dioxide and Growth Rate in Algae</em> DST. To load it into your environment, use:</p>
 <pre class="r"><code>library(abd) # First load the corresponding package
 
@@ -765,7 +760,7 @@ AlgaeCO2 </code></pre>
     <div class="media-body">
       <h5 class="card-title" itemprop="name"><a href="/">Mohamed El Fodil Ihaddaden</a></h5>
       <h6 class="card-subtitle">Ph.D candidate in Economics.</h6>
-      <p class="card-text" itemprop="description">My research interests include Performance Management, Data Envelopment Analysis and Artificial Intelligence applied to Economics.</p>
+      <p class="card-text" itemprop="description">My research interests include Performance Management, Efficiency Analysis and Experimental Economics.</p>
       <ul class="network-icon" aria-hidden="true">
         
           

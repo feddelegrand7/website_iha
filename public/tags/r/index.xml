@@ -219,42 +219,209 @@ describe(mtcars)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;skim&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;skim&lt;/h2&gt;
 &lt;p&gt;Finally, we present the &lt;code&gt;skim()&lt;/code&gt; function from the &lt;strong&gt;skimr&lt;/strong&gt; package which provides some statistics and a tiny nice histogram for the numerical variables (the histograms cannot be rendered in the website, but just try it out) !!!&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(skimr)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-## Attachement du package : &amp;#39;skimr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:stats&amp;#39;:
-## 
-##     filter&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;skim(mtcars)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Skim summary statistics
-##  n obs: 32 
-##  n variables: 11 
-## 
-## -- Variable type:numeric --------------------------
-##  variable missing complete  n   mean     sd    p0    p25    p50    p75
-##        am       0       32 32   0.41   0.5   0      0      0      1   
-##      carb       0       32 32   2.81   1.62  1      2      2      4   
-##       cyl       0       32 32   6.19   1.79  4      4      6      8   
-##      disp       0       32 32 230.72 123.94 71.1  120.83 196.3  326   
-##      drat       0       32 32   3.6    0.53  2.76   3.08   3.7    3.92
-##      gear       0       32 32   3.69   0.74  3      3      4      4   
-##        hp       0       32 32 146.69  68.56 52     96.5  123    180   
-##       mpg       0       32 32  20.09   6.03 10.4   15.43  19.2   22.8 
-##      qsec       0       32 32  17.85   1.79 14.5   16.89  17.71  18.9 
-##        vs       0       32 32   0.44   0.5   0      0      0      1   
-##        wt       0       32 32   3.22   0.98  1.51   2.58   3.33   3.61
-##    p100     hist
-##    1    &amp;lt;U+2587&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2586&amp;gt;
-##    8    &amp;lt;U+2586&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2582&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;
-##    8    &amp;lt;U+2586&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2587&amp;gt;
-##  472    &amp;lt;U+2587&amp;gt;&amp;lt;U+2586&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2582&amp;gt;&amp;lt;U+2585&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2582&amp;gt;
-##    4.93 &amp;lt;U+2583&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2585&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2582&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;
-##    5    &amp;lt;U+2587&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2586&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2582&amp;gt;
-##  335    &amp;lt;U+2583&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2585&amp;gt;&amp;lt;U+2582&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;
-##   33.9  &amp;lt;U+2583&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2582&amp;gt;&amp;lt;U+2582&amp;gt;&amp;lt;U+2582&amp;gt;
-##   22.9  &amp;lt;U+2583&amp;gt;&amp;lt;U+2582&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2586&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;
-##    1    &amp;lt;U+2587&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2586&amp;gt;
-##    5.42 &amp;lt;U+2583&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2583&amp;gt;&amp;lt;U+2587&amp;gt;&amp;lt;U+2586&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2581&amp;gt;&amp;lt;U+2582&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(skimr)
+
+skim(mtcars)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-4&#34;&gt;Table 1: &lt;/span&gt;Data summary&lt;/caption&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;mtcars&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Number of rows&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;32&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Number of columns&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;_______________________&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Column type frequency:&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;numeric&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;________________________&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Group variables&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Variable type: numeric&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;skim_variable&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;n_missing&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;complete_rate&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;mean&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;sd&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;p0&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;p25&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;p50&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;p75&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;p100&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;hist&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;mpg&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;20.09&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6.03&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;15.43&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;19.20&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;22.80&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;33.90&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▃▇▅▁▂&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;cyl&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6.19&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.79&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▆▁▃▁▇&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;disp&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;230.72&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;123.94&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;71.10&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;120.83&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;196.30&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;326.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;472.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▇▃▃▃▂&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;hp&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;146.69&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;68.56&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;52.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;96.50&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;123.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;180.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;335.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▇▇▆▃▁&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;drat&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.60&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.53&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.76&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.08&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.70&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.92&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4.93&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▇▃▇▅▁&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;wt&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.22&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.98&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.51&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.58&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.33&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.61&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5.42&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▃▃▇▁▂&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;qsec&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;17.85&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.79&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;14.50&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;16.89&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;17.71&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;18.90&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;22.90&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▃▇▇▂▁&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;vs&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.44&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.50&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▇▁▁▁▆&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;am&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.41&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.50&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▇▁▁▁▆&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;gear&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.69&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.74&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▇▁▆▁▂&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;carb&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.81&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.62&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▇▂▅▁▁&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;p&gt;I’m sure there may be many other super cool functions, please DM me at &lt;strong&gt;&lt;span class=&#34;citation&#34;&gt;@IhaddadenFodil&lt;/span&gt;&lt;/strong&gt; if I’ve missed something.&lt;/p&gt;
 &lt;/div&gt;
 </description>

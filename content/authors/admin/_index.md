@@ -1,7 +1,7 @@
 ---
 authors:
 - admin
-bio: My research interests include Performance Management, Data Envelopment Analysis and Artificial Intelligence applied to Economics.  
+bio: My research interests include Performance Management, Efficiency Analysis and Experimental Economics.  
 education:
   courses:
   - course: Ph.D in Economics 
@@ -17,7 +17,8 @@ email: "ihaddaden.fodeil@gmail.com"
 interests:
 - Efficiency Analysis.
 - Performance Management. 
-- Machine Learning, Deep Learning and Data Analysis.  
+- Data Science.
+- Shiny web development. 
 name: Mohamed El Fodil Ihaddaden
 organizations:
 - name: Higher National School of Statistics and Applied Economics ENSSEA
@@ -39,11 +40,13 @@ superuser: true
 
 ---
 
-Hi, I'm an enthusiast Ph.D candidate in Economics. Throughout my thesis, I've been working mainly on the application of a non-parametric technique called Data Enveloppement Analysis in order to improve Algerian public banks' performance. Furthermore, I'm also interested in implementing machine and deep learning algorithms to solve complex real world issues. I'm able to handle several data analytics programs: R, Python, SQL, Excel and Power BI, although I'm more fluent using R and Rstudio. 
+Hi, I'm an enthusiast Ph.D candidate in Economics. Throughout my thesis, I've been working mainly on the application of a non-parametric technique called Data Enveloppement Analysis in order to improve Algerian public banks' performance. Furthermore, I'm also interested in implementing machine and deep learning algorithms to solve complex real world issues. I'm able to handle several data analytics programs: R, Python, SQL, Excel and Power BI, although I'm more fluent using R and Rstudio. In this context, I'm a [certified RStudio instructor](https://education.rstudio.com/trainers/). 
 
-I'm the author of two R packages available on CRAN: 
+I'm the author of three R packages: 
 - [ralger](https://CRAN.R-project.org/package=ralger) that facilitates to the maximum web scraping in R. 
 - [BARIS](https://CRAN.R-project.org/package=BARIS) for working with French Open Data Portal API. 
+- [farrell](https://github.com/feddelegrand7/farrell) for interactive Data Envelopment Analysis modeling. 
 
-Finally, I'm an RStudio certified instructor in tidyverse. 
+
+
 

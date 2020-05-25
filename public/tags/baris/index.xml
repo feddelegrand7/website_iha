@@ -40,13 +40,13 @@ BARIS_home() %&amp;gt;%
   kable(format = &amp;quot;markdown&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;table style=&#34;width:100%;&#34;&gt;
 &lt;colgroup&gt;
-&lt;col width=&#34;5%&#34; /&gt;
-&lt;col width=&#34;19%&#34; /&gt;
-&lt;col width=&#34;15%&#34; /&gt;
+&lt;col width=&#34;4%&#34; /&gt;
+&lt;col width=&#34;21%&#34; /&gt;
+&lt;col width=&#34;16%&#34; /&gt;
 &lt;col width=&#34;27%&#34; /&gt;
 &lt;col width=&#34;1%&#34; /&gt;
-&lt;col width=&#34;2%&#34; /&gt;
-&lt;col width=&#34;4%&#34; /&gt;
+&lt;col width=&#34;1%&#34; /&gt;
+&lt;col width=&#34;3%&#34; /&gt;
 &lt;col width=&#34;3%&#34; /&gt;
 &lt;col width=&#34;5%&#34; /&gt;
 &lt;col width=&#34;5%&#34; /&gt;
@@ -73,137 +73,182 @@ BARIS_home() %&amp;gt;%
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;5de8f397634f4164071119c5&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Fichier des personnes décédées&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Institut National de la Statistique et des Etudes Economiques (Insee)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/fichier-des-personnes-decedees/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/fichier-des-personnes-decedees/&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;9&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;5eaaf07f5abc47e306c5c258&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Indicateurs d’activité épidémique COVID-19 par département&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Ministère des Solidarités et de la Santé&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/indicateurs-dactivite-epidemique-covid-19-par-departement/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/indicateurs-dactivite-epidemique-covid-19-par-departement/&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;15&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;unknown&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2020-12-31&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;1970-01-01&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-12-05T13:09:59.495000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2020-02-07T11:38:47.439000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2020-02-07T11:36:57&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-04-30T17:36:31.546000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-13T19:58:40.633000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-07T16:21:40.303000&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;5e00c0766f444173066f7e48&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Consultation citoyenne en ligne sur les retraites&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;5eb2c639949dda18c97e9677&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Sites de prélèvements pour les tests COVID&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;Ministère des Solidarités et de la Santé&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/consultation-citoyenne-en-ligne-sur-les-retraites-1/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/consultation-citoyenne-en-ligne-sur-les-retraites-1/&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;unknown&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-12-08&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-10-03&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-12-23T14:26:14.316000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-12-24T11:46:19.085000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-12-24T11:43:41&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;5b98b648634f415309d52a50&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Données « temps réel » de mesure des concentrations de polluants atmosphériques réglementés&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Laboratoire Central de Surveillance de la Qualité de l’Air&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/donnees-temps-reel-de-mesure-des-concentrations-de-polluants-atmospheriques-reglementes-1/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/donnees-temps-reel-de-mesure-des-concentrations-de-polluants-atmospheriques-reglementes-1/&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/sites-de-prelevements-pour-les-tests-covid/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/sites-de-prelevements-pour-les-tests-covid/&lt;/a&gt;&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;hourly&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2018-09-12T08:46:32.719000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2020-02-29T16:30:13.144000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2020-02-29T16:30:04.143000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;5c5a8b88634f4160c7fe393d&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Résultats du contrôle sanitaire de l’eau du robinet&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Ministère des Solidarités et de la Santé&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/resultats-du-controle-sanitaire-de-leau-du-robinet/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/resultats-du-controle-sanitaire-de-leau-du-robinet/&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;monthly&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-06-30&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2016-01-01&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-02-06T08:23:52.693000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2020-02-03T08:25:14.685000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2020-02-03T08:24:34&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-06T16:14:17.717000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-25T12:16:36.052000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-06T16:19:05&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;5c4ae55a634f4117716d5656&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Demandes de valeurs foncières&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Ministère de l’économie et des finances&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres/&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;23&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;semiannual&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-06-30&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2014-01-01&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-01-25T11:30:50.573000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-12-20T10:34:23.043000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-10-30T17:17:34&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;5e7de8cf4663c08d4f74ba01&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Données relatives aux tests de dépistage de COVID-19 réalisés en laboratoire de ville&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Santé publique France&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-tests-de-depistage-de-covid-19-realises-en-laboratoire-de-ville/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-tests-de-depistage-de-covid-19-realises-en-laboratoire-de-ville/&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;9&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;unknown&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-03-27T12:51:43.505000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-24T19:00:22.665000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-04-03T18:00:49&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;5cc1b94a634f4165e96436c1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Demandes de valeurs foncières géolocalisées&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Etalab&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres-geolocalisees/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres-geolocalisees/&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;14&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;semiannual&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-06-30&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2014-01-01&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-04-25T15:42:34.765000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-10-31T09:26:03.589000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-10-31T09:23:06&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;5e74ecf52eb7514f2d3b8845&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Données des urgences hospitalières et de SOS médecins relatives à l’épidémie de COVID-19&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Santé publique France&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/donnees-des-urgences-hospitalieres-et-de-sos-medecins-relatives-a-lepidemie-de-covid-19/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/donnees-des-urgences-hospitalieres-et-de-sos-medecins-relatives-a-lepidemie-de-covid-19/&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;42&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;unknown&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-03-20T17:19:01.201000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-24T19:00:22.031000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-03-27T18:56:34&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;5cd57bf68b4c4179299eb0e9&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Fichiers consolidés des données essentielles de la commande publique&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Etalab&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/fichiers-consolides-des-donnees-essentielles-de-la-commande-publique/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/fichiers-consolides-des-donnees-essentielles-de-la-commande-publique/&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;5e7e104ace2080d9162b61d8&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Données hospitalières relatives à l’épidémie de COVID-19&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Santé publique France&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;108&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;daily&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-03-27T15:40:10.048000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-24T19:00:24.358000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-04-08T18:19:01&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;5ea7eaf11739179063ca0847&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Niveaux d’excès de mortalité standardisé durant l’épidémie de COVID-19&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Santé publique France&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/niveaux-dexces-de-mortalite-standardise-durant-lepidemie-de-covid-19/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/niveaux-dexces-de-mortalite-standardise-durant-lepidemie-de-covid-19/&lt;/a&gt;&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;3&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;daily&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2024-10-01&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2018-10-01&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-05-10T15:26:14.659000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2020-02-29T05:21:55.072000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2020-02-29T05:21:53.462000&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;53699233a3a729239d203e69&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Découpage administratif communal français issu d’OpenStreetMap&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;OpenStreetMap&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/decoupage-administratif-communal-francais-issu-d-openstreetmap/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/decoupage-administratif-communal-francais-issu-d-openstreetmap/&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;27&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;annual&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2013-11-17T10:18:14.273000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2020-01-02T19:19:40.436000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2020-01-02T00:00:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-04-28T10:36:01.449000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-04-28T10:52:02.491000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-04-28T10:51:56&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;5c34c4d1634f4173183a64f1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Répertoire national des élus&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Ministère de l’Intérieur&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;10&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;quarterly&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;5ec32381c9c7034314233919&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Mesures exceptionnelles Covid-19 : reports de cotisations Urssaf (employeurs), par département x grand secteur&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Unions de Recouvrement des cotisations de Sécurité Sociale et d’Allocations Familiales&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/mesures-exceptionnelles-covid-19-reports-de-cotisations-urssaf-employeurs-par-departement-x-grand-secteur/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/mesures-exceptionnelles-covid-19-reports-de-cotisations-urssaf-employeurs-par-departement-x-grand-secteur/&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;unknown&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-01-08T16:42:09.929000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2020-01-22T23:09:55.390000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2019-09-12T15:30:17&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-19T02:08:33.527000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-19T02:08:33.527000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-19T02:08:33.542000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;5e9dbdbe71589194c8f7b42f&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Données relatives au fonds de solidarité mis en place dans le cadre de l’épidémie de COVID-19&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Etalab&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/donnees-relatives-au-fonds-de-solidarite-mis-en-place-dans-le-cadre-de-lepidemie-de-covid-19/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/donnees-relatives-au-fonds-de-solidarite-mis-en-place-dans-le-cadre-de-lepidemie-de-covid-19/&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;daily&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-12-31&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-03-01&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-04-20T17:20:30.636000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-18T18:19:36.522000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-18T18:19:32&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;5ebc1ab7e5d3010d32ca8260&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Données relatives aux prêts garantis par l’Etat dans le cadre de l’épidémie de COVID-19&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Etalab&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-prets-garantis-par-letat-dans-le-cadre-de-lepidemie-de-covid-19/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-prets-garantis-par-letat-dans-le-cadre-de-lepidemie-de-covid-19/&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;unknown&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-13T18:05:11.864000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-14T12:27:15.205000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-14T12:26:42&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;5ac4f20fc751df5567500c0a&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Annuaire santé de la Cnam&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Caisse nationale de l’assurance maladie&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/annuaire-sante-de-la-cnam/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/annuaire-sante-de-la-cnam/&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;monthly&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2019-05-01&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2019-04-01&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2018-04-04T17:41:03.136000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-01T01:19:12.803000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2019-01-07T18:17:29&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;5ebc257e4694940a16d181d3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Données relatives aux reports d’échéances fiscales accordés dans le cadre de l’épidémie de COVID-19&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Etalab&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-reports-decheances-fiscales-accordes-dans-le-cadre-de-lepidemie-de-covid-19/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-reports-decheances-fiscales-accordes-dans-le-cadre-de-lepidemie-de-covid-19/&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;weekly&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-13T18:51:10.882000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-14T12:25:48.800000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-05-13T22:11:18&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;5e9dc6fb50e78562fdf2d2a5&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;SINOE ® - Tonnage déchèteries par type de déchet et département&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ADEME&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://www.data.gouv.fr/fr/datasets/sinoe-r-tonnage-decheteries-par-type-de-dechet-et-departement/&#34; class=&#34;uri&#34;&gt;https://www.data.gouv.fr/fr/datasets/sinoe-r-tonnage-decheteries-par-type-de-dechet-et-departement/&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;unknown&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-04-20T17:59:55.179000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-04-20T18:00:37.143000&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2020-04-20T18:00:37.174000&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
 &lt;/tr&gt;
@@ -268,19 +313,19 @@ Questions_Delevoye &amp;lt;- BARIS_extract(resourceId = &amp;quot;93aed7ce-db2f-
 &lt;p&gt;Important: When you encounter txt files, just put “csv” whithin the format argument.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Questions_Delevoye %&amp;gt;% glimpse()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Observations: 4,509
-## Variables: 11
-## $ id             &amp;lt;chr&amp;gt; &amp;quot;UHJvcG9zYWw6NTU3N2U2ZjgtZTYwYS0xMWU5LWE0ODUtZm...
-## $ reference      &amp;lt;chr&amp;gt; &amp;quot;2-8&amp;quot;, &amp;quot;2-9&amp;quot;, &amp;quot;2-10&amp;quot;, &amp;quot;2-11&amp;quot;, &amp;quot;2-12&amp;quot;, &amp;quot;2-13&amp;quot;, &amp;quot;...
-## $ title          &amp;lt;chr&amp;gt; &amp;quot;cotisation des robots&amp;quot;, &amp;quot;Âge de mis œuvre de l...
-## $ body           &amp;lt;chr&amp;gt; &amp;quot;&amp;lt;p&amp;gt;je propose que pour tout emploi physique re...
-## $ created_at     &amp;lt;chr&amp;gt; &amp;quot;2019-10-03 20:19:26&amp;quot;, &amp;quot;2019-10-03 20:33:53&amp;quot;, &amp;quot;...
-## $ published_at   &amp;lt;chr&amp;gt; &amp;quot;2019-10-03 20:19:26&amp;quot;, &amp;quot;2019-10-03 20:33:53&amp;quot;, &amp;quot;...
-## $ updated_at     &amp;lt;chr&amp;gt; &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;2019-11-20 10:...
-## $ trashed        &amp;lt;lgl&amp;gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE...
-## $ trashed_status &amp;lt;lgl&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,...
-## $ author_id      &amp;lt;chr&amp;gt; &amp;quot;VXNlcjoxMmI1YmIxNC02NGZlLTExZTgtOTljNy0wMjQyYW...
-## $ author_type    &amp;lt;chr&amp;gt; &amp;quot;Citoyen&amp;quot;, &amp;quot;Citoyen&amp;quot;, &amp;quot;Citoyen&amp;quot;, &amp;quot;Citoyen&amp;quot;, &amp;quot;Ci...&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 4,509
+## Columns: 11
+## $ id             &amp;lt;chr&amp;gt; &amp;quot;UHJvcG9zYWw6NTU3N2U2ZjgtZTYwYS0xMWU5LWE0ODUtZmExNjN...
+## $ reference      &amp;lt;chr&amp;gt; &amp;quot;2-8&amp;quot;, &amp;quot;2-9&amp;quot;, &amp;quot;2-10&amp;quot;, &amp;quot;2-11&amp;quot;, &amp;quot;2-12&amp;quot;, &amp;quot;2-13&amp;quot;, &amp;quot;2-14&amp;quot;...
+## $ title          &amp;lt;chr&amp;gt; &amp;quot;cotisation des robots&amp;quot;, &amp;quot;Âge de mis œuvre de la réf...
+## $ body           &amp;lt;chr&amp;gt; &amp;quot;&amp;lt;p&amp;gt;je propose que pour tout emploi physique remplac...
+## $ created_at     &amp;lt;chr&amp;gt; &amp;quot;2019-10-03 20:19:26&amp;quot;, &amp;quot;2019-10-03 20:33:53&amp;quot;, &amp;quot;2019-...
+## $ published_at   &amp;lt;chr&amp;gt; &amp;quot;2019-10-03 20:19:26&amp;quot;, &amp;quot;2019-10-03 20:33:53&amp;quot;, &amp;quot;2019-...
+## $ updated_at     &amp;lt;chr&amp;gt; &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;2019-11-20 10:15:34...
+## $ trashed        &amp;lt;lgl&amp;gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FAL...
+## $ trashed_status &amp;lt;lgl&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
+## $ author_id      &amp;lt;chr&amp;gt; &amp;quot;VXNlcjoxMmI1YmIxNC02NGZlLTExZTgtOTljNy0wMjQyYWMxMTA...
+## $ author_type    &amp;lt;chr&amp;gt; &amp;quot;Citoyen&amp;quot;, &amp;quot;Citoyen&amp;quot;, &amp;quot;Citoyen&amp;quot;, &amp;quot;Citoyen&amp;quot;, &amp;quot;Citoyen...&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;From above, we can see that the most interesting variable is &lt;em&gt;body&lt;/em&gt;. It contains the questions/suggestions of many French citizens. Great, we make a wordcloud:&lt;/p&gt;
 &lt;div id=&#34;making-a-word-cloud-with-r&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Making a Word Cloud with R&lt;/h2&gt;
@@ -378,8 +423,7 @@ BARIS_search(query = &amp;quot;Monuments Historiques Marseille&amp;quot;)&lt;/co
 ##   id    title organization page  views frequency created_at last_modified
 ##   &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;        &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;        
 ## 1 5ceb~ Mars~ Ville de Ma~ http~ 0     unknown   2013-10-2~ 2019-05-09T0~
-## # ... with 3 more variables: last_update &amp;lt;chr&amp;gt;, archived &amp;lt;chr&amp;gt;,
-## #   deleted &amp;lt;chr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+## # ... with 3 more variables: last_update &amp;lt;chr&amp;gt;, archived &amp;lt;chr&amp;gt;, deleted &amp;lt;chr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Cool we have our dataset … but wait it would be better to get some explanation about it.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;baris_explain&#34; class=&#34;section level1&#34;&gt;
@@ -396,10 +440,10 @@ BARIS_search(query = &amp;quot;Monuments Historiques Marseille&amp;quot;)&lt;/co
 &lt;p&gt;The &lt;code&gt;BARIS_resources&lt;/code&gt; function displays the available resources or dataframes within a dataset. The function takes as argument the ID of the dataset:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;BARIS_resources(datasetId = &amp;quot;5cebfa8306e3e77ffdb31ef5&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 2 x 6
-##   id        title      format published    url           description       
-##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;        &amp;lt;chr&amp;gt;         &amp;lt;chr&amp;gt;             
-## 1 59ea7bba~ MARSEILLE~ csv    2019-05-27T~ https://trou~ Monuments histori~
-## 2 6328f8b3~ Plan des ~ pdf    2019-05-27T~ https://trou~ Edition Janvier 2~&lt;/code&gt;&lt;/pre&gt;
+##   id         title       format published   url             description         
+##   &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;           &amp;lt;chr&amp;gt;               
+## 1 59ea7bba-~ MARSEILLE_~ csv    2019-05-27~ https://trouve~ Monuments historiqu~
+## 2 6328f8b3-~ Plan des M~ pdf    2019-05-27~ https://trouve~ Edition Janvier 2013&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can see from above that the dataset has two resources, a &lt;em&gt;csv&lt;/em&gt; and a &lt;em&gt;pdf&lt;/em&gt;. Now, we’ve reached the interesting part: extracting the dataframe that you’ll work on !&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;baris_extract&#34; class=&#34;section level1&#34;&gt;
@@ -415,15 +459,15 @@ head(data)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 10
 ##   n_base_merimee date_de_protect~ denomination adresse code_postal
 ##   &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;            &amp;lt;chr&amp;gt;        &amp;lt;chr&amp;gt;         &amp;lt;int&amp;gt;
-## 1 PA00081336     Classement : li~ Ancienne ég~ /             13002
-## 2 PA00081340     Classement: 13/~ Eglise Sain~ Esplan~       13002
-## 3 PA00081331     Classement: 29/~ Chapelle et~ 2, Rue~       13002
+## 1 PA00081336     Classement : li~ Ancienne ég~ &amp;quot;/&amp;quot;           13002
+## 2 PA00081340     Classement: 13/~ Eglise Sain~ &amp;quot;Espla~       13002
+## 3 PA00081331     Classement: 29/~ Chapelle et~ &amp;quot;2, Ru~       13002
 ## 4 PA00081344     Classement: 16/~ Fort Saint-~ &amp;quot;&amp;quot;            13002
-## 5 PA00081325     Inscription : 2~ Les deux bâ~ Quai d~       13002
-## 6 PA00081334     Inscription : 0~ Clocher des~ Montée~       13002
+## 5 PA00081325     Inscription : 2~ Les deux bâ~ &amp;quot;Quai ~       13002
+## 6 PA00081334     Inscription : 0~ Clocher des~ &amp;quot;Monté~       13002
 ## # ... with 5 more variables: proprietaire_du_monument &amp;lt;chr&amp;gt;,
-## #   epoque_de_construction &amp;lt;chr&amp;gt;, date_de_construction &amp;lt;chr&amp;gt;,
-## #   longitude &amp;lt;dbl&amp;gt;, latitude &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+## #   epoque_de_construction &amp;lt;chr&amp;gt;, date_de_construction &amp;lt;chr&amp;gt;, longitude &amp;lt;dbl&amp;gt;,
+## #   latitude &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://media.giphy.com/media/Zb0R1WObsaMQKdsOjQ/giphy.gif&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>

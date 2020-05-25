@@ -87,18 +87,18 @@ cac_prices &lt;- getSymbols(Symbols$Symbol,
 
 
 head(cac_prices, n = 2) </code></pre>
-<pre><code>##            VIE.PA  AI.PA BN.PA ACA.PA CA.PA  ML.PA BNP.PA  RI.PA SU.PA
-## 2019-07-15  22.58 123.15 75.86  11.01  17.9 111.55 42.840 157.30 77.02
-## 2019-07-16  22.59 123.05 75.68  11.12  18.0 110.00 43.205 157.05 77.98
-##            VIV.PA ENGI.PA CAP.PA LR.PA ORA.PA AC.PA HO.PA KER.PA GLE.PA
-## 2019-07-15  24.89  13.870 113.85 63.28 13.305 39.94 104.4  519.9 22.815
-## 2019-07-16  24.91  13.765 114.60 63.68 13.330 39.85 105.2  530.6 23.100
-##            EN.PA SGO.PA SAN.PA DG.PA ATO.PA OR.PA SW.PA UG.PA AIR.PA
-## 2019-07-15 32.01 33.885  73.79  91.8  78.02 250.5 102.7 22.23 129.20
-## 2019-07-16 32.90 34.670  74.32  94.3  79.24 251.3 102.5 22.32 131.14
-##             MC.PA  FP.PA   FTI.PA
-## 2019-07-15 380.05 50.090 22.41107
-## 2019-07-16 385.30 49.965 22.51045</code></pre>
+<pre><code>##              VIE.PA    AI.PA    BN.PA ACA.PA CA.PA  ML.PA   BNP.PA    RI.PA
+## 2019-07-15 21.99244 109.4339 73.37318  11.01  17.9 111.55 38.15968 155.4672
+## 2019-07-16 22.00218 109.3450 73.19907  11.12  18.0 110.00 38.48481 155.2201
+##               SU.PA   VIV.PA  ENGI.PA CAP.PA LR.PA  ORA.PA AC.PA    HO.PA
+## 2019-07-15 74.58144 24.19410 12.68655 113.85 63.28 13.0389 39.94 100.6184
+## 2019-07-16 75.51105 24.21354 12.59051 114.60 63.68 13.0634 39.85 101.3894
+##              KER.PA GLE.PA    EN.PA SGO.PA   SAN.PA    DG.PA ATO.PA    OR.PA
+## 2019-07-15 507.6668 22.815 30.90874 33.885 71.18390 88.37585  78.02 246.1758
+## 2019-07-16 518.1149 23.100 31.76812 34.670 71.69518 90.78260  79.24 246.9620
+##               SW.PA    UG.PA   AIR.PA    MC.PA    FP.PA   FTI.PA
+## 2019-07-15 99.65470 19.87590 125.1056 373.1165 47.71738 21.78312
+## 2019-07-16 99.46063 19.95637 126.9842 378.2707 47.59831 21.87972</code></pre>
 <p>Using the getSymbols() function, we’ve obtained an <strong>xts</strong> object. xts or Extensible Time Series are dataframes indexed with dates.</p>
 </div>
 <div id="stock-prices-visualization-with-highcharter" class="section level1">

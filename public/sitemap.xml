@@ -168,18 +168,8 @@
   </url>
   
   <url>
-    <loc>/post/graphical_mapping/graphical-mapping-with-r/</loc>
-    <lastmod>2019-08-09T02:14:40+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/introduction_to_deep_learning_what_is_a_tensor/introduction-to-deep-learning-what-is-a-tensor/</loc>
     <lastmod>2019-08-09T22:07:19+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/map/</loc>
-    <lastmod>2019-08-09T02:14:40+02:00</lastmod>
   </url>
   
   <url>
@@ -218,6 +208,11 @@
   </url>
   
   <url>
+    <loc>/courses/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
@@ -247,10 +242,6 @@
   
   <url>
     <loc>/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>/courses/</loc>
   </url>
   
   <url>

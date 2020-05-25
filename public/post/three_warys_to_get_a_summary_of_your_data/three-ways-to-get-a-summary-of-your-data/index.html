@@ -85,7 +85,7 @@ summary(mtcars)## mpg cyl disp hp ## Min. :10.40 Min. :4.000 Min. : 71.1 Min. :
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.278b1f54b80222f4eeaf53cb606416ce.css">
+  <link rel="stylesheet" href="/css/academic.min.7c75abe867d1ac4b26fbe501f37ef260.css">
 
   
 
@@ -398,7 +398,7 @@ summary(mtcars)## mpg cyl disp hp ## Min. :10.40 Min. :4.000 Min. : 71.1 Min. :
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#posts"><span>Miscellaneous</span></a>
+          <a class="nav-link " href="/#posts"><span>R Tutorials</span></a>
         </li>
 
         
@@ -732,42 +732,209 @@ describe(mtcars)</code></pre>
 <div id="skim" class="section level2">
 <h2>skim</h2>
 <p>Finally, we present the <code>skim()</code> function from the <strong>skimr</strong> package which provides some statistics and a tiny nice histogram for the numerical variables (the histograms cannot be rendered in the website, but just try it out) !!!</p>
-<pre class="r"><code>library(skimr)</code></pre>
-<pre><code>## 
-## Attachement du package : &#39;skimr&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:stats&#39;:
-## 
-##     filter</code></pre>
-<pre class="r"><code>skim(mtcars)</code></pre>
-<pre><code>## Skim summary statistics
-##  n obs: 32 
-##  n variables: 11 
-## 
-## -- Variable type:numeric --------------------------
-##  variable missing complete  n   mean     sd    p0    p25    p50    p75
-##        am       0       32 32   0.41   0.5   0      0      0      1   
-##      carb       0       32 32   2.81   1.62  1      2      2      4   
-##       cyl       0       32 32   6.19   1.79  4      4      6      8   
-##      disp       0       32 32 230.72 123.94 71.1  120.83 196.3  326   
-##      drat       0       32 32   3.6    0.53  2.76   3.08   3.7    3.92
-##      gear       0       32 32   3.69   0.74  3      3      4      4   
-##        hp       0       32 32 146.69  68.56 52     96.5  123    180   
-##       mpg       0       32 32  20.09   6.03 10.4   15.43  19.2   22.8 
-##      qsec       0       32 32  17.85   1.79 14.5   16.89  17.71  18.9 
-##        vs       0       32 32   0.44   0.5   0      0      0      1   
-##        wt       0       32 32   3.22   0.98  1.51   2.58   3.33   3.61
-##    p100     hist
-##    1    &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
-##    8    &lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##    8    &lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##  472    &lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##    4.93 &lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##    5    &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##  335    &lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##   33.9  &lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2582&gt;
-##   22.9  &lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##    1    &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
-##    5.42 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;</code></pre>
+<pre class="r"><code>library(skimr)
+
+skim(mtcars)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-4">Table 1: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">mtcars</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">32</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">11</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">11</td>
+</tr>
+<tr class="odd">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">mpg</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">20.09</td>
+<td align="right">6.03</td>
+<td align="right">10.40</td>
+<td align="right">15.43</td>
+<td align="right">19.20</td>
+<td align="right">22.80</td>
+<td align="right">33.90</td>
+<td align="left">▃▇▅▁▂</td>
+</tr>
+<tr class="even">
+<td align="left">cyl</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">6.19</td>
+<td align="right">1.79</td>
+<td align="right">4.00</td>
+<td align="right">4.00</td>
+<td align="right">6.00</td>
+<td align="right">8.00</td>
+<td align="right">8.00</td>
+<td align="left">▆▁▃▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">disp</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">230.72</td>
+<td align="right">123.94</td>
+<td align="right">71.10</td>
+<td align="right">120.83</td>
+<td align="right">196.30</td>
+<td align="right">326.00</td>
+<td align="right">472.00</td>
+<td align="left">▇▃▃▃▂</td>
+</tr>
+<tr class="even">
+<td align="left">hp</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">146.69</td>
+<td align="right">68.56</td>
+<td align="right">52.00</td>
+<td align="right">96.50</td>
+<td align="right">123.00</td>
+<td align="right">180.00</td>
+<td align="right">335.00</td>
+<td align="left">▇▇▆▃▁</td>
+</tr>
+<tr class="odd">
+<td align="left">drat</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3.60</td>
+<td align="right">0.53</td>
+<td align="right">2.76</td>
+<td align="right">3.08</td>
+<td align="right">3.70</td>
+<td align="right">3.92</td>
+<td align="right">4.93</td>
+<td align="left">▇▃▇▅▁</td>
+</tr>
+<tr class="even">
+<td align="left">wt</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3.22</td>
+<td align="right">0.98</td>
+<td align="right">1.51</td>
+<td align="right">2.58</td>
+<td align="right">3.33</td>
+<td align="right">3.61</td>
+<td align="right">5.42</td>
+<td align="left">▃▃▇▁▂</td>
+</tr>
+<tr class="odd">
+<td align="left">qsec</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">17.85</td>
+<td align="right">1.79</td>
+<td align="right">14.50</td>
+<td align="right">16.89</td>
+<td align="right">17.71</td>
+<td align="right">18.90</td>
+<td align="right">22.90</td>
+<td align="left">▃▇▇▂▁</td>
+</tr>
+<tr class="even">
+<td align="left">vs</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.44</td>
+<td align="right">0.50</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▆</td>
+</tr>
+<tr class="odd">
+<td align="left">am</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.41</td>
+<td align="right">0.50</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▆</td>
+</tr>
+<tr class="even">
+<td align="left">gear</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3.69</td>
+<td align="right">0.74</td>
+<td align="right">3.00</td>
+<td align="right">3.00</td>
+<td align="right">4.00</td>
+<td align="right">4.00</td>
+<td align="right">5.00</td>
+<td align="left">▇▁▆▁▂</td>
+</tr>
+<tr class="odd">
+<td align="left">carb</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2.81</td>
+<td align="right">1.62</td>
+<td align="right">1.00</td>
+<td align="right">2.00</td>
+<td align="right">2.00</td>
+<td align="right">4.00</td>
+<td align="right">8.00</td>
+<td align="left">▇▂▅▁▁</td>
+</tr>
+</tbody>
+</table>
 <p>I’m sure there may be many other super cool functions, please DM me at <strong><span class="citation">@IhaddadenFodil</span></strong> if I’ve missed something.</p>
 </div>
 
@@ -817,7 +984,7 @@ describe(mtcars)</code></pre>
     <div class="media-body">
       <h5 class="card-title" itemprop="name"><a href="/">Mohamed El Fodil Ihaddaden</a></h5>
       <h6 class="card-subtitle">Ph.D candidate in Economics.</h6>
-      <p class="card-text" itemprop="description">My research interests include Performance Management, Data Envelopment Analysis and Artificial Intelligence applied to Economics.</p>
+      <p class="card-text" itemprop="description">My research interests include Performance Management, Efficiency Analysis and Experimental Economics.</p>
       <ul class="network-icon" aria-hidden="true">
         
           

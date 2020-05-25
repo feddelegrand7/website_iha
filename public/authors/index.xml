@@ -17,13 +17,13 @@
       <link>/authors/admin/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/authors/admin/</guid>
-      <description>&lt;p&gt;Hi, I&amp;rsquo;m an enthusiast Ph.D candidate in Economics. Throughout my thesis, I&amp;rsquo;ve been working mainly on the application of a non-parametric technique called Data Enveloppement Analysis in order to improve Algerian public banks&amp;rsquo; performance. Furthermore, I&amp;rsquo;m also interested in implementing machine and deep learning algorithms to solve complex real world issues. I&amp;rsquo;m able to handle several data analytics programs: R, Python, SQL, Excel and Power BI, although I&amp;rsquo;m more fluent using R and Rstudio.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m the author of two R packages available on CRAN:&lt;/p&gt;
+      <description>&lt;p&gt;Hi, I&amp;rsquo;m an enthusiast Ph.D candidate in Economics. Throughout my thesis, I&amp;rsquo;ve been working mainly on the application of a non-parametric technique called Data Enveloppement Analysis in order to improve Algerian public banks&amp;rsquo; performance. Furthermore, I&amp;rsquo;m also interested in implementing machine and deep learning algorithms to solve complex real world issues. I&amp;rsquo;m able to handle several data analytics programs: R, Python, SQL, Excel and Power BI, although I&amp;rsquo;m more fluent using R and Rstudio. In this context, I&amp;rsquo;m a &lt;a href=&#34;https://education.rstudio.com/trainers/&#34;&gt;certified RStudio instructor&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m the author of three R packages:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=ralger&#34;&gt;ralger&lt;/a&gt; that facilitates to the maximum web scraping in R.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=BARIS&#34;&gt;BARIS&lt;/a&gt; for working with French Open Data Portal API.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/feddelegrand7/farrell&#34;&gt;farrell&lt;/a&gt; for interactive Data Envelopment Analysis modeling.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Finally, I&amp;rsquo;m an RStudio certified instructor in tidyverse.&lt;/p&gt;
 </description>
     </item>
     

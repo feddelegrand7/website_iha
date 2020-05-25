@@ -78,28 +78,22 @@ nrow(mtcars_dupli) # We have indeed 35 rows (3 more than the classic mtcars)</co
 <p>With janitor, one can also get valuable information in a tabular form. The <strong>tabyl()</strong> function works approximately like the table base R but offers a much better aesthetic. Let’s check the differences:</p>
 <pre class="r"><code>mtcars_dupli$car_name %&gt;% table()</code></pre>
 <pre><code>## .
-##         AMC Javelin  Cadillac Fleetwood          Camaro Z28 
-##                   1                   1                   1 
-##   Chrysler Imperial          Datsun 710    Dodge Challenger 
-##                   1                   1                   1 
-##          Duster 360        Ferrari Dino            Fiat 128 
-##                   2                   1                   1 
-##           Fiat X1-9      Ford Pantera L         Honda Civic 
-##                   1                   1                   1 
-##      Hornet 4 Drive   Hornet Sportabout Lincoln Continental 
-##                   1                   2                   1 
-##        Lotus Europa       Maserati Bora           Mazda RX4 
-##                   1                   1                   1 
-##       Mazda RX4 Wag            Merc 230           Merc 240D 
-##                   1                   1                   1 
-##            Merc 280           Merc 280C          Merc 450SE 
-##                   1                   1                   1 
-##          Merc 450SL         Merc 450SLC    Pontiac Firebird 
-##                   1                   1                   1 
-##       Porsche 914-2      Toyota Corolla       Toyota Corona 
-##                   1                   1                   1 
-##             Valiant          Volvo 142E 
-##                   2                   1</code></pre>
+##         AMC Javelin  Cadillac Fleetwood          Camaro Z28   Chrysler Imperial 
+##                   1                   1                   1                   1 
+##          Datsun 710    Dodge Challenger          Duster 360        Ferrari Dino 
+##                   1                   1                   2                   1 
+##            Fiat 128           Fiat X1-9      Ford Pantera L         Honda Civic 
+##                   1                   1                   1                   1 
+##      Hornet 4 Drive   Hornet Sportabout Lincoln Continental        Lotus Europa 
+##                   1                   2                   1                   1 
+##       Maserati Bora           Mazda RX4       Mazda RX4 Wag            Merc 230 
+##                   1                   1                   1                   1 
+##           Merc 240D            Merc 280           Merc 280C          Merc 450SE 
+##                   1                   1                   1                   1 
+##          Merc 450SL         Merc 450SLC    Pontiac Firebird       Porsche 914-2 
+##                   1                   1                   1                   1 
+##      Toyota Corolla       Toyota Corona             Valiant          Volvo 142E 
+##                   1                   1                   2                   1</code></pre>
 <p>not so georgous, I agree. Now, let’s see what <strong>tabyl()</strong> function does :</p>
 <pre class="r"><code>mtcars_dupli$car_name %&gt;% tabyl()</code></pre>
 <pre><code>##                    . n    percent
