@@ -42,10 +42,11 @@ superuser: true
 
 Hi, I'm an enthusiast Ph.D candidate in Economics. Throughout my thesis, I've been working mainly on the application of a non-parametric technique called Data Enveloppement Analysis in order to improve Algerian public banks' performance. Furthermore, I'm also interested in implementing machine and deep learning algorithms to solve complex real world issues. I'm able to handle several data analytics programs: R, Python, SQL, Excel and Power BI, although I'm more fluent using R and Rstudio. In this context, I'm a [certified RStudio instructor](https://education.rstudio.com/trainers/). 
 
-I'm the author of three R packages: 
+I'm the author of four R packages: 
 - [ralger](https://CRAN.R-project.org/package=ralger) that facilitates to the maximum web scraping in R. 
 - [BARIS](https://CRAN.R-project.org/package=BARIS) for working with French Open Data Portal API. 
-- [farrell](https://github.com/feddelegrand7/farrell) for interactive Data Envelopment Analysis modeling. 
+- [farrell](https://CRAN.R-project.org/package=farrell) for interactive Data Envelopment Analysis modeling. 
+- [batata](https://github.com/feddelegrand7/batata) for R packages easy removal. 
 
 
 
