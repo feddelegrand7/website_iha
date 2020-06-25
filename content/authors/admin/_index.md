@@ -48,9 +48,11 @@ I'm the author of the following R packages:
 - [farrell](https://CRAN.R-project.org/package=farrell) for interactive Data Envelopment Analysis modeling. 
 - [batata](https://CRAN.R-project.org/package=batata) for R packages easy removal. 
 - [GomoGomonoMi](https://CRAN.R-project.org/package=GomoGomonoMi), for text animation in RMarkdown documents and Shiny apps. 
-- [scrollrevealR](https://github.com/feddelegrand7/scrollrevealR) allows you to animate shiny elements when they scroll into view.
-- [algo](https://github.com/feddelegrand7/algo) implements the [Algolia Places](https://community.algolia.com/places/) Address Search Auto Completion Menu on Shiny Text Inputs.
-
+- [scrollrevealR](https://CRAN.R-project.org/package=scrollrevealR) allows you to animate shiny elements when they scroll into view.
+- [algo](https://CRAN.R-project.org/package=algo) implements the [Algolia Places](https://community.algolia.com/places/) Address Search Auto Completion Menu on Shiny Text Inputs.
+- [Rnightly](https://CRAN.R-project.org/package=Rnightly) allows you to implement a Dark/Light toggle mode in your Shiny user interface.
+- [mailtoR](https://CRAN.R-project.org/package=mailtoR) allows you to generate a friendly user interface for emails sending in your Shiny app. 
+- [corazon](https://github.com/feddelegrand7/corazon) allows you to incorporate easily colorffy gradient colors within Shiny elements though it is principally designed for the app’s body.
 
 
 

@@ -25,8 +25,11 @@
 &lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=farrell&#34;&gt;farrell&lt;/a&gt; for interactive Data Envelopment Analysis modeling.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=batata&#34;&gt;batata&lt;/a&gt; for R packages easy removal.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=GomoGomonoMi&#34;&gt;GomoGomonoMi&lt;/a&gt;, for text animation in RMarkdown documents and Shiny apps.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/feddelegrand7/scrollrevealR&#34;&gt;scrollrevealR&lt;/a&gt; allows you to animate shiny elements when they scroll into view.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/feddelegrand7/algo&#34;&gt;algo&lt;/a&gt; implements the &lt;a href=&#34;https://community.algolia.com/places/&#34;&gt;Algolia Places&lt;/a&gt; Address Search Auto Completion Menu on Shiny Text Inputs.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=scrollrevealR&#34;&gt;scrollrevealR&lt;/a&gt; allows you to animate shiny elements when they scroll into view.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=algo&#34;&gt;algo&lt;/a&gt; implements the &lt;a href=&#34;https://community.algolia.com/places/&#34;&gt;Algolia Places&lt;/a&gt; Address Search Auto Completion Menu on Shiny Text Inputs.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=Rnightly&#34;&gt;Rnightly&lt;/a&gt; allows you to implement a Dark/Light toggle mode in your Shiny user interface.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=mailtoR&#34;&gt;mailtoR&lt;/a&gt; allows you to generate a friendly user interface for emails sending in your Shiny app.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/feddelegrand7/corazon&#34;&gt;corazon&lt;/a&gt; allows you to incorporate easily colorffy gradient colors within Shiny elements though it is principally designed for the app’s body.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
