@@ -80,5 +80,15 @@ date_format = "Jan 2006"
   date_start = "2020-04-10"
   date_end = ""
   description = "RStudio’s instructor training and certification program helps people apply modern evidence-based teaching practices to teach data science using R and RStudio’s products, and helps people who need such training find the trainers they need."
+  
+  [[item]]
+  organization = "RStudio"
+  organization_url = "https://rstudio.com/"
+  title = "Shiny Instructor Certification"
+  url = "https://education.rstudio.com/trainers/"
+  certificate_url = ""
+  date_start = "2020-06-05"
+  date_end = ""
+  description = "RStudio’s instructor training and certification program helps people apply modern evidence-based teaching practices to teach data science using R and RStudio’s products, and helps people who need such training find the trainers they need."
 
 +++

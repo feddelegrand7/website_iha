@@ -22,11 +22,8 @@ projects: []
 
 
 
-### Submitted Papers
+### Accepteed Papers for Publication
 
-- Mohamed El Fodil Ihaddaden, Being State-Owned is not a Fatality: Improving Public Bank's Performance Using the Data Envelopment Analysis Radial and Super-Efficiency Models: An Algerian Case Study.
+- Mohamed El Fodil Ihaddaden, Being State-Owned is not a Fatality: An Algerian Case Study. [International Journal of Business Performance Management](https://www.inderscience.com/jhome.php?jcode=ijbpm). 
 
-### Working Papers
-
-- Mohamed El Fodil Ihaddaden, Is there a Relationship between Credit Information Exchange and Entrepreneurship? A Cross Country Evidence.
 

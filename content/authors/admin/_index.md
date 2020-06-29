@@ -52,7 +52,10 @@ I'm the author of the following R packages:
 - [algo](https://CRAN.R-project.org/package=algo) implements the [Algolia Places](https://community.algolia.com/places/) Address Search Auto Completion Menu on Shiny Text Inputs.
 - [Rnightly](https://CRAN.R-project.org/package=Rnightly) allows you to implement a Dark/Light toggle mode in your Shiny user interface.
 - [mailtoR](https://CRAN.R-project.org/package=mailtoR) allows you to generate a friendly user interface for emails sending in your Shiny app. 
-- [corazon](https://github.com/feddelegrand7/corazon) allows you to incorporate easily colorffy gradient colors within Shiny elements though it is principally designed for the app’s body.
+- [corazon](https://CRAN.R-project.org/package=corazon) allows you to incorporate easily colorffy gradient colors within Shiny elements though it is principally designed for the app’s body.
+- [bubblyr](https://CRAN.R-project.org/package=bubblyr) allows you to create bubbles within Shiny and RMarkdown backgrounds using the [bubbly-bg](https://github.com/tipsy/bubbly-bg) JavaScript library.
+
+
 
 
 

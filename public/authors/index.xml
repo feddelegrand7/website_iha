@@ -29,7 +29,8 @@
 &lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=algo&#34;&gt;algo&lt;/a&gt; implements the &lt;a href=&#34;https://community.algolia.com/places/&#34;&gt;Algolia Places&lt;/a&gt; Address Search Auto Completion Menu on Shiny Text Inputs.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=Rnightly&#34;&gt;Rnightly&lt;/a&gt; allows you to implement a Dark/Light toggle mode in your Shiny user interface.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=mailtoR&#34;&gt;mailtoR&lt;/a&gt; allows you to generate a friendly user interface for emails sending in your Shiny app.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/feddelegrand7/corazon&#34;&gt;corazon&lt;/a&gt; allows you to incorporate easily colorffy gradient colors within Shiny elements though it is principally designed for the app’s body.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=corazon&#34;&gt;corazon&lt;/a&gt; allows you to incorporate easily colorffy gradient colors within Shiny elements though it is principally designed for the app’s body.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=bubblyr&#34;&gt;bubblyr&lt;/a&gt; allows you to create bubbles within Shiny and RMarkdown backgrounds using the &lt;a href=&#34;https://github.com/tipsy/bubbly-bg&#34;&gt;bubbly-bg&lt;/a&gt; JavaScript library.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
