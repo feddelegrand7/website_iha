@@ -22,7 +22,7 @@ projects: []
 
 
 
-### Accepteed Papers for Publication
+### Accepted Papers for Publication
 
 - Mohamed El Fodil Ihaddaden, Being State-Owned is not a Fatality: An Algerian Case Study. [International Journal of Business Performance Management](https://www.inderscience.com/jhome.php?jcode=ijbpm). 
 
