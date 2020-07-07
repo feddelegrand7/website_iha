@@ -18,8 +18,7 @@
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
       <guid>/post/talk-presentation-of-the-scrollreveal-r-package-for-bristol-r-user-group/</guid>
       <description>&lt;p&gt;The &lt;a href=&#34;https://CRAN.R-project.org/package=scrollrevealR&#34;&gt;scrollrevealR&lt;/a&gt; package allows you to animate Shiny elements when they scroll into view. Quite interesting if you want to add a fancy touch to your app. &lt;code&gt;scrollrevealR&lt;/code&gt; is based on the great JavaScript library &lt;a href=&#34;https://scrollrevealjs.org/&#34;&gt;scrollreveal&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;In this context, I gave a presentation of the package at the &lt;a href=&#34;https://twitter.com/BristolRUsers&#34;&gt;Bristol R User Group&lt;/a&gt; virtual meet up. Feel free to check it out.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;In this context, I gave a presentation of the package at the &lt;a href=&#34;https://twitter.com/BristolRUsers&#34;&gt;Bristol R User Group&lt;/a&gt; virtual meet up. Feel free to check it out &lt;a href=&#34;https://www.youtube.com/embed/84g6NDDGiZw&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
