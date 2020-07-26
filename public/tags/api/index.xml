@@ -34,10 +34,11 @@
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(BARIS)
 
 BARIS_search(query = &amp;quot;Monuments Historiques Marseille&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 1 x 11
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2 x 11
 ##   id    title organization page  views frequency created_at last_modified
 ##   &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;        &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;        
-## 1 5ceb~ Mars~ Ville de Ma~ http~ 0     unknown   2013-10-2~ 2019-05-09T0~
+## 1 5ceb~ Mars~ Ville de Ma~ http~ 0     unknown   2013-10-2~ 2020-06-29T0~
+## 2 5ceb~ Mars~ Ville de Ma~ http~ 0     unknown   2013-04-1~ 2019-05-09T0~
 ## # ... with 3 more variables: last_update &amp;lt;chr&amp;gt;, archived &amp;lt;chr&amp;gt;, deleted &amp;lt;chr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Cool we have our dataset … but wait it would be better to get some explanation about it.&lt;/p&gt;
 &lt;/div&gt;
@@ -54,6 +55,13 @@ BARIS_search(query = &amp;quot;Monuments Historiques Marseille&amp;quot;)&lt;/co
 &lt;h1&gt;BARIS_resources()&lt;/h1&gt;
 &lt;p&gt;The &lt;code&gt;BARIS_resources&lt;/code&gt; function displays the available resources or dataframes within a dataset. The function takes as argument the ID of the dataset:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;BARIS_resources(datasetId = &amp;quot;5cebfa8306e3e77ffdb31ef5&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 2 x 6
 ##   id         title       format published   url             description         
 ##   &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;           &amp;lt;chr&amp;gt;               
@@ -71,6 +79,13 @@ BARIS_search(query = &amp;quot;Monuments Historiques Marseille&amp;quot;)&lt;/co
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data &amp;lt;- BARIS_extract(resourceId = &amp;quot;59ea7bba-f38a-4d75-b85f-2d1955050e53&amp;quot;, format = &amp;quot;csv&amp;quot;)
 
 head(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 10
 ##   n_base_merimee date_de_protect~ denomination adresse code_postal
 ##   &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;            &amp;lt;chr&amp;gt;        &amp;lt;chr&amp;gt;         &amp;lt;int&amp;gt;

@@ -516,7 +516,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    4 min read
   </span>
   
 
@@ -658,10 +658,11 @@
 <pre class="r"><code>library(BARIS)
 
 BARIS_search(query = &quot;Monuments Historiques Marseille&quot;)</code></pre>
-<pre><code>## # A tibble: 1 x 11
+<pre><code>## # A tibble: 2 x 11
 ##   id    title organization page  views frequency created_at last_modified
 ##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;        
-## 1 5ceb~ Mars~ Ville de Ma~ http~ 0     unknown   2013-10-2~ 2019-05-09T0~
+## 1 5ceb~ Mars~ Ville de Ma~ http~ 0     unknown   2013-10-2~ 2020-06-29T0~
+## 2 5ceb~ Mars~ Ville de Ma~ http~ 0     unknown   2013-04-1~ 2019-05-09T0~
 ## # ... with 3 more variables: last_update &lt;chr&gt;, archived &lt;chr&gt;, deleted &lt;chr&gt;</code></pre>
 <p>Cool we have our dataset … but wait it would be better to get some explanation about it.</p>
 </div>
@@ -678,6 +679,13 @@ BARIS_search(query = &quot;Monuments Historiques Marseille&quot;)</code></pre>
 <h1>BARIS_resources()</h1>
 <p>The <code>BARIS_resources</code> function displays the available resources or dataframes within a dataset. The function takes as argument the ID of the dataset:</p>
 <pre class="r"><code>BARIS_resources(datasetId = &quot;5cebfa8306e3e77ffdb31ef5&quot;)</code></pre>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 2 x 6
 ##   id         title       format published   url             description         
 ##   &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;           &lt;chr&gt;               
@@ -695,6 +703,13 @@ BARIS_search(query = &quot;Monuments Historiques Marseille&quot;)</code></pre>
 <pre class="r"><code>data &lt;- BARIS_extract(resourceId = &quot;59ea7bba-f38a-4d75-b85f-2d1955050e53&quot;, format = &quot;csv&quot;)
 
 head(data)</code></pre>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 6 x 10
 ##   n_base_merimee date_de_protect~ denomination adresse code_postal
 ##   &lt;chr&gt;          &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;         &lt;int&gt;

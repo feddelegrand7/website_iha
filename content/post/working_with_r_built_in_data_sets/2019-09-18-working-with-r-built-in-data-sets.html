@@ -64,14 +64,14 @@ head(base_base)</code></pre>
 ALL_packages &lt;- ALL_packages[[3]]
 
 ALL_packages[grep(&quot;carbon&quot;, ALL_packages[, 4], ignore.case = TRUE), ]</code></pre>
-<pre><code>##      Package    LibPath                                             
-## [1,] &quot;datasets&quot; &quot;C:/Program Files/R/R-4.0.0/library&quot;                
-## [2,] &quot;abd&quot;      &quot;C:/Users/THINKPAD L390/Documents/R/win-library/4.0&quot;
-## [3,] &quot;boot&quot;     &quot;C:/Program Files/R/R-4.0.0/library&quot;                
-##      Item          Title                                    
-## [1,] &quot;CO2&quot;         &quot;Carbon Dioxide Uptake in Grass Plants&quot;  
-## [2,] &quot;AlgaeCO2&quot;    &quot;Carbon Dioxide and Growth Rate in Algae&quot;
-## [3,] &quot;co.transfer&quot; &quot;Carbon Monoxide Transfer&quot;</code></pre>
+<pre><code>##      Package    LibPath                              Item         
+## [1,] &quot;datasets&quot; &quot;C:/Program Files/R/R-4.0.2/library&quot; &quot;CO2&quot;        
+## [2,] &quot;abd&quot;      &quot;C:/Program Files/R/R-4.0.2/library&quot; &quot;AlgaeCO2&quot;   
+## [3,] &quot;boot&quot;     &quot;C:/Program Files/R/R-4.0.2/library&quot; &quot;co.transfer&quot;
+##      Title                                    
+## [1,] &quot;Carbon Dioxide Uptake in Grass Plants&quot;  
+## [2,] &quot;Carbon Dioxide and Growth Rate in Algae&quot;
+## [3,] &quot;Carbon Monoxide Transfer&quot;</code></pre>
 <p>Finally, let’s say you have found your <em>âme sœur</em> and it’s the <em>Carbon Dioxide and Growth Rate in Algae</em> DST. To load it into your environment, use:</p>
 <pre class="r"><code>library(abd) # First load the corresponding package
 

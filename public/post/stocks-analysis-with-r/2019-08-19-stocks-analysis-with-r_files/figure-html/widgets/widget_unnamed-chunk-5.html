@@ -7,16 +7,13 @@
 <script src="highchart_libs/jquery/jquery.min.js"></script>
 <script src="highchart_libs/proj4js/proj4.js"></script>
 <link href="highchart_libs/highcharts/css/motion.css" rel="stylesheet" />
-<link href="highchart_libs/highcharts/css/htmlwdgtgrid.css" rel="stylesheet" />
 <script src="highchart_libs/highcharts/highcharts.js"></script>
 <script src="highchart_libs/highcharts/highcharts-3d.js"></script>
 <script src="highchart_libs/highcharts/highcharts-more.js"></script>
 <script src="highchart_libs/highcharts/modules/stock.js"></script>
 <script src="highchart_libs/highcharts/modules/map.js"></script>
 <script src="highchart_libs/highcharts/modules/annotations.js"></script>
-<script src="highchart_libs/highcharts/modules/boost.js"></script>
 <script src="highchart_libs/highcharts/modules/data.js"></script>
-<script src="highchart_libs/highcharts/modules/drag-panes.js"></script>
 <script src="highchart_libs/highcharts/modules/drilldown.js"></script>
 <script src="highchart_libs/highcharts/modules/item-series.js"></script>
 <script src="highchart_libs/highcharts/modules/offline-exporting.js"></script>
@@ -27,6 +24,8 @@
 <script src="highchart_libs/highcharts/modules/heatmap.js"></script>
 <script src="highchart_libs/highcharts/modules/treemap.js"></script>
 <script src="highchart_libs/highcharts/modules/sankey.js"></script>
+<script src="highchart_libs/highcharts/modules/dependency-wheel.js"></script>
+<script src="highchart_libs/highcharts/modules/organization.js"></script>
 <script src="highchart_libs/highcharts/modules/solid-gauge.js"></script>
 <script src="highchart_libs/highcharts/modules/streamgraph.js"></script>
 <script src="highchart_libs/highcharts/modules/sunburst.js"></script>
@@ -38,24 +37,26 @@
 <script src="highchart_libs/highcharts/modules/gantt.js"></script>
 <script src="highchart_libs/highcharts/modules/timeline.js"></script>
 <script src="highchart_libs/highcharts/modules/parallel-coordinates.js"></script>
-<script src="highchart_libs/highcharts/plugins/grouped-categories.js"></script>
+<script src="highchart_libs/highcharts/modules/bullet.js"></script>
+<script src="highchart_libs/highcharts/modules/coloraxis.js"></script>
+<script src="highchart_libs/highcharts/modules/dumbbell.js"></script>
+<script src="highchart_libs/highcharts/modules/lollipop.js"></script>
+<script src="highchart_libs/highcharts/modules/series-label.js"></script>
 <script src="highchart_libs/highcharts/plugins/motion.js"></script>
-<script src="highchart_libs/highcharts/plugins/multicolor_series.js"></script>
 <script src="highchart_libs/highcharts/custom/reset.js"></script>
-<script src="highchart_libs/highcharts/custom/symbols-extra.js"></script>
-<script src="highchart_libs/highcharts/custom/text-symbols.js"></script>
+<script src="highchart_libs/highcharts/modules/boost.js"></script>
 <script src="highchart_libs/highchart-binding/highchart.js"></script>
 <script src="highchart_libs/pymjs/pym.v1.min.js"></script>
   <title>highchart</title>
 </head>
 <body>
 <div id="htmlwidget_container">
-  <div id="htmlwidget-94eff685f8609e249477" style="width:100%;height:500px;" class="highchart html-widget"></div>
+  <div id="htmlwidget-d31dde3ff8e795286b13" style="width:100%;height:500px;" class="highchart html-widget"></div>
   <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
 </div>
-<script type="application/json" data-for="htmlwidget-94eff685f8609e249477">{"x":{"hc_opts":{"title":{"text":"Stocks' Evolution of French CAC 40 listed banks"},"yAxis":{"title":{"text":null}},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[[1563148800000,11.01],[1563235200000,11.12],[1563321600000,10.965],[1563408000000,10.79],[1563494400000,10.79],[1563753600000,10.81],[1563840000000,11.02],[1563926400000,11.04],[1564012800000,11.05],[1564099200000,11],[1564358400000,10.955],[1564444800000,10.645],[1564531200000,10.78],[1564617600000,10.87],[1564704000000,10.34],[1564963200000,10.26],[1565049600000,10.215],[1565136000000,10.11],[1565222400000,10.33],[1565308800000,10.175],[1565568000000,9.99],[1565654400000,10.13],[1565740800000,9.932]],"name":"Crédit Agricole"},{"data":[[1563148800000,38.159683],[1563235200000,38.48481],[1563321600000,37.874645],[1563408000000,37.741032],[1563494400000,37.407001],[1563753600000,37.407001],[1563840000000,38.235397],[1563926400000,38.239853],[1564012800000,38.293297],[1564099200000,38.244305],[1564358400000,37.994892],[1564444800000,36.983894],[1564531200000,37.571789],[1564617600000,38.164139],[1564704000000,36.65432],[1564963200000,35.999619],[1565049600000,35.870461],[1565136000000,35.589874],[1565222400000,36.293564],[1565308800000,35.812561],[1565568000000,35.331558],[1565654400000,35.959534],[1565740800000,35.024246]],"name":"BNP Paribas"},{"data":[[1563148800000,22.815001],[1563235200000,23.1],[1563321600000,22.825001],[1563408000000,22.715],[1563494400000,22.370001],[1563753600000,22.33],[1563840000000,23.030001],[1563926400000,23.165001],[1564012800000,22.99],[1564099200000,23.08],[1564358400000,22.905001],[1564444800000,22.055],[1564531200000,22.205],[1564617600000,23.5],[1564704000000,22.42],[1564963200000,22.4],[1565049600000,22.305],[1565136000000,22.1],[1565222400000,22.764999],[1565308800000,22.275],[1565568000000,21.790001],[1565654400000,22.379999],[1565740800000,21.465]],"name":"Société Générale"}]},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"stock","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
-<script type="application/htmlwidget-sizing" data-for="htmlwidget-94eff685f8609e249477">{"viewer":{"width":"100%","height":350,"padding":0,"fill":false},"browser":{"width":"100%","height":500,"padding":0,"fill":false}}</script>
+<script type="application/json" data-for="htmlwidget-d31dde3ff8e795286b13">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":"Stocks' Evolution of French CAC 40 listed banks"},"yAxis":{"title":{"text":null}},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[[1563148800000,11.01],[1563235200000,11.12],[1563321600000,10.965],[1563408000000,10.79],[1563494400000,10.79],[1563753600000,10.81],[1563840000000,11.02],[1563926400000,11.04],[1564012800000,11.05],[1564099200000,11],[1564358400000,10.955],[1564444800000,10.645],[1564531200000,10.78],[1564617600000,10.87],[1564704000000,10.34],[1564963200000,10.26],[1565049600000,10.215],[1565136000000,10.11],[1565222400000,10.33],[1565308800000,10.175],[1565568000000,9.99],[1565654400000,10.13],[1565740800000,9.932]],"name":"Crédit Agricole"},{"data":[[1563148800000,38.159683],[1563235200000,38.48481],[1563321600000,37.874645],[1563408000000,37.741032],[1563494400000,37.407001],[1563753600000,37.407001],[1563840000000,38.235397],[1563926400000,38.239853],[1564012800000,38.293297],[1564099200000,38.244305],[1564358400000,37.994892],[1564444800000,36.983894],[1564531200000,37.571789],[1564617600000,38.164139],[1564704000000,36.65432],[1564963200000,35.999619],[1565049600000,35.870461],[1565136000000,35.589874],[1565222400000,36.293564],[1565308800000,35.812561],[1565568000000,35.331558],[1565654400000,35.959534],[1565740800000,35.024246]],"name":"BNP Paribas"},{"data":[[1563148800000,18.813644],[1563235200000,19.04866],[1563321600000,18.821892],[1563408000000,18.731182],[1563494400000,18.44669],[1563753600000,18.413704],[1563840000000,18.990938],[1563926400000,19.102261],[1564012800000,18.957952],[1564099200000,19.032167],[1564358400000,18.887861],[1564444800000,18.186935],[1564531200000,18.310627],[1564617600000,19.378508],[1564704000000,18.487921],[1564963200000,18.471428],[1565049600000,18.393089],[1565136000000,18.224043],[1565222400000,18.772413],[1565308800000,18.368351],[1565568000000,17.968412],[1565654400000,18.454935],[1565740800000,17.700411]],"name":"Société Générale"}]},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"stock","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<script type="application/htmlwidget-sizing" data-for="htmlwidget-d31dde3ff8e795286b13">{"viewer":{"width":"100%","height":350,"padding":0,"fill":false},"browser":{"width":"100%","height":500,"padding":0,"fill":false}}</script>
 </body>
 </html>

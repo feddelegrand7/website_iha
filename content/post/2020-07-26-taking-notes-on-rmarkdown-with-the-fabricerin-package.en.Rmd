@@ -1,0 +1,74 @@
+---
+title: 'Taking notes in RMarkdown using the fabricerin package '
+author: Mohamed El Fodil
+date: '2020-07-26'
+slug: taking-notes-in-rmarkdown-using-the-fabricerin-package
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-07-26T22:19:26+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+I've recently released a new package called `fabricerin`, now you can insert easily a canvas withing RMarkdown documents and Shiny apps for drawing or notes taking. 
+
+How to do that ? two functions: 
+
+- `use_fabric()`: this function is mandatory and has to be set at the beginning of your document (app). It enables the javascript library [fabricjs](http://fabricjs.com/). Of course, __you'll need to run it only once.__
+
+- `fabric_drawing()`: allows you implement a canvas in which you can draw/take notes.
+
+
+## __Try it yourself, take some notes !__
+
+
+```{r}
+
+library(fabricerin)
+
+use_fabric()
+
+fabric_drawing(cid = "canvasId", #canvas Id 
+               cwidth = 800, #canvas width
+               cheight = 800, #canvas height
+               cfill = "white", #canvas color
+               drawingWidth = 1,
+               drawingColor = "black")
+
+
+```
+
+
+For more info, here is the [Github repo](https://github.com/feddelegrand7/fabricerin)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

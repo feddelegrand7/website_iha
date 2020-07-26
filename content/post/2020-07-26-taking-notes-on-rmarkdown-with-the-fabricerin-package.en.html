@@ -1,0 +1,103 @@
+---
+title: 'Taking notes in RMarkdown using the fabricerin package '
+author: Mohamed El Fodil
+date: '2020-07-26'
+slug: taking-notes-in-rmarkdown-using-the-fabricerin-package
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-07-26T22:19:26+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>I’ve recently released a new package called <code>fabricerin</code>, now you can insert easily a canvas withing RMarkdown documents and Shiny apps for drawing or notes taking.</p>
+<p>How to do that ? two functions:</p>
+<ul>
+<li><p><code>use_fabric()</code>: this function is mandatory and has to be set at the beginning of your document (app). It enables the javascript library <a href="http://fabricjs.com/">fabricjs</a>. Of course, <strong>you’ll need to run it only once.</strong></p></li>
+<li><p><code>fabric_drawing()</code>: allows you implement a canvas in which you can draw/take notes.</p></li>
+</ul>
+<div id="try-it-yourself-take-some-notes" class="section level2">
+<h2><strong>Try it yourself, take some notes !</strong></h2>
+<pre class="r"><code>library(fabricerin)
+
+use_fabric()</code></pre>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.min.js"></script>
+<pre class="r"><code>fabric_drawing(cid = &quot;canvasId&quot;, #canvas Id 
+               cwidth = 800, #canvas width
+               cheight = 800, #canvas height
+               cfill = &quot;white&quot;, #canvas color
+               drawingWidth = 1,
+               drawingColor = &quot;black&quot;)</code></pre>
+<input id="erase" type="checkbox"> Erase</input>
+<canvas id="canvasId" width="800" height="800"></canvas>
+<script>var dcol = 'black';
+var ccol = 'white';
+
+
+var canvasId = new fabric.Canvas('canvasId', {
+
+    isDrawingMode: true
+
+    });
+
+canvasId.backgroundColor = 'white';
+
+canvasId.freeDrawingBrush.width  = 1;
+
+
+canvasId.freeDrawingBrush.color  = 'black';
+
+$(document).ready(function() {
+
+ $('#erase').click(function(){
+
+    if (this.checked) {
+
+      canvasId.freeDrawingBrush.color  = ccol;
+
+    } else {
+
+      canvasId.freeDrawingBrush.color = dcol;
+
+    }
+})
+
+
+});
+
+
+
+$(document).ready(function() {
+
+ $('#erase').click(function(){
+
+    if (this.checked) {
+
+      canvasId.freeDrawingBrush.width   = 10;
+
+    } else {
+
+      canvasId.freeDrawingBrush.width  = 1;
+
+    }
+})
+
+
+} );
+
+
+
+
+
+</script>
+<p>For more info, here is the <a href="https://github.com/feddelegrand7/fabricerin">Github repo</a></p>
+</div>
