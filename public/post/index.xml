@@ -5,12 +5,27 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 26 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 27 Jul 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/logo-via-logohub.png</url>
       <title>Posts</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>TALK: useR2020 Very Easy Web Scraping with ralger</title>
+      <link>/post/talk-user2020-very-easy-web-scraping-with-ralger/</link>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/post/talk-user2020-very-easy-web-scraping-with-ralger/</guid>
+      <description>
+
+
+&lt;p&gt;Due to the COVID19 situation, the annual useR conference, useR2020 went virtual. In that context, I had the honor to give a talk entitled: &lt;strong&gt;Very Easy Web Scraping with ralger&lt;/strong&gt;. You can have more information about the package &lt;a href=&#34;https://github.com/feddelegrand7/ralger&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/OHi6E8jegQg&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;If you have any suggestion, feel free to open an issue or create a Pull Request on Github.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Taking notes in RMarkdown using the fabricerin package </title>
@@ -40,6 +55,7 @@ use_fabric()&lt;/code&gt;&lt;/pre&gt;
                drawingColor = &amp;quot;black&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;input id=&#34;erase&#34; type=&#34;checkbox&#34;&gt; Erase&lt;/input&gt;
 &lt;canvas id=&#34;canvasId&#34; width=&#34;800&#34; height=&#34;800&#34;&gt;&lt;/canvas&gt;
+&lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&#34;&gt;&lt;/script&gt;
 &lt;script&gt;var dcol = &#39;black&#39;;
 var ccol = &#39;white&#39;;
 

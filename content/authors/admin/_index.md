@@ -54,6 +54,9 @@ I'm the author of the following R packages:
 - [mailtoR](https://CRAN.R-project.org/package=mailtoR) allows you to generate a friendly user interface for emails sending in your Shiny app. 
 - [corazon](https://CRAN.R-project.org/package=corazon) allows you to incorporate easily colorffy gradient colors within Shiny elements though it is principally designed for the app’s body.
 - [bubblyr](https://CRAN.R-project.org/package=bubblyr) allows you to create bubbles within Shiny and RMarkdown backgrounds using the [bubbly-bg](https://github.com/tipsy/bubbly-bg) JavaScript library.
+- [pivta](https://github.com/feddelegrand7/pivta) an R wrapper for the WebDataRocks JavaScript library. It gives you the ability to embed a pivot table along with other data analysis tools within a Shiny application. 
+- [fabricerin](https://github.com/feddelegrand7/fabricerin) for
+creating canvas in Shiny and RMarkdown documents.
 
 
 

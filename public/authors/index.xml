@@ -31,6 +31,9 @@
 &lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=mailtoR&#34;&gt;mailtoR&lt;/a&gt; allows you to generate a friendly user interface for emails sending in your Shiny app.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=corazon&#34;&gt;corazon&lt;/a&gt; allows you to incorporate easily colorffy gradient colors within Shiny elements though it is principally designed for the app’s body.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://CRAN.R-project.org/package=bubblyr&#34;&gt;bubblyr&lt;/a&gt; allows you to create bubbles within Shiny and RMarkdown backgrounds using the &lt;a href=&#34;https://github.com/tipsy/bubbly-bg&#34;&gt;bubbly-bg&lt;/a&gt; JavaScript library.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/feddelegrand7/pivta&#34;&gt;pivta&lt;/a&gt; an R wrapper for the WebDataRocks JavaScript library. It gives you the ability to embed a pivot table along with other data analysis tools within a Shiny application.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/feddelegrand7/fabricerin&#34;&gt;fabricerin&lt;/a&gt; for
+creating canvas in Shiny and RMarkdown documents.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

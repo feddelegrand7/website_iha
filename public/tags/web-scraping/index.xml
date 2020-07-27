@@ -5,12 +5,27 @@
     <link>/tags/web-scraping/</link>
       <atom:link href="/tags/web-scraping/index.xml" rel="self" type="application/rss+xml" />
     <description>Web Scraping</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 04 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 27 Jul 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/logo-via-logohub.png</url>
       <title>Web Scraping</title>
       <link>/tags/web-scraping/</link>
     </image>
+    
+    <item>
+      <title>TALK: useR2020 Very Easy Web Scraping with ralger</title>
+      <link>/post/talk-user2020-very-easy-web-scraping-with-ralger/</link>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/post/talk-user2020-very-easy-web-scraping-with-ralger/</guid>
+      <description>
+
+
+&lt;p&gt;Due to the COVID19 situation, the annual useR conference, useR2020 went virtual. In that context, I had the honor to give a talk entitled: &lt;strong&gt;Very Easy Web Scraping with ralger&lt;/strong&gt;. You can have more information about the package &lt;a href=&#34;https://github.com/feddelegrand7/ralger&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/OHi6E8jegQg&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;If you have any suggestion, feel free to open an issue or create a Pull Request on Github.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>(Very) Easy Web Scraping with ralger</title>

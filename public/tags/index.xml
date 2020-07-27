@@ -5,12 +5,28 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 07 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 27 Jul 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/logo-via-logohub.png</url>
       <title>Tags</title>
       <link>/tags/</link>
     </image>
+    
+    <item>
+      <title>ralger</title>
+      <link>/tags/ralger/</link>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/ralger/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web Scraping</title>
+      <link>/tags/web-scraping/</link>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/web-scraping/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>scrollrevealR</title>
@@ -81,14 +97,6 @@
       <link>/tags/api/</link>
       <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/tags/api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Web Scraping</title>
-      <link>/tags/web-scraping/</link>
-      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/web-scraping/</guid>
       <description></description>
     </item>
     

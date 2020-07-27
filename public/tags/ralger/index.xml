@@ -5,7 +5,7 @@
     <link>/tags/ralger/</link>
       <atom:link href="/tags/ralger/index.xml" rel="self" type="application/rss+xml" />
     <description>ralger</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 19 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 27 Jul 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/logo-via-logohub.png</url>
       <title>ralger</title>
@@ -13,42 +13,17 @@
     </image>
     
     <item>
-      <title>ralger: what&#39;s new ? </title>
-      <link>/post/ralger-what-s-new/</link>
-      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/post/ralger-what-s-new/</guid>
+      <title>TALK: useR2020 Very Easy Web Scraping with ralger</title>
+      <link>/post/talk-user2020-very-easy-web-scraping-with-ralger/</link>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/post/talk-user2020-very-easy-web-scraping-with-ralger/</guid>
       <description>
 
 
-&lt;p&gt;The new version of &lt;a href=&#34;https://cran.r-project.org/web/packages/ralger/index.html&#34;&gt;ralger&lt;/a&gt; is on CRAN !&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://media.giphy.com/media/xT9IgzUuC5Ss6ZnTEs/giphy.gif&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;So, what’s new ?&lt;/p&gt;
-&lt;div id=&#34;askrobot&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;askRobot&lt;/h1&gt;
-&lt;p&gt;With ralger 1.1.0, you have now the ability to consult the robots.txt of the page web you want to scrap in order to check if you have the right to do so or not. This wont stop the extrancting process, but you’ll receive a message indicating whether you’re eligible or not to do so. To illustrate this fact, let’s dive into an example and extract a very interesting information: the 25 most powerful one piece characters !&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ralger)
-
-link &amp;lt;- &amp;quot;https://www.cbr.com/one-piece-characters-ranked/&amp;quot;
-
-scrap(link, node = &amp;quot;.item-title&amp;quot;, askRobot = T)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
- www.cbr.com                      
-## 
-## It&amp;#39;s ok you&amp;#39;re allowed to scrap this web page&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;25 JIMBEI&amp;quot;                &amp;quot;24 CAPONE BEGE&amp;quot;          
-##  [3] &amp;quot;23 VINSMOKE SANJI&amp;quot;        &amp;quot;22 RORONOA ZORO&amp;quot;         
-##  [5] &amp;quot;21 EUSTASS KID&amp;quot;           &amp;quot;20 CROCODILE&amp;quot;            
-##  [7] &amp;quot;19 UROUGE&amp;quot;                &amp;quot;18 BOA HANCOCK&amp;quot;          
-##  [9] &amp;quot;17 TRAFALGAR LAW&amp;quot;         &amp;quot;16 CHARLOTTE SMOOTHIE&amp;quot;   
-## [11] &amp;quot;15 DONQUIXOTE DOFLAMINGO&amp;quot; &amp;quot;14 CHARLOTTE KATAKURI&amp;quot;   
-## [13] &amp;quot;13 MONKEY D. LUFFY&amp;quot;       &amp;quot;12 ISSHO/FUJITORA&amp;quot;       
-## [15] &amp;quot;11 AOKIJI&amp;quot;                &amp;quot;10 DRACULE MIHAWK&amp;quot;       
-## [17] &amp;quot;9 MONKEY D. GARP&amp;quot;         &amp;quot;8 SENGOKU&amp;quot;               
-## [19] &amp;quot;7 BORSALINO/KIZARU&amp;quot;       &amp;quot;6 MONKEY D. DRAGON&amp;quot;      
-## [21] &amp;quot;5 BIG MOM&amp;quot;                &amp;quot;4 SHANKS&amp;quot;                
-## [23] &amp;quot;3 KAIDO&amp;quot;                  &amp;quot;2 BLACKBEARD&amp;quot;            
-## [25] &amp;quot;1 SAKAZUKI/AKAINU&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;p&gt;Due to the COVID19 situation, the annual useR conference, useR2020 went virtual. In that context, I had the honor to give a talk entitled: &lt;strong&gt;Very Easy Web Scraping with ralger&lt;/strong&gt;. You can have more information about the package &lt;a href=&#34;https://github.com/feddelegrand7/ralger&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/OHi6E8jegQg&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;If you have any suggestion, feel free to open an issue or create a Pull Request on Github.&lt;/p&gt;
 </description>
     </item>
     
