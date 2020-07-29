@@ -39,10 +39,12 @@ use_fabric()
 
 fabric_drawing(cid = "canvasId", #canvas Id 
                cwidth = 800, #canvas width
-               cheight = 800, #canvas height
-               cfill = "white", #canvas color
-               drawingWidth = 1,
-               drawingColor = "black")
+               cheight = 400, #canvas height
+               cfill = "#282A36", #canvas color
+               drawingWidth = 10, #width of the drawing lines
+               drawingColor = "ivory", 
+               gumSize = 30 #size of the gum
+               )
 
 
 ```

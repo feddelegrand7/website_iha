@@ -49,31 +49,36 @@ use_fabric()&lt;/code&gt;&lt;/pre&gt;
 &lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.min.js&#34;&gt;&lt;/script&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_drawing(cid = &amp;quot;canvasId&amp;quot;, #canvas Id 
                cwidth = 800, #canvas width
-               cheight = 800, #canvas height
-               cfill = &amp;quot;white&amp;quot;, #canvas color
-               drawingWidth = 1,
-               drawingColor = &amp;quot;black&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;input id=&#34;erase&#34; type=&#34;checkbox&#34;&gt; Erase&lt;/input&gt;
-&lt;canvas id=&#34;canvasId&#34; width=&#34;800&#34; height=&#34;800&#34;&gt;&lt;/canvas&gt;
+               cheight = 400, #canvas height
+               cfill = &amp;quot;#282A36&amp;quot;, #canvas color
+               drawingWidth = 10, #width of the drawing lines
+               drawingColor = &amp;quot;ivory&amp;quot;, 
+               gumSize = 30 #size of the gum
+               )&lt;/code&gt;&lt;/pre&gt;
+&lt;input id=&#34;erase&#34; type=&#34;checkbox&#34;&gt; Gum&lt;/input&gt;
+&lt;input id=&#34;export&#34; type=&#34;button&#34; value=&#34;Export&#34;/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;canvas id=&#34;canvasId&#34; width=&#34;800&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
 &lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&#34;&gt;&lt;/script&gt;
-&lt;script&gt;var dcol = &#39;black&#39;;
-var ccol = &#39;white&#39;;
+&lt;script src=&#34;https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;const dcol = &#39;ivory&#39;;
+const ccol = &#39;#282A36&#39;;
 
 
-var canvasId = new fabric.Canvas(&#39;canvasId&#39;, {
-
+const canvasId = new fabric.Canvas(&#39;canvasId&#39;, {
+    backgroundColor: &#39;#282A36&#39;,
     isDrawingMode: true
 
     });
 
-canvasId.backgroundColor = &#39;white&#39;;
 
-canvasId.freeDrawingBrush.width  = 1;
+canvasId.freeDrawingBrush.width  = 10;
 
 
-canvasId.freeDrawingBrush.color  = &#39;black&#39;;
+canvasId.freeDrawingBrush.color  = &#39;ivory&#39;;
 
-$(document).ready(function() {
+
 
  $(&#39;#erase&#39;).click(function(){
 
@@ -86,33 +91,42 @@ $(document).ready(function() {
       canvasId.freeDrawingBrush.color = dcol;
 
     }
-})
+
 
 
 });
 
 
 
-$(document).ready(function() {
+
 
  $(&#39;#erase&#39;).click(function(){
 
     if (this.checked) {
 
-      canvasId.freeDrawingBrush.width   = 10;
+      canvasId.freeDrawingBrush.width   = 30;
 
     } else {
 
-      canvasId.freeDrawingBrush.width  = 1;
+      canvasId.freeDrawingBrush.width  = 10;
 
     }
-})
 
 
-} );
+});
 
 
+$(&#39;#export&#39;).click(function(){
 
+  $(&#39;#canvasId&#39;).get(0).toBlob(function(blob){
+
+    saveAs(blob, &#39;canvasId-IMG.png&#39;);
+
+
+  });
+
+
+});
 
 
 &lt;/script&gt;
