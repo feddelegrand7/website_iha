@@ -5,12 +5,63 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 27 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 30 Jul 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/logo-via-logohub.png</url>
       <title>Posts</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>Create Nice Looking Bubbles in Rmarkdown and Shiny Backgrounds with bubblyr</title>
+      <link>/post/create-nice-looking-bubbles-in-rmarkdown-and-shiny-backgrounds-with-bubblyr/</link>
+      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/post/create-nice-looking-bubbles-in-rmarkdown-and-shiny-backgrounds-with-bubblyr/</guid>
+      <description>
+
+
+&lt;style&gt;
+                                      
+@import url(&#39;https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap&#39;);
+
+
+body{font-family: &#39;Merriweather&#39;, serif;}
+                                      
+                                      
+                                      &lt;/style&gt;
+&lt;p&gt;Recently, I’ve created a package called &lt;code&gt;bubblyr&lt;/code&gt; that allows you render nice looking bubbles in Rmarkdown documents and Shiny applications. It’s extremely easy to use ! you only need to implement one function and choose a theme. You can have a look at the available themes &lt;a href=&#34;https://github.com/feddelegrand7/bubblyr&#34;&gt;here&lt;/a&gt;. You can also specify the text color with the &lt;code&gt;color&lt;/code&gt; argument.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(bubblyr)
+
+bubbly(theme = &amp;quot;gravitas&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js&#34;&gt;&lt;/script&gt;
+&lt;style&gt;body{color:white}&lt;/style&gt;
+&lt;script&gt;
+  bubbly({
+  colorStart: &#39;#F92672&#39;,
+  colorStop: &#39;#59B6C7&#39;,
+  bubbles:222,
+  blur:1,
+  compose: &#39;source-over&#39;,
+  bubbleFunc:() =&gt; `hsla(${222 + Math.random() * 2}, 100%, 50%, 1)`,
+  angleFunc:() =&gt; Math.random() &gt; 0.3 ? Math.PI : 1.2 * Math.PI,
+  velocityFunc:() =&gt; 2 + Math.random() * 1,
+  radiusFunc:() =&gt; Math.random() * 10
+    });
+
+      &lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+
+
+ggplot(mpg, aes(hwy)) +
+  geom_histogram(fill = &amp;quot;darkblue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-07-30-create-nice-looking-bubbles-in-rmarkdown-and-shiny-backgrounds-with-bubblyr.en_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.r-project.org/logo/Rlogo.png&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;go-ahead-try-out-the-other-themes&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Go ahead, try out the other themes !&lt;/h1&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>TALK: useR2020 Very Easy Web Scraping with ralger</title>
@@ -48,7 +99,7 @@
 use_fabric()&lt;/code&gt;&lt;/pre&gt;
 &lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.min.js&#34;&gt;&lt;/script&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_drawing(cid = &amp;quot;canvasId&amp;quot;, #canvas Id 
-               cwidth = 800, #canvas width
+               cwidth = 400, #canvas width
                cheight = 400, #canvas height
                cfill = &amp;quot;#282A36&amp;quot;, #canvas color
                drawingWidth = 10, #width of the drawing lines
@@ -59,7 +110,7 @@ use_fabric()&lt;/code&gt;&lt;/pre&gt;
 &lt;input id=&#34;export&#34; type=&#34;button&#34; value=&#34;Export&#34;/&gt;
 &lt;br/&gt;
 &lt;br/&gt;
-&lt;canvas id=&#34;canvasId&#34; width=&#34;800&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
+&lt;canvas id=&#34;canvasId&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
 &lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&#34;&gt;&lt;/script&gt;
 &lt;script src=&#34;https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js&#34;&gt;&lt;/script&gt;
 &lt;script&gt;const dcol = &#39;ivory&#39;;

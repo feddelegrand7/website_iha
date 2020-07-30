@@ -38,7 +38,7 @@ library(fabricerin)
 use_fabric()
 
 fabric_drawing(cid = "canvasId", #canvas Id 
-               cwidth = 800, #canvas width
+               cwidth = 400, #canvas width
                cheight = 400, #canvas height
                cfill = "#282A36", #canvas color
                drawingWidth = 10, #width of the drawing lines
