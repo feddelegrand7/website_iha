@@ -20,7 +20,7 @@
       <description>
 
 
-&lt;p&gt;Recently, I’ve created a package called &lt;code&gt;bubblyr&lt;/code&gt; that allows you render nice looking bubbles in Rmarkdown documents and Shiny applications. It’s extremely easy to use ! you only need to implement one function and choose a theme. You can have a look at the available themes &lt;a href=&#34;https://github.com/feddelegrand7/bubblyr&#34;&gt;here&lt;/a&gt;. You can also specify the text color with the &lt;code&gt;color&lt;/code&gt; argument.&lt;/p&gt;
+&lt;p&gt;Recently, I’ve created a package called &lt;code&gt;bubblyr&lt;/code&gt; that allows you to render nice looking bubbles in Rmarkdown documents and Shiny applications. It’s extremely easy to use ! you only need to implement one function and choose a theme. You can have a look at the available themes &lt;a href=&#34;https://github.com/feddelegrand7/bubblyr&#34;&gt;here&lt;/a&gt;. You can also specify the text color with the &lt;code&gt;color&lt;/code&gt; argument.&lt;/p&gt;
 &lt;style type=&#34;text/css&#34;&gt;
 
 
@@ -65,55 +65,6 @@ ggplot(mpg, aes(hwy)) +
     </item>
     
     <item>
-      <title>Create Nice Looking Bubbles in Rmarkdown and Shiny Backgrounds with bubblyr</title>
-      <link>/post/create-nice-looking-bubbles-in-rmarkdown-and-shiny-backgrounds-with-bubblyr/</link>
-      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>/post/create-nice-looking-bubbles-in-rmarkdown-and-shiny-backgrounds-with-bubblyr/</guid>
-      <description>&lt;p&gt;Recently, I&amp;rsquo;ve created a package called &lt;code&gt;bubblyr&lt;/code&gt; that allows you render nice looking bubbles in Rmarkdown documents and Shiny applications. It&amp;rsquo;s extremely easy to use ! you only need to implement one function and choose a theme. You can have a look at the available themes &lt;a href=&#34;https://github.com/feddelegrand7/bubblyr&#34;&gt;here&lt;/a&gt;. You can also specify the text color with the &lt;code&gt;color&lt;/code&gt; argument.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(bubblyr)
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;bubbly&lt;/span&gt;(theme &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;gravitas&amp;#34;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(ggplot2)
-
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;ggplot&lt;/span&gt;(mpg, &lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;(hwy)) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;geom_histogram&lt;/span&gt;(fill &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#4C8591&amp;#34;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;h1 id=&#34;go-ahead-try-out-the-other-themes-&#34;&gt;Go ahead, try out the other themes !&lt;/h1&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Create Nice Looking Bubbles in Rmarkdown and Shiny Backgrounds with bubblyr</title>
-      <link>/post/create-nice-looking-bubbles-in-rmarkdown-and-shiny-backgrounds-with-bubblyr/</link>
-      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>/post/create-nice-looking-bubbles-in-rmarkdown-and-shiny-backgrounds-with-bubblyr/</guid>
-      <description>&lt;p&gt;Recently, I&amp;rsquo;ve created a package called &lt;code&gt;bubblyr&lt;/code&gt; that allows you render nice looking bubbles in Rmarkdown documents and Shiny applications. It&amp;rsquo;s extremely easy to use ! you only need to implement one function and choose a theme. You can have a look at the available themes &lt;a href=&#34;https://github.com/feddelegrand7/bubblyr&#34;&gt;here&lt;/a&gt;. You can also specify the text color with the &lt;code&gt;color&lt;/code&gt; argument.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(bubblyr)
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;bubbly&lt;/span&gt;(theme &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;gravitas&amp;#34;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;preserve742966e25c05daaa&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(ggplot2)
-
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;ggplot&lt;/span&gt;(mpg, &lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;(hwy)) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;geom_histogram&lt;/span&gt;(fill &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#4C8591&amp;#34;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;h1 id=&#34;go-ahead-try-out-the-other-themes-&#34;&gt;Go ahead, try out the other themes !&lt;/h1&gt;
-</description>
-    </item>
-    
-    <item>
       <title>TALK: useR2020 Very Easy Web Scraping with ralger</title>
       <link>/post/talk-user2020-very-easy-web-scraping-with-ralger/</link>
       <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
@@ -134,6 +85,7 @@ ggplot(mpg, aes(hwy)) +
       <pubDate>Sun, 26 Jul 2020 00:00:00 +0000</pubDate>
       <guid>/post/taking-notes-in-rmarkdown-using-the-fabricerin-package/</guid>
       <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I’ve recently released a new package called &lt;code&gt;fabricerin&lt;/code&gt;, now you can insert easily a canvas withing RMarkdown documents and Shiny apps for drawing or notes taking.&lt;/p&gt;
@@ -156,17 +108,14 @@ use_fabric()&lt;/code&gt;&lt;/pre&gt;
                drawingColor = &amp;quot;ivory&amp;quot;, 
                gumSize = 30 #size of the gum
                )&lt;/code&gt;&lt;/pre&gt;
-&lt;input id=&#34;erase&#34; type=&#34;checkbox&#34;&gt; Gum&lt;/input&gt;
-&lt;input id=&#34;export&#34; type=&#34;button&#34; value=&#34;Export&#34;/&gt;
+&lt;input id=&#34;erasecanvasId&#34; type=&#34;checkbox&#34;&gt; Gum&lt;/input&gt;
+&lt;input id=&#34;exportcanvasId&#34; type=&#34;button&#34; value=&#34;Export&#34;/&gt;
 &lt;br/&gt;
 &lt;br/&gt;
 &lt;canvas id=&#34;canvasId&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
 &lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&#34;&gt;&lt;/script&gt;
 &lt;script src=&#34;https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js&#34;&gt;&lt;/script&gt;
-&lt;script&gt;const dcol = &#39;ivory&#39;;
-const ccol = &#39;#282A36&#39;;
-
-
+&lt;script&gt;
 const canvasId = new fabric.Canvas(&#39;canvasId&#39;, {
     backgroundColor: &#39;#282A36&#39;,
     isDrawingMode: true
@@ -181,15 +130,15 @@ canvasId.freeDrawingBrush.color  = &#39;ivory&#39;;
 
 
 
- $(&#39;#erase&#39;).click(function(){
+ $(&#39;#erasecanvasId&#39;).click(function(){
 
     if (this.checked) {
 
-      canvasId.freeDrawingBrush.color  = ccol;
+      canvasId.freeDrawingBrush.color  = &#39;#282A36&#39;;
 
     } else {
 
-      canvasId.freeDrawingBrush.color = dcol;
+      canvasId.freeDrawingBrush.color = &#39;ivory&#39;;
 
     }
 
@@ -201,7 +150,7 @@ canvasId.freeDrawingBrush.color  = &#39;ivory&#39;;
 
 
 
- $(&#39;#erase&#39;).click(function(){
+ $(&#39;#erasecanvasId&#39;).click(function(){
 
     if (this.checked) {
 
@@ -217,11 +166,92 @@ canvasId.freeDrawingBrush.color  = &#39;ivory&#39;;
 });
 
 
-$(&#39;#export&#39;).click(function(){
+$(&#39;#exportcanvasId&#39;).click(function(){
 
   $(&#39;#canvasId&#39;).get(0).toBlob(function(blob){
 
     saveAs(blob, &#39;canvasId-IMG.png&#39;);
+
+
+  });
+
+
+});
+
+
+&lt;/script&gt;
+&lt;p&gt;You can change play with the arguments to shape you canvas and your drawing experience.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_drawing(cid = &amp;quot;canvasId2&amp;quot;, #canvas Id 
+               cwidth = 500, #canvas width
+               cheight = 1000, #canvas height
+               cfill = &amp;quot;#FFCD43&amp;quot;, #canvas color
+               drawingWidth = 5, #width of the drawing lines
+               drawingColor = &amp;quot;#0082FC&amp;quot;, 
+               gumSize = 50 #size of the gum
+               )&lt;/code&gt;&lt;/pre&gt;
+&lt;input id=&#34;erasecanvasId2&#34; type=&#34;checkbox&#34;&gt; Gum&lt;/input&gt;
+&lt;input id=&#34;exportcanvasId2&#34; type=&#34;button&#34; value=&#34;Export&#34;/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;canvas id=&#34;canvasId2&#34; width=&#34;500&#34; height=&#34;1000&#34;&gt;&lt;/canvas&gt;
+&lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+const canvasId2 = new fabric.Canvas(&#39;canvasId2&#39;, {
+    backgroundColor: &#39;#FFCD43&#39;,
+    isDrawingMode: true
+
+    });
+
+
+canvasId2.freeDrawingBrush.width  = 5;
+
+
+canvasId2.freeDrawingBrush.color  = &#39;#0082FC&#39;;
+
+
+
+ $(&#39;#erasecanvasId2&#39;).click(function(){
+
+    if (this.checked) {
+
+      canvasId2.freeDrawingBrush.color  = &#39;#FFCD43&#39;;
+
+    } else {
+
+      canvasId2.freeDrawingBrush.color = &#39;#0082FC&#39;;
+
+    }
+
+
+
+});
+
+
+
+
+
+ $(&#39;#erasecanvasId2&#39;).click(function(){
+
+    if (this.checked) {
+
+      canvasId2.freeDrawingBrush.width   = 50;
+
+    } else {
+
+      canvasId2.freeDrawingBrush.width  = 5;
+
+    }
+
+
+});
+
+
+$(&#39;#exportcanvasId2&#39;).click(function(){
+
+  $(&#39;#canvasId2&#39;).get(0).toBlob(function(blob){
+
+    saveAs(blob, &#39;canvasId2-IMG.png&#39;);
 
 
   });

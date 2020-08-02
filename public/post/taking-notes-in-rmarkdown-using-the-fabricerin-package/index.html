@@ -520,7 +520,7 @@ How to do that ? two functions:
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -646,6 +646,7 @@ How to do that ? two functions:
 
     <div class="article-style" itemprop="articleBody">
       
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>I’ve recently released a new package called <code>fabricerin</code>, now you can insert easily a canvas withing RMarkdown documents and Shiny apps for drawing or notes taking.</p>
@@ -668,17 +669,14 @@ use_fabric()</code></pre>
                drawingColor = &quot;ivory&quot;, 
                gumSize = 30 #size of the gum
                )</code></pre>
-<input id="erase" type="checkbox"> Gum</input>
-<input id="export" type="button" value="Export"/>
+<input id="erasecanvasId" type="checkbox"> Gum</input>
+<input id="exportcanvasId" type="button" value="Export"/>
 <br/>
 <br/>
 <canvas id="canvasId" width="400" height="400"></canvas>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script>const dcol = 'ivory';
-const ccol = '#282A36';
-
-
+<script>
 const canvasId = new fabric.Canvas('canvasId', {
     backgroundColor: '#282A36',
     isDrawingMode: true
@@ -693,15 +691,15 @@ canvasId.freeDrawingBrush.color  = 'ivory';
 
 
 
- $('#erase').click(function(){
+ $('#erasecanvasId').click(function(){
 
     if (this.checked) {
 
-      canvasId.freeDrawingBrush.color  = ccol;
+      canvasId.freeDrawingBrush.color  = '#282A36';
 
     } else {
 
-      canvasId.freeDrawingBrush.color = dcol;
+      canvasId.freeDrawingBrush.color = 'ivory';
 
     }
 
@@ -713,7 +711,7 @@ canvasId.freeDrawingBrush.color  = 'ivory';
 
 
 
- $('#erase').click(function(){
+ $('#erasecanvasId').click(function(){
 
     if (this.checked) {
 
@@ -729,11 +727,92 @@ canvasId.freeDrawingBrush.color  = 'ivory';
 });
 
 
-$('#export').click(function(){
+$('#exportcanvasId').click(function(){
 
   $('#canvasId').get(0).toBlob(function(blob){
 
     saveAs(blob, 'canvasId-IMG.png');
+
+
+  });
+
+
+});
+
+
+</script>
+<p>You can change play with the arguments to shape you canvas and your drawing experience.</p>
+<pre class="r"><code>fabric_drawing(cid = &quot;canvasId2&quot;, #canvas Id 
+               cwidth = 500, #canvas width
+               cheight = 1000, #canvas height
+               cfill = &quot;#FFCD43&quot;, #canvas color
+               drawingWidth = 5, #width of the drawing lines
+               drawingColor = &quot;#0082FC&quot;, 
+               gumSize = 50 #size of the gum
+               )</code></pre>
+<input id="erasecanvasId2" type="checkbox"> Gum</input>
+<input id="exportcanvasId2" type="button" value="Export"/>
+<br/>
+<br/>
+<canvas id="canvasId2" width="500" height="1000"></canvas>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+<script>
+const canvasId2 = new fabric.Canvas('canvasId2', {
+    backgroundColor: '#FFCD43',
+    isDrawingMode: true
+
+    });
+
+
+canvasId2.freeDrawingBrush.width  = 5;
+
+
+canvasId2.freeDrawingBrush.color  = '#0082FC';
+
+
+
+ $('#erasecanvasId2').click(function(){
+
+    if (this.checked) {
+
+      canvasId2.freeDrawingBrush.color  = '#FFCD43';
+
+    } else {
+
+      canvasId2.freeDrawingBrush.color = '#0082FC';
+
+    }
+
+
+
+});
+
+
+
+
+
+ $('#erasecanvasId2').click(function(){
+
+    if (this.checked) {
+
+      canvasId2.freeDrawingBrush.width   = 50;
+
+    } else {
+
+      canvasId2.freeDrawingBrush.width  = 5;
+
+    }
+
+
+});
+
+
+$('#exportcanvasId2').click(function(){
+
+  $('#canvasId2').get(0).toBlob(function(blob){
+
+    saveAs(blob, 'canvasId2-IMG.png');
 
 
   });

@@ -28,9 +28,8 @@
   
     
   
-  <meta name="description" content="Recently, I&rsquo;ve created a package called bubblyr that allows you render nice looking bubbles in Rmarkdown documents and Shiny applications. It&rsquo;s extremely easy to use ! you only need to implement one function and choose a theme. You can have a look at the available themes here. You can also specify the text color with the color argument.
-library(bubblyr) bubbly(theme = &#34;gravitas&#34;) preserve742966e25c05daaa
-library(ggplot2) ggplot(mpg, aes(hwy)) &#43; geom_histogram(fill = &#34;#4C8591&#34;) Go ahead, try out the other themes !">
+  <meta name="description" content="Recently, I’ve created a package called bubblyr that allows you to render nice looking bubbles in Rmarkdown documents and Shiny applications. It’s extremely easy to use ! you only need to implement one function and choose a theme. You can have a look at the available themes here. You can also specify the text color with the color argument.
+@import url(&#39;https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap&#39;);body{font-family: &#39;Merriweather&#39;, serif;}library(bubblyr)bubbly(theme = &quot;gravitas&quot;)body{color:white}bubbly({colorStart: &#39;#F92672&#39;,colorStop: &#39;#59B6C7&#39;,bubbles:222,blur:1,compose: &#39;source-over&#39;,bubbleFunc:() = `hsla(${222 &#43; Math.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/create-nice-looking-bubbles-in-rmarkdown-and-shiny-backgrounds-with-bubblyr/">
@@ -131,9 +130,8 @@ library(ggplot2) ggplot(mpg, aes(hwy)) &#43; geom_histogram(fill = &#34;#4C8591&
   <meta property="og:site_name" content="Mohamed El Fodil IHADDADEN">
   <meta property="og:url" content="/post/create-nice-looking-bubbles-in-rmarkdown-and-shiny-backgrounds-with-bubblyr/">
   <meta property="og:title" content="Create Nice Looking Bubbles in Rmarkdown and Shiny Backgrounds with bubblyr | Mohamed El Fodil IHADDADEN">
-  <meta property="og:description" content="Recently, I&rsquo;ve created a package called bubblyr that allows you render nice looking bubbles in Rmarkdown documents and Shiny applications. It&rsquo;s extremely easy to use ! you only need to implement one function and choose a theme. You can have a look at the available themes here. You can also specify the text color with the color argument.
-library(bubblyr) bubbly(theme = &#34;gravitas&#34;) preserve742966e25c05daaa
-library(ggplot2) ggplot(mpg, aes(hwy)) &#43; geom_histogram(fill = &#34;#4C8591&#34;) Go ahead, try out the other themes !"><meta property="og:image" content="/img/logo-via-logohub.png">
+  <meta property="og:description" content="Recently, I’ve created a package called bubblyr that allows you to render nice looking bubbles in Rmarkdown documents and Shiny applications. It’s extremely easy to use ! you only need to implement one function and choose a theme. You can have a look at the available themes here. You can also specify the text color with the color argument.
+@import url(&#39;https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap&#39;);body{font-family: &#39;Merriweather&#39;, serif;}library(bubblyr)bubbly(theme = &quot;gravitas&quot;)body{color:white}bubbly({colorStart: &#39;#F92672&#39;,colorStop: &#39;#59B6C7&#39;,bubbles:222,blur:1,compose: &#39;source-over&#39;,bubbleFunc:() = `hsla(${222 &#43; Math."><meta property="og:image" content="/img/logo-via-logohub.png">
   <meta property="twitter:image" content="/img/logo-via-logohub.png"><meta property="og:locale" content="en-us">
   
     
@@ -643,21 +641,50 @@ library(ggplot2) ggplot(mpg, aes(hwy)) &#43; geom_histogram(fill = &#34;#4C8591&
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <p>Recently, I&rsquo;ve created a package called <code>bubblyr</code> that allows you render nice looking bubbles in Rmarkdown documents and Shiny applications. It&rsquo;s extremely easy to use ! you only need to implement one function and choose a theme. You can have a look at the available themes <a href="https://github.com/feddelegrand7/bubblyr">here</a>. You can also specify the text color with the <code>color</code> argument.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(bubblyr)
-
-<span style="color:#a6e22e">bubbly</span>(theme <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gravitas&#34;</span>)
-</code></pre></div><p>preserve742966e25c05daaa</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(ggplot2)
+      
 
 
-<span style="color:#a6e22e">ggplot</span>(mpg, <span style="color:#a6e22e">aes</span>(hwy)) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">geom_histogram</span>(fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#4C8591&#34;</span>)
-</code></pre></div><p><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<h1 id="go-ahead-try-out-the-other-themes-">Go ahead, try out the other themes !</h1>
+<p>Recently, I’ve created a package called <code>bubblyr</code> that allows you to render nice looking bubbles in Rmarkdown documents and Shiny applications. It’s extremely easy to use ! you only need to implement one function and choose a theme. You can have a look at the available themes <a href="https://github.com/feddelegrand7/bubblyr">here</a>. You can also specify the text color with the <code>color</code> argument.</p>
+<style type="text/css">
+
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+
+body{font-family: 'Merriweather', serif;}
+                                      
+                                      
+</style>
+<pre class="r"><code>library(bubblyr)
+
+bubbly(theme = &quot;gravitas&quot;)</code></pre>
+<script src="https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"></script>
+<style>body{color:white}</style>
+<script>
+  bubbly({
+  colorStart: '#F92672',
+  colorStop: '#59B6C7',
+  bubbles:222,
+  blur:1,
+  compose: 'source-over',
+  bubbleFunc:() => `hsla(${222 + Math.random() * 2}, 100%, 50%, 1)`,
+  angleFunc:() => Math.random() > 0.3 ? Math.PI : 1.2 * Math.PI,
+  velocityFunc:() => 2 + Math.random() * 1,
+  radiusFunc:() => Math.random() * 10
+    });
+
+      </script>
+<pre class="r"><code>library(ggplot2)
+
+
+ggplot(mpg, aes(hwy)) +
+  geom_histogram(fill = &quot;#4C8591&quot;)</code></pre>
+<p><img src="/post/2020-07-30-create-nice-looking-bubbles-in-rmarkdown-and-shiny-backgrounds-with-bubblyr.en_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<center>
+<p><img src="https://www.r-project.org/logo/Rlogo.png" /></p>
+<div id="go-ahead-try-out-the-other-themes" class="section level1">
+<h1>Go ahead, try out the other themes !</h1>
+</div>
 
     </div>
 
@@ -783,18 +810,6 @@ library(ggplot2) ggplot(mpg, aes(hwy)) &#43; geom_histogram(fill = &#34;#4C8591&
 
 
       
-      
-      <div class="article-widget">
-        <div class="hr-light"></div>
-        <h3>Related</h3>
-        <ul>
-          
-          <li><a href="/post/create-nice-looking-bubbles-in-rmarkdown-and-shiny-backgrounds-with-bubblyr/">Create Nice Looking Bubbles in Rmarkdown and Shiny Backgrounds with bubblyr</a></li>
-          
-          <li><a href="/post/create-nice-looking-bubbles-in-rmarkdown-and-shiny-backgrounds-with-bubblyr/">Create Nice Looking Bubbles in Rmarkdown and Shiny Backgrounds with bubblyr</a></li>
-          
-        </ul>
-      </div>
       
     
 

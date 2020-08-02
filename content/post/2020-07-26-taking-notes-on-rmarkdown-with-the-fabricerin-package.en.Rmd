@@ -42,12 +42,32 @@ fabric_drawing(cid = "canvasId", #canvas Id
                cheight = 400, #canvas height
                cfill = "#282A36", #canvas color
                drawingWidth = 10, #width of the drawing lines
-               drawingColor = "ivory", 
                gumSize = 30 #size of the gum
                )
 
 
 ```
+
+
+You can change play with the arguments to shape you canvas and your drawing experience.
+
+
+
+```{r}
+
+fabric_drawing(cid = "canvasId2", #canvas Id 
+               cwidth = 500, #canvas width
+               cheight = 1000, #canvas height
+               cfill = "#FFCD43", #canvas color
+               drawingWidth = 5, #width of the drawing lines
+               gumSize = 50 #size of the gum
+               )
+
+```
+
+
+
+
 
 
 For more info, here is the [Github repo](https://github.com/feddelegrand7/fabricerin)
