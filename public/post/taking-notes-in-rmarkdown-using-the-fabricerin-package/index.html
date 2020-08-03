@@ -666,11 +666,11 @@ use_fabric()</code></pre>
                cheight = 400, #canvas height
                cfill = &quot;#282A36&quot;, #canvas color
                drawingWidth = 10, #width of the drawing lines
-               drawingColor = &quot;ivory&quot;, 
                gumSize = 30 #size of the gum
                )</code></pre>
 <input id="erasecanvasId" type="checkbox"> Gum</input>
 <input id="exportcanvasId" type="button" value="Export"/>
+<input id="canvasIddrawing-color" type="color" value="#005E7A"/>
 <br/>
 <br/>
 <canvas id="canvasId" width="400" height="400"></canvas>
@@ -687,7 +687,15 @@ const canvasId = new fabric.Canvas('canvasId', {
 canvasId.freeDrawingBrush.width  = 10;
 
 
-canvasId.freeDrawingBrush.color  = 'ivory';
+canvasIddrawingColorEl = document.getElementById('canvasIddrawing-color');
+
+canvasId.freeDrawingBrush.color = canvasIddrawingColorEl.value;
+
+canvasIddrawingColorEl.onchange = function() {
+    canvasId.freeDrawingBrush.color = canvasIddrawingColorEl.value;
+  };
+
+
 
 
 
@@ -699,7 +707,7 @@ canvasId.freeDrawingBrush.color  = 'ivory';
 
     } else {
 
-      canvasId.freeDrawingBrush.color = 'ivory';
+      canvasId.freeDrawingBrush.color = canvasIddrawingColorEl.value;
 
     }
 
@@ -740,6 +748,10 @@ $('#exportcanvasId').click(function(){
 });
 
 
+
+
+
+
 </script>
 <p>You can change play with the arguments to shape you canvas and your drawing experience.</p>
 <pre class="r"><code>fabric_drawing(cid = &quot;canvasId2&quot;, #canvas Id 
@@ -747,11 +759,11 @@ $('#exportcanvasId').click(function(){
                cheight = 1000, #canvas height
                cfill = &quot;#FFCD43&quot;, #canvas color
                drawingWidth = 5, #width of the drawing lines
-               drawingColor = &quot;#0082FC&quot;, 
                gumSize = 50 #size of the gum
                )</code></pre>
 <input id="erasecanvasId2" type="checkbox"> Gum</input>
 <input id="exportcanvasId2" type="button" value="Export"/>
+<input id="canvasId2drawing-color" type="color" value="#005E7A"/>
 <br/>
 <br/>
 <canvas id="canvasId2" width="500" height="1000"></canvas>
@@ -768,7 +780,15 @@ const canvasId2 = new fabric.Canvas('canvasId2', {
 canvasId2.freeDrawingBrush.width  = 5;
 
 
-canvasId2.freeDrawingBrush.color  = '#0082FC';
+canvasId2drawingColorEl = document.getElementById('canvasId2drawing-color');
+
+canvasId2.freeDrawingBrush.color = canvasId2drawingColorEl.value;
+
+canvasId2drawingColorEl.onchange = function() {
+    canvasId2.freeDrawingBrush.color = canvasId2drawingColorEl.value;
+  };
+
+
 
 
 
@@ -780,7 +800,7 @@ canvasId2.freeDrawingBrush.color  = '#0082FC';
 
     } else {
 
-      canvasId2.freeDrawingBrush.color = '#0082FC';
+      canvasId2.freeDrawingBrush.color = canvasId2drawingColorEl.value;
 
     }
 
@@ -819,6 +839,10 @@ $('#exportcanvasId2').click(function(){
 
 
 });
+
+
+
+
 
 
 </script>

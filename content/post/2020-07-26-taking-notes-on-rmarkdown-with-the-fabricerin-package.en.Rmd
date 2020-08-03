@@ -21,9 +21,7 @@ projects: []
 
 I've recently released a new package called `fabricerin`, now you can insert easily a canvas withing RMarkdown documents and Shiny apps for drawing or notes taking. 
 
-How to do that ? two functions: 
-
-- `use_fabric()`: this function is mandatory and has to be set at the beginning of your document (app). It enables the javascript library [fabricjs](http://fabricjs.com/). Of course, __you'll need to run it only once.__
+How to do that ? one function: 
 
 - `fabric_drawing()`: allows you implement a canvas in which you can draw/take notes.
 
@@ -34,8 +32,6 @@ How to do that ? two functions:
 ```{r}
 
 library(fabricerin)
-
-use_fabric()
 
 fabric_drawing(cid = "canvasId", #canvas Id 
                cwidth = 400, #canvas width
@@ -56,18 +52,14 @@ You can change play with the arguments to shape you canvas and your drawing expe
 ```{r}
 
 fabric_drawing(cid = "canvasId2", #canvas Id 
-               cwidth = 500, #canvas width
-               cheight = 1000, #canvas height
+               cwidth = 200, #canvas width
+               cheight = 200, #canvas height
                cfill = "#FFCD43", #canvas color
                drawingWidth = 5, #width of the drawing lines
                gumSize = 50 #size of the gum
                )
 
 ```
-
-
-
-
 
 
 For more info, here is the [Github repo](https://github.com/feddelegrand7/fabricerin)

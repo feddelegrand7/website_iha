@@ -1,0 +1,232 @@
+---
+title: 'fabricerin: A Tutorial'
+author: Mohamed El Fodil Ihaddaden
+date: '2020-08-02'
+slug: fabricerin-a-tutorial
+categories: []
+tags:
+  - fabricerin
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-08-02T11:15:09+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+
+## 1. fabric_drawing()
+***
+
+
+> Create a canvas in which the user can draw. 
+
+
+
+```{r}
+
+library(fabricerin)
+
+
+fabric_drawing(cid = "canvas1", 
+               cwidth = 400, 
+               cheight = 400, 
+               cfill = "orange", 
+               drawingWidth = 20, 
+               gumSize = 10)
+
+```
+
+
+You can have many canvas working independently within one document. 
+
+```{r}
+
+fabric_drawing(cid = "canvas2", 
+               cwidth = 200, 
+               cheight = 200, 
+               cfill = "lightblue", 
+               drawingWidth = 10, 
+               gumSize = 40)
+
+
+```
+
+
+## 2. fabric_shape()
+***
+
+> Creates a canvas in which a defined shape element is included. The shape is positioned according to two elements `left` and `top`. Both are set relatively to the canvas.
+
+### 2.1. Rectangle 
+***
+
+```{r}
+
+
+fabric_shape(cid = "canvas_Rect", 
+             cwidth = 500, 
+             cheight = 500, 
+             cfill = "lightgreen", 
+             shapeId = "rect1", 
+             shape = "Rect", 
+             left = 200, 
+             top = 200)
+
+```
+
+The user can modify the size, position and rotation of the shape interactively, if you want to disable this feature set the `selectable` argument to `FALSE`: 
+
+
+```{r}
+
+
+fabric_shape(cid = "canvas_Rect2", 
+             cwidth = 500, 
+             cheight = 500, 
+             cfill = "lightgreen", 
+             shapeId = "rect2", 
+             shape = "Rect", 
+             left = 200, 
+             top = 200, 
+             selectable = FALSE)
+
+```
+
+### 2.2. Circle
+
+```{r}
+
+
+fabric_shape(cid = "canvas_circle", 
+             cwidth = 500, 
+             cheight = 500, 
+             cfill = "red", 
+             shapeId = "circ", 
+             shape = "Circle",
+             fill = "yellow",
+             radius = 100,
+             strokecolor = "green", 
+             strokewidth = 2)
+
+
+```
+
+
+### 2.3. Triangle
+
+```{r}
+
+
+fabric_shape(cid = "canvas_Triangle", 
+             cwidth = 500, 
+             cheight = 500, 
+             cfill = "#B4B4D8", 
+             shapeId = "tri", 
+             shape = "Triangle", 
+             left = 150, 
+             top = 150, 
+             fill = "#D7BC66")
+
+```
+
+
+### 2.4. Polygon
+
+
+```{r}
+
+
+
+fabric_shape(cid = "canvas_Polygon",
+             cwidth = 400, 
+             cheight = 400, 
+             shapeId = "poly1", 
+             shape = "Polygon", 
+             top = 200, 
+             cfill = "#4E5C68", 
+             fill = "#1BDB99",
+             xPolygon = c(200, 250, 250, 150, 150), 
+             yPolygon = c(10, 50, 180, 180, 50))
+
+
+
+```
+
+
+
+
+## 3. fabric_text()
+***
+
+> Creates a canvas in which a defined text is rendered. 
+
+
+```{r}
+
+fabric_text(cid = "canvas_text", 
+            cwidth = 800, 
+            cheight = 100, 
+            cfill = "#D769AB", 
+            textId = "txt1", 
+            text = "You understand that you must wear a mask ?!!", 
+            left = 10, 
+            top = 10, 
+            fill = "blue",
+            strokewidth = 0)
+
+```
+
+
+## 4. fabric_image()
+***
+
+> Inserts external images within a canvas element.
+
+
+```{r}
+
+fabric_image(cid = "cimage", 
+             cfill = "#000000", 
+             cwidth = 500, 
+             cheight = 500,
+             imgId = "dplyrhex",
+             imgsrc = "https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/dplyr.png",
+             imgwidth = 250,
+             imgheight = 250)
+                  
+
+
+```
+
+
+## 5. fabric_curtail()
+***
+
+
+> Add a background or an overlay image to a preexisting canvas. 
+
+
+
+```{r}
+
+fabric_shape(cid = "canvas_curtail",
+              shapeId = "tri1",
+              shape = "Triangle",
+              fill = "lightblue")
+
+fabric_curtail(cid = "canvas_curtail",
+imgsrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/724px-R_logo.svg.png",
+type = "background"
+
+              )
+
+
+```
+

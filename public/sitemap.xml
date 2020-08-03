@@ -18,6 +18,31 @@
   </url>
   
   <url>
+    <loc>/tags/fabricerin/</loc>
+    <lastmod>2020-08-02T11:15:09+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/fabricerin-a-tutorial/</loc>
+    <lastmod>2020-08-02T11:15:09+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-08-02T11:15:09+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-08-02T11:15:09+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-08-02T11:15:09+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/bubblyr/</loc>
     <lastmod>2020-07-30T01:13:50+02:00</lastmod>
   </url>
@@ -28,27 +53,12 @@
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2020-07-30T01:13:50+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/packages/</loc>
     <lastmod>2020-07-30T01:13:50+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2020-07-30T01:13:50+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/rmarkdown/</loc>
-    <lastmod>2020-07-30T01:13:50+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-07-30T01:13:50+02:00</lastmod>
   </url>
   

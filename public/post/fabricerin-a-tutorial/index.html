@@ -28,11 +28,12 @@
   
     
   
-  <meta name="description" content="Fatma Zohra Samiha has recently graduated from the Ecole Nationale Supérieure de Statistique et d’Economie Appliquée ENSSEA. She has a master degree in applied economics. Currently, she’s looking for her first challenge.
-I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use R ?I was introduced to the R world thanks to our time series professor, madam Chaouech Saloua who asked us to use to make a forecast using R and another software of our choice.">
+  <meta name="description" content="0. use_fabric()Mandatory function, used to activate the fabric js library. use_fabric() needs to be run only once.
+1. fabric_drawing()Create a canvas in which the user can draw.
+library(fabricerin)use_fabric() # This function is run once in all the present documentfabric_drawing(cid = &quot;canvas1&quot;, cwidth = 400, cheight = 400, cfill = &quot;orange&quot;, drawingWidth = 20, gumSize = 10)Gumconst canvas1 = new fabric.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/algerian-r-users-fatma-zohra-samiha/">
+  <link rel="alternate" hreflang="en-us" href="/post/fabricerin-a-tutorial/">
 
   
 
@@ -113,7 +114,7 @@ I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use 
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/algerian-r-users-fatma-zohra-samiha/">
+  <link rel="canonical" href="/post/fabricerin-a-tutorial/">
 
   
   
@@ -128,16 +129,17 @@ I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use 
   <meta property="twitter:creator" content="@moh_fodil">
   
   <meta property="og:site_name" content="Mohamed El Fodil IHADDADEN">
-  <meta property="og:url" content="/post/algerian-r-users-fatma-zohra-samiha/">
-  <meta property="og:title" content="AlgeRian R users: Fatma Zohra Samiha  | Mohamed El Fodil IHADDADEN">
-  <meta property="og:description" content="Fatma Zohra Samiha has recently graduated from the Ecole Nationale Supérieure de Statistique et d’Economie Appliquée ENSSEA. She has a master degree in applied economics. Currently, she’s looking for her first challenge.
-I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use R ?I was introduced to the R world thanks to our time series professor, madam Chaouech Saloua who asked us to use to make a forecast using R and another software of our choice."><meta property="og:image" content="/img/logo-via-logohub.png">
+  <meta property="og:url" content="/post/fabricerin-a-tutorial/">
+  <meta property="og:title" content="fabricerin: A Tutorial | Mohamed El Fodil IHADDADEN">
+  <meta property="og:description" content="0. use_fabric()Mandatory function, used to activate the fabric js library. use_fabric() needs to be run only once.
+1. fabric_drawing()Create a canvas in which the user can draw.
+library(fabricerin)use_fabric() # This function is run once in all the present documentfabric_drawing(cid = &quot;canvas1&quot;, cwidth = 400, cheight = 400, cfill = &quot;orange&quot;, drawingWidth = 20, gumSize = 10)Gumconst canvas1 = new fabric."><meta property="og:image" content="/img/logo-via-logohub.png">
   <meta property="twitter:image" content="/img/logo-via-logohub.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-12-07T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2020-08-02T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2019-12-07T20:38:30&#43;01:00">
+    <meta property="article:modified_time" content="2020-08-02T11:15:09&#43;02:00">
   
 
   
@@ -149,7 +151,7 @@ I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use 
 
 
 
-  <title>AlgeRian R users: Fatma Zohra Samiha  | Mohamed El Fodil IHADDADEN</title>
+  <title>fabricerin: A Tutorial | Mohamed El Fodil IHADDADEN</title>
 
 </head>
 
@@ -482,7 +484,7 @@ I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use 
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">AlgeRian R users: Fatma Zohra Samiha </h1>
+  <h1 itemprop="name">fabricerin: A Tutorial</h1>
 
   
 
@@ -491,8 +493,8 @@ I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use 
 
 
 
-<meta content="2019-12-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2019-12-07 20:38:30 &#43;0100 CET" itemprop="dateModified">
+<meta content="2020-08-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2020-08-02 11:15:09 &#43;0200 CEST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -507,7 +509,7 @@ I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use 
           Last updated on
       
     
-    <time>Dec 7, 2019</time>
+    <time>Aug 2, 2020</time>
   </span>
   
 
@@ -516,7 +518,7 @@ I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    5 min read
   </span>
   
 
@@ -540,7 +542,7 @@ I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use 
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/post/algerian-r-users-fatma-zohra-samiha/&amp;text=AlgeRian%20R%20users:%20Fatma%20Zohra%20Samiha%20" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=/post/fabricerin-a-tutorial/&amp;text=fabricerin:%20A%20Tutorial" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -553,7 +555,7 @@ I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use 
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/post/algerian-r-users-fatma-zohra-samiha/&amp;t=AlgeRian%20R%20users:%20Fatma%20Zohra%20Samiha%20" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=/post/fabricerin-a-tutorial/&amp;t=fabricerin:%20A%20Tutorial" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook-f"></i>
         </a>
       </li>
@@ -566,7 +568,7 @@ I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use 
       
       
       <li>
-        <a href="mailto:?subject=AlgeRian%20R%20users:%20Fatma%20Zohra%20Samiha%20&amp;body=/post/algerian-r-users-fatma-zohra-samiha/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=fabricerin:%20A%20Tutorial&amp;body=/post/fabricerin-a-tutorial/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -579,7 +581,7 @@ I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use 
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/post/algerian-r-users-fatma-zohra-samiha/&amp;title=AlgeRian%20R%20users:%20Fatma%20Zohra%20Samiha%20" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=/post/fabricerin-a-tutorial/&amp;title=fabricerin:%20A%20Tutorial" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -592,7 +594,7 @@ I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use 
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=AlgeRian%20R%20users:%20Fatma%20Zohra%20Samiha%20%20/post/algerian-r-users-fatma-zohra-samiha/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=fabricerin:%20A%20Tutorial%20/post/fabricerin-a-tutorial/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -605,7 +607,7 @@ I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use 
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/post/algerian-r-users-fatma-zohra-samiha/&amp;title=AlgeRian%20R%20users:%20Fatma%20Zohra%20Samiha%20" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=/post/fabricerin-a-tutorial/&amp;title=fabricerin:%20A%20Tutorial" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -645,49 +647,585 @@ I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<p>Fatma Zohra Samiha has recently graduated from the Ecole Nationale Supérieure de Statistique et d’Economie Appliquée ENSSEA. She has a master degree in applied economics. Currently, she’s looking for her first challenge.</p>
-<p><img src="samiha.jpg" /></p>
-<div id="i-know-that-at-enssea-we-teach-mostly-eviews-and-spss-how-did-you-come-to-use-r" class="section level3">
-<h3>I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use R ?</h3>
+<div id="use_fabric" class="section level2">
+<h2>0. use_fabric()</h2>
+<hr />
 <blockquote>
-<p>I was introduced to the R world thanks to our time series professor, madam <strong>Chaouech Saloua</strong> who asked us to use to make a forecast using R and another software of our choice. I suddenly felt in love with R, getting the required results with few lines of code was magical.</p>
+<p>Mandatory function, used to activate the fabric js library. <code>use_fabric()</code> needs to be run only once.</p>
 </blockquote>
 </div>
-<div id="nice-did-you-use-base-r-or-a-specific-package-to-make-your-forecast" class="section level3">
-<h3>Nice ! did you use base R or a specific package to make your forecast ?</h3>
+<div id="fabric_drawing" class="section level2">
+<h2>1. fabric_drawing()</h2>
+<hr />
 <blockquote>
-<p>I used the <a href="https://cran.r-project.org/web/packages/forecast/forecast.pdf">forecast</a> package which provides the great <code>auto.arima()</code> function.</p>
+<p>Create a canvas in which the user can draw.</p>
 </blockquote>
+<pre class="r"><code>library(fabricerin)
+use_fabric() # This function is run once in all the present document</code></pre>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.min.js"></script>
+<pre class="r"><code>fabric_drawing(cid = &quot;canvas1&quot;, 
+               cwidth = 400, 
+               cheight = 400, 
+               cfill = &quot;orange&quot;, 
+               drawingWidth = 20, 
+               gumSize = 10)</code></pre>
+<input id="erasecanvas1" type="checkbox"> Gum</input>
+<input id="exportcanvas1" type="button" value="Export"/>
+<input id="canvas1drawing-color" type="color" value="#005E7A"/>
+<br/>
+<br/>
+<canvas id="canvas1" width="400" height="400"></canvas>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+<script>
+const canvas1 = new fabric.Canvas('canvas1', {
+    backgroundColor: 'orange',
+    isDrawingMode: true
+
+    });
+
+
+canvas1.freeDrawingBrush.width  = 20;
+
+
+canvas1drawingColorEl = document.getElementById('canvas1drawing-color');
+
+canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;
+
+canvas1drawingColorEl.onchange = function() {
+    canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;
+  };
+
+
+
+
+
+ $('#erasecanvas1').click(function(){
+
+    if (this.checked) {
+
+      canvas1.freeDrawingBrush.color  = 'orange';
+
+    } else {
+
+      canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;
+
+    }
+
+
+
+});
+
+
+
+
+
+ $('#erasecanvas1').click(function(){
+
+    if (this.checked) {
+
+      canvas1.freeDrawingBrush.width   = 10;
+
+    } else {
+
+      canvas1.freeDrawingBrush.width  = 20;
+
+    }
+
+
+});
+
+
+$('#exportcanvas1').click(function(){
+
+  $('#canvas1').get(0).toBlob(function(blob){
+
+    saveAs(blob, 'canvas1-IMG.png');
+
+
+  });
+
+
+});
+
+
+
+
+
+
+</script>
+<p>You can have many canvas working independently within one document.</p>
+<pre class="r"><code>fabric_drawing(cid = &quot;canvas2&quot;, 
+               cwidth = 200, 
+               cheight = 200, 
+               cfill = &quot;lightblue&quot;, 
+               drawingWidth = 10, 
+               gumSize = 40)</code></pre>
+<input id="erasecanvas2" type="checkbox"> Gum</input>
+<input id="exportcanvas2" type="button" value="Export"/>
+<input id="canvas2drawing-color" type="color" value="#005E7A"/>
+<br/>
+<br/>
+<canvas id="canvas2" width="200" height="200"></canvas>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+<script>
+const canvas2 = new fabric.Canvas('canvas2', {
+    backgroundColor: 'lightblue',
+    isDrawingMode: true
+
+    });
+
+
+canvas2.freeDrawingBrush.width  = 10;
+
+
+canvas2drawingColorEl = document.getElementById('canvas2drawing-color');
+
+canvas2.freeDrawingBrush.color = canvas2drawingColorEl.value;
+
+canvas2drawingColorEl.onchange = function() {
+    canvas2.freeDrawingBrush.color = canvas2drawingColorEl.value;
+  };
+
+
+
+
+
+ $('#erasecanvas2').click(function(){
+
+    if (this.checked) {
+
+      canvas2.freeDrawingBrush.color  = 'lightblue';
+
+    } else {
+
+      canvas2.freeDrawingBrush.color = canvas2drawingColorEl.value;
+
+    }
+
+
+
+});
+
+
+
+
+
+ $('#erasecanvas2').click(function(){
+
+    if (this.checked) {
+
+      canvas2.freeDrawingBrush.width   = 40;
+
+    } else {
+
+      canvas2.freeDrawingBrush.width  = 10;
+
+    }
+
+
+});
+
+
+$('#exportcanvas2').click(function(){
+
+  $('#canvas2').get(0).toBlob(function(blob){
+
+    saveAs(blob, 'canvas2-IMG.png');
+
+
+  });
+
+
+});
+
+
+
+
+
+
+</script>
 </div>
-<div id="what-was-your-master-research-topic" class="section level3">
-<h3>What was your master research topic ?</h3>
+<div id="fabric_shape" class="section level2">
+<h2>2. fabric_shape()</h2>
+<hr />
 <blockquote>
-<p>My master thesis treated the Application of supervised machine learning models in order to predict customer churn at Djezzy company.</p>
+<p>Creates a canvas in which a defined shape element is included. The shape is positioned according to two elements <code>left</code> and <code>top</code>. Both are set relatively to the canvas.</p>
 </blockquote>
+<div id="rectangle" class="section level3">
+<h3>2.1. Rectangle</h3>
+<hr />
+<pre class="r"><code>fabric_shape(cid = &quot;canvas_Rect&quot;, 
+             cwidth = 500, 
+             cheight = 500, 
+             cfill = &quot;lightgreen&quot;, 
+             shapeId = &quot;rect1&quot;, 
+             shape = &quot;Rect&quot;, 
+             left = 200, 
+             top = 200)</code></pre>
+<canvas id="canvas_Rect" width="500" height="500"></canvas>
+<script>
+var canvas_Rect = new fabric.Canvas('canvas_Rect', {
+
+    isDrawingMode: false
+
+    });
+
+canvas_Rect.backgroundColor = 'lightgreen';
+
+
+var rect1 = new fabric.Rect({
+
+left: 200,
+top: 200,
+fill: 'red',
+width: 200,
+height: 200,
+angle: 0,
+opacity: 1,
+stroke: 'darkblue',
+strokeWidth: 5,
+selectable: true,
+
+
+
+});
+
+canvas_Rect.add(rect1);
+
+</script>
+<p>The user can modify the size, position and rotation of the shape interactively, if you want to disable this feature set the <code>selectable</code> argument to <code>FALSE</code>:</p>
+<pre class="r"><code>fabric_shape(cid = &quot;canvas_Rect2&quot;, 
+             cwidth = 500, 
+             cheight = 500, 
+             cfill = &quot;lightgreen&quot;, 
+             shapeId = &quot;rect2&quot;, 
+             shape = &quot;Rect&quot;, 
+             left = 200, 
+             top = 200, 
+             selectable = FALSE)</code></pre>
+<canvas id="canvas_Rect2" width="500" height="500"></canvas>
+<script>
+var canvas_Rect2 = new fabric.Canvas('canvas_Rect2', {
+
+    isDrawingMode: false
+
+    });
+
+canvas_Rect2.backgroundColor = 'lightgreen';
+
+
+var rect2 = new fabric.Rect({
+
+left: 200,
+top: 200,
+fill: 'red',
+width: 200,
+height: 200,
+angle: 0,
+opacity: 1,
+stroke: 'darkblue',
+strokeWidth: 5,
+selectable: false,
+
+
+
+});
+
+canvas_Rect2.add(rect2);
+
+</script>
 </div>
-<div id="so-a-machine-learning-subject-quite-ambitious-which-model-did-you-implement" class="section level3">
-<h3>So, a machine learning subject, quite ambitious, which model did you implement ?</h3>
+<div id="circle" class="section level3">
+<h3>2.2. Circle</h3>
+<pre class="r"><code>fabric_shape(cid = &quot;canvas_circle&quot;, 
+             cwidth = 500, 
+             cheight = 500, 
+             cfill = &quot;red&quot;, 
+             shapeId = &quot;circ&quot;, 
+             shape = &quot;Circle&quot;,
+             fill = &quot;yellow&quot;,
+             radius = 100,
+             strokecolor = &quot;green&quot;, 
+             strokewidth = 2)</code></pre>
+<canvas id="canvas_circle" width="500" height="500"></canvas>
+<script>
+var canvas_circle = new fabric.Canvas('canvas_circle', {
+
+    isDrawingMode: false
+
+    });
+
+canvas_circle.backgroundColor = 'red';
+
+
+var circ = new fabric.Circle({
+
+left: 100,
+top: 100,
+fill: 'yellow',
+width: 200,
+height: 200,
+angle: 0,
+opacity: 1,
+stroke: 'green',
+strokeWidth: 2,
+selectable: true,
+
+radius:100
+
+});
+
+canvas_circle.add(circ);
+
+</script>
+</div>
+<div id="triangle" class="section level3">
+<h3>2.3. Triangle</h3>
+<pre class="r"><code>fabric_shape(cid = &quot;canvas_Triangle&quot;, 
+             cwidth = 500, 
+             cheight = 500, 
+             cfill = &quot;#B4B4D8&quot;, 
+             shapeId = &quot;tri&quot;, 
+             shape = &quot;Triangle&quot;, 
+             left = 150, 
+             top = 150, 
+             fill = &quot;#D7BC66&quot;)</code></pre>
+<canvas id="canvas_Triangle" width="500" height="500"></canvas>
+<script>
+var canvas_Triangle = new fabric.Canvas('canvas_Triangle', {
+
+    isDrawingMode: false
+
+    });
+
+canvas_Triangle.backgroundColor = '#B4B4D8';
+
+
+var tri = new fabric.Triangle({
+
+left: 150,
+top: 150,
+fill: '#D7BC66',
+width: 200,
+height: 200,
+angle: 0,
+opacity: 1,
+stroke: 'darkblue',
+strokeWidth: 5,
+selectable: true,
+
+
+
+});
+
+canvas_Triangle.add(tri);
+
+</script>
+</div>
+<div id="polygon" class="section level3">
+<h3>2.4. Polygon</h3>
+<pre class="r"><code>fabric_shape(cid = &quot;canvas_Polygon&quot;,
+             cwidth = 400, 
+             cheight = 400, 
+             shapeId = &quot;poly1&quot;, 
+             shape = &quot;Polygon&quot;, 
+             top = 200, 
+             cfill = &quot;#4E5C68&quot;, 
+             fill = &quot;#1BDB99&quot;,
+             polx = c(200, 250, 250, 150, 150), 
+             poly = c(10, 50, 180, 180, 50))</code></pre>
+<canvas id="canvas_Polygon" width="400" height="400"></canvas>
+<script>var canvas_Polygon = new fabric.Canvas('canvas_Polygon', {
+
+    isDrawingMode: false
+
+    });
+
+canvas_Polygon.backgroundColor = '#4E5C68';
+
+
+var poly1 = new fabric.Polygon(
+
+[{x: 200 , y: 10 },{x: 250 , y: 50 },{x: 250 , y: 180 },{x: 150 , y: 180 },{x: 150 , y: 50 }], {
+
+fill: '#1BDB99',
+left: 100,
+top: 200,
+width: 200,
+height: 200,
+angle: 0,
+opacity: 1,
+stroke: 'darkblue',
+strokeWidth: 5,
+selectable: true
+
+});
+
+canvas_Polygon.add(poly1);
+
+</script>
+</div>
+</div>
+<div id="fabric_text" class="section level2">
+<h2>3. fabric_text()</h2>
+<hr />
 <blockquote>
-<p>I benchmarked three algorithms: logistic regression, Linear Support Vector Machine and random forest. The best performance was reached by the linear SVM model.</p>
+<p>Creates a canvas in which a defined text is rendered.</p>
 </blockquote>
+<pre class="r"><code>fabric_text(cid = &quot;canvas_text&quot;, 
+            cwidth = 800, 
+            cheight = 100, 
+            cfill = &quot;#D769AB&quot;, 
+            textId = &quot;txt1&quot;, 
+            text = &quot;You understand that you must wear a mask ?!!&quot;, 
+            left = 10, 
+            top = 10, 
+            fill = &quot;blue&quot;,
+            strokewidth = 0)</code></pre>
+<canvas id="canvas_text" width="800" height="100"></canvas>
+<script>
+  var canvas_text = new fabric.Canvas('canvas_text', {
+
+    isDrawingMode: false
+
+    });
+
+  canvas_text.backgroundColor = '#D769AB';
+
+  var txt1 = new fabric.Text("You understand that you must wear a mask ?!!", {
+
+  left: 10,
+  top: 10,
+  fontFamily: 'Comic Sans',
+  fontSize: 40,
+  fontStyle: 'normal',
+  fontWeight: 'normal',
+  underline: false,
+  linethrough: false,
+  overline: false,
+  fill: 'blue',
+  angle: 0,
+  opacity: 1,
+  stroke: '#282A36',
+  strokeWidth: 0,
+  textAlign: 'center',
+  lineHeight: 1,
+  
+  selectable: true,
+  
+
+});
+
+  canvas_text.add(txt1);
+</script>
 </div>
-<div id="interesting-you-should-have-a-strong-knoweledge-in-machine-learning-which-is-a-great-asset-nowadays.-as-such-i-assume-youre-looking-for-a-job-related-to-data-right" class="section level3">
-<h3>Interesting, you should have a strong knoweledge in Machine Learning which is a great asset nowadays. As such I assume you’re looking for a job related to data, right ?</h3>
+<div id="fabric_image" class="section level2">
+<h2>4. fabric_image()</h2>
+<hr />
 <blockquote>
-<p>Indeed, I’m looking for a data analyst position, preferably within the medical or telecommunication sector.</p>
+<p>Inserts external images within a canvas element.</p>
 </blockquote>
+<pre class="r"><code>fabric_image(cid = &quot;cimage&quot;, 
+             cfill = &quot;#000000&quot;, 
+             cwidth = 500, 
+             cheight = 500,
+             imgId = &quot;dplyrhex&quot;,
+             imgsrc = &quot;https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/dplyr.png&quot;,
+             imgwidth = 250,
+             imgheight = 250)</code></pre>
+<canvas id="cimage" width="500" height="500"></canvas>
+<script> var cimage = new fabric.Canvas('cimage', {
+
+   isDrawingMode: false
+
+   });
+
+ cimage.backgroundColor = '#000000';
+
+fabric.Image.fromURL('https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/dplyr.png', function(dplyrhex) {
+
+var dplyrhex = dplyrhex.set({
+left: 100,
+top: 100,
+angle: 0,
+opacity: 1,
+stroke: 'darkblue',
+strokeWidth: 1,
+selectable: true
+
+ });
+
+dplyrhex.scaleToHeight(250);
+dplyrhex.scaleToWidth(250);
+
+cimage.add(dplyrhex);
+
+ });
+</script>
 </div>
-<div id="i-hope-youll-find-your-dream-job-very-soon-where-youll-apply-your-expertise-in-data-analysis-and-machine-learning." class="section level3">
-<h3>I hope you’ll find your dream job very soon where you’ll apply your expertise in data analysis and machine learning.</h3>
-</div>
-<div id="finally-do-you-have-a-message-to-the-current-enssea-students-who-might-read-this-article" class="section level3">
-<h3>Finally, do you have a message to the current ENSSEA students who might read this article ?</h3>
+<div id="fabric_curtail" class="section level2">
+<h2>5. fabric_curtail()</h2>
+<hr />
 <blockquote>
-<p>I would like to invite all the ENSSEA students to use R instead of the classical commercial softwares because according to me R reperesents the future of data analysis.</p>
+<p>Add a background or an overlay image to a preexisting canvas.</p>
 </blockquote>
-</div>
-<div id="well-thank-you-very-much-miss-samiha-for-sharing-your-r-experience-with-us.-i-hope-youll-contribute-with-miss-kamila-benadrouche-to-establish-the-first-algerian-r-ladies-group.-of-course-people-can-contact-you-at-khenaka-samiha_ensseahotmail.com" class="section level3">
-<h3>Well thank you very much Miss Samiha for sharing your R experience with us. I hope you’ll contribute with Miss Kamila Benadrouche to establish the first Algerian R-ladies group. Of course, people can contact you at <a href="mailto:Khenaka-samiha_enssea@hotmail.com" class="email">Khenaka-samiha_enssea@hotmail.com</a></h3>
+<pre class="r"><code>fabric_shape(cid = &quot;canvas_curtail&quot;,
+              shapeId = &quot;tri1&quot;,
+              shape = &quot;Triangle&quot;,
+              fill = &quot;lightblue&quot;)</code></pre>
+<canvas id="canvas_curtail" width="800" height="600"></canvas>
+<script>
+var canvas_curtail = new fabric.Canvas('canvas_curtail', {
+
+    isDrawingMode: false
+
+    });
+
+canvas_curtail.backgroundColor = '#FFFFFF';
+
+
+var tri1 = new fabric.Triangle({
+
+left: 100,
+top: 100,
+fill: 'lightblue',
+width: 200,
+height: 200,
+angle: 0,
+opacity: 1,
+stroke: 'darkblue',
+strokeWidth: 5,
+selectable: true,
+
+
+
+});
+
+canvas_curtail.add(tri1);
+
+</script>
+<pre class="r"><code>fabric_curtail(cid = &quot;canvas_curtail&quot;,
+imgsrc = &quot;https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/724px-R_logo.svg.png&quot;,
+type = &quot;background&quot;
+
+              )</code></pre>
+<script>
+
+
+fabric.Image.fromURL('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/724px-R_logo.svg.png', function(img) {
+    img.set({
+        scaleX: canvas_curtail.getWidth() / img.width,
+        scaleY: canvas_curtail.getHeight() / img.height,
+        objectCaching: false,
+        originX: 'left',
+        originY: 'top'
+     });
+     canvas_curtail.setBackgroundImage(img, canvas_curtail.renderAll.bind(canvas_curtail));
+ });
+
+</script>
 </div>
 
     </div>
@@ -699,7 +1237,7 @@ I know that at ENSSEA, we teach mostly Eviews and SPSS, how did you come to use 
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/algerian-r-users/">AlgeRian R Users</a>
+  <a class="badge badge-light" href="/tags/fabricerin/">fabricerin</a>
   
 </div>
 

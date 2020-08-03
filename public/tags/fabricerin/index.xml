@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fabricerin | Mohamed El Fodil IHADDADEN</title>
+    <link>/tags/fabricerin/</link>
+      <atom:link href="/tags/fabricerin/index.xml" rel="self" type="application/rss+xml" />
+    <description>fabricerin</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 02 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/logo-via-logohub.png</url>
+      <title>fabricerin</title>
+      <link>/tags/fabricerin/</link>
+    </image>
+    
+    <item>
+      <title>fabricerin: A Tutorial</title>
+      <link>/post/fabricerin-a-tutorial/</link>
+      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>/post/fabricerin-a-tutorial/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;use_fabric&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;0. use_fabric()&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Mandatory function, used to activate the fabric js library. &lt;code&gt;use_fabric()&lt;/code&gt; needs to be run only once.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fabric_drawing&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;1. fabric_drawing()&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Create a canvas in which the user can draw.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(fabricerin)
+use_fabric() # This function is run once in all the present document&lt;/code&gt;&lt;/pre&gt;
+&lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.min.js&#34;&gt;&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_drawing(cid = &amp;quot;canvas1&amp;quot;, 
+               cwidth = 400, 
+               cheight = 400, 
+               cfill = &amp;quot;orange&amp;quot;, 
+               drawingWidth = 20, 
+               gumSize = 10)&lt;/code&gt;&lt;/pre&gt;
+&lt;input id=&#34;erasecanvas1&#34; type=&#34;checkbox&#34;&gt; Gum&lt;/input&gt;
+&lt;input id=&#34;exportcanvas1&#34; type=&#34;button&#34; value=&#34;Export&#34;/&gt;
+&lt;input id=&#34;canvas1drawing-color&#34; type=&#34;color&#34; value=&#34;#005E7A&#34;/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;canvas id=&#34;canvas1&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
+&lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+const canvas1 = new fabric.Canvas(&#39;canvas1&#39;, {
+    backgroundColor: &#39;orange&#39;,
+    isDrawingMode: true
+
+    });
+
+
+canvas1.freeDrawingBrush.width  = 20;
+
+
+canvas1drawingColorEl = document.getElementById(&#39;canvas1drawing-color&#39;);
+
+canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;
+
+canvas1drawingColorEl.onchange = function() {
+    canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;
+  };
+
+
+
+
+
+ $(&#39;#erasecanvas1&#39;).click(function(){
+
+    if (this.checked) {
+
+      canvas1.freeDrawingBrush.color  = &#39;orange&#39;;
+
+    } else {
+
+      canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;
+
+    }
+
+
+
+});
+
+
+
+
+
+ $(&#39;#erasecanvas1&#39;).click(function(){
+
+    if (this.checked) {
+
+      canvas1.freeDrawingBrush.width   = 10;
+
+    } else {
+
+      canvas1.freeDrawingBrush.width  = 20;
+
+    }
+
+
+});
+
+
+$(&#39;#exportcanvas1&#39;).click(function(){
+
+  $(&#39;#canvas1&#39;).get(0).toBlob(function(blob){
+
+    saveAs(blob, &#39;canvas1-IMG.png&#39;);
+
+
+  });
+
+
+});
+
+
+
+
+
+
+&lt;/script&gt;
+&lt;p&gt;You can have many canvas working independently within one document.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_drawing(cid = &amp;quot;canvas2&amp;quot;, 
+               cwidth = 200, 
+               cheight = 200, 
+               cfill = &amp;quot;lightblue&amp;quot;, 
+               drawingWidth = 10, 
+               gumSize = 40)&lt;/code&gt;&lt;/pre&gt;
+&lt;input id=&#34;erasecanvas2&#34; type=&#34;checkbox&#34;&gt; Gum&lt;/input&gt;
+&lt;input id=&#34;exportcanvas2&#34; type=&#34;button&#34; value=&#34;Export&#34;/&gt;
+&lt;input id=&#34;canvas2drawing-color&#34; type=&#34;color&#34; value=&#34;#005E7A&#34;/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;canvas id=&#34;canvas2&#34; width=&#34;200&#34; height=&#34;200&#34;&gt;&lt;/canvas&gt;
+&lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+const canvas2 = new fabric.Canvas(&#39;canvas2&#39;, {
+    backgroundColor: &#39;lightblue&#39;,
+    isDrawingMode: true
+
+    });
+
+
+canvas2.freeDrawingBrush.width  = 10;
+
+
+canvas2drawingColorEl = document.getElementById(&#39;canvas2drawing-color&#39;);
+
+canvas2.freeDrawingBrush.color = canvas2drawingColorEl.value;
+
+canvas2drawingColorEl.onchange = function() {
+    canvas2.freeDrawingBrush.color = canvas2drawingColorEl.value;
+  };
+
+
+
+
+
+ $(&#39;#erasecanvas2&#39;).click(function(){
+
+    if (this.checked) {
+
+      canvas2.freeDrawingBrush.color  = &#39;lightblue&#39;;
+
+    } else {
+
+      canvas2.freeDrawingBrush.color = canvas2drawingColorEl.value;
+
+    }
+
+
+
+});
+
+
+
+
+
+ $(&#39;#erasecanvas2&#39;).click(function(){
+
+    if (this.checked) {
+
+      canvas2.freeDrawingBrush.width   = 40;
+
+    } else {
+
+      canvas2.freeDrawingBrush.width  = 10;
+
+    }
+
+
+});
+
+
+$(&#39;#exportcanvas2&#39;).click(function(){
+
+  $(&#39;#canvas2&#39;).get(0).toBlob(function(blob){
+
+    saveAs(blob, &#39;canvas2-IMG.png&#39;);
+
+
+  });
+
+
+});
+
+
+
+
+
+
+&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fabric_shape&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2. fabric_shape()&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Creates a canvas in which a defined shape element is included. The shape is positioned according to two elements &lt;code&gt;left&lt;/code&gt; and &lt;code&gt;top&lt;/code&gt;. Both are set relatively to the canvas.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div id=&#34;rectangle&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.1. Rectangle&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_shape(cid = &amp;quot;canvas_Rect&amp;quot;, 
+             cwidth = 500, 
+             cheight = 500, 
+             cfill = &amp;quot;lightgreen&amp;quot;, 
+             shapeId = &amp;quot;rect1&amp;quot;, 
+             shape = &amp;quot;Rect&amp;quot;, 
+             left = 200, 
+             top = 200)&lt;/code&gt;&lt;/pre&gt;
+&lt;canvas id=&#34;canvas_Rect&#34; width=&#34;500&#34; height=&#34;500&#34;&gt;&lt;/canvas&gt;
+&lt;script&gt;
+var canvas_Rect = new fabric.Canvas(&#39;canvas_Rect&#39;, {
+
+    isDrawingMode: false
+
+    });
+
+canvas_Rect.backgroundColor = &#39;lightgreen&#39;;
+
+
+var rect1 = new fabric.Rect({
+
+left: 200,
+top: 200,
+fill: &#39;red&#39;,
+width: 200,
+height: 200,
+angle: 0,
+opacity: 1,
+stroke: &#39;darkblue&#39;,
+strokeWidth: 5,
+selectable: true,
+
+
+
+});
+
+canvas_Rect.add(rect1);
+
+&lt;/script&gt;
+&lt;p&gt;The user can modify the size, position and rotation of the shape interactively, if you want to disable this feature set the &lt;code&gt;selectable&lt;/code&gt; argument to &lt;code&gt;FALSE&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_shape(cid = &amp;quot;canvas_Rect2&amp;quot;, 
+             cwidth = 500, 
+             cheight = 500, 
+             cfill = &amp;quot;lightgreen&amp;quot;, 
+             shapeId = &amp;quot;rect2&amp;quot;, 
+             shape = &amp;quot;Rect&amp;quot;, 
+             left = 200, 
+             top = 200, 
+             selectable = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;canvas id=&#34;canvas_Rect2&#34; width=&#34;500&#34; height=&#34;500&#34;&gt;&lt;/canvas&gt;
+&lt;script&gt;
+var canvas_Rect2 = new fabric.Canvas(&#39;canvas_Rect2&#39;, {
+
+    isDrawingMode: false
+
+    });
+
+canvas_Rect2.backgroundColor = &#39;lightgreen&#39;;
+
+
+var rect2 = new fabric.Rect({
+
+left: 200,
+top: 200,
+fill: &#39;red&#39;,
+width: 200,
+height: 200,
+angle: 0,
+opacity: 1,
+stroke: &#39;darkblue&#39;,
+strokeWidth: 5,
+selectable: false,
+
+
+
+});
+
+canvas_Rect2.add(rect2);
+
+&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;circle&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.2. Circle&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_shape(cid = &amp;quot;canvas_circle&amp;quot;, 
+             cwidth = 500, 
+             cheight = 500, 
+             cfill = &amp;quot;red&amp;quot;, 
+             shapeId = &amp;quot;circ&amp;quot;, 
+             shape = &amp;quot;Circle&amp;quot;,
+             fill = &amp;quot;yellow&amp;quot;,
+             radius = 100,
+             strokecolor = &amp;quot;green&amp;quot;, 
+             strokewidth = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;canvas id=&#34;canvas_circle&#34; width=&#34;500&#34; height=&#34;500&#34;&gt;&lt;/canvas&gt;
+&lt;script&gt;
+var canvas_circle = new fabric.Canvas(&#39;canvas_circle&#39;, {
+
+    isDrawingMode: false
+
+    });
+
+canvas_circle.backgroundColor = &#39;red&#39;;
+
+
+var circ = new fabric.Circle({
+
+left: 100,
+top: 100,
+fill: &#39;yellow&#39;,
+width: 200,
+height: 200,
+angle: 0,
+opacity: 1,
+stroke: &#39;green&#39;,
+strokeWidth: 2,
+selectable: true,
+
+radius:100
+
+});
+
+canvas_circle.add(circ);
+
+&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;triangle&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.3. Triangle&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_shape(cid = &amp;quot;canvas_Triangle&amp;quot;, 
+             cwidth = 500, 
+             cheight = 500, 
+             cfill = &amp;quot;#B4B4D8&amp;quot;, 
+             shapeId = &amp;quot;tri&amp;quot;, 
+             shape = &amp;quot;Triangle&amp;quot;, 
+             left = 150, 
+             top = 150, 
+             fill = &amp;quot;#D7BC66&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;canvas id=&#34;canvas_Triangle&#34; width=&#34;500&#34; height=&#34;500&#34;&gt;&lt;/canvas&gt;
+&lt;script&gt;
+var canvas_Triangle = new fabric.Canvas(&#39;canvas_Triangle&#39;, {
+
+    isDrawingMode: false
+
+    });
+
+canvas_Triangle.backgroundColor = &#39;#B4B4D8&#39;;
+
+
+var tri = new fabric.Triangle({
+
+left: 150,
+top: 150,
+fill: &#39;#D7BC66&#39;,
+width: 200,
+height: 200,
+angle: 0,
+opacity: 1,
+stroke: &#39;darkblue&#39;,
+strokeWidth: 5,
+selectable: true,
+
+
+
+});
+
+canvas_Triangle.add(tri);
+
+&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;polygon&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.4. Polygon&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_shape(cid = &amp;quot;canvas_Polygon&amp;quot;,
+             cwidth = 400, 
+             cheight = 400, 
+             shapeId = &amp;quot;poly1&amp;quot;, 
+             shape = &amp;quot;Polygon&amp;quot;, 
+             top = 200, 
+             cfill = &amp;quot;#4E5C68&amp;quot;, 
+             fill = &amp;quot;#1BDB99&amp;quot;,
+             polx = c(200, 250, 250, 150, 150), 
+             poly = c(10, 50, 180, 180, 50))&lt;/code&gt;&lt;/pre&gt;
+&lt;canvas id=&#34;canvas_Polygon&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
+&lt;script&gt;var canvas_Polygon = new fabric.Canvas(&#39;canvas_Polygon&#39;, {
+
+    isDrawingMode: false
+
+    });
+
+canvas_Polygon.backgroundColor = &#39;#4E5C68&#39;;
+
+
+var poly1 = new fabric.Polygon(
+
+[{x: 200 , y: 10 },{x: 250 , y: 50 },{x: 250 , y: 180 },{x: 150 , y: 180 },{x: 150 , y: 50 }], {
+
+fill: &#39;#1BDB99&#39;,
+left: 100,
+top: 200,
+width: 200,
+height: 200,
+angle: 0,
+opacity: 1,
+stroke: &#39;darkblue&#39;,
+strokeWidth: 5,
+selectable: true
+
+});
+
+canvas_Polygon.add(poly1);
+
+&lt;/script&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fabric_text&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;3. fabric_text()&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Creates a canvas in which a defined text is rendered.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_text(cid = &amp;quot;canvas_text&amp;quot;, 
+            cwidth = 800, 
+            cheight = 100, 
+            cfill = &amp;quot;#D769AB&amp;quot;, 
+            textId = &amp;quot;txt1&amp;quot;, 
+            text = &amp;quot;You understand that you must wear a mask ?!!&amp;quot;, 
+            left = 10, 
+            top = 10, 
+            fill = &amp;quot;blue&amp;quot;,
+            strokewidth = 0)&lt;/code&gt;&lt;/pre&gt;
+&lt;canvas id=&#34;canvas_text&#34; width=&#34;800&#34; height=&#34;100&#34;&gt;&lt;/canvas&gt;
+&lt;script&gt;
+  var canvas_text = new fabric.Canvas(&#39;canvas_text&#39;, {
+
+    isDrawingMode: false
+
+    });
+
+  canvas_text.backgroundColor = &#39;#D769AB&#39;;
+
+  var txt1 = new fabric.Text(&#34;You understand that you must wear a mask ?!!&#34;, {
+
+  left: 10,
+  top: 10,
+  fontFamily: &#39;Comic Sans&#39;,
+  fontSize: 40,
+  fontStyle: &#39;normal&#39;,
+  fontWeight: &#39;normal&#39;,
+  underline: false,
+  linethrough: false,
+  overline: false,
+  fill: &#39;blue&#39;,
+  angle: 0,
+  opacity: 1,
+  stroke: &#39;#282A36&#39;,
+  strokeWidth: 0,
+  textAlign: &#39;center&#39;,
+  lineHeight: 1,
+  
+  selectable: true,
+  
+
+});
+
+  canvas_text.add(txt1);
+&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fabric_image&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;4. fabric_image()&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Inserts external images within a canvas element.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_image(cid = &amp;quot;cimage&amp;quot;, 
+             cfill = &amp;quot;#000000&amp;quot;, 
+             cwidth = 500, 
+             cheight = 500,
+             imgId = &amp;quot;dplyrhex&amp;quot;,
+             imgsrc = &amp;quot;https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/dplyr.png&amp;quot;,
+             imgwidth = 250,
+             imgheight = 250)&lt;/code&gt;&lt;/pre&gt;
+&lt;canvas id=&#34;cimage&#34; width=&#34;500&#34; height=&#34;500&#34;&gt;&lt;/canvas&gt;
+&lt;script&gt; var cimage = new fabric.Canvas(&#39;cimage&#39;, {
+
+   isDrawingMode: false
+
+   });
+
+ cimage.backgroundColor = &#39;#000000&#39;;
+
+fabric.Image.fromURL(&#39;https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/dplyr.png&#39;, function(dplyrhex) {
+
+var dplyrhex = dplyrhex.set({
+left: 100,
+top: 100,
+angle: 0,
+opacity: 1,
+stroke: &#39;darkblue&#39;,
+strokeWidth: 1,
+selectable: true
+
+ });
+
+dplyrhex.scaleToHeight(250);
+dplyrhex.scaleToWidth(250);
+
+cimage.add(dplyrhex);
+
+ });
+&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fabric_curtail&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;5. fabric_curtail()&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Add a background or an overlay image to a preexisting canvas.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_shape(cid = &amp;quot;canvas_curtail&amp;quot;,
+              shapeId = &amp;quot;tri1&amp;quot;,
+              shape = &amp;quot;Triangle&amp;quot;,
+              fill = &amp;quot;lightblue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;canvas id=&#34;canvas_curtail&#34; width=&#34;800&#34; height=&#34;600&#34;&gt;&lt;/canvas&gt;
+&lt;script&gt;
+var canvas_curtail = new fabric.Canvas(&#39;canvas_curtail&#39;, {
+
+    isDrawingMode: false
+
+    });
+
+canvas_curtail.backgroundColor = &#39;#FFFFFF&#39;;
+
+
+var tri1 = new fabric.Triangle({
+
+left: 100,
+top: 100,
+fill: &#39;lightblue&#39;,
+width: 200,
+height: 200,
+angle: 0,
+opacity: 1,
+stroke: &#39;darkblue&#39;,
+strokeWidth: 5,
+selectable: true,
+
+
+
+});
+
+canvas_curtail.add(tri1);
+
+&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_curtail(cid = &amp;quot;canvas_curtail&amp;quot;,
+imgsrc = &amp;quot;https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/724px-R_logo.svg.png&amp;quot;,
+type = &amp;quot;background&amp;quot;
+
+              )&lt;/code&gt;&lt;/pre&gt;
+&lt;script&gt;
+
+
+fabric.Image.fromURL(&#39;https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/724px-R_logo.svg.png&#39;, function(img) {
+    img.set({
+        scaleX: canvas_curtail.getWidth() / img.width,
+        scaleY: canvas_curtail.getHeight() / img.height,
+        objectCaching: false,
+        originX: &#39;left&#39;,
+        originY: &#39;top&#39;
+     });
+     canvas_curtail.setBackgroundImage(img, canvas_curtail.renderAll.bind(canvas_curtail));
+ });
+
+&lt;/script&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
