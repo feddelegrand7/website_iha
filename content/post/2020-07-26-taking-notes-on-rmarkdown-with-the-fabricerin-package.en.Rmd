@@ -34,11 +34,11 @@ How to do that ? one function:
 library(fabricerin)
 
 fabric_drawing(cid = "canvasId", #canvas Id 
-               cwidth = 400, #canvas width
-               cheight = 400, #canvas height
+               cwidth = 1000, #canvas width
+               cheight = 1000, #canvas height
                cfill = "#282A36", #canvas color
                drawingWidth = 10, #width of the drawing lines
-               gumSize = 30 #size of the gum
+               gumSize = 50 #size of the gum
                )
 
 

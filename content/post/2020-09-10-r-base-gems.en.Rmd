@@ -1,0 +1,266 @@
+---
+title: R Base Gems
+author: ''
+date: '2020-09-10'
+slug: r-base-gems
+categories: []
+tags:
+  - base R
+subtitle: ''
+summary: 'Some Gems from R Base'
+authors: []
+lastmod: '2020-09-10T11:48:24+02:00'
+featured: no
+image: 
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+</style>
+
+
+
+
+
+```{css, echo = FALSE}
+
+body{
+  background-color:#E7EBEC;
+    
+  font-family: 'Lora', serif;
+}
+
+img{
+  border-radius: 8px;
+  width=500px;
+  height=500px;
+}
+
+
+
+```
+
+
+
+
+# `agrep()`
+
+
+<center> 
+
+![from Unsplash by Wolfgang Hasselmann](https://images.unsplash.com/photo-1577736164649-18f4ade579d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80)
+
+</center>
+
+The `countries` vector below lists some African countries. The last three values contain mistakes (__Algerria, Morocoo and algeri__). In real life, it's usual to work with imperfect data. The `agrep()` function allows us to deal with this specific situation by looking at __approximate__ patterns. Suppose, we want to extract the elements that contains the word __Algeria__ within the `countries` vector:
+
+```{r}
+
+countries <- c("Algeria", "Morocco", "Tunisia", "Mali", "Tchad", "Kenya", "Algerria", "Morocoo", "algeri")
+
+indexes <- agrep(pattern = "Algeria", x = countries, ignore.case = TRUE)
+
+countries[indexes]
+
+```
+
+
+
+
+
+# `abbreviate()`
+
+<center> 
+
+![from Unsplash by Kirill Pershin](https://images.unsplash.com/photo-1551944325-776c9772d382?ixlib=rb-1.2.1&auto=format&fit=crop&w=401&q=80)
+
+</center>
+
+
+The above problem can also be handled using the `abbreviate()` function: 
+
+
+```{r}
+
+# Transform the words to lower cases 
+
+countries_lower <- tolower(countries)
+
+abbreviate(
+  
+  names.arg = countries_lower, 
+  
+  minlength = 3, 
+  
+  strict = TRUE, # We permit duplications
+  
+  named = FALSE
+)
+
+```
+
+
+# `table()` 
+
+<center>
+
+![from Unsplash by Marcus Spiske](https://images.unsplash.com/photo-1547497348-42767a587639?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80)
+
+</center>
+
+
+
+
+`table()` is a famous function that displays the counts of appearance of each value within a vector. 
+```{r}
+
+countries <- c("Algeria", "Algeria", "Mali", "Kenya", "Mali", "Mali", "Senegal", "Uganda", "Senegal", "Morocco", "Senegal", "Senegal", "Senegal", NA, NA, NA, NA, NA, NA)
+
+table(countries, useNA = "no")
+
+```
+
+We can change the `useNA` argument to `"always"` to get the count of NAs: 
+
+```{r}
+
+table(countries, useNA = "always")
+
+
+```
+
+If you want to sort by count of appearance: 
+
+
+```{r}
+
+my_tab <- table(countries, useNA = "no")
+
+sort(x = my_tab, decreasing = TRUE)
+
+
+```
+
+
+You can quickly visualize the distribution of the `countries` vector: 
+
+```{r, fig.align='center'}
+
+sort_tab <- sort(x = my_tab, decreasing = TRUE)
+
+barplot(sort_tab, ylab = "Counts", col = "steelblue")
+```
+
+
+# `search()` 
+
+
+<center>
+
+![from Unsplash by Ak Ka](https://images.unsplash.com/photo-1572965933956-65d960e6b11b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80)
+
+</center>
+
+`search()` is a nice little function that tells you which packages are attached to your current session. 
+
+```{r}
+
+search()
+
+```
+
+
+# `jitter()`
+
+<center>
+
+![from Unsplash by Dragisa Braunovic](https://images.unsplash.com/photo-1588416197225-c2554a33c536?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80)
+
+</center>
+
+
+`jitter()` allows you to introduce some fluctuations to a vector of values
+
+
+```{r}
+# run mtcars$mpg to check the difference
+jitter(mtcars$mpg)
+
+```
+
+# `comment()` 
+
+<center>
+
+![from Unsplash by Wolfgang Hasselmann](https://images.unsplash.com/photo-1545320059-b95959ddeb55?ixlib=rb-1.2.1&auto=format&fit=crop&w=752&q=80)
+
+</center>
+
+The `comment()` function is particularly useful when you want to bind some comments to a specific object. When the object is printed, the comments won't be displayed. 
+
+
+```{r}
+
+comment(mtcars) <- "This data frame has no NAs, go ahead !"
+
+comment(mtcars)
+```
+
+The `attributes()` function will also retrieve the comments
+
+```{r}
+
+attributes(mtcars)
+
+
+```
+
+# `make.unique()` 
+
+<center>
+
+![from Unsplash by Wolfgang Hasselmann](https://images.unsplash.com/photo-1545481780-acff2f394ef6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80)
+
+</center>
+
+
+
+`make.unique()` is a pretty powerful function. It appends a sequence of numbers to duplicates in order to make vector's elements unique:
+
+
+```{r}
+
+countries <- c("Algeria", "Morocco", "Algeria", "Algeria", "Morocco", "Tunisia", "Morocco", "Tunisia")
+
+make.unique(names = countries, sep = " -_- ")
+
+```
+
+# `startsWith()` and `endsWith()` 
+
+
+`startsWith()`/`endsWith()` detect the elements of a vector (character) that start/end with a specific character(s):
+
+
+```{r}
+
+
+startsWith(x = mpg$manufacturer,
+                 prefix = "ch")
+
+endsWith(x = c("Algeria", "Algiers", "Argentine", "Germany"),
+                 suffix  = "ria")
+```
+
+
+
+
+
+

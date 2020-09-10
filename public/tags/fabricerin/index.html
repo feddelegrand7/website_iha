@@ -497,9 +497,8 @@
     <h2><a href="/post/fabricerin-a-tutorial/">fabricerin: A Tutorial</a></h2>
     <div class="article-style">
       
-      0. use_fabric()Mandatory function, used to activate the fabric js library. use_fabric() needs to be run only once.
-1. fabric_drawing()Create a canvas in which the user can draw.
-library(fabricerin)use_fabric() # This function is run once in all the present documentfabric_drawing(cid = &quot;canvas1&quot;, cwidth = 400, cheight = 400, cfill = &quot;orange&quot;, drawingWidth = 20, gumSize = 10)Gumconst canvas1 = new fabric.
+      1. fabric_drawing()Create a canvas in which the user can draw.
+library(fabricerin)fabric_drawing(cid = &quot;canvas1&quot;, cwidth = 400, cheight = 400, cfill = &quot;orange&quot;, drawingWidth = 20, gumSize = 10)const canvas1 = new fabric.Canvas('canvas1', {backgroundColor: 'orange',isDrawingMode: true});canvas1.freeDrawingBrush.width = 20;canvas1drawingColorEl = document.getElementById('canvas1drawing-color');canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;canvas1drawingColorEl.onchange = function() {canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;};$('#erasecanvas1').click(function(){if (this.checked) {canvas1.
       
     </div>
   </div>

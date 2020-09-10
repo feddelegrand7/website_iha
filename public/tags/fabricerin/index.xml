@@ -19,15 +19,11 @@
       <guid>/post/fabricerin-a-tutorial/</guid>
       <description>
 &lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/fabric/fabric.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/FileSaver/FileSaver.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/jQuery/jquery-3.5.1.min.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;div id=&#34;use_fabric&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;0. use_fabric()&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Mandatory function, used to activate the fabric js library. &lt;code&gt;use_fabric()&lt;/code&gt; needs to be run only once.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
 &lt;div id=&#34;fabric_drawing&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;1. fabric_drawing()&lt;/h2&gt;
 &lt;hr /&gt;
@@ -35,22 +31,21 @@
 &lt;p&gt;Create a canvas in which the user can draw.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(fabricerin)
-use_fabric() # This function is run once in all the present document&lt;/code&gt;&lt;/pre&gt;
-&lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.min.js&#34;&gt;&lt;/script&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_drawing(cid = &amp;quot;canvas1&amp;quot;, 
+
+fabric_drawing(cid = &amp;quot;canvas1&amp;quot;, 
                cwidth = 400, 
                cheight = 400, 
                cfill = &amp;quot;orange&amp;quot;, 
                drawingWidth = 20, 
                gumSize = 10)&lt;/code&gt;&lt;/pre&gt;
-&lt;input id=&#34;erasecanvas1&#34; type=&#34;checkbox&#34;&gt; Gum&lt;/input&gt;
-&lt;input id=&#34;exportcanvas1&#34; type=&#34;button&#34; value=&#34;Export&#34;/&gt;
-&lt;input id=&#34;canvas1drawing-color&#34; type=&#34;color&#34; value=&#34;#005E7A&#34;/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
+
+&lt;input id = erasecanvas1 type = &#39;checkbox&#39; title=&#39;Check it to erase !&#39;&gt;
+
+&lt;input id = canvas1drawing-color type = &#39;color&#39; value = &#39;#005E7A&#39; style = &#39;width:30px;&#39;&gt;
+
+&lt;input id = exportcanvas1 type = &#39;button&#39; style = &#39;width:55px;&#39; value = &#39;Export&#39;&gt;
+
 &lt;canvas id=&#34;canvas1&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
-&lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js&#34;&gt;&lt;/script&gt;
 &lt;script&gt;
 const canvas1 = new fabric.Canvas(&#39;canvas1&#39;, {
     backgroundColor: &#39;orange&#39;,
@@ -69,9 +64,6 @@ canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;
 canvas1drawingColorEl.onchange = function() {
     canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;
   };
-
-
-
 
 
  $(&#39;#erasecanvas1&#39;).click(function(){
@@ -135,14 +127,14 @@ $(&#39;#exportcanvas1&#39;).click(function(){
                cfill = &amp;quot;lightblue&amp;quot;, 
                drawingWidth = 10, 
                gumSize = 40)&lt;/code&gt;&lt;/pre&gt;
-&lt;input id=&#34;erasecanvas2&#34; type=&#34;checkbox&#34;&gt; Gum&lt;/input&gt;
-&lt;input id=&#34;exportcanvas2&#34; type=&#34;button&#34; value=&#34;Export&#34;/&gt;
-&lt;input id=&#34;canvas2drawing-color&#34; type=&#34;color&#34; value=&#34;#005E7A&#34;/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
+
+&lt;input id = erasecanvas2 type = &#39;checkbox&#39; title=&#39;Check it to erase !&#39;&gt;
+
+&lt;input id = canvas2drawing-color type = &#39;color&#39; value = &#39;#005E7A&#39; style = &#39;width:30px;&#39;&gt;
+
+&lt;input id = exportcanvas2 type = &#39;button&#39; style = &#39;width:55px;&#39; value = &#39;Export&#39;&gt;
+
 &lt;canvas id=&#34;canvas2&#34; width=&#34;200&#34; height=&#34;200&#34;&gt;&lt;/canvas&gt;
-&lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js&#34;&gt;&lt;/script&gt;
 &lt;script&gt;
 const canvas2 = new fabric.Canvas(&#39;canvas2&#39;, {
     backgroundColor: &#39;lightblue&#39;,
@@ -161,9 +153,6 @@ canvas2.freeDrawingBrush.color = canvas2drawingColorEl.value;
 canvas2drawingColorEl.onchange = function() {
     canvas2.freeDrawingBrush.color = canvas2drawingColorEl.value;
   };
-
-
-
 
 
  $(&#39;#erasecanvas2&#39;).click(function(){
@@ -408,8 +397,8 @@ canvas_Triangle.add(tri);
              top = 200, 
              cfill = &amp;quot;#4E5C68&amp;quot;, 
              fill = &amp;quot;#1BDB99&amp;quot;,
-             polx = c(200, 250, 250, 150, 150), 
-             poly = c(10, 50, 180, 180, 50))&lt;/code&gt;&lt;/pre&gt;
+             xPolygon = c(200, 250, 250, 150, 150), 
+             yPolygon = c(10, 50, 180, 180, 50))&lt;/code&gt;&lt;/pre&gt;
 &lt;canvas id=&#34;canvas_Polygon&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
 &lt;script&gt;var canvas_Polygon = new fabric.Canvas(&#39;canvas_Polygon&#39;, {
 

@@ -5,12 +5,204 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 02 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 10 Sep 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/logo-via-logohub.png</url>
       <title>Posts</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>R Base Gems</title>
+      <link>/post/r-base-gems/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>/post/r-base-gems/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;style&gt;
+
+@import url(&#39;https://fonts.googleapis.com/css2?family=Lora&amp;display=swap&#39;);
+
+
+&lt;/style&gt;
+&lt;style type=&#34;text/css&#34;&gt;
+
+body{
+  background-color:#E7EBEC;
+    
+  font-family: &#39;Lora&#39;, serif;
+}
+
+img{
+  border-radius: 8px;
+  width=500px;
+  height=500px;
+}
+
+
+
+&lt;/style&gt;
+&lt;div id=&#34;agrep&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;code&gt;agrep()&lt;/code&gt;&lt;/h1&gt;
+&lt;center&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://images.unsplash.com/photo-1577736164649-18f4ade579d6?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=750&amp;amp;q=80&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;from Unsplash by Wolfgang Hasselmann&lt;/p&gt;
+&lt;/div&gt;
+&lt;/center&gt;
+&lt;p&gt;The &lt;code&gt;countries&lt;/code&gt; vector below lists some African countries. The last three values contain mistakes (&lt;strong&gt;Algerria, Morocoo and algeri&lt;/strong&gt;). In real life, it’s usual to work with imperfect data. The &lt;code&gt;agrep()&lt;/code&gt; function allows us to deal with this specific situation by looking at &lt;strong&gt;approximate&lt;/strong&gt; patterns. Suppose, we want to extract the elements that contains the word &lt;strong&gt;Algeria&lt;/strong&gt; within the &lt;code&gt;countries&lt;/code&gt; vector:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;countries &amp;lt;- c(&amp;quot;Algeria&amp;quot;, &amp;quot;Morocco&amp;quot;, &amp;quot;Tunisia&amp;quot;, &amp;quot;Mali&amp;quot;, &amp;quot;Tchad&amp;quot;, &amp;quot;Kenya&amp;quot;, &amp;quot;Algerria&amp;quot;, &amp;quot;Morocoo&amp;quot;, &amp;quot;algeri&amp;quot;)
+
+indexes &amp;lt;- agrep(pattern = &amp;quot;Algeria&amp;quot;, x = countries, ignore.case = TRUE)
+
+countries[indexes]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Algeria&amp;quot;  &amp;quot;Algerria&amp;quot; &amp;quot;algeri&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;abbreviate&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;code&gt;abbreviate()&lt;/code&gt;&lt;/h1&gt;
+&lt;center&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://images.unsplash.com/photo-1551944325-776c9772d382?ixlib=rb-1.2.1&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=401&amp;amp;q=80&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;from Unsplash by Kirill Pershin&lt;/p&gt;
+&lt;/div&gt;
+&lt;/center&gt;
+&lt;p&gt;The above problem can also be handled using the &lt;code&gt;abbreviate()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Transform the words to lower cases 
+
+countries_lower &amp;lt;- tolower(countries)
+
+abbreviate(
+  
+  names.arg = countries_lower, 
+  
+  minlength = 3, 
+  
+  strict = TRUE, # We permit duplications
+  
+  named = FALSE
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;alg&amp;quot; &amp;quot;mrc&amp;quot; &amp;quot;tns&amp;quot; &amp;quot;mal&amp;quot; &amp;quot;tch&amp;quot; &amp;quot;kny&amp;quot; &amp;quot;alg&amp;quot; &amp;quot;mrc&amp;quot; &amp;quot;alg&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;table&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;code&gt;table()&lt;/code&gt;&lt;/h1&gt;
+&lt;center&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://images.unsplash.com/photo-1547497348-42767a587639?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=750&amp;amp;q=80&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;from Unsplash by Marcus Spiske&lt;/p&gt;
+&lt;/div&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;code&gt;table()&lt;/code&gt; is a famous function that displays the counts of appearance of each value within a vector.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;countries &amp;lt;- c(&amp;quot;Algeria&amp;quot;, &amp;quot;Algeria&amp;quot;, &amp;quot;Mali&amp;quot;, &amp;quot;Kenya&amp;quot;, &amp;quot;Mali&amp;quot;, &amp;quot;Mali&amp;quot;, &amp;quot;Senegal&amp;quot;, &amp;quot;Uganda&amp;quot;, &amp;quot;Senegal&amp;quot;, &amp;quot;Morocco&amp;quot;, &amp;quot;Senegal&amp;quot;, &amp;quot;Senegal&amp;quot;, &amp;quot;Senegal&amp;quot;, NA, NA, NA, NA, NA, NA)
+
+table(countries, useNA = &amp;quot;no&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## countries
+## Algeria   Kenya    Mali Morocco Senegal  Uganda 
+##       2       1       3       1       5       1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can change the &lt;code&gt;useNA&lt;/code&gt; argument to &lt;code&gt;&#34;always&#34;&lt;/code&gt; to get the count of NAs:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table(countries, useNA = &amp;quot;always&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## countries
+## Algeria   Kenya    Mali Morocco Senegal  Uganda    &amp;lt;NA&amp;gt; 
+##       2       1       3       1       5       1       6&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you want to sort by count of appearance:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my_tab &amp;lt;- table(countries, useNA = &amp;quot;no&amp;quot;)
+
+sort(x = my_tab, decreasing = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## countries
+## Senegal    Mali Algeria   Kenya Morocco  Uganda 
+##       5       3       2       1       1       1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can quickly visualize the distribution of the &lt;code&gt;countries&lt;/code&gt; vector:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sort_tab &amp;lt;- sort(x = my_tab, decreasing = TRUE)
+
+barplot(sort_tab, ylab = &amp;quot;Counts&amp;quot;, col = &amp;quot;steelblue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-10-r-base-gems.en_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;search&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;code&gt;search()&lt;/code&gt;&lt;/h1&gt;
+&lt;center&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://images.unsplash.com/photo-1572965933956-65d960e6b11b?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=80&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;from Unsplash by Ak Ka&lt;/p&gt;
+&lt;/div&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;code&gt;search()&lt;/code&gt; is a nice little function that tells you which packages are attached to your current session.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;search()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;.GlobalEnv&amp;quot;        &amp;quot;package:stats&amp;quot;     &amp;quot;package:graphics&amp;quot; 
+## [4] &amp;quot;package:grDevices&amp;quot; &amp;quot;package:utils&amp;quot;     &amp;quot;package:datasets&amp;quot; 
+## [7] &amp;quot;package:methods&amp;quot;   &amp;quot;Autoloads&amp;quot;         &amp;quot;package:base&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;jitter&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;code&gt;jitter()&lt;/code&gt;&lt;/h1&gt;
+&lt;center&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://images.unsplash.com/photo-1588416197225-c2554a33c536?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=750&amp;amp;q=80&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;from Unsplash by Dragisa Braunovic&lt;/p&gt;
+&lt;/div&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;code&gt;jitter()&lt;/code&gt; allows you to introduce some fluctuations to a vector of values&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# run mtcars$mpg to check the difference
+jitter(mtcars$mpg)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 21.00467 21.00279 22.81458 21.40172 18.71187 18.11439 14.29423 24.41826
+##  [9] 22.78911 19.21008 17.81626 16.38164 17.29093 15.21337 10.39363 10.40530
+## [17] 14.69248 32.38503 30.40037 33.91228 21.50025 15.48994 15.18539 13.31316
+## [25] 19.20811 27.29118 26.01934 30.41595 15.81780 19.69516 14.99039 21.41895&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;comment&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;code&gt;comment()&lt;/code&gt;&lt;/h1&gt;
+&lt;center&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://images.unsplash.com/photo-1545320059-b95959ddeb55?ixlib=rb-1.2.1&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=752&amp;amp;q=80&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;from Unsplash by Wolfgang Hasselmann&lt;/p&gt;
+&lt;/div&gt;
+&lt;/center&gt;
+&lt;p&gt;The &lt;code&gt;comment()&lt;/code&gt; function is particularly useful when you want to bind some comments to a specific object. When the object is printed, the comments won’t be displayed.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;comment(mtcars) &amp;lt;- &amp;quot;This data frame has no NAs, go ahead !&amp;quot;
+
+comment(mtcars)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;This data frame has no NAs, go ahead !&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;attributes()&lt;/code&gt; function will also retrieve the comments&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attributes(mtcars)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $names
+##  [1] &amp;quot;mpg&amp;quot;  &amp;quot;cyl&amp;quot;  &amp;quot;disp&amp;quot; &amp;quot;hp&amp;quot;   &amp;quot;drat&amp;quot; &amp;quot;wt&amp;quot;   &amp;quot;qsec&amp;quot; &amp;quot;vs&amp;quot;   &amp;quot;am&amp;quot;   &amp;quot;gear&amp;quot;
+## [11] &amp;quot;carb&amp;quot;
+## 
+## $row.names
+##  [1] &amp;quot;Mazda RX4&amp;quot;           &amp;quot;Mazda RX4 Wag&amp;quot;       &amp;quot;Datsun 710&amp;quot;         
+##  [4] &amp;quot;Hornet 4 Drive&amp;quot;      &amp;quot;Hornet Sportabout&amp;quot;   &amp;quot;Valiant&amp;quot;            
+##  [7] &amp;quot;Duster 360&amp;quot;          &amp;quot;Merc 240D&amp;quot;           &amp;quot;Merc 230&amp;quot;           
+## [10] &amp;quot;Merc 280&amp;quot;            &amp;quot;Merc 280C&amp;quot;           &amp;quot;Merc 450SE&amp;quot;         
+## [13] &amp;quot;Merc 450SL&amp;quot;          &amp;quot;Merc 450SLC&amp;quot;         &amp;quot;Cadillac Fleetwood&amp;quot; 
+## [16] &amp;quot;Lincoln Continental&amp;quot; &amp;quot;Chrysler Imperial&amp;quot;   &amp;quot;Fiat 128&amp;quot;           
+## [19] &amp;quot;Honda Civic&amp;quot;         &amp;quot;Toyota Corolla&amp;quot;      &amp;quot;Toyota Corona&amp;quot;      
+## [22] &amp;quot;Dodge Challenger&amp;quot;    &amp;quot;AMC Javelin&amp;quot;         &amp;quot;Camaro Z28&amp;quot;         
+## [25] &amp;quot;Pontiac Firebird&amp;quot;    &amp;quot;Fiat X1-9&amp;quot;           &amp;quot;Porsche 914-2&amp;quot;      
+## [28] &amp;quot;Lotus Europa&amp;quot;        &amp;quot;Ford Pantera L&amp;quot;      &amp;quot;Ferrari Dino&amp;quot;       
+## [31] &amp;quot;Maserati Bora&amp;quot;       &amp;quot;Volvo 142E&amp;quot;         
+## 
+## $class
+## [1] &amp;quot;data.frame&amp;quot;
+## 
+## $comment
+## [1] &amp;quot;This data frame has no NAs, go ahead !&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;make.unique&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;code&gt;make.unique()&lt;/code&gt;&lt;/h1&gt;
+&lt;center&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://images.unsplash.com/photo-1545481780-acff2f394ef6?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=752&amp;amp;q=80&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;from Unsplash by Wolfgang Hasselmann&lt;/p&gt;
+&lt;/div&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;code&gt;make.unique()&lt;/code&gt; is a pretty powerful function. It appends a sequence of numbers to duplicates in order to make vector’s elements unique:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;countries &amp;lt;- c(&amp;quot;Algeria&amp;quot;, &amp;quot;Morocco&amp;quot;, &amp;quot;Algeria&amp;quot;, &amp;quot;Algeria&amp;quot;, &amp;quot;Morocco&amp;quot;, &amp;quot;Tunisia&amp;quot;, &amp;quot;Morocco&amp;quot;, &amp;quot;Tunisia&amp;quot;)
+
+make.unique(names = countries, sep = &amp;quot; -_- &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Algeria&amp;quot;       &amp;quot;Morocco&amp;quot;       &amp;quot;Algeria -_- 1&amp;quot; &amp;quot;Algeria -_- 2&amp;quot;
+## [5] &amp;quot;Morocco -_- 1&amp;quot; &amp;quot;Tunisia&amp;quot;       &amp;quot;Morocco -_- 2&amp;quot; &amp;quot;Tunisia -_- 1&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>fabricerin: A Tutorial</title>
@@ -19,15 +211,11 @@
       <guid>/post/fabricerin-a-tutorial/</guid>
       <description>
 &lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/fabric/fabric.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/FileSaver/FileSaver.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/jQuery/jquery-3.5.1.min.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;div id=&#34;use_fabric&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;0. use_fabric()&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Mandatory function, used to activate the fabric js library. &lt;code&gt;use_fabric()&lt;/code&gt; needs to be run only once.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
 &lt;div id=&#34;fabric_drawing&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;1. fabric_drawing()&lt;/h2&gt;
 &lt;hr /&gt;
@@ -35,22 +223,21 @@
 &lt;p&gt;Create a canvas in which the user can draw.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(fabricerin)
-use_fabric() # This function is run once in all the present document&lt;/code&gt;&lt;/pre&gt;
-&lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.min.js&#34;&gt;&lt;/script&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_drawing(cid = &amp;quot;canvas1&amp;quot;, 
+
+fabric_drawing(cid = &amp;quot;canvas1&amp;quot;, 
                cwidth = 400, 
                cheight = 400, 
                cfill = &amp;quot;orange&amp;quot;, 
                drawingWidth = 20, 
                gumSize = 10)&lt;/code&gt;&lt;/pre&gt;
-&lt;input id=&#34;erasecanvas1&#34; type=&#34;checkbox&#34;&gt; Gum&lt;/input&gt;
-&lt;input id=&#34;exportcanvas1&#34; type=&#34;button&#34; value=&#34;Export&#34;/&gt;
-&lt;input id=&#34;canvas1drawing-color&#34; type=&#34;color&#34; value=&#34;#005E7A&#34;/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
+
+&lt;input id = erasecanvas1 type = &#39;checkbox&#39; title=&#39;Check it to erase !&#39;&gt;
+
+&lt;input id = canvas1drawing-color type = &#39;color&#39; value = &#39;#005E7A&#39; style = &#39;width:30px;&#39;&gt;
+
+&lt;input id = exportcanvas1 type = &#39;button&#39; style = &#39;width:55px;&#39; value = &#39;Export&#39;&gt;
+
 &lt;canvas id=&#34;canvas1&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
-&lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js&#34;&gt;&lt;/script&gt;
 &lt;script&gt;
 const canvas1 = new fabric.Canvas(&#39;canvas1&#39;, {
     backgroundColor: &#39;orange&#39;,
@@ -69,9 +256,6 @@ canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;
 canvas1drawingColorEl.onchange = function() {
     canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;
   };
-
-
-
 
 
  $(&#39;#erasecanvas1&#39;).click(function(){
@@ -135,14 +319,14 @@ $(&#39;#exportcanvas1&#39;).click(function(){
                cfill = &amp;quot;lightblue&amp;quot;, 
                drawingWidth = 10, 
                gumSize = 40)&lt;/code&gt;&lt;/pre&gt;
-&lt;input id=&#34;erasecanvas2&#34; type=&#34;checkbox&#34;&gt; Gum&lt;/input&gt;
-&lt;input id=&#34;exportcanvas2&#34; type=&#34;button&#34; value=&#34;Export&#34;/&gt;
-&lt;input id=&#34;canvas2drawing-color&#34; type=&#34;color&#34; value=&#34;#005E7A&#34;/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
+
+&lt;input id = erasecanvas2 type = &#39;checkbox&#39; title=&#39;Check it to erase !&#39;&gt;
+
+&lt;input id = canvas2drawing-color type = &#39;color&#39; value = &#39;#005E7A&#39; style = &#39;width:30px;&#39;&gt;
+
+&lt;input id = exportcanvas2 type = &#39;button&#39; style = &#39;width:55px;&#39; value = &#39;Export&#39;&gt;
+
 &lt;canvas id=&#34;canvas2&#34; width=&#34;200&#34; height=&#34;200&#34;&gt;&lt;/canvas&gt;
-&lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js&#34;&gt;&lt;/script&gt;
 &lt;script&gt;
 const canvas2 = new fabric.Canvas(&#39;canvas2&#39;, {
     backgroundColor: &#39;lightblue&#39;,
@@ -161,9 +345,6 @@ canvas2.freeDrawingBrush.color = canvas2drawingColorEl.value;
 canvas2drawingColorEl.onchange = function() {
     canvas2.freeDrawingBrush.color = canvas2drawingColorEl.value;
   };
-
-
-
 
 
  $(&#39;#erasecanvas2&#39;).click(function(){
@@ -408,8 +589,8 @@ canvas_Triangle.add(tri);
              top = 200, 
              cfill = &amp;quot;#4E5C68&amp;quot;, 
              fill = &amp;quot;#1BDB99&amp;quot;,
-             polx = c(200, 250, 250, 150, 150), 
-             poly = c(10, 50, 180, 180, 50))&lt;/code&gt;&lt;/pre&gt;
+             xPolygon = c(200, 250, 250, 150, 150), 
+             yPolygon = c(10, 50, 180, 180, 50))&lt;/code&gt;&lt;/pre&gt;
 &lt;canvas id=&#34;canvas_Polygon&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
 &lt;script&gt;var canvas_Polygon = new fabric.Canvas(&#39;canvas_Polygon&#39;, {
 
@@ -678,35 +859,35 @@ ggplot(mpg, aes(hwy)) +
       <guid>/post/taking-notes-in-rmarkdown-using-the-fabricerin-package/</guid>
       <description>
 &lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/fabric/fabric.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/FileSaver/FileSaver.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/jQuery/jquery-3.5.1.min.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I’ve recently released a new package called &lt;code&gt;fabricerin&lt;/code&gt;, now you can insert easily a canvas withing RMarkdown documents and Shiny apps for drawing or notes taking.&lt;/p&gt;
-&lt;p&gt;How to do that ? two functions:&lt;/p&gt;
+&lt;p&gt;How to do that ? one function:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;use_fabric()&lt;/code&gt;: this function is mandatory and has to be set at the beginning of your document (app). It enables the javascript library &lt;a href=&#34;http://fabricjs.com/&#34;&gt;fabricjs&lt;/a&gt;. Of course, &lt;strong&gt;you’ll need to run it only once.&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;fabric_drawing()&lt;/code&gt;: allows you implement a canvas in which you can draw/take notes.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fabric_drawing()&lt;/code&gt;: allows you implement a canvas in which you can draw/take notes.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;try-it-yourself-take-some-notes&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;strong&gt;Try it yourself, take some notes !&lt;/strong&gt;&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(fabricerin)
 
-use_fabric()&lt;/code&gt;&lt;/pre&gt;
-&lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.min.js&#34;&gt;&lt;/script&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_drawing(cid = &amp;quot;canvasId&amp;quot;, #canvas Id 
-               cwidth = 400, #canvas width
-               cheight = 400, #canvas height
+fabric_drawing(cid = &amp;quot;canvasId&amp;quot;, #canvas Id 
+               cwidth = 1000, #canvas width
+               cheight = 1000, #canvas height
                cfill = &amp;quot;#282A36&amp;quot;, #canvas color
                drawingWidth = 10, #width of the drawing lines
-               gumSize = 30 #size of the gum
+               gumSize = 50 #size of the gum
                )&lt;/code&gt;&lt;/pre&gt;
-&lt;input id=&#34;erasecanvasId&#34; type=&#34;checkbox&#34;&gt; Gum&lt;/input&gt;
-&lt;input id=&#34;exportcanvasId&#34; type=&#34;button&#34; value=&#34;Export&#34;/&gt;
-&lt;input id=&#34;canvasIddrawing-color&#34; type=&#34;color&#34; value=&#34;#005E7A&#34;/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;canvas id=&#34;canvasId&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
-&lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;input id = erasecanvasId type = &#39;checkbox&#39; title=&#39;Check it to erase !&#39;&gt;
+
+&lt;input id = canvasIddrawing-color type = &#39;color&#39; value = &#39;#005E7A&#39; style = &#39;width:30px;&#39;&gt;
+
+&lt;input id = exportcanvasId type = &#39;button&#39; style = &#39;width:55px;&#39; value = &#39;Export&#39;&gt;
+
+&lt;canvas id=&#34;canvasId&#34; width=&#34;1000&#34; height=&#34;1000&#34;&gt;&lt;/canvas&gt;
 &lt;script&gt;
 const canvasId = new fabric.Canvas(&#39;canvasId&#39;, {
     backgroundColor: &#39;#282A36&#39;,
@@ -725,9 +906,6 @@ canvasId.freeDrawingBrush.color = canvasIddrawingColorEl.value;
 canvasIddrawingColorEl.onchange = function() {
     canvasId.freeDrawingBrush.color = canvasIddrawingColorEl.value;
   };
-
-
-
 
 
  $(&#39;#erasecanvasId&#39;).click(function(){
@@ -754,7 +932,7 @@ canvasIddrawingColorEl.onchange = function() {
 
     if (this.checked) {
 
-      canvasId.freeDrawingBrush.width   = 30;
+      canvasId.freeDrawingBrush.width   = 50;
 
     } else {
 
@@ -786,20 +964,20 @@ $(&#39;#exportcanvasId&#39;).click(function(){
 &lt;/script&gt;
 &lt;p&gt;You can change play with the arguments to shape you canvas and your drawing experience.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fabric_drawing(cid = &amp;quot;canvasId2&amp;quot;, #canvas Id 
-               cwidth = 500, #canvas width
-               cheight = 1000, #canvas height
+               cwidth = 200, #canvas width
+               cheight = 200, #canvas height
                cfill = &amp;quot;#FFCD43&amp;quot;, #canvas color
                drawingWidth = 5, #width of the drawing lines
                gumSize = 50 #size of the gum
                )&lt;/code&gt;&lt;/pre&gt;
-&lt;input id=&#34;erasecanvasId2&#34; type=&#34;checkbox&#34;&gt; Gum&lt;/input&gt;
-&lt;input id=&#34;exportcanvasId2&#34; type=&#34;button&#34; value=&#34;Export&#34;/&gt;
-&lt;input id=&#34;canvasId2drawing-color&#34; type=&#34;color&#34; value=&#34;#005E7A&#34;/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;canvas id=&#34;canvasId2&#34; width=&#34;500&#34; height=&#34;1000&#34;&gt;&lt;/canvas&gt;
-&lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;input id = erasecanvasId2 type = &#39;checkbox&#39; title=&#39;Check it to erase !&#39;&gt;
+
+&lt;input id = canvasId2drawing-color type = &#39;color&#39; value = &#39;#005E7A&#39; style = &#39;width:30px;&#39;&gt;
+
+&lt;input id = exportcanvasId2 type = &#39;button&#39; style = &#39;width:55px;&#39; value = &#39;Export&#39;&gt;
+
+&lt;canvas id=&#34;canvasId2&#34; width=&#34;200&#34; height=&#34;200&#34;&gt;&lt;/canvas&gt;
 &lt;script&gt;
 const canvasId2 = new fabric.Canvas(&#39;canvasId2&#39;, {
     backgroundColor: &#39;#FFCD43&#39;,
@@ -818,9 +996,6 @@ canvasId2.freeDrawingBrush.color = canvasId2drawingColorEl.value;
 canvasId2drawingColorEl.onchange = function() {
     canvasId2.freeDrawingBrush.color = canvasId2drawingColorEl.value;
   };
-
-
-
 
 
  $(&#39;#erasecanvasId2&#39;).click(function(){

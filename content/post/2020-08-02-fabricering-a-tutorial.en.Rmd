@@ -33,7 +33,6 @@ projects: []
 
 library(fabricerin)
 
-
 fabric_drawing(cid = "canvas1", 
                cwidth = 400, 
                cheight = 400, 

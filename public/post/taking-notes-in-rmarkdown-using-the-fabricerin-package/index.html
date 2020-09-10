@@ -29,9 +29,8 @@
     
   
   <meta name="description" content="I’ve recently released a new package called fabricerin, now you can insert easily a canvas withing RMarkdown documents and Shiny apps for drawing or notes taking.
-How to do that ? two functions:
-use_fabric(): this function is mandatory and has to be set at the beginning of your document (app). It enables the javascript library fabricjs. Of course, you’ll need to run it only once.
-fabric_drawing(): allows you implement a canvas in which you can draw/take notes.">
+How to do that ? one function:
+fabric_drawing(): allows you implement a canvas in which you can draw/take notes.Try it yourself, take some notes !library(fabricerin)fabric_drawing(cid = &quot;canvasId&quot;, #canvas Id cwidth = 1000, #canvas widthcheight = 1000, #canvas heightcfill = &quot;#282A36&quot;, #canvas colordrawingWidth = 10, #width of the drawing linesgumSize = 50 #size of the gum)const canvasId = new fabric.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/taking-notes-in-rmarkdown-using-the-fabricerin-package/">
@@ -133,9 +132,8 @@ How to do that ? two functions:
   <meta property="og:url" content="/post/taking-notes-in-rmarkdown-using-the-fabricerin-package/">
   <meta property="og:title" content="Taking notes in RMarkdown using the fabricerin package  | Mohamed El Fodil IHADDADEN">
   <meta property="og:description" content="I’ve recently released a new package called fabricerin, now you can insert easily a canvas withing RMarkdown documents and Shiny apps for drawing or notes taking.
-How to do that ? two functions:
-use_fabric(): this function is mandatory and has to be set at the beginning of your document (app). It enables the javascript library fabricjs. Of course, you’ll need to run it only once.
-fabric_drawing(): allows you implement a canvas in which you can draw/take notes."><meta property="og:image" content="/img/logo-via-logohub.png">
+How to do that ? one function:
+fabric_drawing(): allows you implement a canvas in which you can draw/take notes.Try it yourself, take some notes !library(fabricerin)fabric_drawing(cid = &quot;canvasId&quot;, #canvas Id cwidth = 1000, #canvas widthcheight = 1000, #canvas heightcfill = &quot;#282A36&quot;, #canvas colordrawingWidth = 10, #width of the drawing linesgumSize = 50 #size of the gum)const canvasId = new fabric."><meta property="og:image" content="/img/logo-via-logohub.png">
   <meta property="twitter:image" content="/img/logo-via-logohub.png"><meta property="og:locale" content="en-us">
   
     
@@ -647,35 +645,35 @@ How to do that ? two functions:
     <div class="article-style" itemprop="articleBody">
       
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/fabric/fabric.min.js"></script>
+<script src="/rmarkdown-libs/FileSaver/FileSaver.min.js"></script>
+<script src="/rmarkdown-libs/jQuery/jquery-3.5.1.min.js"></script>
 
 
 <p>I’ve recently released a new package called <code>fabricerin</code>, now you can insert easily a canvas withing RMarkdown documents and Shiny apps for drawing or notes taking.</p>
-<p>How to do that ? two functions:</p>
+<p>How to do that ? one function:</p>
 <ul>
-<li><p><code>use_fabric()</code>: this function is mandatory and has to be set at the beginning of your document (app). It enables the javascript library <a href="http://fabricjs.com/">fabricjs</a>. Of course, <strong>you’ll need to run it only once.</strong></p></li>
-<li><p><code>fabric_drawing()</code>: allows you implement a canvas in which you can draw/take notes.</p></li>
+<li><code>fabric_drawing()</code>: allows you implement a canvas in which you can draw/take notes.</li>
 </ul>
 <div id="try-it-yourself-take-some-notes" class="section level2">
 <h2><strong>Try it yourself, take some notes !</strong></h2>
 <pre class="r"><code>library(fabricerin)
 
-use_fabric()</code></pre>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.min.js"></script>
-<pre class="r"><code>fabric_drawing(cid = &quot;canvasId&quot;, #canvas Id 
-               cwidth = 400, #canvas width
-               cheight = 400, #canvas height
+fabric_drawing(cid = &quot;canvasId&quot;, #canvas Id 
+               cwidth = 1000, #canvas width
+               cheight = 1000, #canvas height
                cfill = &quot;#282A36&quot;, #canvas color
                drawingWidth = 10, #width of the drawing lines
-               gumSize = 30 #size of the gum
+               gumSize = 50 #size of the gum
                )</code></pre>
-<input id="erasecanvasId" type="checkbox"> Gum</input>
-<input id="exportcanvasId" type="button" value="Export"/>
-<input id="canvasIddrawing-color" type="color" value="#005E7A"/>
-<br/>
-<br/>
-<canvas id="canvasId" width="400" height="400"></canvas>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
+<input id = erasecanvasId type = 'checkbox' title='Check it to erase !'>
+
+<input id = canvasIddrawing-color type = 'color' value = '#005E7A' style = 'width:30px;'>
+
+<input id = exportcanvasId type = 'button' style = 'width:55px;' value = 'Export'>
+
+<canvas id="canvasId" width="1000" height="1000"></canvas>
 <script>
 const canvasId = new fabric.Canvas('canvasId', {
     backgroundColor: '#282A36',
@@ -694,9 +692,6 @@ canvasId.freeDrawingBrush.color = canvasIddrawingColorEl.value;
 canvasIddrawingColorEl.onchange = function() {
     canvasId.freeDrawingBrush.color = canvasIddrawingColorEl.value;
   };
-
-
-
 
 
  $('#erasecanvasId').click(function(){
@@ -723,7 +718,7 @@ canvasIddrawingColorEl.onchange = function() {
 
     if (this.checked) {
 
-      canvasId.freeDrawingBrush.width   = 30;
+      canvasId.freeDrawingBrush.width   = 50;
 
     } else {
 
@@ -755,20 +750,20 @@ $('#exportcanvasId').click(function(){
 </script>
 <p>You can change play with the arguments to shape you canvas and your drawing experience.</p>
 <pre class="r"><code>fabric_drawing(cid = &quot;canvasId2&quot;, #canvas Id 
-               cwidth = 500, #canvas width
-               cheight = 1000, #canvas height
+               cwidth = 200, #canvas width
+               cheight = 200, #canvas height
                cfill = &quot;#FFCD43&quot;, #canvas color
                drawingWidth = 5, #width of the drawing lines
                gumSize = 50 #size of the gum
                )</code></pre>
-<input id="erasecanvasId2" type="checkbox"> Gum</input>
-<input id="exportcanvasId2" type="button" value="Export"/>
-<input id="canvasId2drawing-color" type="color" value="#005E7A"/>
-<br/>
-<br/>
-<canvas id="canvasId2" width="500" height="1000"></canvas>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
+<input id = erasecanvasId2 type = 'checkbox' title='Check it to erase !'>
+
+<input id = canvasId2drawing-color type = 'color' value = '#005E7A' style = 'width:30px;'>
+
+<input id = exportcanvasId2 type = 'button' style = 'width:55px;' value = 'Export'>
+
+<canvas id="canvasId2" width="200" height="200"></canvas>
 <script>
 const canvasId2 = new fabric.Canvas('canvasId2', {
     backgroundColor: '#FFCD43',
@@ -787,9 +782,6 @@ canvasId2.freeDrawingBrush.color = canvasId2drawingColorEl.value;
 canvasId2drawingColorEl.onchange = function() {
     canvasId2.freeDrawingBrush.color = canvasId2drawingColorEl.value;
   };
-
-
-
 
 
  $('#erasecanvasId2').click(function(){

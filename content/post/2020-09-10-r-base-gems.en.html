@@ -1,0 +1,203 @@
+---
+title: R Base Gems
+author: ''
+date: '2020-09-10'
+slug: r-base-gems
+categories: []
+tags:
+  - base R
+subtitle: ''
+summary: 'Some Gems from R base'
+authors: []
+lastmod: '2020-09-10T11:48:24+02:00'
+featured: no
+image: 
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+</style>
+<style type="text/css">
+
+body{
+  background-color:#E7EBEC;
+    
+  font-family: 'Lora', serif;
+}
+
+img{
+  border-radius: 8px;
+  width=500px;
+  height=500px;
+}
+
+
+
+</style>
+<div id="agrep" class="section level1">
+<h1><code>agrep()</code></h1>
+<center>
+<div class="figure">
+<img src="https://images.unsplash.com/photo-1577736164649-18f4ade579d6?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="" />
+<p class="caption">from Unsplash by Wolfgang Hasselmann</p>
+</div>
+</center>
+<p>The <code>countries</code> vector below lists some African countries. The last three values contain mistakes (<strong>Algerria, Morocoo and algeri</strong>). In real life, it’s usual to work with imperfect data. The <code>agrep()</code> function allows us to deal with this specific situation by looking at <strong>approximate</strong> patterns. Suppose, we want to extract the elements that contains the word <strong>Algeria</strong> within the <code>countries</code> vector:</p>
+<pre class="r"><code>countries &lt;- c(&quot;Algeria&quot;, &quot;Morocco&quot;, &quot;Tunisia&quot;, &quot;Mali&quot;, &quot;Tchad&quot;, &quot;Kenya&quot;, &quot;Algerria&quot;, &quot;Morocoo&quot;, &quot;algeri&quot;)
+
+indexes &lt;- agrep(pattern = &quot;Algeria&quot;, x = countries, ignore.case = TRUE)
+
+countries[indexes]</code></pre>
+<pre><code>## [1] &quot;Algeria&quot;  &quot;Algerria&quot; &quot;algeri&quot;</code></pre>
+</div>
+<div id="abbreviate" class="section level1">
+<h1><code>abbreviate()</code></h1>
+<center>
+<div class="figure">
+<img src="https://images.unsplash.com/photo-1551944325-776c9772d382?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=401&amp;q=80" alt="" />
+<p class="caption">from Unsplash by Kirill Pershin</p>
+</div>
+</center>
+<p>The above problem can also be handled using the <code>abbreviate()</code> function:</p>
+<pre class="r"><code># Transform the words to lower cases 
+
+countries_lower &lt;- tolower(countries)
+
+abbreviate(
+  
+  names.arg = countries_lower, 
+  
+  minlength = 3, 
+  
+  strict = TRUE, # We permit duplications
+  
+  named = FALSE
+)</code></pre>
+<pre><code>## [1] &quot;alg&quot; &quot;mrc&quot; &quot;tns&quot; &quot;mal&quot; &quot;tch&quot; &quot;kny&quot; &quot;alg&quot; &quot;mrc&quot; &quot;alg&quot;</code></pre>
+</div>
+<div id="table" class="section level1">
+<h1><code>table()</code></h1>
+<center>
+<div class="figure">
+<img src="https://images.unsplash.com/photo-1547497348-42767a587639?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="" />
+<p class="caption">from Unsplash by Marcus Spiske</p>
+</div>
+</center>
+<p><code>table()</code> is a famous function that displays the counts of appearance of each value within a vector.</p>
+<pre class="r"><code>countries &lt;- c(&quot;Algeria&quot;, &quot;Algeria&quot;, &quot;Mali&quot;, &quot;Kenya&quot;, &quot;Mali&quot;, &quot;Mali&quot;, &quot;Senegal&quot;, &quot;Uganda&quot;, &quot;Senegal&quot;, &quot;Morocco&quot;, &quot;Senegal&quot;, &quot;Senegal&quot;, &quot;Senegal&quot;, NA, NA, NA, NA, NA, NA)
+
+table(countries, useNA = &quot;no&quot;)</code></pre>
+<pre><code>## countries
+## Algeria   Kenya    Mali Morocco Senegal  Uganda 
+##       2       1       3       1       5       1</code></pre>
+<p>We can change the <code>useNA</code> argument to <code>"always"</code> to get the count of NAs:</p>
+<pre class="r"><code>table(countries, useNA = &quot;always&quot;)</code></pre>
+<pre><code>## countries
+## Algeria   Kenya    Mali Morocco Senegal  Uganda    &lt;NA&gt; 
+##       2       1       3       1       5       1       6</code></pre>
+<p>If you want to sort by count of appearance:</p>
+<pre class="r"><code>my_tab &lt;- table(countries, useNA = &quot;no&quot;)
+
+sort(x = my_tab, decreasing = TRUE)</code></pre>
+<pre><code>## countries
+## Senegal    Mali Algeria   Kenya Morocco  Uganda 
+##       5       3       2       1       1       1</code></pre>
+<p>You can quickly visualize the distribution of the <code>countries</code> vector:</p>
+<pre class="r"><code>sort_tab &lt;- sort(x = my_tab, decreasing = TRUE)
+
+barplot(sort_tab, ylab = &quot;Counts&quot;, col = &quot;steelblue&quot;)</code></pre>
+<p><img src="/post/2020-09-10-r-base-gems.en_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="search" class="section level1">
+<h1><code>search()</code></h1>
+<center>
+<div class="figure">
+<img src="https://images.unsplash.com/photo-1572965933956-65d960e6b11b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="" />
+<p class="caption">from Unsplash by Ak Ka</p>
+</div>
+</center>
+<p><code>search()</code> is a nice little function that tells you which packages are attached to your current session.</p>
+<pre class="r"><code>search()</code></pre>
+<pre><code>## [1] &quot;.GlobalEnv&quot;        &quot;package:stats&quot;     &quot;package:graphics&quot; 
+## [4] &quot;package:grDevices&quot; &quot;package:utils&quot;     &quot;package:datasets&quot; 
+## [7] &quot;package:methods&quot;   &quot;Autoloads&quot;         &quot;package:base&quot;</code></pre>
+</div>
+<div id="jitter" class="section level1">
+<h1><code>jitter()</code></h1>
+<center>
+<div class="figure">
+<img src="https://images.unsplash.com/photo-1588416197225-c2554a33c536?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="" />
+<p class="caption">from Unsplash by Dragisa Braunovic</p>
+</div>
+</center>
+<p><code>jitter()</code> allows you to introduce some fluctuations to a vector of values</p>
+<pre class="r"><code># run mtcars$mpg to check the difference
+jitter(mtcars$mpg)</code></pre>
+<pre><code>##  [1] 21.00467 21.00279 22.81458 21.40172 18.71187 18.11439 14.29423 24.41826
+##  [9] 22.78911 19.21008 17.81626 16.38164 17.29093 15.21337 10.39363 10.40530
+## [17] 14.69248 32.38503 30.40037 33.91228 21.50025 15.48994 15.18539 13.31316
+## [25] 19.20811 27.29118 26.01934 30.41595 15.81780 19.69516 14.99039 21.41895</code></pre>
+</div>
+<div id="comment" class="section level1">
+<h1><code>comment()</code></h1>
+<center>
+<div class="figure">
+<img src="https://images.unsplash.com/photo-1545320059-b95959ddeb55?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=752&amp;q=80" alt="" />
+<p class="caption">from Unsplash by Wolfgang Hasselmann</p>
+</div>
+</center>
+<p>The <code>comment()</code> function is particularly useful when you want to bind some comments to a specific object. When the object is printed, the comments won’t be displayed.</p>
+<pre class="r"><code>comment(mtcars) &lt;- &quot;This data frame has no NAs, go ahead !&quot;
+
+comment(mtcars)</code></pre>
+<pre><code>## [1] &quot;This data frame has no NAs, go ahead !&quot;</code></pre>
+<p>The <code>attributes()</code> function will also retrieve the comments</p>
+<pre class="r"><code>attributes(mtcars)</code></pre>
+<pre><code>## $names
+##  [1] &quot;mpg&quot;  &quot;cyl&quot;  &quot;disp&quot; &quot;hp&quot;   &quot;drat&quot; &quot;wt&quot;   &quot;qsec&quot; &quot;vs&quot;   &quot;am&quot;   &quot;gear&quot;
+## [11] &quot;carb&quot;
+## 
+## $row.names
+##  [1] &quot;Mazda RX4&quot;           &quot;Mazda RX4 Wag&quot;       &quot;Datsun 710&quot;         
+##  [4] &quot;Hornet 4 Drive&quot;      &quot;Hornet Sportabout&quot;   &quot;Valiant&quot;            
+##  [7] &quot;Duster 360&quot;          &quot;Merc 240D&quot;           &quot;Merc 230&quot;           
+## [10] &quot;Merc 280&quot;            &quot;Merc 280C&quot;           &quot;Merc 450SE&quot;         
+## [13] &quot;Merc 450SL&quot;          &quot;Merc 450SLC&quot;         &quot;Cadillac Fleetwood&quot; 
+## [16] &quot;Lincoln Continental&quot; &quot;Chrysler Imperial&quot;   &quot;Fiat 128&quot;           
+## [19] &quot;Honda Civic&quot;         &quot;Toyota Corolla&quot;      &quot;Toyota Corona&quot;      
+## [22] &quot;Dodge Challenger&quot;    &quot;AMC Javelin&quot;         &quot;Camaro Z28&quot;         
+## [25] &quot;Pontiac Firebird&quot;    &quot;Fiat X1-9&quot;           &quot;Porsche 914-2&quot;      
+## [28] &quot;Lotus Europa&quot;        &quot;Ford Pantera L&quot;      &quot;Ferrari Dino&quot;       
+## [31] &quot;Maserati Bora&quot;       &quot;Volvo 142E&quot;         
+## 
+## $class
+## [1] &quot;data.frame&quot;
+## 
+## $comment
+## [1] &quot;This data frame has no NAs, go ahead !&quot;</code></pre>
+</div>
+<div id="make.unique" class="section level1">
+<h1><code>make.unique()</code></h1>
+<center>
+<div class="figure">
+<img src="https://images.unsplash.com/photo-1545481780-acff2f394ef6?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=752&amp;q=80" alt="" />
+<p class="caption">from Unsplash by Wolfgang Hasselmann</p>
+</div>
+</center>
+<p><code>make.unique()</code> is a pretty powerful function. It appends a sequence of numbers to duplicates in order to make vector’s elements unique:</p>
+<pre class="r"><code>countries &lt;- c(&quot;Algeria&quot;, &quot;Morocco&quot;, &quot;Algeria&quot;, &quot;Algeria&quot;, &quot;Morocco&quot;, &quot;Tunisia&quot;, &quot;Morocco&quot;, &quot;Tunisia&quot;)
+
+make.unique(names = countries, sep = &quot; -_- &quot;)</code></pre>
+<pre><code>## [1] &quot;Algeria&quot;       &quot;Morocco&quot;       &quot;Algeria -_- 1&quot; &quot;Algeria -_- 2&quot;
+## [5] &quot;Morocco -_- 1&quot; &quot;Tunisia&quot;       &quot;Morocco -_- 2&quot; &quot;Tunisia -_- 1&quot;</code></pre>
+</div>
