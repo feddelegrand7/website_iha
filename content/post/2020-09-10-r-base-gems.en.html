@@ -7,7 +7,7 @@ categories: []
 tags:
   - base R
 subtitle: ''
-summary: 'Some Gems from R base'
+summary: 'Some Gems from R Base'
 authors: []
 lastmod: '2020-09-10T11:48:24+02:00'
 featured: no
@@ -143,10 +143,10 @@ barplot(sort_tab, ylab = &quot;Counts&quot;, col = &quot;steelblue&quot;)</code>
 <p><code>jitter()</code> allows you to introduce some fluctuations to a vector of values</p>
 <pre class="r"><code># run mtcars$mpg to check the difference
 jitter(mtcars$mpg)</code></pre>
-<pre><code>##  [1] 21.00467 21.00279 22.81458 21.40172 18.71187 18.11439 14.29423 24.41826
-##  [9] 22.78911 19.21008 17.81626 16.38164 17.29093 15.21337 10.39363 10.40530
-## [17] 14.69248 32.38503 30.40037 33.91228 21.50025 15.48994 15.18539 13.31316
-## [25] 19.20811 27.29118 26.01934 30.41595 15.81780 19.69516 14.99039 21.41895</code></pre>
+<pre><code>##  [1] 20.99445 21.00335 22.79127 21.39489 18.71063 18.10950 14.28911 24.40835
+##  [9] 22.79397 19.21747 17.81193 16.41927 17.28185 15.20250 10.41295 10.41621
+## [17] 14.68476 32.41836 30.39589 33.88208 21.50608 15.51768 15.19893 13.31650
+## [25] 19.19906 27.30775 26.00450 30.38734 15.81134 19.70238 15.00235 21.39310</code></pre>
 </div>
 <div id="comment" class="section level1">
 <h1><code>comment()</code></h1>
@@ -200,4 +200,38 @@ comment(mtcars)</code></pre>
 make.unique(names = countries, sep = &quot; -_- &quot;)</code></pre>
 <pre><code>## [1] &quot;Algeria&quot;       &quot;Morocco&quot;       &quot;Algeria -_- 1&quot; &quot;Algeria -_- 2&quot;
 ## [5] &quot;Morocco -_- 1&quot; &quot;Tunisia&quot;       &quot;Morocco -_- 2&quot; &quot;Tunisia -_- 1&quot;</code></pre>
+</div>
+<div id="startswith-and-endswith" class="section level1">
+<h1><code>startsWith()</code> and <code>endsWith()</code></h1>
+<center>
+<div class="figure">
+<img src="https://images.unsplash.com/photo-1580636938889-2df022d328d2?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="" />
+<p class="caption">from Unsplash by Gilberto Olimpio</p>
+</div>
+</center>
+<p><code>startsWith()</code>/<code>endsWith()</code> detect the elements of a vector (character) that start/end with a specific character(s):</p>
+<pre class="r"><code>countries &lt;- c(&quot;Armania&quot;, &quot;Argentina&quot;, &quot;Antalya&quot;, &quot;Adelaide&quot;, &quot;Abidjan&quot;)
+
+startsWith(x = countries,
+           prefix = &quot;Ar&quot;)</code></pre>
+<pre><code>## [1]  TRUE  TRUE FALSE FALSE FALSE</code></pre>
+<pre class="r"><code>countries &lt;- c(&quot;Armania&quot;, &quot;Argentina&quot;, &quot;Antalya&quot;, &quot;Adelaide&quot;, &quot;Abidjan&quot;)
+
+endsWith(x = countries,
+         suffix = &quot;an&quot;)</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE FALSE  TRUE</code></pre>
+</div>
+<div id="quarters.date" class="section level1">
+<h1><code>quarters.Date()</code></h1>
+<center>
+<div class="figure">
+<img src="https://images.unsplash.com/photo-1551163829-d8b73b2b0b94?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=667&amp;q=80" alt="" />
+<p class="caption">from Unsplash by Annie Spratt</p>
+</div>
+</center>
+<p><code>quarters.Date()</code> converts a date to its corresponding quarter (Q1, Q2, Q3 or Q4):</p>
+<pre class="r"><code>my_dates &lt;- c(&quot;2020-01-01&quot;, &quot;2005-03-25&quot;, &quot;2010-04-02&quot;, &quot;2020-12-10&quot;, &quot;2011-08-15&quot;)
+
+quarters.Date(my_dates)</code></pre>
+<pre><code>## [1] &quot;Q1&quot; &quot;Q1&quot; &quot;Q2&quot; &quot;Q4&quot; &quot;Q3&quot;</code></pre>
 </div>

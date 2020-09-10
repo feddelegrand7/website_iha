@@ -107,6 +107,7 @@ abbreviate(
 ```
 
 
+
 # `table()` 
 
 <center>
@@ -246,21 +247,57 @@ make.unique(names = countries, sep = " -_- ")
 # `startsWith()` and `endsWith()` 
 
 
+
+<center>
+
+![from Unsplash by Gilberto Olimpio](https://images.unsplash.com/photo-1580636938889-2df022d328d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80)
+
+</center>
+
+
 `startsWith()`/`endsWith()` detect the elements of a vector (character) that start/end with a specific character(s):
 
 
 ```{r}
 
+countries <- c("Armania", "Argentina", "Antalya", "Adelaide", "Abidjan")
 
-startsWith(x = mpg$manufacturer,
-                 prefix = "ch")
+startsWith(x = countries,
+           prefix = "Ar")
+```
 
-endsWith(x = c("Algeria", "Algiers", "Argentine", "Germany"),
-                 suffix  = "ria")
+```{r}
+
+countries <- c("Armania", "Argentina", "Antalya", "Adelaide", "Abidjan")
+
+endsWith(x = countries,
+         suffix = "an")
 ```
 
 
 
+# `quarters.Date()` 
+
+
+
+<center>
+
+![from Unsplash by Annie Spratt](https://images.unsplash.com/photo-1551163829-d8b73b2b0b94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80)
+
+</center>
+
+
+`quarters.Date()` converts a date to its corresponding quarter (Q1, Q2, Q3 or Q4): 
+
+
+
+```{r}
+
+my_dates <- c("2020-01-01", "2005-03-25", "2010-04-02", "2020-12-10", "2011-08-15")
+
+quarters.Date(my_dates)
+
+```
 
 
 
