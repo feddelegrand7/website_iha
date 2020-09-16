@@ -34,9 +34,8 @@ projects: []
 ```{css, echo = FALSE}
 
 body{
-  background-color:lightGreenn;
-    
-  color:#30C530;
+
+  color:#235367;
     
   font-family: 'Noto Sans JP', sans-serif;
 }
@@ -50,7 +49,7 @@ img{
 
 pre{
   
-  background-color: #74F5A5;
+  background-color:#BCEDDD;
   
   
 }
@@ -58,6 +57,9 @@ pre{
 
 
 ```
+
+
+
 
 
 <br> 
@@ -198,3 +200,32 @@ ggplot(penguins %>% drop_na(), aes(col = sex)) +
 ```
 
 
+
+Further, it's possible to plot histograms within the diagonal of the matrix using the `geom_histogram()` function: 
+
+```{r, fig.align='center', fig.height=12, fig.width=12}
+
+ggplot(penguins %>% drop_na(), aes(col = sex, fill = sex)) +
+  geom_autopoint() +
+  facet_matrix(rows = vars(island:body_mass_g),
+               switch = "x", layer.diag = 2) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  geom_autohistogram()
+
+```
+
+Here the `layer.diag` argument determines which layer will be used within the diagonal. In this case, we've specified the value 2 which corresponds to the second layer: `geom_autohistogram()`.
+
+In the same manner, we can use the `geom_autodensity()` function for densities.
+
+
+```{r, fig.align='center', fig.height=12, fig.width=12}
+
+ggplot(penguins %>% drop_na(), aes(col = sex, fill = sex)) +
+  geom_autopoint() +
+  facet_matrix(rows = vars(island:body_mass_g),
+               switch = "x", layer.diag = 2) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  geom_autodensity()
+
+```
