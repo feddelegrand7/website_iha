@@ -18,27 +18,42 @@
   </url>
   
   <url>
+    <loc>/tags/mailtor/</loc>
+    <lastmod>2020-09-14T23:30:11+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-09-14T23:30:11+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/packages/</loc>
+    <lastmod>2020-09-14T23:30:11+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-09-14T23:30:11+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/sending-emails-should-be-easier-in-rmarkdown/</loc>
+    <lastmod>2020-09-14T23:30:11+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-09-14T23:30:11+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/base-r/</loc>
     <lastmod>2020-09-10T11:48:24+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2020-09-10T11:48:24+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-09-10T11:48:24+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/r-base-gems/</loc>
-    <lastmod>2020-09-10T11:48:24+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-09-10T11:48:24+02:00</lastmod>
   </url>
   
@@ -59,11 +74,6 @@
   
   <url>
     <loc>/post/create-nice-looking-bubbles-in-rmarkdown-and-shiny-backgrounds-with-bubblyr/</loc>
-    <lastmod>2020-07-30T01:13:50+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/packages/</loc>
     <lastmod>2020-07-30T01:13:50+02:00</lastmod>
   </url>
   

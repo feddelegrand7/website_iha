@@ -1,0 +1,58 @@
+---
+title: Sending Emails Should Be Easier in RMarkdown
+author: ''
+date: '2020-09-14'
+slug: sending-emails-should-be-easier-in-rmarkdown
+categories: []
+tags:
+  - mailtoR
+  - packages
+subtitle: ''
+summary: 'Sending Emails should be easier in RMarkdown'
+authors: []
+lastmod: '2020-09-14T23:30:11+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+```{r, echo=FALSE}
+library(mailtoR)
+
+use_mailtoR()
+```
+
+
+Recently, I was reading a cool blog post by [Martin Chan](https://martinctc.github.io/index.html). I was curious to see how they've implemented the [googlesheets4](https://github.com/tidyverse/googlesheets4) package to collect and monitor data, (I know I could have checked their Github repo but I had a precise question). When I clicked the __Contact me__ icon, this happened: 
+
+![](/post/2020-09-14-sending-emails-should-be-must-be-easier-in-rmarkdown.en_files/example11.gif)
+
+I really want to stress out that the problems comes from me. I'm a lazy person and I don't know why I've never been able to set up my email software manager. This is my kryptonite. For lazy people like me, I wanted to share this solution. 
+
+
+![](https://media.giphy.com/media/z0mMFvI7U27V6/giphy.gif)
+
+Recently, I've developed a small package called [mailtoR](https://github.com/feddelegrand7/mailtoR) which deals with this kind of issues. To see what it does, click `r mailtoR(email = "ihaddaden.fodeil@gmail.com", text = "here", subject = "pizza quattro formaggi", body = "Hey buddy, you deserve a quattro formaggi pizza !!!")` and choose your preferred email service. 
+
+
+See ? I've used the following code but in an inline fashion:
+
+```{r, eval=FALSE}
+
+library(mailtoR)
+
+use_mailtoR() # This function is mandatory
+
+mailtoR(email = "ihaddaden.fodeil@gmail.com", 
+        text = "here", 
+        subject = "pizza quattro formaggi", 
+        body = "Hey buddy, you deserve a quattro formaggi pizza !!!")
+```
+
+
+Thanks !!!
+
+![](https://media.giphy.com/media/RQSuZfuylVNAY/giphy.gif)

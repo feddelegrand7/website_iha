@@ -1,0 +1,200 @@
+---
+title: It's a Bird, It's a Plane ... It's a ggforce function
+author: ''
+date: '2020-09-15'
+slug: it-s-a-bird-it-s-a-plane-it-s-a-ggforce-function
+categories: []
+tags:
+  - ggplot2
+  - tidyverse
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-09-15T23:53:45+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
+
+
+</style>
+
+
+
+
+
+```{css, echo = FALSE}
+
+body{
+  background-color:lightGreenn;
+    
+  color:#30C530;
+    
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+img{
+  border-radius: 8px;
+  width=500px;
+  height=500px;
+}
+
+
+pre{
+  
+  background-color: #74F5A5;
+  
+  
+}
+
+
+
+```
+
+
+<br> 
+---
+
+
+# theme_no_axes()
+
+This function removes the axis text, title, ticks and grid lines for any themed plot, particularly useful in many cases:  
+
+
+```{r, message=FALSE, warning=FALSE, fig.align='center'}
+library(tidyverse)
+library(ggforce)
+
+ggplot(mpg, aes(hwy, cty)) +
+  geom_point() +
+  theme_no_axes(base.theme = theme_dark()) 
+
+```
+
+
+
+```{r, message=FALSE, warning=FALSE, fig.align='center'}
+
+ggplot(mpg, aes(hwy, cty)) +
+  geom_point() +
+  theme_no_axes(base.theme = ggthemes::theme_economist_white()) 
+
+```
+
+<br>
+
+
+# facet_zoom()
+
+
+`facet_zoom()` zooms on a particular data category within a plot. Below we'll use `starwars` data frame and zoom on the x-axis of the _female_ category from the _sex_ variable. 
+
+```{r, fig.align='center'}
+
+
+
+ggplot(starwars, aes(mass, height, col = sex)) + 
+  geom_point(na.rm = TRUE) +
+  facet_zoom(x = sex == "female", zoom.size = 2) +
+  ggthemes::theme_hc()
+
+
+```
+
+
+# facet_row()
+
+`facet_row()` is a one-dimensional version of `facet_wrap()`. It aligns all the subplot into one row:
+
+
+```{r, fig.align='center'}
+
+library(palmerpenguins)
+
+ggplot(penguins) +
+  geom_point(aes(bill_length_mm, body_mass_g), col = "white", na.rm = TRUE) +
+  facet_row(~island) +
+  theme_no_axes(base.theme = theme_dark()) 
+
+
+```
+
+`facet_col` does the same thing except that it arranges sub-plots within one column : 
+
+
+```{r, fig.align='center'}
+
+ggplot(penguins) +
+  geom_point(aes(bill_length_mm, body_mass_g), col = "white", na.rm = TRUE) +
+  facet_col(~island) +
+  theme_no_axes(base.theme = theme_dark()) 
+
+
+```
+
+
+# facet_matrix()
+
+Using `facet_matrix()` you can specify a matrix composed of inter-related plots. In the example below, we'll map the `bill_length_mm`, `bill_depth_mm` and `flipper_length_mm` (on the x-axis) with  `body_mass_g`  (on the y-axis):
+
+```{r, fig.align='center'}
+
+ggplot(penguins, aes(x = .panel_x, y = .panel_y, col = sex)) +
+  geom_point(na.rm = TRUE) +
+  facet_matrix(rows = vars(body_mass_g), 
+               cols = vars(bill_length_mm, bill_depth_mm, flipper_length_mm), 
+               switch = "x")
+```
+
+You can remove the `x = .panel_x, y = .panel_y` part using the `geom_autopoint()` function: 
+
+
+
+```{r, fig.align='center'}
+
+ggplot(penguins, aes(col = sex)) +
+  geom_autopoint(na.rm = TRUE) +
+  facet_matrix(rows = vars(body_mass_g), 
+               cols = vars(bill_length_mm, bill_depth_mm, flipper_length_mm), 
+               switch = "x")
+```
+
+In the same way, you can get an overview of the different interactions between your numerical variables: 
+
+
+```{r, fig.align='center'}
+
+ggplot(penguins, aes(col = sex)) +
+  geom_autopoint(na.rm = TRUE) +
+  facet_matrix(rows = vars(bill_length_mm:body_mass_g),
+               switch = "x")
+
+
+```
+
+
+
+It's also possible to include interactions between numerical and categorical variables (be sure to drop missing values beforehand)
+
+
+
+```{r, fig.align='center', fig.height=12, fig.width=12}
+
+ggplot(penguins %>% drop_na(), aes(col = sex)) +
+  geom_autopoint() +
+  facet_matrix(rows = vars(island:body_mass_g),
+               switch = "x") +
+  theme(axis.text.x = element_text(angle = 90))
+
+
+```
+
+
