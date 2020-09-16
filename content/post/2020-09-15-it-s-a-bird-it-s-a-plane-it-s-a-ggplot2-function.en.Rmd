@@ -55,10 +55,10 @@ pre{
 }
 
 
-
 ```
 
 
+[ggforce](https://github.com/thomasp85/ggforce) is a powerful package that extends heavily the ggplot2 API. In this blog post, I won't go through all its capabilities, I'll just provide a sample of some cool functions that can be used by intermediate ggplot2 user (like me, well I hope to) to upgrade his plotting portfolio.
 
 
 
@@ -97,7 +97,7 @@ ggplot(mpg, aes(hwy, cty)) +
 # facet_zoom()
 
 
-`facet_zoom()` zooms on a particular data category within a plot. Below we'll use `starwars` data frame and zoom on the x-axis of the _female_ category from the _sex_ variable. 
+`facet_zoom()` zooms on a particular data category within a plot. Below we'll use the `starwars` data frame and zoom on the x-axis of the _female_ category from the _sex_ variable. 
 
 ```{r, fig.align='center'}
 
@@ -145,7 +145,7 @@ ggplot(penguins) +
 
 # facet_matrix()
 
-Using `facet_matrix()` you can specify a matrix composed of inter-related plots. In the example below, we'll map the `bill_length_mm`, `bill_depth_mm` and `flipper_length_mm` (on the x-axis) with  `body_mass_g`  (on the y-axis):
+Using `facet_matrix()` you can specify a matrix composed of inter-related plots. In the example below, we'll map `bill_length_mm`, `bill_depth_mm` and `flipper_length_mm` (on the x-axis) with  `body_mass_g`  (on the y-axis):
 
 ```{r, fig.align='center'}
 
@@ -201,7 +201,7 @@ ggplot(penguins %>% drop_na(), aes(col = sex)) +
 
 
 
-Further, it's possible to plot histograms within the diagonal of the matrix using the `geom_histogram()` function: 
+Further, it's possible to plot histograms within the diagonal of the matrix using the `geom_autohistogram()` function: 
 
 ```{r, fig.align='center', fig.height=12, fig.width=12}
 
@@ -216,7 +216,7 @@ ggplot(penguins %>% drop_na(), aes(col = sex, fill = sex)) +
 
 Here the `layer.diag` argument determines which layer will be used within the diagonal. In this case, we've specified the value 2 which corresponds to the second layer: `geom_autohistogram()`.
 
-In the same manner, we can use the `geom_autodensity()` function for densities.
+In the same manner, we can use `geom_autodensity()` for densities.
 
 
 ```{r, fig.align='center', fig.height=12, fig.width=12}
@@ -229,3 +229,72 @@ ggplot(penguins %>% drop_na(), aes(col = sex, fill = sex)) +
   geom_autodensity()
 
 ```
+
+
+# geom_mark_ellipse() 
+
+
+First, we render the following plot: 
+
+```{r, fig.align='center'}
+ggplot(penguins %>% drop_na(), aes(bill_depth_mm, body_mass_g, col = species)) +
+  geom_point(na.rm = TRUE)
+
+```
+
+Now, let's say we want to highlight a particular species (e.g. Gentoo), we'll use the `geom_mark_ellipse()` as follows: 
+
+
+```{r}
+
+ggplot(penguins %>% drop_na(), aes(bill_depth_mm, body_mass_g)) +
+  geom_point() +
+  geom_mark_ellipse(aes(filter = species == "Gentoo", 
+                        label = "Gentoo", 
+                        description = "Gentoo penguins seem quite different from the other species"),
+                        label.fill = "pink",
+                        label.colour = "red", 
+                        con.colour = "red",
+                        con.linetype = 2, 
+                        expand = unit(2, "mm")) 
+
+
+```
+
+
+
+Note that there other `geom_mark_*()` functions (e.g. geom_mark_rect) but these 
+
+
+
+
+```{r}
+ggplot(penguins %>% drop_na(), aes(bill_depth_mm, body_mass_g)) +
+  geom_point() +
+  geom_mark_rect(aes(filter = species == "Gentoo", 
+                        label = "Gentoo", 
+                        description = "Gentoo penguins seem quite different from the other species"),
+                        label.fill = "pink",
+                        label.colour = "red", 
+                        con.colour = "red",
+                        con.linetype = 2, 
+                        expand = unit(0.01, "mm"), 
+                        fill = "pink") 
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
