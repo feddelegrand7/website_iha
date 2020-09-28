@@ -34,6 +34,7 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/feddelegrand7/pivta&#34;&gt;pivta&lt;/a&gt; an R wrapper for the WebDataRocks JavaScript library. It gives you the ability to embed a pivot table along with other data analysis tools within a Shiny application.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/feddelegrand7/fabricerin&#34;&gt;fabricerin&lt;/a&gt; for
 creating canvas in Shiny and RMarkdown documents.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/feddelegrand7/rintimg&#34;&gt;rintimg&lt;/a&gt; allows one to zoom on an image on click.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

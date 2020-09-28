@@ -5,12 +5,204 @@
     <link>/tags/tidyverse/</link>
       <atom:link href="/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
     <description>tidyverse</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 10 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 15 Sep 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/logo-via-logohub.png</url>
       <title>tidyverse</title>
       <link>/tags/tidyverse/</link>
     </image>
+    
+    <item>
+      <title>It&#39;s a Bird, It&#39;s a Plane ... It&#39;s a ggforce function</title>
+      <link>/post/it-s-a-bird-it-s-a-plane-it-s-a-ggforce-function/</link>
+      <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>/post/it-s-a-bird-it-s-a-plane-it-s-a-ggforce-function/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;style&gt;
+
+@import url(&#39;https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&amp;display=swap&#39;);
+
+&lt;/style&gt;
+&lt;style type=&#34;text/css&#34;&gt;
+
+body{
+
+  color:#235367;
+    
+  font-family: &#39;Noto Sans JP&#39;, sans-serif;
+}
+
+img{
+  border-radius: 8px;
+  width=500px;
+  height=500px;
+}
+
+
+pre{
+  
+  background-color:#BFD0CD;
+  
+  
+}
+
+
+&lt;/style&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/thomasp85/ggforce&#34;&gt;ggforce&lt;/a&gt; is a powerful package that extends heavily the ggplot2 API. In this blog post, I won’t go through all its capabilities, I’ll just provide a tiny sample of some cool functions that can be useful for ggplot2 coders. Let’s get started !&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;center&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://images.unsplash.com/photo-1517260911058-0fcfd733702f?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=813&amp;amp;q=80&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;from Unsplash by Brooke Lark&lt;/p&gt;
+&lt;/div&gt;
+&lt;/center&gt;
+&lt;div id=&#34;section&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;br&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;theme_no_axes&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;theme_no_axes()&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;theme_no_axes()&lt;/code&gt; removes the axis text, title, ticks and grid lines for most themed plot, particularly useful in some cases:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(ggforce)
+
+ggplot(mpg, aes(hwy, cty)) +
+  geom_point() +
+  theme_no_axes(base.theme = theme_dark()) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-15-it-s-a-bird-it-s-a-plane-it-s-a-ggplot2-function.en_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mpg, aes(hwy, cty)) +
+  geom_point() +
+  theme_no_axes(base.theme = ggthemes::theme_economist_white()) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-15-it-s-a-bird-it-s-a-plane-it-s-a-ggplot2-function.en_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;facet_zoom&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;facet_zoom()&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;facet_zoom()&lt;/code&gt; zooms on a particular data category within a plot. Below we’ll use the &lt;code&gt;starwars&lt;/code&gt; data frame and zoom on the x-axis of the &lt;em&gt;female&lt;/em&gt; category from the &lt;em&gt;sex&lt;/em&gt; variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(starwars, aes(mass, height, col = sex)) + 
+  geom_point(na.rm = TRUE) +
+  facet_zoom(x = sex == &amp;quot;female&amp;quot;, zoom.size = 2) +
+  ggthemes::theme_hc()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-15-it-s-a-bird-it-s-a-plane-it-s-a-ggplot2-function.en_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;facet_row&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;facet_row()&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;facet_row()&lt;/code&gt; is a one-dimensional version of &lt;code&gt;facet_wrap()&lt;/code&gt;. It aligns all the subplot into one row:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(palmerpenguins)
+
+ggplot(penguins) +
+  geom_point(aes(bill_length_mm, body_mass_g), col = &amp;quot;white&amp;quot;, na.rm = TRUE) +
+  facet_row(~island) +
+  theme_no_axes(base.theme = theme_dark()) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-15-it-s-a-bird-it-s-a-plane-it-s-a-ggplot2-function.en_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;facet_col&lt;/code&gt; does the same thing except that it arranges sub-plots within one column :&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(penguins) +
+  geom_point(aes(bill_length_mm, body_mass_g), col = &amp;quot;white&amp;quot;, na.rm = TRUE) +
+  facet_col(~island) +
+  theme_no_axes(base.theme = theme_dark()) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-15-it-s-a-bird-it-s-a-plane-it-s-a-ggplot2-function.en_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;center&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://images.unsplash.com/photo-1550828520-4cb496926fc9?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=890&amp;amp;q=80&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;From Unsplash by Phoenix Han&lt;/p&gt;
+&lt;/div&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;div id=&#34;facet_matrix&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;facet_matrix()&lt;/h1&gt;
+&lt;p&gt;Using &lt;code&gt;facet_matrix()&lt;/code&gt; you can specify a matrix composed of inter-related plots. In the example below, we’ll map &lt;code&gt;bill_length_mm&lt;/code&gt;, &lt;code&gt;bill_depth_mm&lt;/code&gt; and &lt;code&gt;flipper_length_mm&lt;/code&gt; (on the x-axis) with &lt;code&gt;body_mass_g&lt;/code&gt; (on the y-axis):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(penguins, aes(x = .panel_x, y = .panel_y, col = sex)) +
+  geom_point(na.rm = TRUE) +
+  facet_matrix(rows = vars(body_mass_g), 
+               cols = vars(bill_length_mm, bill_depth_mm, flipper_length_mm), 
+               switch = &amp;quot;x&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-15-it-s-a-bird-it-s-a-plane-it-s-a-ggplot2-function.en_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;You can remove the &lt;code&gt;x = .panel_x, y = .panel_y&lt;/code&gt; part using the &lt;code&gt;geom_autopoint()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(penguins, aes(col = sex)) +
+  geom_autopoint(na.rm = TRUE) +
+  facet_matrix(rows = vars(body_mass_g), 
+               cols = vars(bill_length_mm, bill_depth_mm, flipper_length_mm), 
+               switch = &amp;quot;x&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-15-it-s-a-bird-it-s-a-plane-it-s-a-ggplot2-function.en_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;In the same way, you can get an overview of the different interactions between many numerical variables:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(penguins, aes(col = sex)) +
+  geom_autopoint(na.rm = TRUE) +
+  facet_matrix(rows = vars(bill_length_mm:body_mass_g),
+               switch = &amp;quot;x&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-15-it-s-a-bird-it-s-a-plane-it-s-a-ggplot2-function.en_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;It’s also possible to include interactions between numerical and categorical variables (be sure to drop missing values beforehand):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(penguins %&amp;gt;% drop_na(), aes(col = sex)) +
+  geom_autopoint() +
+  facet_matrix(rows = vars(island:body_mass_g),
+               switch = &amp;quot;x&amp;quot;) +
+  theme(axis.text.x = element_text(angle = 90))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-15-it-s-a-bird-it-s-a-plane-it-s-a-ggplot2-function.en_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;1152&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Further, it’s possible to plot histograms within the diagonal of the matrix using the &lt;code&gt;geom_autohistogram()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(penguins %&amp;gt;% drop_na(), aes(col = sex, fill = sex)) +
+  geom_autopoint() +
+  facet_matrix(rows = vars(island:body_mass_g),
+               switch = &amp;quot;x&amp;quot;, layer.diag = 2) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  geom_autohistogram()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-15-it-s-a-bird-it-s-a-plane-it-s-a-ggplot2-function.en_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;1152&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Here the &lt;code&gt;layer.diag&lt;/code&gt; argument determines which layer will be used within the diagonal. In this case, we’ve specified the value 2 which corresponds to the second layer: &lt;code&gt;geom_autohistogram()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In the same manner, we can use &lt;code&gt;geom_autodensity()&lt;/code&gt; to plot densities:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(penguins %&amp;gt;% drop_na(), aes(col = sex, fill = sex)) +
+  geom_autopoint() +
+  facet_matrix(rows = vars(island:body_mass_g),
+               switch = &amp;quot;x&amp;quot;, layer.diag = 2) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  geom_autodensity()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-15-it-s-a-bird-it-s-a-plane-it-s-a-ggplot2-function.en_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;1152&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;geom_mark_ellipse&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;geom_mark_ellipse()&lt;/h1&gt;
+&lt;p&gt;First, we render the following plot:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(penguins %&amp;gt;% drop_na(), aes(bill_depth_mm, body_mass_g, col = species)) +
+  geom_point(na.rm = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-15-it-s-a-bird-it-s-a-plane-it-s-a-ggplot2-function.en_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Now, let’s say we want to highlight a particular species (e.g. Gentoo), we’ll use the &lt;code&gt;geom_mark_ellipse()&lt;/code&gt; as follows:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(penguins %&amp;gt;% drop_na(), aes(bill_depth_mm, body_mass_g)) +
+  geom_point() +
+  geom_mark_ellipse(aes(filter = species == &amp;quot;Gentoo&amp;quot;, 
+                        label = &amp;quot;Gentoo&amp;quot;, 
+                        description = &amp;quot;Gentoo penguins seem quite different from the other species&amp;quot;),
+                        label.fill = &amp;quot;pink&amp;quot;,
+                        label.colour = &amp;quot;red&amp;quot;, 
+                        con.colour = &amp;quot;red&amp;quot;,
+                        con.linetype = 2, 
+                        expand = unit(2, &amp;quot;mm&amp;quot;)) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-15-it-s-a-bird-it-s-a-plane-it-s-a-ggplot2-function.en_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Note that there’re other &lt;code&gt;geom_mark_*()&lt;/code&gt; functions (e.g. geom_mark_rect) that you can use:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(penguins %&amp;gt;% drop_na(), aes(bill_depth_mm, body_mass_g)) +
+  geom_point() +
+  geom_mark_rect(aes(filter = species == &amp;quot;Gentoo&amp;quot;, 
+                        label = &amp;quot;Gentoo&amp;quot;, 
+                        description = &amp;quot;Gentoo penguins seem quite different from the other species&amp;quot;),
+                        label.fill = &amp;quot;pink&amp;quot;,
+                        label.colour = &amp;quot;red&amp;quot;, 
+                        con.colour = &amp;quot;red&amp;quot;,
+                        con.linetype = 2, 
+                        expand = unit(0.01, &amp;quot;mm&amp;quot;), 
+                        fill = &amp;quot;pink&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-15-it-s-a-bird-it-s-a-plane-it-s-a-ggplot2-function.en_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;center&gt;
+&lt;div id=&#34;thanks-for-reading&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Thanks for reading !&lt;/h2&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Introducing the tidyr pivot_longer()</title>

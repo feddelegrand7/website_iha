@@ -18,12 +18,42 @@
   </url>
   
   <url>
-    <loc>/tags/mailtor/</loc>
-    <lastmod>2020-09-14T23:30:11+02:00</lastmod>
+    <loc>/post/introducing-the-rintimg-package-click-on-an-image-and-see-it-on-full-screen/</loc>
+    <lastmod>2020-09-25T17:00:09+02:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
+    <lastmod>2020-09-25T17:00:09+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-09-25T17:00:09+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ggplot2/</loc>
+    <lastmod>2020-09-15T23:53:45+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/it-s-a-bird-it-s-a-plane-it-s-a-ggforce-function/</loc>
+    <lastmod>2020-09-15T23:53:45+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-09-15T23:53:45+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tidyverse/</loc>
+    <lastmod>2020-09-15T23:53:45+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/mailtor/</loc>
     <lastmod>2020-09-14T23:30:11+02:00</lastmod>
   </url>
   
@@ -33,17 +63,7 @@
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2020-09-14T23:30:11+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/sending-emails-should-be-easier-in-rmarkdown/</loc>
-    <lastmod>2020-09-14T23:30:11+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-09-14T23:30:11+02:00</lastmod>
   </url>
   
@@ -149,11 +169,6 @@
   
   <url>
     <loc>/tags/tidyr/</loc>
-    <lastmod>2020-02-10T10:11:22+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/tidyverse/</loc>
     <lastmod>2020-02-10T10:11:22+01:00</lastmod>
   </url>
   

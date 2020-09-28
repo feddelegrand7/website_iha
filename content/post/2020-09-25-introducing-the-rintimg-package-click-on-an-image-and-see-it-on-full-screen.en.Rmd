@@ -1,0 +1,59 @@
+---
+title: ' Introducing the rintimg Package. Click on an Image and See it on Full Screen.'
+author: ''
+date: '2020-09-25'
+slug: introducing-the-rintimg-package-click-on-an-image-and-see-it-on-full-screen
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-09-25T17:00:09+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+[rintimg](https://github.com/feddelegrand7/rintimg) is an R wrapper of the [intense-images](https://github.com/tholman/intense-images) JavaScript library. Using `rintimg` you can view an image in full screen by clicking on it. The package works on Rmd documents and Shiny applications. It's extremely simple to implement: you only need to run one function : `img_intensify()`. 
+
+You can find an example below. The images were collected from [Unsplash](https://unsplash.com/s/photos/pineapple).
+
+
+By default `img_intensify()` intensifies all the images available within a document nevertheless you can focus on a set of images using a `class` attribute. 
+
+Below I've used the class name `intensify` to target the first two images (from the top):
+
+```{}
+
+<center>
+<img src = "https://images.unsplash.com/photo-1517260911058-0fcfd733702f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=813&q=80" width = "200px" height = "200px" class = "intensify">
+
+<img src = "https://images.unsplash.com/photo-1515878459526-bfff71cfa6da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" width = "200px" height = "200px" class = "intensify">
+
+<img src = "https://images.unsplash.com/photo-1501438400798-b40ff50396c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" width = "200px" height = "200px">
+</center>
+
+```
+
+
+```{r}
+
+library(rintimg)
+
+img_intensify(target = ".intensify")
+
+```
+
+<center>
+<img src = "https://images.unsplash.com/photo-1517260911058-0fcfd733702f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=813&q=80" width = "200px" height = "200px" class = "intensify">
+
+<img src = "https://images.unsplash.com/photo-1515878459526-bfff71cfa6da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" width = "200px" height = "200px" class = "intensify">
+
+<img src = "https://images.unsplash.com/photo-1501438400798-b40ff50396c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" width = "200px" height = "200px">
+</center>
+

@@ -8,7 +8,7 @@ tags:
   - ggplot2
   - tidyverse
 subtitle: ''
-summary: ''
+summary: "ggforce is a powerful package that extends heavily the ggplot2 API. In this blog post, I won't go through all its capabilities, I'll just provide a sample of some cool functions that can be useful for ggplot2 coders."
 authors: []
 lastmod: '2020-09-15T23:53:45+02:00'
 featured: no
@@ -23,7 +23,6 @@ projects: []
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
-
 
 </style>
 
@@ -49,7 +48,7 @@ img{
 
 pre{
   
-  background-color:#BCEDDD;
+  background-color:#BFD0CD;
   
   
 }
@@ -58,8 +57,17 @@ pre{
 ```
 
 
-[ggforce](https://github.com/thomasp85/ggforce) is a powerful package that extends heavily the ggplot2 API. In this blog post, I won't go through all its capabilities, I'll just provide a sample of some cool functions that can be used by intermediate ggplot2 user (like me, well I hope to) to upgrade his plotting portfolio.
+[ggforce](https://github.com/thomasp85/ggforce) is a powerful package that extends heavily the ggplot2 API. In this blog post, I won't go through all its capabilities, I'll just provide a tiny sample of some cool functions that can be useful for ggplot2 coders. Let's get started !
 
+
+<br>
+
+
+<center>
+
+![from Unsplash by Brooke Lark](https://images.unsplash.com/photo-1517260911058-0fcfd733702f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=813&q=80)
+
+</center>
 
 
 <br> 
@@ -68,10 +76,10 @@ pre{
 
 # theme_no_axes()
 
-This function removes the axis text, title, ticks and grid lines for any themed plot, particularly useful in many cases:  
-
+`theme_no_axes()` removes the axis text, title, ticks and grid lines for most themed plot, particularly useful in some cases:  
 
 ```{r, message=FALSE, warning=FALSE, fig.align='center'}
+
 library(tidyverse)
 library(ggforce)
 
@@ -100,8 +108,6 @@ ggplot(mpg, aes(hwy, cty)) +
 `facet_zoom()` zooms on a particular data category within a plot. Below we'll use the `starwars` data frame and zoom on the x-axis of the _female_ category from the _sex_ variable. 
 
 ```{r, fig.align='center'}
-
-
 
 ggplot(starwars, aes(mass, height, col = sex)) + 
   geom_point(na.rm = TRUE) +
@@ -142,6 +148,11 @@ ggplot(penguins) +
 
 ```
 
+<center>
+
+![From Unsplash by Phoenix Han](https://images.unsplash.com/photo-1550828520-4cb496926fc9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=890&q=80)
+
+</center>
 
 # facet_matrix()
 
@@ -169,7 +180,7 @@ ggplot(penguins, aes(col = sex)) +
                switch = "x")
 ```
 
-In the same way, you can get an overview of the different interactions between your numerical variables: 
+In the same way, you can get an overview of the different interactions between many numerical variables: 
 
 
 ```{r, fig.align='center'}
@@ -184,8 +195,7 @@ ggplot(penguins, aes(col = sex)) +
 
 
 
-It's also possible to include interactions between numerical and categorical variables (be sure to drop missing values beforehand)
-
+It's also possible to include interactions between numerical and categorical variables (be sure to drop missing values beforehand):
 
 
 ```{r, fig.align='center', fig.height=12, fig.width=12}
@@ -216,7 +226,7 @@ ggplot(penguins %>% drop_na(), aes(col = sex, fill = sex)) +
 
 Here the `layer.diag` argument determines which layer will be used within the diagonal. In this case, we've specified the value 2 which corresponds to the second layer: `geom_autohistogram()`.
 
-In the same manner, we can use `geom_autodensity()` for densities.
+In the same manner, we can use `geom_autodensity()` to plot densities:
 
 
 ```{r, fig.align='center', fig.height=12, fig.width=12}
@@ -245,7 +255,7 @@ ggplot(penguins %>% drop_na(), aes(bill_depth_mm, body_mass_g, col = species)) +
 Now, let's say we want to highlight a particular species (e.g. Gentoo), we'll use the `geom_mark_ellipse()` as follows: 
 
 
-```{r}
+```{r, fig.align='center'}
 
 ggplot(penguins %>% drop_na(), aes(bill_depth_mm, body_mass_g)) +
   geom_point() +
@@ -263,12 +273,10 @@ ggplot(penguins %>% drop_na(), aes(bill_depth_mm, body_mass_g)) +
 
 
 
-Note that there other `geom_mark_*()` functions (e.g. geom_mark_rect) but these 
+Note that there're other `geom_mark_*()` functions (e.g. geom_mark_rect) that you can use:  
 
 
-
-
-```{r}
+```{r, fig.align='center'}
 ggplot(penguins %>% drop_na(), aes(bill_depth_mm, body_mass_g)) +
   geom_point() +
   geom_mark_rect(aes(filter = species == "Gentoo", 
@@ -283,9 +291,22 @@ ggplot(penguins %>% drop_na(), aes(bill_depth_mm, body_mass_g)) +
 
 ```
 
+<br>
+<br>
+<br>
 
 
+<center>
 
+## Thanks for reading ! 
+
+</center>
+
+<br>
+
+<br>
+<br>
+<br>
 
 
 

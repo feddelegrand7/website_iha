@@ -1,0 +1,52 @@
+---
+title: Introducing the creature package. Interactive Animations in Rmd Documents and
+  Shiny Apps.
+author: ''
+date: '2020-09-28'
+slug: introducing-the-creature-package-interactive-animations-in-rmd-documents-and-shiny-apps
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-09-28T14:22:13+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+The `creature` packages is aimed for lonely R users. With one line of code, create a cool creature and play with it. There are many parameters that you can tune to create something unique to you.
+
+
+### Limitation: All the creatures that you create will live at the bottom of your Rmd document/Shiny app no matter where the code is executed. 
+
+All the credit goes to [Justin Windle](https://soulwire.github.io/sketch.js/), I just brought the creature to the [#RStats](https://twitter.com/search?q=%23rstats&src=typed_query) universe. 
+
+
+```{css, echo = FALSE}
+
+body{background:#1E1E1E;
+     color: #F2F2F2; }
+
+
+```
+
+
+```{r}
+
+library(creature)
+
+create_creature(interactive = FALSE,
+                color = "#324C63",
+                tentacles = 100,
+                tickness = 20,
+                friction = 0.3,
+                gravity = 0,
+                wind = 2)
+ 
+
+```
+

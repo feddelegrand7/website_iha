@@ -57,8 +57,7 @@ I'm the author of the following R packages:
 - [pivta](https://github.com/feddelegrand7/pivta) an R wrapper for the WebDataRocks JavaScript library. It gives you the ability to embed a pivot table along with other data analysis tools within a Shiny application. 
 - [fabricerin](https://github.com/feddelegrand7/fabricerin) for
 creating canvas in Shiny and RMarkdown documents.
-
-
+- [rintimg](https://github.com/feddelegrand7/rintimg) allows one to zoom on an image on click. 
 
 
 
