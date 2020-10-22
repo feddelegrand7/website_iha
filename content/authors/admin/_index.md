@@ -36,13 +36,17 @@ social:
 - icon: github
   icon_pack: fab
   link: https://github.com/feddelegrand7
+- icon: linkedin-in
+  icon_pack: fab
+  link: https://www.linkedin.com/in/mohamed-el-fodil-ihaddaden-730796159/
 superuser: true
 
 ---
 
-Hi, I'm an enthusiast Ph.D candidate in Economics. Throughout my thesis, I've been working mainly on the application of a non-parametric technique called Data Enveloppement Analysis in order to improve Algerian public banks' performance. Furthermore, I'm also interested in implementing machine and deep learning algorithms to solve complex real world issues. I'm able to handle several data analytics programs: R, Python, SQL, Excel and Power BI, although I'm more fluent using R and Rstudio. In this context, I'm a [certified RStudio instructor](https://education.rstudio.com/trainers/). 
+Hi, I'm an enthusiast Ph.D candidate in Economics. Throughout my thesis, I've been working mainly on the application of a non-parametric technique called Data Envelopment Analysis in order to improve Algerian public banks' performance. Furthermore, I'm also interested in implementing machine algorithms to solve complex real world issues. I'm able to handle several data analytics programs: R, Python, JavaScript, although I'm way more fluent using R. In this context, I'm a [certified RStudio instructor](https://education.rstudio.com/trainers/). 
 
-I'm the author of the following R packages: 
+In my free time, I like to develop R packages: 
+
 - [ralger](https://CRAN.R-project.org/package=ralger) that facilitates to the maximum web scraping in R. 
 - [BARIS](https://CRAN.R-project.org/package=BARIS) for working with French Open Data Portal API. 
 - [farrell](https://CRAN.R-project.org/package=farrell) for interactive Data Envelopment Analysis modeling. 
@@ -51,13 +55,14 @@ I'm the author of the following R packages:
 - [scrollrevealR](https://CRAN.R-project.org/package=scrollrevealR) allows you to animate shiny elements when they scroll into view.
 - [algo](https://CRAN.R-project.org/package=algo) implements the [Algolia Places](https://community.algolia.com/places/) Address Search Auto Completion Menu on Shiny Text Inputs.
 - [Rnightly](https://CRAN.R-project.org/package=Rnightly) allows you to implement a Dark/Light toggle mode in your Shiny user interface.
-- [mailtoR](https://CRAN.R-project.org/package=mailtoR) allows you to generate a friendly user interface for emails sending in your Shiny app. 
+- [mailtoR](https://CRAN.R-project.org/package=mailtoR) allows you to generate a friendly user interface for emails sending in RMarkdown and Shiny. 
 - [corazon](https://CRAN.R-project.org/package=corazon) allows you to incorporate easily colorffy gradient colors within Shiny elements though it is principally designed for the app’s body.
 - [bubblyr](https://CRAN.R-project.org/package=bubblyr) allows you to create bubbles within Shiny and RMarkdown backgrounds using the [bubbly-bg](https://github.com/tipsy/bubbly-bg) JavaScript library.
 - [pivta](https://github.com/feddelegrand7/pivta) an R wrapper for the WebDataRocks JavaScript library. It gives you the ability to embed a pivot table along with other data analysis tools within a Shiny application. 
 - [fabricerin](https://github.com/feddelegrand7/fabricerin) for
 creating canvas in Shiny and RMarkdown documents.
 - [rintimg](https://github.com/feddelegrand7/rintimg) allows one to zoom on an image on click. 
+- [flipdownr](https://github.com/feddelegrand7/flipdownr) Implement a Countdown in RMarkdown Documents and Shiny Applications. 
 
 
 

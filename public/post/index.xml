@@ -5,12 +5,534 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 25 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/logo-via-logohub.png</url>
       <title>Posts</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>Introducing the flipdownr package. Create a CountDown in Rmarkdown Documents and Shiny Apps</title>
+      <link>/post/introducing-the-flipdownr-package-create-a-countdown-in-rmarkdown-documents-and-shiny-apps/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>/post/introducing-the-flipdownr-package-create-a-countdown-in-rmarkdown-documents-and-shiny-apps/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/flipdown/flipdown.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/flipdown/flipdown.min.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;style type=&#34;text/css&#34;&gt;
+
+body{
+  
+  background-color: #BD8571;
+  
+}
+
+&lt;/style&gt;
+&lt;div id=&#34;flipdownr&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;flipdownr&lt;/h1&gt;
+&lt;p&gt;The goal of flipdownr is to create a Countdown object within your RMarkdown documents and Shiny application. &lt;code&gt;flipdownr&lt;/code&gt; is an R wrapper of the JavaScript library &lt;a href=&#34;https://pbutcher.uk/flipdown/&#34;&gt;flipdown&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;You can install the development version of flipdownr from &lt;a href=&#34;https://github.com/feddelegrand7/flipdownr&#34;&gt;GITHUB&lt;/a&gt; with:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# install.packages(&amp;quot;remotes&amp;quot;)
+
+remotes::install_github(&amp;quot;feddelegrand7/flipdownr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;functions-and-arguments&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Functions and Arguments&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;flipdownr&lt;/code&gt; has one function: &lt;code&gt;flipdown&lt;/code&gt; which contains the following arguments:&lt;/p&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;downto&lt;/strong&gt; : the targeted date for the countdown. It must have the form of ‘yyyy-mm-dd’ or ‘yyyy-mm-dd hh:mm:ss`. Note that you can include the time zone (example UTC): ’yyyy-mm-dd hh:mm:ss UTC’;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;id&lt;/strong&gt; : the id of the countdown. Useful when you need to include many countdown objects in one document;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;theme&lt;/strong&gt; : The theme of the flipdown object. Two possible choices: ‘dark’ or ‘light’. Defaults to ‘dark’&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;headings&lt;/strong&gt; : A character vector pecifying the heading related to each time part. Defaults to English headings: c(“Days”, “Hours”, “Minutes”, “Seconds”).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;examples&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Examples:&lt;/h2&gt;
+&lt;p&gt;This article was written the 2020-10-16 (16th of October 2020) at 16:13 (GMT+1) approximately, as such the CountDown will reflect it.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(flipdownr)
+
+flipdown(downto = &amp;quot;2020-11-16&amp;quot;, id = &amp;quot;c1&amp;quot;, theme = &amp;quot;dark&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;div id=&#34;c1&#34; class=&#34;flipdown&#34;&gt;&lt;/div&gt;
+&lt;script&gt;
+// Set up FlipDown
+const flipdown_c1 = new FlipDown(  1605481200, &#39;c1&#39;,{
+
+  theme: &#39;dark&#39;,
+
+  headings: [&#34;Days&#34;,&#34;Hours&#34;,&#34;Minutes&#34;,&#34;Seconds&#34;],
+
+})
+
+  // Start the countdown
+  .start()
+
+  // Do something when the countdown ends
+  .ifEnded(() =&gt; {
+    console.log(&#39;The countdown has ended!&#39;);
+  });
+
+&lt;/script&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;You can add another level of precision by specifying the exact time:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;flipdown(downto = &amp;quot;2020-11-16 22:30:00 UTC&amp;quot;, id = &amp;quot;c2&amp;quot;, theme = &amp;quot;dark&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;c2&#34; class=&#34;flipdown&#34;&gt;&lt;/div&gt;
+&lt;script&gt;
+// Set up FlipDown
+const flipdown_c2 = new FlipDown(  1605562200, &#39;c2&#39;,{
+
+  theme: &#39;dark&#39;,
+
+  headings: [&#34;Days&#34;,&#34;Hours&#34;,&#34;Minutes&#34;,&#34;Seconds&#34;],
+
+})
+
+  // Start the countdown
+  .start()
+
+  // Do something when the countdown ends
+  .ifEnded(() =&gt; {
+    console.log(&#39;The countdown has ended!&#39;);
+  });
+
+&lt;/script&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;You can also specify a &lt;code&gt;light&lt;/code&gt; theme:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;flipdown(downto = &amp;quot;2020-11-16&amp;quot;, id = &amp;quot;clight&amp;quot;, theme = &amp;quot;light&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;clight&#34; class=&#34;flipdown&#34;&gt;&lt;/div&gt;
+&lt;script&gt;
+// Set up FlipDown
+const flipdown_clight = new FlipDown(  1605481200, &#39;clight&#39;,{
+
+  theme: &#39;light&#39;,
+
+  headings: [&#34;Days&#34;,&#34;Hours&#34;,&#34;Minutes&#34;,&#34;Seconds&#34;],
+
+})
+
+  // Start the countdown
+  .start()
+
+  // Do something when the countdown ends
+  .ifEnded(() =&gt; {
+    console.log(&#39;The countdown has ended!&#39;);
+  });
+
+&lt;/script&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;You can modify the headers with the &lt;code&gt;headings&lt;/code&gt; argument:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;flipdown(downto = &amp;quot;2020-11-16&amp;quot;,
+         id = &amp;quot;cspanish&amp;quot;, 
+         theme = &amp;quot;light&amp;quot;, 
+         headings = c(&amp;quot;Dias&amp;quot;, &amp;quot;Horas&amp;quot;, &amp;quot;Minutos&amp;quot;, &amp;quot;Segundos&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;cspanish&#34; class=&#34;flipdown&#34;&gt;&lt;/div&gt;
+&lt;script&gt;
+// Set up FlipDown
+const flipdown_cspanish = new FlipDown(  1605481200, &#39;cspanish&#39;,{
+
+  theme: &#39;light&#39;,
+
+  headings: [&#34;Dias&#34;,&#34;Horas&#34;,&#34;Minutos&#34;,&#34;Segundos&#34;],
+
+})
+
+  // Start the countdown
+  .start()
+
+  // Do something when the countdown ends
+  .ifEnded(() =&gt; {
+    console.log(&#39;The countdown has ended!&#39;);
+  });
+
+&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;code-of-conduct&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Code of Conduct&lt;/h2&gt;
+&lt;p&gt;Please note that the website_iha project is released with a &lt;a href=&#34;https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html&#34;&gt;Contributor Code of Conduct&lt;/a&gt;. By contributing to this project, you agree to abide by its terms.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introducing the creature package. Interactive Animations in Rmd Documents and Shiny Apps.</title>
+      <link>/post/introducing-the-creature-package-interactive-animations-in-rmd-documents-and-shiny-apps/</link>
+      <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>/post/introducing-the-creature-package-interactive-animations-in-rmd-documents-and-shiny-apps/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/sketch/sketch.min.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;The &lt;a href=&#34;https://github.com/feddelegrand7/creature&#34;&gt;creature&lt;/a&gt; packages is aimed for lonely R users. With one line of code, create a cool creature and play with it. There are many parameters that you can tune to create something unique to you.&lt;/p&gt;
+&lt;div id=&#34;limitation-all-the-creatures-that-you-create-will-live-at-the-bottom-of-your-rmd-documentshiny-app-no-matter-where-the-code-is-executed.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Limitation: All the creatures that you create will live at the bottom of your Rmd document/Shiny app no matter where the code is executed.&lt;/h3&gt;
+&lt;p&gt;All the credit goes to &lt;a href=&#34;https://soulwire.github.io/sketch.js/&#34;&gt;Justin Windle&lt;/a&gt;, I just brought the creature to the &lt;a href=&#34;https://twitter.com/search?q=%23rstats&amp;amp;src=typed_query&#34;&gt;#RStats&lt;/a&gt; universe.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;
+
+body{background:#F5D6EC;
+     color: #0C1F30; }
+h1{
+  
+  color:#0C1F30;
+  
+}
+  
+h2{
+  
+  color:#0C1F30;
+  
+}
+
+h3{
+  
+  color:#0C1F30;
+  
+}
+&lt;/style&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(creature)
+
+create_creature(color = &amp;quot;darkgreen&amp;quot;, 
+                headradius = 10,
+                tickness = 40, 
+                )&lt;/code&gt;&lt;/pre&gt;
+&lt;script&gt;    /**
+ * Copyright (C) 2012 by Justin Windle
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &#39;Software&#39;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &#39;AS IS&#39;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+var settings = {
+  interactive: false,
+  darkTheme: false,
+  headRadius: 10,
+  thickness: 40,
+  tentacles: 40,
+  friction: 0.02,
+  gravity: 0.5,
+  colour: { h:108, s:1, v:0.4 },
+  length: 70,
+  pulse: true,
+  wind: -0.5
+};
+
+var utils = {
+
+  curveThroughPoints: function( points, ctx ) {
+
+    var i, n, a, b, x, y;
+
+    for ( i = 1, n = points.length - 2; i &lt; n; i++ ) {
+
+      a = points[i];
+      b = points[i + 1];
+
+      x = ( a.x + b.x ) * 0.5;
+      y = ( a.y + b.y ) * 0.5;
+
+      ctx.quadraticCurveTo( a.x, a.y, x, y );
+    }
+
+    a = points[i];
+    b = points[i + 1];
+
+    ctx.quadraticCurveTo( a.x, a.y, b.x, b.y );
+  }
+};
+
+var Node = function( x, y ) {
+
+  this.x = this.ox = x || 0.0;
+  this.y = this.oy = y || 0.0;
+
+  this.vx = 0.0;
+  this.vy = 0.0;
+};
+
+var Tentacle = function( options ) {
+
+  this.length = options.length || 10;
+  this.radius = options.radius || 10;
+  this.spacing = options.spacing || 20;
+  this.friction = options.friction || 0.8;
+  this.shade = random( 0.85, 1.1 );
+
+  this.nodes = [];
+  this.outer = [];
+  this.inner = [];
+  this.theta = [];
+
+  for ( var i = 0; i &lt; this.length; i++ ) {
+    this.nodes.push( new Node() );
+  }
+};
+
+Tentacle.prototype = {
+
+  move: function( x, y, instant ) {
+
+    this.nodes[0].x = x;
+    this.nodes[0].y = y;
+
+    if ( instant ) {
+
+      var i, node;
+
+      for ( i = 1; i &lt; this.length; i++ ) {
+
+        node = this.nodes[i];
+        node.x = x;
+        node.y = y;
+      }
+    }
+  },
+
+  update: function() {
+
+    var i, n, s, c, dx, dy, da, px, py, node, prev = this.nodes[0];
+    var radius = this.radius * settings.thickness;
+    var step = radius / this.length;
+
+    for ( i = 1, j = 0; i &lt; this.length; i++, j++ ) {
+
+      node = this.nodes[i];
+
+      node.x += node.vx;
+      node.y += node.vy;
+
+      dx = prev.x - node.x;
+      dy = prev.y - node.y;
+      da = Math.atan2( dy, dx );
+
+      px = node.x + cos( da ) * this.spacing * settings.length;
+      py = node.y + sin( da ) * this.spacing * settings.length;
+
+      node.x = prev.x - ( px - node.x );
+      node.y = prev.y - ( py - node.y );
+
+      node.vx = node.x - node.ox;
+      node.vy = node.y - node.oy;
+
+      node.vx *= this.friction * (1 - settings.friction);
+      node.vy *= this.friction * (1 - settings.friction);
+
+      node.vx += settings.wind;
+      node.vy += settings.gravity;
+
+      node.ox = node.x;
+      node.oy = node.y;
+
+      s = sin( da + HALF_PI );
+      c = cos( da + HALF_PI );
+
+      this.outer[j] = {
+        x: prev.x + c * radius,
+        y: prev.y + s * radius
+      };
+
+      this.inner[j] = {
+        x: prev.x - c * radius,
+        y: prev.y - s * radius
+      };
+
+      this.theta[j] = da;
+
+      radius -= step;
+
+      prev = node;
+    }
+  },
+
+  draw: function( ctx ) {
+
+    var h, s, v, e;
+
+    s = this.outer[0];
+    e = this.inner[0];
+
+    ctx.beginPath();
+    ctx.moveTo( s.x, s.y );
+    utils.curveThroughPoints( this.outer, ctx );
+    utils.curveThroughPoints( this.inner.reverse(), ctx );
+    ctx.lineTo( e.x, e.y );
+    ctx.closePath();
+
+    h = settings.colour.h * this.shade;
+    s = settings.colour.s * 100 * this.shade;
+    v = settings.colour.v * 100 * this.shade;
+
+    ctx.fillStyle = &#39;hsl(&#39; + h + &#39;,&#39; + s + &#39;%,&#39; + v + &#39;%)&#39;;
+    ctx.fill();
+
+    if ( settings.thickness &gt; 2 ) {
+
+      v += settings.darkTheme ? -10 : 10;
+
+      ctx.strokeStyle = &#39;hsl(&#39; + h + &#39;,&#39; + s + &#39;%,&#39; + v + &#39;%)&#39;;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+  }
+};
+
+var demo = true;
+var ease = 0.1;
+var modified = false;
+var radius = settings.headRadius;
+var tentacles = [];
+var center = { x:0, y:0 };
+var scale = window.devicePixelRatio || 1;
+var sketch = Sketch.create({
+
+  retina: &#39;auto&#39;,
+
+  container: document.getElementById( &#39;container&#39; ),
+
+  setup: function() {
+
+    center.x = this.width / 2;
+    center.y = this.height / 2;
+
+    var tentacle;
+
+    for ( var i = 0; i &lt; 100; i++ ) {
+
+      tentacle = new Tentacle({
+        length: random( 10, 20 ),
+        radius: random( 0.05, 1.0 ),
+        spacing: random( 0.2, 1.0 ),
+        friction: random( 0.7, 0.88 )
+      });
+
+      tentacle.move( center.x, center.y, true );
+      tentacles.push( tentacle );
+    }
+  },
+
+  update: function() {
+
+    var t, cx, cy, pulse;
+
+    t = this.millis * 0.001;
+
+    if ( settings.pulse ) {
+
+      pulse = pow( sin( t * PI ), 18 );
+      radius = settings.headRadius * 0.5 + settings.headRadius * 0.5 * pulse;
+    }
+
+    if ( settings.interactive ) {
+
+      ease += ( 0.7 - ease ) * 0.05;
+
+      center.x += ( this.mouse.x / scale - center.x ) * ease;
+      center.y += ( this.mouse.y / scale - center.y ) * ease;
+
+    } else {
+
+      t = this.millis;
+      cx = this.width * 0.5;
+      cy = this.height * 0.5;
+
+      center.x = cx + sin( t * 0.002 ) * cos( t * 0.00005 ) * cx * 0.5;
+      center.y = cy + sin( t * 0.003 ) * tan( sin( t * 0.0003 ) * 1.15 ) * cy * 0.4;
+    }
+
+    var px, py, theta, tentacle;
+    var step = TWO_PI / settings.tentacles;
+
+    for ( var i = 0, n = settings.tentacles; i &lt; n; i++ ) {
+
+      tentacle = tentacles[i];
+
+      theta = i * step;
+
+      px = cos( theta ) * radius;
+      py = sin( theta ) * radius;
+
+      tentacle.move( center.x + px, center.y + py );
+      tentacle.update();
+    }
+  },
+
+  draw: function() {
+
+    var h = settings.colour.h * 0.95;
+    var s = settings.colour.s * 100 * 0.95;
+    var v = settings.colour.v * 100 * 0.95;
+    var w = v + ( settings.darkTheme ? -10 : 10 );
+
+    this.beginPath();
+    this.arc( center.x, center.y, radius + settings.thickness, 0, TWO_PI );
+    this.lineWidth = settings.headRadius * 0.3;
+    this.globalAlpha = 0.2;
+    this.strokeStyle = &#39;hsl(&#39; + h + &#39;,&#39; + s + &#39;%,&#39; + w + &#39;%)&#39;;
+    this.stroke();
+
+    this.globalAlpha = 1.0;
+
+    for ( var i = 0, n = settings.tentacles; i &lt; n; i++ ) {
+      tentacles[i].draw( this );
+    }
+
+    this.beginPath();
+    this.arc( center.x, center.y, radius + settings.thickness, 0, TWO_PI );
+    this.fillStyle = &#39;hsl(&#39; + h + &#39;,&#39; + s + &#39;%,&#39; + v + &#39;%)&#39;;
+    this.fill();
+  },
+
+  mousedown: function() {
+
+    if ( demo ) {
+
+      demo = false;
+      settings.interactive = true;
+      interactiveGUI.updateDisplay();
+
+      if ( !modified ) {
+        settings.length = 60;
+        settings.gravity = 0.1;
+        settings.wind = 0.0;
+      }
+    }
+  },
+
+  export: function() {
+    window.open( this.canvas.toDataURL(), &#39;tentacles&#39;, &#39;top=20,left=20,width=&#39; + this.width + &#39;,height=&#39; + this.height );
+  }
+});
+
+function onSettingsChanged() {
+  modified = true;
+}
+
+
+&lt;/script&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title> Introducing the rintimg Package. Click on an Image and See it on Full Screen.</title>
@@ -23,17 +545,17 @@
 
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/feddelegrand7/rintimg&#34;&gt;rintimg&lt;/a&gt; is an R wrapper of the &lt;a href=&#34;https://github.com/tholman/intense-images&#34;&gt;intense-images&lt;/a&gt; JavaScript library. Using &lt;code&gt;rintimg&lt;/code&gt; you can view an image in full screen by clicking on it. The package works on Rmd documents and Shiny applications. It’s extremely simple to implement: you only need to run one function : &lt;code&gt;img_intensify()&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;You can find an example below. The images were collected from &lt;a href=&#34;https://unsplash.com/s/photos/pineapple&#34;&gt;Unsplash&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;By default &lt;code&gt;img_intensify()&lt;/code&gt; intensifies all the images available within a document nevertheless you can focus on a set of images using a &lt;code&gt;class&lt;/code&gt; attribute.&lt;/p&gt;
 &lt;p&gt;Below I’ve used the class name &lt;code&gt;intensify&lt;/code&gt; to target the first two images (from the top):&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;
 &amp;lt;center&amp;gt;
-&amp;lt;img src = &amp;quot;https://images.unsplash.com/photo-1517260911058-0fcfd733702f?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=813&amp;amp;q=80&amp;quot; width = &amp;quot;200px&amp;quot; height = &amp;quot;200px&amp;quot; class = &amp;quot;intensify&amp;quot;&amp;gt;
+&amp;lt;img src = &amp;quot;https://www.r-project.org/logo/Rlogo.png&amp;quot; width = &amp;quot;100px&amp;quot; height = &amp;quot;100px&amp;quot; class = &amp;quot;intensify&amp;quot;&amp;gt;
 
-&amp;lt;img src = &amp;quot;https://images.unsplash.com/photo-1515878459526-bfff71cfa6da?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=750&amp;amp;q=80&amp;quot; width = &amp;quot;200px&amp;quot; height = &amp;quot;200px&amp;quot; class = &amp;quot;intensify&amp;quot;&amp;gt;
+&amp;lt;img src = &amp;quot;https://static-resources.imageservice.cloud/4113852/fileprokaryote-cell-diagramsvg-wikipedia.png&amp;quot; width = &amp;quot;100px&amp;quot; height = &amp;quot;100px&amp;quot; class = &amp;quot;intensify&amp;quot;&amp;gt;
 
-&amp;lt;img src = &amp;quot;https://images.unsplash.com/photo-1501438400798-b40ff50396c8?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=750&amp;amp;q=80&amp;quot; width = &amp;quot;200px&amp;quot; height = &amp;quot;200px&amp;quot;&amp;gt;
+&amp;lt;img src = &amp;quot;https://images.unsplash.com/photo-1501438400798-b40ff50396c8?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=750&amp;amp;q=80&amp;quot; width = &amp;quot;100px&amp;quot; height = &amp;quot;100px&amp;quot;&amp;gt;
 &amp;lt;/center&amp;gt;
+
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rintimg)
 
@@ -45,9 +567,9 @@ Intense( element );
 
    }&lt;/script&gt;
 &lt;center&gt;
-&lt;p&gt;&lt;img src = &#34;https://images.unsplash.com/photo-1517260911058-0fcfd733702f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=813&amp;q=80&#34; width = &#34;200px&#34; height = &#34;200px&#34; class = &#34;intensify&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src = &#34;https://images.unsplash.com/photo-1515878459526-bfff71cfa6da?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80&#34; width = &#34;200px&#34; height = &#34;200px&#34; class = &#34;intensify&#34;&gt;&lt;/p&gt;
-&lt;img src = &#34;https://images.unsplash.com/photo-1501438400798-b40ff50396c8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80&#34; width = &#34;200px&#34; height = &#34;200px&#34;&gt;
+&lt;p&gt;&lt;img src = &#34;https://www.r-project.org/logo/Rlogo.png&#34; width = &#34;100px&#34; height = &#34;100px&#34; class = &#34;intensify&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src = &#34;https://static-resources.imageservice.cloud/4113852/fileprokaryote-cell-diagramsvg-wikipedia.png&#34; width = &#34;100px&#34; height = &#34;100px&#34; class = &#34;intensify&#34;&gt;&lt;/p&gt;
+&lt;img src = &#34;https://images.unsplash.com/photo-1501438400798-b40ff50396c8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80&#34; width = &#34;100px&#34; height = &#34;100px&#34;&gt;
 &lt;/center&gt;
 </description>
     </item>

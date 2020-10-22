@@ -18,7 +18,7 @@ image:
 projects: []
 ---
 
-The `creature` packages is aimed for lonely R users. With one line of code, create a cool creature and play with it. There are many parameters that you can tune to create something unique to you.
+The [creature](https://github.com/feddelegrand7/creature) packages is aimed for lonely R users. With one line of code, create a cool creature and play with it. There are many parameters that you can tune to create something unique to you.
 
 
 ### Limitation: All the creatures that you create will live at the bottom of your Rmd document/Shiny app no matter where the code is executed. 
@@ -28,25 +28,37 @@ All the credit goes to [Justin Windle](https://soulwire.github.io/sketch.js/), I
 
 ```{css, echo = FALSE}
 
-body{background:#1E1E1E;
-     color: #F2F2F2; }
+body{background:#F5D6EC;
+     color: #0C1F30; }
+h1{
+  
+  color:#0C1F30;
+  
+}
+  
+h2{
+  
+  color:#0C1F30;
+  
+}
 
-
+h3{
+  
+  color:#0C1F30;
+  
+}
 ```
 
 
 ```{r}
 
+
 library(creature)
 
-create_creature(interactive = FALSE,
-                color = "#324C63",
-                tentacles = 100,
-                tickness = 20,
-                friction = 0.3,
-                gravity = 0,
-                wind = 2)
- 
+create_creature(color = "darkgreen", 
+                headradius = 10,
+                tickness = 40, 
+                )
 
 ```
 

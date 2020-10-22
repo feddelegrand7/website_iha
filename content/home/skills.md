@@ -28,25 +28,39 @@ subtitle = ""
   name = "R"
   description = ""
   
-
   
 [[feature]]
   icon = "python"
   icon_pack = "fab"
   name = "Python"
   description = ""
+  
+[[feature]]
+  icon = "js"
+  icon_pack = "fab"
+  name = "JavaScript"
+  description = ""
+  
+
 
 [[feature]]
-  icon = "docker"
+  icon = "html5"
   icon_pack = "fab"
-  name = "Docker"
+  name = "HTML"
+  description = "" 
+  
+[[feature]]
+  icon = "css3-alt"
+  icon_pack = "fab"
+  name = "CSS"
+  description = "" 
+  
+[[feature]]
+  icon = "sass"
+  icon_pack = "fab"
+  name = "Sass"
   description = "" 
 
-[[feature]]
-  icon = "twitter-square"
-  icon_pack = "fab"
-  name = "NLP"
-  description = "" 
 
 [[feature]]
   icon = "microsoft"
@@ -86,12 +100,6 @@ subtitle = ""
   name = "Overleaf"
   description = "" 
   
-
-[[feature]]
-  icon = "researchgate"
-  icon_pack = "fab"
-  name = "Researchgate"
-  description = "" 
 
 
 [[feature]]

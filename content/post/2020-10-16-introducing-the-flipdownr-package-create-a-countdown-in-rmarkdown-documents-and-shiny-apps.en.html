@@ -1,0 +1,158 @@
+---
+title: Introducing the flipdownr package. Create a CountDown in Rmarkdown Documents and Shiny Apps
+author: ''
+date: '2020-10-16'
+slug: introducing-the-flipdownr-package-create-a-countdown-in-rmarkdown-documents-and-shiny-apps
+categories: []
+tags: []
+subtitle: ''
+summary: 'Introducing the flipdownr package. Create a CountDown in Rmarkdown Documents and Shiny Apps'
+authors: []
+lastmod: '2020-10-16T15:56:37+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/flipdown/flipdown.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/flipdown/flipdown.min.js"></script>
+
+
+<style type="text/css">
+
+body{
+  
+  background-color: #BD8571;
+  
+}
+
+</style>
+<div id="flipdownr" class="section level1">
+<h1>flipdownr</h1>
+<p>The goal of flipdownr is to create a Countdown object within your RMarkdown documents and Shiny application. <code>flipdownr</code> is an R wrapper of the JavaScript library <a href="https://pbutcher.uk/flipdown/">flipdown</a></p>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<p>You can install the development version of flipdownr from <a href="https://github.com/feddelegrand7/flipdownr">GITHUB</a> with:</p>
+<pre class="r"><code># install.packages(&quot;remotes&quot;)
+
+remotes::install_github(&quot;feddelegrand7/flipdownr&quot;)</code></pre>
+</div>
+<div id="functions-and-arguments" class="section level2">
+<h2>Functions and Arguments</h2>
+<p><code>flipdownr</code> has one function: <code>flipdown</code> which contains the following arguments:</p>
+<hr>
+<ul>
+<li><p><strong>downto</strong> : the targeted date for the countdown. It must have the form of ‘yyyy-mm-dd’ or ‘yyyy-mm-dd hh:mm:ss`. Note that you can include the time zone (example UTC): ’yyyy-mm-dd hh:mm:ss UTC’;</p></li>
+<li><p><strong>id</strong> : the id of the countdown. Useful when you need to include many countdown objects in one document;</p></li>
+<li><p><strong>theme</strong> : The theme of the flipdown object. Two possible choices: ‘dark’ or ‘light’. Defaults to ‘dark’</p></li>
+<li><p><strong>headings</strong> : A character vector pecifying the heading related to each time part. Defaults to English headings: c(“Days”, “Hours”, “Minutes”, “Seconds”).</p></li>
+</ul>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples:</h2>
+<p>This article was written the 2020-10-16 (16th of October 2020) at 16:13 (GMT+1) approximately, as such the CountDown will reflect it.</p>
+<pre class="r"><code>library(flipdownr)
+
+flipdown(downto = &quot;2020-11-16&quot;, id = &quot;c1&quot;, theme = &quot;dark&quot;)</code></pre>
+<p><div id="c1" class="flipdown"></div>
+<script>
+// Set up FlipDown
+const flipdown_c1 = new FlipDown(  1605481200, 'c1',{
+
+  theme: 'dark',
+
+  headings: ["Days","Hours","Minutes","Seconds"],
+
+})
+
+  // Start the countdown
+  .start()
+
+  // Do something when the countdown ends
+  .ifEnded(() => {
+    console.log('The countdown has ended!');
+  });
+
+</script>
+<br></p>
+<p>You can add another level of precision by specifying the exact time:</p>
+<pre class="r"><code>flipdown(downto = &quot;2020-11-16 22:30:00 UTC&quot;, id = &quot;c2&quot;, theme = &quot;dark&quot;)</code></pre>
+<div id="c2" class="flipdown"></div>
+<script>
+// Set up FlipDown
+const flipdown_c2 = new FlipDown(  1605562200, 'c2',{
+
+  theme: 'dark',
+
+  headings: ["Days","Hours","Minutes","Seconds"],
+
+})
+
+  // Start the countdown
+  .start()
+
+  // Do something when the countdown ends
+  .ifEnded(() => {
+    console.log('The countdown has ended!');
+  });
+
+</script>
+<p><br></p>
+<p>You can also specify a <code>light</code> theme:</p>
+<pre class="r"><code>flipdown(downto = &quot;2020-11-16&quot;, id = &quot;clight&quot;, theme = &quot;light&quot;)</code></pre>
+<div id="clight" class="flipdown"></div>
+<script>
+// Set up FlipDown
+const flipdown_clight = new FlipDown(  1605481200, 'clight',{
+
+  theme: 'light',
+
+  headings: ["Days","Hours","Minutes","Seconds"],
+
+})
+
+  // Start the countdown
+  .start()
+
+  // Do something when the countdown ends
+  .ifEnded(() => {
+    console.log('The countdown has ended!');
+  });
+
+</script>
+<p><br></p>
+<p>You can modify the headers with the <code>headings</code> argument:</p>
+<pre class="r"><code>flipdown(downto = &quot;2020-11-16&quot;,
+         id = &quot;cspanish&quot;, 
+         theme = &quot;light&quot;, 
+         headings = c(&quot;Dias&quot;, &quot;Horas&quot;, &quot;Minutos&quot;, &quot;Segundos&quot;))</code></pre>
+<div id="cspanish" class="flipdown"></div>
+<script>
+// Set up FlipDown
+const flipdown_cspanish = new FlipDown(  1605481200, 'cspanish',{
+
+  theme: 'light',
+
+  headings: ["Dias","Horas","Minutos","Segundos"],
+
+})
+
+  // Start the countdown
+  .start()
+
+  // Do something when the countdown ends
+  .ifEnded(() => {
+    console.log('The countdown has ended!');
+  });
+
+</script>
+</div>
+<div id="code-of-conduct" class="section level2">
+<h2>Code of Conduct</h2>
+<p>Please note that the website_iha project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+</div>
+</div>

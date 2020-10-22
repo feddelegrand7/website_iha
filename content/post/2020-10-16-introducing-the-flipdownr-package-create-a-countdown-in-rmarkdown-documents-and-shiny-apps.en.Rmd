@@ -1,0 +1,124 @@
+---
+title: Introducing the flipdownr package. Create a CountDown in Rmarkdown Documents and Shiny Apps
+author: ''
+date: '2020-10-16'
+slug: introducing-the-flipdownr-package-create-a-countdown-in-rmarkdown-documents-and-shiny-apps
+categories: []
+tags: []
+subtitle: ''
+summary: 'Introducing the flipdownr package. Create a CountDown in Rmarkdown Documents and Shiny Apps'
+authors: []
+lastmod: '2020-10-16T15:56:37+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+```{css, echo = FALSE}
+
+body{
+  
+  background-color: #BD8571;
+  
+}
+
+```
+
+# flipdownr
+
+
+The goal of flipdownr is to create a Countdown object within your RMarkdown documents and Shiny application. `flipdownr` is an R wrapper of the JavaScript library [flipdown](https://pbutcher.uk/flipdown/)
+
+## Installation
+
+You can install the development version of flipdownr from [GITHUB](https://github.com/feddelegrand7/flipdownr) with:
+
+```{r, eval=FALSE}
+
+# install.packages("remotes")
+
+remotes::install_github("feddelegrand7/flipdownr")
+
+```
+
+## Functions and Arguments
+
+`flipdownr` has one function: `flipdown` which contains the following arguments: 
+
+<hr>
+
++ __downto__ : the targeted date for the countdown. It must have the form of 'yyyy-mm-dd' or 'yyyy-mm-dd hh:mm:ss`. Note that you can include the time zone (example UTC): 'yyyy-mm-dd hh:mm:ss UTC';
+
++ __id__ : the id of the countdown. Useful when you need to include many countdown objects in one document;
+
++ __theme__ : The theme of the flipdown object. Two possible choices: 'dark' or 'light'. Defaults to 'dark'
+
++ __headings__ : A character vector pecifying the heading related to each time part. Defaults to English headings: c("Days", "Hours", "Minutes", "Seconds").
+
+
+## Examples: 
+
+This article was written the 2020-10-16 (16th of October 2020) at 16:13 (GMT+1) approximately, as such the CountDown will reflect it. 
+
+
+```{r}
+
+library(flipdownr)
+
+flipdown(downto = "2020-11-16", id = "c1", theme = "dark")
+
+
+
+```
+<br>
+
+
+You can add another level of precision by specifying the exact time: 
+
+```{r}
+
+flipdown(downto = "2020-11-16 22:30:00 UTC", id = "c2", theme = "dark")
+
+```
+
+
+
+
+
+<br>
+
+You can also specify a `light` theme: 
+
+
+```{r}
+
+flipdown(downto = "2020-11-16", id = "clight", theme = "light")
+
+```
+
+<br>
+
+You can modify the headers with the `headings` argument: 
+
+
+```{r}
+
+
+flipdown(downto = "2020-11-16",
+         id = "cspanish", 
+         theme = "light", 
+         headings = c("Dias", "Horas", "Minutos", "Segundos"))
+
+
+```
+
+
+
+## Code of Conduct
+
+Please note that the website_iha project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+
