@@ -37,10 +37,8 @@ body{
 &lt;p&gt;The goal of flipdownr is to create a Countdown object within your RMarkdown documents and Shiny application. &lt;code&gt;flipdownr&lt;/code&gt; is an R wrapper of the JavaScript library &lt;a href=&#34;https://pbutcher.uk/flipdown/&#34;&gt;flipdown&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&#34;installation&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Installation&lt;/h2&gt;
-&lt;p&gt;You can install the development version of flipdownr from &lt;a href=&#34;https://github.com/feddelegrand7/flipdownr&#34;&gt;GITHUB&lt;/a&gt; with:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# install.packages(&amp;quot;remotes&amp;quot;)
-
-remotes::install_github(&amp;quot;feddelegrand7/flipdownr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can install &lt;code&gt;flipdownr&lt;/code&gt; from CRAN with:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;flipdownr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;functions-and-arguments&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Functions and Arguments&lt;/h2&gt;
