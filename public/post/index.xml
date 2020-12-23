@@ -1593,7 +1593,7 @@ fabric.Image.fromURL(&#39;https://upload.wikimedia.org/wikipedia/commons/thumb/1
         originY: &#39;top&#39;
      });
      canvas_curtail.setBackgroundImage(img, canvas_curtail.renderAll.bind(canvas_curtail));
- });
+ }, { crossOrigin: &#39;anonymous&#39;});
 
 &lt;/script&gt;
 &lt;/div&gt;

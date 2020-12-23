@@ -21,15 +21,14 @@
   
   
 
-  <meta name="author" content="Mohamed El Fodil Ihaddaden">
+  <meta name="author" content="Dr. Mohamed El Fodil Ihaddaden, Ph.D">
 
   
   
   
     
   
-  <meta name="description" content="1. fabric_drawing()Create a canvas in which the user can draw.
-library(fabricerin)fabric_drawing(cid = &quot;canvas1&quot;, cwidth = 400, cheight = 400, cfill = &quot;orange&quot;, drawingWidth = 20, gumSize = 10)const canvas1 = new fabric.Canvas(&#39;canvas1&#39;, {backgroundColor: &#39;orange&#39;,isDrawingMode: true});canvas1.freeDrawingBrush.width = 20;canvas1drawingColorEl = document.getElementById(&#39;canvas1drawing-color&#39;);canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;canvas1drawingColorEl.onchange = function() {canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;};$(&#39;#erasecanvas1&#39;).click(function(){if (this.checked) {canvas1.">
+  <meta name="description" content="A Tutorial for the fabricerin package">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/fabricerin-a-tutorial/">
@@ -85,7 +84,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.7c75abe867d1ac4b26fbe501f37ef260.css">
+  <link rel="stylesheet" href="/css/academic.min.655efe5c63ba14ec7c199e1f2242ef10.css">
 
   
 
@@ -130,8 +129,7 @@
   <meta property="og:site_name" content="Mohamed El Fodil IHADDADEN">
   <meta property="og:url" content="/post/fabricerin-a-tutorial/">
   <meta property="og:title" content="fabricerin: A Tutorial | Mohamed El Fodil IHADDADEN">
-  <meta property="og:description" content="1. fabric_drawing()Create a canvas in which the user can draw.
-library(fabricerin)fabric_drawing(cid = &quot;canvas1&quot;, cwidth = 400, cheight = 400, cfill = &quot;orange&quot;, drawingWidth = 20, gumSize = 10)const canvas1 = new fabric.Canvas(&#39;canvas1&#39;, {backgroundColor: &#39;orange&#39;,isDrawingMode: true});canvas1.freeDrawingBrush.width = 20;canvas1drawingColorEl = document.getElementById(&#39;canvas1drawing-color&#39;);canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;canvas1drawingColorEl.onchange = function() {canvas1.freeDrawingBrush.color = canvas1drawingColorEl.value;};$(&#39;#erasecanvas1&#39;).click(function(){if (this.checked) {canvas1."><meta property="og:image" content="/img/logo-via-logohub.png">
+  <meta property="og:description" content="A Tutorial for the fabricerin package"><meta property="og:image" content="/img/logo-via-logohub.png">
   <meta property="twitter:image" content="/img/logo-via-logohub.png"><meta property="og:locale" content="en-us">
   
     
@@ -1210,7 +1208,7 @@ fabric.Image.fromURL('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/
         originY: 'top'
      });
      canvas_curtail.setBackgroundImage(img, canvas_curtail.renderAll.bind(canvas_curtail));
- });
+ }, { crossOrigin: 'anonymous'});
 
 </script>
 </div>
@@ -1259,8 +1257,8 @@ fabric.Image.fromURL('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/
     
 
     <div class="media-body">
-      <h5 class="card-title" itemprop="name"><a href="/">Mohamed El Fodil Ihaddaden</a></h5>
-      <h6 class="card-subtitle">Ph.D candidate in Economics.</h6>
+      <h5 class="card-title" itemprop="name"><a href="/">Dr. Mohamed El Fodil Ihaddaden, Ph.D</a></h5>
+      
       <p class="card-text" itemprop="description">My research interests include Performance Management, Efficiency Analysis and Experimental Economics.</p>
       <ul class="network-icon" aria-hidden="true">
         

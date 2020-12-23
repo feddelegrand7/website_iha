@@ -7,7 +7,7 @@ categories: []
 tags:
   - fabricerin
 subtitle: ''
-summary: ''
+summary: 'A Tutorial for the fabricerin package'
 authors: []
 lastmod: '2020-08-02T11:15:09+02:00'
 featured: no

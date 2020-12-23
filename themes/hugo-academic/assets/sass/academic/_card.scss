@@ -10,7 +10,6 @@
   margin-top: 20px;
   padding: 15px 20px 15px 20px;
 }
-
 .card-simple:first-of-type {
   margin-top: 0;
 }
@@ -30,7 +29,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   background: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px 0 #11bddb33;
   transition: all 0.2s ease-out;
 }
 
@@ -105,8 +104,9 @@
   color: #666;
 }
 
+
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 #00BCD4;
 }
 
 .card:hover .card-image.hover-overlay:before {
